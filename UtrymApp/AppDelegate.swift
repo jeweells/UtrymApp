@@ -7,17 +7,69 @@
 //
 
 import UIKit
+import Firebase
+import FBSDKCoreKit
+import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        //  Firebase library to configure APIs
+        FirebaseApp.configure()
+        
+        // Auth with facebook
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        // Auth with google
+        
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        
         return true
     }
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        
+        GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: options [UIApplicationOpenURLOptionsKey.annotation])
+        
+        return handled
+    }
+ 
+
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if (error) != nil {
+            return
+        }
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        
+        Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
+            if error != nil {
+                print("error sign in with google")
+                return
+            }
+            print("User signed with google in firebase")
+        }
+    }
+    
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

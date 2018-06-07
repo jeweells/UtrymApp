@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>1068517506833-dj0ikdd0frite59u55isb20s2k7504ha.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1068517506833-dj0ikdd0frite59u55isb20s2k7504ha</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDdozUDu4XlhRtWOQ3qAVVzWUNwbu20ni0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1068517506833</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.UtrymApp.ios</string>
+	<key>PROJECT_ID</key>
+	<string>utrymapp-f55e4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>utrymapp-f55e4.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1068517506833:ios:84a4854b05a7d3f6</string>
+	<key>DATABASE_URL</key>
+	<string>https://utrymapp-f55e4.firebaseio.com</string>
+</dict>
+</plist>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ViewController-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Back" translatesAutoresizingMaskIntoConstraints="NO" id="v9c-Ew-Kb9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Iniciar Sesión" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuQ-zn-Uf5">
+                                <rect key="frame" x="16" y="265" width="343" height="24"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo" textAlignment="justified" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vCD-7C-HGd">
+                                <rect key="frame" x="16" y="323" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="backgroundColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="tintColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fiM-hK-KGD">
+                                <rect key="frame" x="16" y="391" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="backgroundColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="tintColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11E-wp-hcP">
+                                <rect key="frame" x="109" y="465" width="156" height="36"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Iniciar Sesión" backgroundImage="REGISTRATE">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="SignInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YSr-BF-fLQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ab-e6-KeU">
+                                <rect key="frame" x="78" y="551" width="218" height="36"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Ingresar con Facebook" backgroundImage="REGISTRATE">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="SignInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jbY-pD-Sdw"/>
+                                    <action selector="loginWithFacebook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8fo-XF-qxJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvv-gF-RzP">
+                                <rect key="frame" x="78" y="608" width="218" height="36"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Ingresar con Google" backgroundImage="REGISTRATE">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PN" translatesAutoresizingMaskIntoConstraints="NO" id="fr4-4f-kbe">
+                                <rect key="frame" x="116" y="119" width="142" height="34"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xeZ-dr-gSD">
+                                <rect key="frame" x="92" y="212" width="191" height="29"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <segments>
+                                    <segment title="Iniciar Sesión"/>
+                                    <segment title="Registrarse"/>
+                                </segments>
+                                <connections>
+                                    <action selector="SignInSegmentorChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="xcN-Nq-7dn"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" red="0.67843137254901964" green="0.023529411764705882" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="v9c-Ew-Kb9" secondAttribute="bottom" id="C8s-Fi-aDP"/>
+                            <constraint firstItem="v9c-Ew-Kb9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Oa0-Og-eZH"/>
+                            <constraint firstItem="v9c-Ew-Kb9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="R9n-hC-o9Z"/>
+                            <constraint firstItem="v9c-Ew-Kb9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sZ8-cF-aB9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="vCD-7C-HGd" id="zPb-XF-gpQ"/>
+                        <outlet property="passwordTextField" destination="fiM-hK-KGD" id="que-5G-YHE"/>
+                        <outlet property="sigInGoogleButton" destination="Rvv-gF-RzP" id="Uzh-nO-aGR"/>
+                        <outlet property="signFaceButton" destination="1ab-e6-KeU" id="CnJ-5d-orJ"/>
+                        <outlet property="signInButton" destination="11E-wp-hcP" id="cBD-C0-tpi"/>
+                        <outlet property="signInLabel" destination="LuQ-zn-Uf5" id="yep-DW-oMR"/>
+                        <outlet property="signInSelector" destination="xeZ-dr-gSD" id="5K1-1z-aHg"/>
+                        <segue destination="9OT-ed-VEp" kind="show" identifier="goToHome" id="o9P-6D-XZT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="45.600000000000001" y="335.46798029556652"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mru-wQ-rlB">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeViewController" id="9OT-ed-VEp" customClass="ViewController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6rS-hd-HOd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNv-cJ-pzT">
+                                <rect key="frame" x="112" y="385.66666666666669" width="151" height="41"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="30"/>
+                                <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UTRYM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtr-GQ-SUd">
+                                <rect key="frame" x="16" y="234" width="343" height="33"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.67843137249999996" green="0.023529411760000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JNv-cJ-pzT" firstAttribute="centerX" secondItem="6rS-hd-HOd" secondAttribute="centerX" id="90x-H7-Rt8"/>
+                            <constraint firstItem="JNv-cJ-pzT" firstAttribute="centerY" secondItem="6rS-hd-HOd" secondAttribute="centerY" id="JVS-lI-kMr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vXK-SF-oKe"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LIY-uZ-KxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="788" y="333.28335832083962"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Back" width="375" height="812"/>
+        <image name="PN" width="188" height="41"/>
+        <image name="REGISTRATE" width="220" height="40"/>
+    </resources>
+</document>

@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41D56B954301829E55D2198B /* Pods_UtrymApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F2C14CC2A82DB05D57D7F2 /* Pods_UtrymApp.framework */; };
+		7A7B9749A7C10479D927F903 /* Pods_UtrymAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E15D8BED02228F2F16D690 /* Pods_UtrymAppTests.framework */; };
+		8906FE6520BE5C9A003954F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8906FE6420BE5C9A003954F3 /* Main.storyboard */; };
 		89B67D5420BB7D0E00D3BFBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B67D5320BB7D0E00D3BFBF /* AppDelegate.swift */; };
 		89B67D5620BB7D0E00D3BFBF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B67D5520BB7D0E00D3BFBF /* ViewController.swift */; };
-		89B67D5920BB7D0E00D3BFBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89B67D5720BB7D0E00D3BFBF /* Main.storyboard */; };
 		89B67D5B20BB7D1300D3BFBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89B67D5A20BB7D1300D3BFBF /* Assets.xcassets */; };
 		89B67D5E20BB7D1300D3BFBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89B67D5C20BB7D1300D3BFBF /* LaunchScreen.storyboard */; };
 		89B67D6920BB7D1300D3BFBF /* UtrymAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B67D6820BB7D1300D3BFBF /* UtrymAppTests.swift */; };
+		89B67D7420BB7EF400D3BFBF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89B67D7320BB7EF400D3BFBF /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +29,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DECE63EE1A610208E1E62EE /* Pods-UtrymAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtrymAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UtrymAppTests/Pods-UtrymAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		525AA78E0601FE6A2CE5F713 /* Pods-UtrymAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtrymAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UtrymAppTests/Pods-UtrymAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		87E15D8BED02228F2F16D690 /* Pods_UtrymAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtrymAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8906FE6420BE5C9A003954F3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		896477E320C841850002C1D3 /* UtrymApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UtrymApp.entitlements; sourceTree = "<group>"; };
+		896477E420C843660002C1D3 /* UtrymApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UtrymApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		89B67D5020BB7D0E00D3BFBF /* UtrymApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UtrymApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B67D5320BB7D0E00D3BFBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89B67D5520BB7D0E00D3BFBF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		89B67D5820BB7D0E00D3BFBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89B67D5A20BB7D1300D3BFBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89B67D5D20BB7D1300D3BFBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89B67D5F20BB7D1300D3BFBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89B67D6420BB7D1300D3BFBF /* UtrymAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UtrymAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B67D6820BB7D1300D3BFBF /* UtrymAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtrymAppTests.swift; sourceTree = "<group>"; };
 		89B67D6A20BB7D1300D3BFBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89B67D7320BB7EF400D3BFBF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9E5A136AF45D6AB9EA15352D /* Pods-UtrymApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtrymApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-UtrymApp/Pods-UtrymApp.release.xcconfig"; sourceTree = "<group>"; };
+		A9255E303FB26ED084CF06F4 /* Pods-UtrymApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtrymApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UtrymApp/Pods-UtrymApp.debug.xcconfig"; sourceTree = "<group>"; };
+		C1F2C14CC2A82DB05D57D7F2 /* Pods_UtrymApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtrymApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41D56B954301829E55D2198B /* Pods_UtrymApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +63,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A7B9749A7C10479D927F903 /* Pods_UtrymAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F84DF5D44025BEEC79AC315 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1F2C14CC2A82DB05D57D7F2 /* Pods_UtrymApp.framework */,
+				87E15D8BED02228F2F16D690 /* Pods_UtrymAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		259599D3D177D8C2C6FFC8ED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A9255E303FB26ED084CF06F4 /* Pods-UtrymApp.debug.xcconfig */,
+				9E5A136AF45D6AB9EA15352D /* Pods-UtrymApp.release.xcconfig */,
+				2DECE63EE1A610208E1E62EE /* Pods-UtrymAppTests.debug.xcconfig */,
+				525AA78E0601FE6A2CE5F713 /* Pods-UtrymAppTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8906FE6120BE48A2003954F3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				89B67D5520BB7D0E00D3BFBF /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		89B67D4720BB7D0E00D3BFBF = {
 			isa = PBXGroup;
 			children = (
 				89B67D5220BB7D0E00D3BFBF /* UtrymApp */,
 				89B67D6720BB7D1300D3BFBF /* UtrymAppTests */,
 				89B67D5120BB7D0E00D3BFBF /* Products */,
+				259599D3D177D8C2C6FFC8ED /* Pods */,
+				0F84DF5D44025BEEC79AC315 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +121,15 @@
 		89B67D5220BB7D0E00D3BFBF /* UtrymApp */ = {
 			isa = PBXGroup;
 			children = (
+				896477E320C841850002C1D3 /* UtrymApp.entitlements */,
+				8906FE6120BE48A2003954F3 /* Controller */,
 				89B67D5320BB7D0E00D3BFBF /* AppDelegate.swift */,
-				89B67D5520BB7D0E00D3BFBF /* ViewController.swift */,
-				89B67D5720BB7D0E00D3BFBF /* Main.storyboard */,
+				8906FE6420BE5C9A003954F3 /* Main.storyboard */,
 				89B67D5A20BB7D1300D3BFBF /* Assets.xcassets */,
 				89B67D5C20BB7D1300D3BFBF /* LaunchScreen.storyboard */,
 				89B67D5F20BB7D1300D3BFBF /* Info.plist */,
+				89B67D7320BB7EF400D3BFBF /* GoogleService-Info.plist */,
+				896477E420C843660002C1D3 /* UtrymApp-Bridging-Header.h */,
 			);
 			path = UtrymApp;
 			sourceTree = "<group>";
@@ -103,9 +150,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89B67D6D20BB7D1300D3BFBF /* Build configuration list for PBXNativeTarget "UtrymApp" */;
 			buildPhases = (
+				6376ADD626A03EED20896C24 /* [CP] Check Pods Manifest.lock */,
 				89B67D4C20BB7D0E00D3BFBF /* Sources */,
 				89B67D4D20BB7D0E00D3BFBF /* Frameworks */,
 				89B67D4E20BB7D0E00D3BFBF /* Resources */,
+				BC41CD35E6E0E1B9D24580DF /* [CP] Embed Pods Frameworks */,
+				20091184451D8E961849E186 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,6 +170,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89B67D7020BB7D1300D3BFBF /* Build configuration list for PBXNativeTarget "UtrymAppTests" */;
 			buildPhases = (
+				F1A5C22F419D174FFF80980A /* [CP] Check Pods Manifest.lock */,
 				89B67D6020BB7D1300D3BFBF /* Sources */,
 				89B67D6120BB7D1300D3BFBF /* Frameworks */,
 				89B67D6220BB7D1300D3BFBF /* Resources */,
@@ -146,6 +197,12 @@
 				TargetAttributes = {
 					89B67D4F20BB7D0E00D3BFBF = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 0940;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					89B67D6320BB7D1300D3BFBF = {
 						CreatedOnToolsVersion = 9.3.1;
@@ -178,8 +235,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				89B67D5E20BB7D1300D3BFBF /* LaunchScreen.storyboard in Resources */,
+				89B67D7420BB7EF400D3BFBF /* GoogleService-Info.plist in Resources */,
 				89B67D5B20BB7D1300D3BFBF /* Assets.xcassets in Resources */,
-				89B67D5920BB7D0E00D3BFBF /* Main.storyboard in Resources */,
+				8906FE6520BE5C9A003954F3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +249,95 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20091184451D8E961849E186 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UtrymApp/Pods-UtrymApp-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UtrymApp/Pods-UtrymApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6376ADD626A03EED20896C24 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UtrymApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC41CD35E6E0E1B9D24580DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UtrymApp/Pods-UtrymApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UtrymApp/Pods-UtrymApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1A5C22F419D174FFF80980A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UtrymAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		89B67D4C20BB7D0E00D3BFBF /* Sources */ = {
@@ -221,14 +368,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		89B67D5720BB7D0E00D3BFBF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				89B67D5820BB7D0E00D3BFBF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		89B67D5C20BB7D1300D3BFBF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -356,8 +495,11 @@
 		};
 		89B67D6E20BB7D1300D3BFBF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9255E303FB26ED084CF06F4 /* Pods-UtrymApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = UtrymApp/UtrymApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74TM5MHWGD;
 				INFOPLIST_FILE = UtrymApp/Info.plist;
@@ -365,8 +507,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.UtrymApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UtrymApp.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UtrymApp/UtrymApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -374,8 +518,11 @@
 		};
 		89B67D6F20BB7D1300D3BFBF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E5A136AF45D6AB9EA15352D /* Pods-UtrymApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = UtrymApp/UtrymApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74TM5MHWGD;
 				INFOPLIST_FILE = UtrymApp/Info.plist;
@@ -383,8 +530,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.UtrymApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UtrymApp.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UtrymApp/UtrymApp-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -392,6 +540,7 @@
 		};
 		89B67D7120BB7D1300D3BFBF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DECE63EE1A610208E1E62EE /* Pods-UtrymAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -413,6 +562,7 @@
 		};
 		89B67D7220BB7D1300D3BFBF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 525AA78E0601FE6A2CE5F713 /* Pods-UtrymAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
