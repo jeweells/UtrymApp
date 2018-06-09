@@ -13,6 +13,7 @@ import FBSDKLoginKit
 import GoogleSignIn
 
 class ViewController: UIViewController, GIDSignInUIDelegate {
+    
 
     @IBOutlet weak var signInSelector: UISegmentedControl!
     @IBOutlet weak var signInLabel: UILabel!
@@ -23,18 +24,12 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var sigInGoogleButton: GIDSignInButton!
     
     
-    
+    var ref: DatabaseReference!
     
     var isSignIn:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        GIDSignIn.sharedInstance().uiDelegate = self
-        
-        GIDSignIn.sharedInstance().signIn()
-
-        
     }
     
     @IBAction func SignInSegmentorChanged(_ sender: UISegmentedControl) {
@@ -53,9 +48,11 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         {
             if isSignIn {
                 Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-
+                    
                     if user != nil {
+                        
                         self.performSegue(withIdentifier: "goToHome", sender: self)
+                        print("Usuario autenticado")
                     }
                     else {
                         
@@ -65,9 +62,13 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             }
             else {
                 Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-                    
+                    let userID = Auth.auth().currentUser?.uid
+                    self.ref = Database.database().reference()
                     if user != nil {
+                        self.ref.child("clientes").child(userID!).child("email").setValue(email)
+                        self.ref.child("clientes").child(userID!).child("password").setValue(password)
                         self.performSegue(withIdentifier: "goToHome", sender: self)
+                        print("Usuario creado")
                     }
                     else {
                         
@@ -114,6 +115,14 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             
         }
     }
+    
+    @IBAction func googlePlusButtonTouchUpInside(_ sender: Any) {
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signIn()
+        
+    }
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         emailTextField.resignFirstResponder()
