@@ -30,6 +30,9 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        //navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     @IBAction func SignInSegmentorChanged(_ sender: UISegmentedControl) {

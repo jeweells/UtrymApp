@@ -10,6 +10,8 @@
 		41D56B954301829E55D2198B /* Pods_UtrymApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F2C14CC2A82DB05D57D7F2 /* Pods_UtrymApp.framework */; };
 		7A7B9749A7C10479D927F903 /* Pods_UtrymAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E15D8BED02228F2F16D690 /* Pods_UtrymAppTests.framework */; };
 		8906FE6520BE5C9A003954F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8906FE6420BE5C9A003954F3 /* Main.storyboard */; };
+		8914525620CDEFC20030A67A /* TimeLineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8914525520CDEFC10030A67A /* TimeLineController.swift */; };
+		8914525820CDEFF50030A67A /* ProfileEstilistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8914525720CDEFF50030A67A /* ProfileEstilistController.swift */; };
 		89B67D5420BB7D0E00D3BFBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B67D5320BB7D0E00D3BFBF /* AppDelegate.swift */; };
 		89B67D5620BB7D0E00D3BFBF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B67D5520BB7D0E00D3BFBF /* ViewController.swift */; };
 		89B67D5B20BB7D1300D3BFBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89B67D5A20BB7D1300D3BFBF /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 		525AA78E0601FE6A2CE5F713 /* Pods-UtrymAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtrymAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UtrymAppTests/Pods-UtrymAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		87E15D8BED02228F2F16D690 /* Pods_UtrymAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtrymAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8906FE6420BE5C9A003954F3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8914525520CDEFC10030A67A /* TimeLineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineController.swift; sourceTree = "<group>"; };
+		8914525720CDEFF50030A67A /* ProfileEstilistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEstilistController.swift; sourceTree = "<group>"; };
 		896477E320C841850002C1D3 /* UtrymApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UtrymApp.entitlements; sourceTree = "<group>"; };
 		896477E420C843660002C1D3 /* UtrymApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UtrymApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		89B67D5020BB7D0E00D3BFBF /* UtrymApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UtrymApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				89B67D5520BB7D0E00D3BFBF /* ViewController.swift */,
+				8914525520CDEFC10030A67A /* TimeLineController.swift */,
+				8914525720CDEFF50030A67A /* ProfileEstilistController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -344,7 +350,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8914525820CDEFF50030A67A /* ProfileEstilistController.swift in Sources */,
 				89B67D5620BB7D0E00D3BFBF /* ViewController.swift in Sources */,
+				8914525620CDEFC20030A67A /* TimeLineController.swift in Sources */,
 				89B67D5420BB7D0E00D3BFBF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
