@@ -11,13 +11,13 @@
 		7A7B9749A7C10479D927F903 /* Pods_UtrymAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E15D8BED02228F2F16D690 /* Pods_UtrymAppTests.framework */; };
 		8906FE6520BE5C9A003954F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8906FE6420BE5C9A003954F3 /* Main.storyboard */; };
 		8914525620CDEFC20030A67A /* TimeLineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8914525520CDEFC10030A67A /* TimeLineController.swift */; };
-		8914525820CDEFF50030A67A /* ProfileEstilistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8914525720CDEFF50030A67A /* ProfileEstilistController.swift */; };
 		89B67D5420BB7D0E00D3BFBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B67D5320BB7D0E00D3BFBF /* AppDelegate.swift */; };
 		89B67D5620BB7D0E00D3BFBF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B67D5520BB7D0E00D3BFBF /* ViewController.swift */; };
 		89B67D5B20BB7D1300D3BFBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89B67D5A20BB7D1300D3BFBF /* Assets.xcassets */; };
 		89B67D5E20BB7D1300D3BFBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89B67D5C20BB7D1300D3BFBF /* LaunchScreen.storyboard */; };
 		89B67D6920BB7D1300D3BFBF /* UtrymAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B67D6820BB7D1300D3BFBF /* UtrymAppTests.swift */; };
 		89B67D7420BB7EF400D3BFBF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89B67D7320BB7EF400D3BFBF /* GoogleService-Info.plist */; };
+		89F4F3BE20CF222F006E1AE1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F4F3BD20CF222F006E1AE1 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 		87E15D8BED02228F2F16D690 /* Pods_UtrymAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtrymAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8906FE6420BE5C9A003954F3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8914525520CDEFC10030A67A /* TimeLineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineController.swift; sourceTree = "<group>"; };
-		8914525720CDEFF50030A67A /* ProfileEstilistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEstilistController.swift; sourceTree = "<group>"; };
 		896477E320C841850002C1D3 /* UtrymApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UtrymApp.entitlements; sourceTree = "<group>"; };
 		896477E420C843660002C1D3 /* UtrymApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UtrymApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		89B67D5020BB7D0E00D3BFBF /* UtrymApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UtrymApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +48,7 @@
 		89B67D6820BB7D1300D3BFBF /* UtrymAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtrymAppTests.swift; sourceTree = "<group>"; };
 		89B67D6A20BB7D1300D3BFBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89B67D7320BB7EF400D3BFBF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		89F4F3BD20CF222F006E1AE1 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		9E5A136AF45D6AB9EA15352D /* Pods-UtrymApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtrymApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-UtrymApp/Pods-UtrymApp.release.xcconfig"; sourceTree = "<group>"; };
 		A9255E303FB26ED084CF06F4 /* Pods-UtrymApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtrymApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UtrymApp/Pods-UtrymApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C1F2C14CC2A82DB05D57D7F2 /* Pods_UtrymApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtrymApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,7 +99,6 @@
 			children = (
 				89B67D5520BB7D0E00D3BFBF /* ViewController.swift */,
 				8914525520CDEFC10030A67A /* TimeLineController.swift */,
-				8914525720CDEFF50030A67A /* ProfileEstilistController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -127,6 +126,7 @@
 		89B67D5220BB7D0E00D3BFBF /* UtrymApp */ = {
 			isa = PBXGroup;
 			children = (
+				89F4F3BC20CF220F006E1AE1 /* Model */,
 				896477E320C841850002C1D3 /* UtrymApp.entitlements */,
 				8906FE6120BE48A2003954F3 /* Controller */,
 				89B67D5320BB7D0E00D3BFBF /* AppDelegate.swift */,
@@ -147,6 +147,14 @@
 				89B67D6A20BB7D1300D3BFBF /* Info.plist */,
 			);
 			path = UtrymAppTests;
+			sourceTree = "<group>";
+		};
+		89F4F3BC20CF220F006E1AE1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				89F4F3BD20CF222F006E1AE1 /* Post.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,10 +358,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8914525820CDEFF50030A67A /* ProfileEstilistController.swift in Sources */,
 				89B67D5620BB7D0E00D3BFBF /* ViewController.swift in Sources */,
 				8914525620CDEFC20030A67A /* TimeLineController.swift in Sources */,
 				89B67D5420BB7D0E00D3BFBF /* AppDelegate.swift in Sources */,
+				89F4F3BE20CF222F006E1AE1 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
