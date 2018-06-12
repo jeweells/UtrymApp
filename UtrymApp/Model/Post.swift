@@ -10,9 +10,13 @@ import Foundation
 class Post {
     var caption: String
     var url: String
+    //var profile: UIImage
+    //var image: UIImage
     
     init(captionText: String, urlString: String) {
         caption = captionText
         url = urlString
+        //profile = profileImage
+        //image = imagePost
     }
 }
