@@ -15,6 +15,8 @@ import Foundation
 class TimeLineController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var minAvatar: UINavigationItem!
+    
     var posts = [Post]()
     //var ref: DatabaseReference!
     
@@ -30,7 +32,6 @@ class TimeLineController: UIViewController {
         self.tableView.backgroundView = imageView
         //imageView.contentMode = .scaleAspectFit
         imageView.contentMode = .scaleAspectFill
-
         //var post = Post(captionText: "test", urlString: "urltest1")
         //print(post.caption)
         //print(post.url)
@@ -76,3 +77,4 @@ extension TimeLineController: UITableViewDataSource, UITableViewDelegate {
         self.performSegue(withIdentifier: "detail", sender: self)
     }
 }
+

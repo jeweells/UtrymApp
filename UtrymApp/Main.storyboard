@@ -44,17 +44,6 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11E-wp-hcP">
-                                <rect key="frame" x="109" y="510" width="156" height="36"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                <state key="normal" title="Iniciar Sesión" backgroundImage="Botón Inisiar sesión">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="SignInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YSr-BF-fLQ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvv-gF-RzP">
                                 <rect key="frame" x="202" y="332" width="90" height="28"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -91,6 +80,17 @@
                                 <connections>
                                     <action selector="SignInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jbY-pD-Sdw"/>
                                     <action selector="loginWithFacebook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8fo-XF-qxJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11E-wp-hcP">
+                                <rect key="frame" x="120" y="515" width="135" height="45"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                <state key="normal" title="Iniciar Sesión" backgroundImage="Botón Inisiar sesión">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="SignInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YSr-BF-fLQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -146,19 +146,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="0T0-ET-HKM">
+                                <rect key="frame" x="310" y="33" width="49" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.67843137249999996" green="0.023529411760000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="vXK-SF-oKe"/>
                     </view>
                     <navigationItem key="navigationItem" id="9mg-3m-F5M"/>
                     <connections>
+                        <outlet property="minAvatar" destination="9mg-3m-F5M" id="PFZ-DF-gdB"/>
                         <outlet property="tableView" destination="m7n-uv-gYq" id="PuK-oR-LEs"/>
                         <segue destination="ZwN-Oa-Anz" kind="showDetail" identifier="detail" id="LZq-at-ReQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIY-uZ-KxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2636" y="615.51724137931035"/>
+            <point key="canvasLocation" x="2559" y="335"/>
         </scene>
         <!--Detail Post Controller-->
         <scene sceneID="Eo3-gn-zKh">
@@ -251,7 +256,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tiP-mu-3Sg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3616.8000000000002" y="861.57635467980299"/>
+            <point key="canvasLocation" x="2556" y="1132"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Ek7-8o-oW7">
@@ -270,12 +275,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Estilistas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9q-g1-1bn">
-                                <rect key="frame" x="16" y="396" width="343" height="21"/>
+                                <rect key="frame" x="16" y="383" width="343" height="47"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
                                 <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="iDf-XO-bs4">
+                                <rect key="frame" x="310" y="18" width="49" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.67843137249999996" green="0.023529411760000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="YQW-jj-e11"/>
@@ -284,7 +293,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GQk-Gi-6L7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4378" y="201"/>
+            <point key="canvasLocation" x="4063" y="333"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="o7r-Z6-tTl">
@@ -303,12 +312,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Servicios" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3C-vo-IJW">
-                                <rect key="frame" x="16" y="396" width="343" height="21"/>
+                                <rect key="frame" x="16" y="380" width="343" height="52"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
                                 <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="sCt-80-SRr">
+                                <rect key="frame" x="297" y="28" width="49" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.67843137249999996" green="0.023529411760000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="n94-LP-4cU"/>
@@ -317,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qpa-DC-Rin" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2952" y="1354"/>
+            <point key="canvasLocation" x="1730" y="1133"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vuC-fL-i25">
@@ -336,12 +349,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Citas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2Y-WX-0gj">
-                                <rect key="frame" x="16" y="396" width="343" height="21"/>
+                                <rect key="frame" x="16" y="381" width="343" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
                                 <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="YOR-Yc-Xs1">
+                                <rect key="frame" x="310" y="18" width="49" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.67843137249999996" green="0.023529411760000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="22m-gi-AvL"/>
@@ -350,13 +367,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nXE-FC-Ejw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3578.4000000000001" y="-482.51231527093597"/>
+            <point key="canvasLocation" x="2305" y="-341"/>
         </scene>
-        <!--Citas-->
+        <!--Navigation Controller-->
         <scene sceneID="Pdn-bN-fcX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ADb-fE-S14" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Citas" id="hQE-j5-P9b"/>
+                    <tabBarItem key="tabBarItem" title="" image="Botón Citas" id="hQE-j5-P9b"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Smx-Aa-AbQ">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -369,13 +386,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VxS-JH-tZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2636" y="-482.51231527093597"/>
+            <point key="canvasLocation" x="1572" y="-341"/>
         </scene>
-        <!--Estilistas-->
+        <!--Navigation Controller-->
         <scene sceneID="ciT-XF-PZV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XuU-ay-nhn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Estilistas" id="6bS-b5-Zbq"/>
+                    <tabBarItem key="tabBarItem" title="" image="Botón Buscar" id="6bS-b5-Zbq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gX2-Ch-Bs5">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -388,13 +405,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2lA-Uv-fCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3618" y="201"/>
+            <point key="canvasLocation" x="3316" y="333"/>
         </scene>
-        <!--Servicios-->
+        <!--Navigation Controller-->
         <scene sceneID="VKa-1C-3bf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="byy-eF-eUN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Servicios" id="U0C-IG-cQc"/>
+                    <tabBarItem key="tabBarItem" title="" image="Botón Servicios" id="U0C-IG-cQc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xXC-9W-y6d">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -407,13 +424,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YPU-62-ZPJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2237" y="1303"/>
+            <point key="canvasLocation" x="906" y="1134"/>
         </scene>
-        <!--Utrym-->
+        <!--Navigation Controller-->
         <scene sceneID="FAB-rG-oRl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9va-z3-HUB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Utrym" id="zeq-TO-jSE"/>
+                    <tabBarItem key="tabBarItem" title="" image="Home-1" id="zeq-TO-jSE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tw8-5z-PH4">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -433,10 +450,12 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="aXc-La-TBH" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ial-5e-h6Y">
+                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="Barra inferior" id="ial-5e-h6Y">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.67843137249999996" green="0.023529411760000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="9va-z3-HUB" kind="relationship" relationship="viewControllers" id="I9z-Qq-bNx"/>
@@ -452,10 +471,15 @@
     </scenes>
     <resources>
         <image name="Back" width="375" height="812"/>
+        <image name="Barra inferior" width="375" height="48"/>
+        <image name="Botón Buscar" width="23" height="23"/>
+        <image name="Botón Citas" width="22" height="23"/>
         <image name="Botón Correo electrónico" width="297" height="42"/>
         <image name="Botón Facebook" width="95" height="22"/>
         <image name="Botón G+" width="95" height="22"/>
         <image name="Botón Inisiar sesión" width="127" height="43"/>
+        <image name="Botón Servicios" width="23" height="6"/>
+        <image name="Home-1" width="23" height="23"/>
         <image name="Logo_inter" width="102" height="23"/>
         <image name="PN" width="188" height="41"/>
         <image name="Rectangle 6" width="370" height="63"/>
