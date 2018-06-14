@@ -15,7 +15,7 @@ import GoogleSignIn
 class ViewController: UIViewController, GIDSignInUIDelegate {
     
 
-    @IBOutlet weak var signInSelector: UISegmentedControl!
+    //@IBOutlet weak var signInSelector: UISegmentedControl!
     @IBOutlet weak var signInLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -32,52 +32,53 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         super.viewDidLoad()
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        //navigationController?.navigationBar.shadowImage = UIImage()
     }
     
-    @IBAction func SignInSegmentorChanged(_ sender: UISegmentedControl) {
-        
-        isSignIn = !isSignIn
-        
-        if isSignIn {
-            signInLabel.text = "Registrarse"
-            signInButton.setTitle("Registrarse", for: .normal)
-        }
-        
-    }
+//    @IBAction func SignInSegmentorChanged(_ sender: UISegmentedControl) {
+//
+//        isSignIn = !isSignIn
+//
+ //       if isSignIn {
+ //           signInLabel.text = "Registrarse"
+ //           signInButton.setTitle("Registrarse", for: .normal)
+//        }
+
+//    }
     @IBAction func SignInButtonTapped(_ sender: UIButton) {
         
         if let email = emailTextField.text, let password = passwordTextField.text
         {
-            if isSignIn {
-                Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+                
+                if user != nil {
                     
-                    if user != nil {
-                        
-                        self.performSegue(withIdentifier: "goToHome", sender: self)
-                        print("Usuario autenticado")
-                    }
-                    else {
-                        
-                    }
+                    self.performSegue(withIdentifier: "goToHome", sender: self)
+                    print("Usuario autenticado")
+                }
+                else {
+                    let alertController = UIAlertController(title: "UtrymApp", message:
+                        "El usuario no existe, favor Registrarse", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default,handler: nil))
+                    self.present(alertController, animated: true, completion: nil)
                     
+                    print("Usuario no existe favor registrarse")
                 }
             }
-            else {
-                Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-                    let userID = Auth.auth().currentUser?.uid
-                    self.ref = Database.database().reference()
-                    if user != nil {
-                        self.ref.child("clientes").child(userID!).child("email").setValue(email)
-                        self.ref.child("clientes").child(userID!).child("password").setValue(password)
-                        self.performSegue(withIdentifier: "goToHome", sender: self)
-                        print("Usuario creado")
-                    }
-                    else {
-                        
-                    }
-                }
-            }
+            //else {
+            //    Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            //        let userID = Auth.auth().currentUser?.uid
+            //        self.ref = Database.database().reference()
+            //        if user != nil {
+            //            self.ref.child("clientes").child(userID!).child("email").setValue(email)
+            //            self.ref.child("clientes").child(userID!).child("password").setValue(password)
+            //            self.performSegue(withIdentifier: "goToHome", sender: self)
+            //            print("Usuario creado")
+            //        }
+            //        else {
+            //
+            //        }
+            //    }
+            //}
         }
     }
     
