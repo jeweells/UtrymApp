@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var FullName: UITextField!
     @IBOutlet weak var Email: UITextField!
@@ -31,11 +31,21 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         let storageRef = storage.reference()
         userStorage = storageRef.child("avatares")
         ref = Database.database().reference()
+        FullName.delegate = self
+        Email.delegate = self
+        Pass.delegate = self
+        ConfirmPass.delegate = self
+        //ProfileImage.layer.cornerRadius = 2.0
+        ProfileImage.layer.cornerRadius = ProfileImage.bounds.width / 2.0
 
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func scrollClick(_ sender: Any) {
+        self.view.endEditing(true)
     }
     
     @IBAction func SelectImage(_ sender: Any) {
@@ -44,6 +54,28 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         picker.sourceType = .photoLibrary
         present(picker, animated: true, completion: nil)
         
+    }
+    
+    // Ocultar teclado cuando se mantenga presionada la tecla return en cualquiera de los inputs
+    
+    func textFieldShouldReturn(FullName: UITextField) -> Bool {
+        FullName.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldShouldReturn(_ Email: UITextField) -> Bool {
+        Email.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldShouldReturn(Pass: UITextField) -> Bool {
+        Pass.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldShouldReturn(ConfirmPass: UITextField) -> Bool {
+        ConfirmPass.resignFirstResponder()
+        return true
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -125,6 +157,15 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
             print("Pass no coinciden")
         }
         
+    }
+    
+    // Ocultar teclado cuando se toca en cualquier parte de la vista
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        FullName.resignFirstResponder()
+        Email.resignFirstResponder()
+        Pass.resignFirstResponder()
+        ConfirmPass.resignFirstResponder()
     }
     
 }
