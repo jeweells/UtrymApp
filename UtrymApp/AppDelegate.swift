@@ -85,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                     //self.ref.child("clientes").child(userID!).setValue(["email": username])
                 }
                 else {
-                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let _: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     self.window?.rootViewController?.performSegue(withIdentifier: "goToHome", sender: nil)
                 }
             })

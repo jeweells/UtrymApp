@@ -21,8 +21,10 @@
 		89B67D5E20BB7D1300D3BFBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89B67D5C20BB7D1300D3BFBF /* LaunchScreen.storyboard */; };
 		89B67D6920BB7D1300D3BFBF /* UtrymAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B67D6820BB7D1300D3BFBF /* UtrymAppTests.swift */; };
 		89B67D7420BB7EF400D3BFBF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89B67D7320BB7EF400D3BFBF /* GoogleService-Info.plist */; };
-		89F2D7B420D1D41700688164 /* HeaderTimelineViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D7B320D1D41700688164 /* HeaderTimelineViewCell.swift */; };
-		89F2D7B620D1D43A00688164 /* TimelineViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D7B520D1D43A00688164 /* TimelineViewCell.swift */; };
+		89BE1E3B20D47F6B001703B3 /* PostThumbImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE1E3A20D47F6A001703B3 /* PostThumbImageCell.swift */; };
+		89BE1E3D20D494F1001703B3 /* TimelineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE1E3C20D494F1001703B3 /* TimelineHeaderView.swift */; };
+		89BE1E3F20D4AD16001703B3 /* ProfileEstilistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE1E3E20D4AD16001703B3 /* ProfileEstilistController.swift */; };
+		89BE1E4120D4B3B6001703B3 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE1E4020D4B3B6001703B3 /* ProfileHeaderView.swift */; };
 		89F2D7B820D1D48900688164 /* Estilist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D7B720D1D48900688164 /* Estilist.swift */; };
 		89F2D7BA20D1D85600688164 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D7B920D1D85600688164 /* SignUpController.swift */; };
 		89F4F3BE20CF222F006E1AE1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F4F3BD20CF222F006E1AE1 /* Post.swift */; };
@@ -60,8 +62,10 @@
 		89B67D6820BB7D1300D3BFBF /* UtrymAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtrymAppTests.swift; sourceTree = "<group>"; };
 		89B67D6A20BB7D1300D3BFBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89B67D7320BB7EF400D3BFBF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		89F2D7B320D1D41700688164 /* HeaderTimelineViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTimelineViewCell.swift; sourceTree = "<group>"; };
-		89F2D7B520D1D43A00688164 /* TimelineViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewCell.swift; sourceTree = "<group>"; };
+		89BE1E3A20D47F6A001703B3 /* PostThumbImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostThumbImageCell.swift; sourceTree = "<group>"; };
+		89BE1E3C20D494F1001703B3 /* TimelineHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineHeaderView.swift; sourceTree = "<group>"; };
+		89BE1E3E20D4AD16001703B3 /* ProfileEstilistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEstilistController.swift; sourceTree = "<group>"; };
+		89BE1E4020D4B3B6001703B3 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		89F2D7B720D1D48900688164 /* Estilist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Estilist.swift; sourceTree = "<group>"; };
 		89F2D7B920D1D85600688164 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		89F4F3BD20CF222F006E1AE1 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 				89F2D7B920D1D85600688164 /* SignUpController.swift */,
 				8914525520CDEFC10030A67A /* TimeLineController.swift */,
 				896B7FFF20D0368B007B7C5D /* DetailPostController.swift */,
+				89BE1E3E20D4AD16001703B3 /* ProfileEstilistController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -126,8 +131,9 @@
 			children = (
 				896B800420D04445007B7C5D /* PostHeaderCell.swift */,
 				896B800620D044A2007B7C5D /* PostCell.swift */,
-				89F2D7B320D1D41700688164 /* HeaderTimelineViewCell.swift */,
-				89F2D7B520D1D43A00688164 /* TimelineViewCell.swift */,
+				89BE1E3A20D47F6A001703B3 /* PostThumbImageCell.swift */,
+				89BE1E3C20D494F1001703B3 /* TimelineHeaderView.swift */,
+				89BE1E4020D4B3B6001703B3 /* ProfileHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -392,14 +398,16 @@
 			files = (
 				89F2D7B820D1D48900688164 /* Estilist.swift in Sources */,
 				896B800520D04445007B7C5D /* PostHeaderCell.swift in Sources */,
+				89BE1E3D20D494F1001703B3 /* TimelineHeaderView.swift in Sources */,
+				89BE1E3F20D4AD16001703B3 /* ProfileEstilistController.swift in Sources */,
 				896B800020D0368B007B7C5D /* DetailPostController.swift in Sources */,
 				89B67D5620BB7D0E00D3BFBF /* ViewController.swift in Sources */,
-				89F2D7B420D1D41700688164 /* HeaderTimelineViewCell.swift in Sources */,
 				8914525620CDEFC20030A67A /* TimeLineController.swift in Sources */,
-				89F2D7B620D1D43A00688164 /* TimelineViewCell.swift in Sources */,
 				89B67D5420BB7D0E00D3BFBF /* AppDelegate.swift in Sources */,
 				896B7FFE20D016B0007B7C5D /* User.swift in Sources */,
+				89BE1E3B20D47F6B001703B3 /* PostThumbImageCell.swift in Sources */,
 				89F4F3BE20CF222F006E1AE1 /* Post.swift in Sources */,
+				89BE1E4120D4B3B6001703B3 /* ProfileHeaderView.swift in Sources */,
 				896B800720D044A2007B7C5D /* PostCell.swift in Sources */,
 				89F2D7BA20D1D85600688164 /* SignUpController.swift in Sources */,
 			);

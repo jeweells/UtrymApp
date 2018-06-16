@@ -1,50 +1,41 @@
 //
-//  TimeLineController.swift
+//  ProfileEstilistController.swift
 //  UtrymApp
 //
-//  Created by Alexis Barniquez on 10/6/18.
+//  Created by Alexis Barniquez on 15/6/18.
 //  Copyright © 2018 Alexis Barniquez. All rights reserved.
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
-import FirebaseDatabase
-import Foundation
 
-class TimeLineController: UIViewController {
-
-    @IBOutlet weak var collectionView: UICollectionView!
+class ProfileEstilistController: UIViewController {
     
+    @IBOutlet weak var collectionProfile: UICollectionView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        let backgroundImage = UIImage(named: "Back.png")
+        let backgroundImage = UIImage(named: "Back_profile.png")
         let imageView = UIImageView(image: backgroundImage)
-        self.collectionView.backgroundView = imageView
+        self.collectionProfile.backgroundView = imageView
         imageView.contentMode = .scaleAspectFill
     }
 
-
-
 }
 
-extension TimeLineController: UICollectionViewDataSource {
+extension ProfileEstilistController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //fatalError("TODO: return number of cells")
         return 100
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //fatalError("TODO: return configured cell")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostThumbImageCell", for: indexPath) as! PostThumbImageCell
-        cell.backgroundColor = .red
         
         return cell
     }
 }
 
-extension TimeLineController: UICollectionViewDelegateFlowLayout {
+extension ProfileEstilistController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //let itemSize = CGSize(width: 124, height: 124)
         let columns: CGFloat = 3
@@ -70,10 +61,8 @@ extension TimeLineController: UICollectionViewDelegateFlowLayout {
             fatalError("Unexpected element kind.")
         }
         
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "TimelineHeaderView", for: indexPath) as! TimelineHeaderView
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProfileHeaderView", for: indexPath) as! ProfileHeaderView
         return headerView
     }
 }
-
-
 

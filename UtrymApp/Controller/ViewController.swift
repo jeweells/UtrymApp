@@ -34,16 +34,6 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
     
-//    @IBAction func SignInSegmentorChanged(_ sender: UISegmentedControl) {
-//
-//        isSignIn = !isSignIn
-//
- //       if isSignIn {
- //           signInLabel.text = "Registrarse"
- //           signInButton.setTitle("Registrarse", for: .normal)
-//        }
-
-//    }
     @IBAction func SignInButtonTapped(_ sender: UIButton) {
         
         if let email = emailTextField.text, let password = passwordTextField.text
@@ -51,17 +41,22 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                 
                 if user != nil {
+                    //let userID = Auth.auth().currentUser?.uid
+                    //self.ref = Database.database().reference()
+                    //let estilista = self.ref.child("estilistas").child(email)
+                    //let estilista = self.ref.child("estilistas").child(userID!)
+                    //let estilista = self.ref.child("estilistas").queryOrdered(byChild: "email").queryEqual(toValue: email)
+                    // aqui debo verificar si el usuario es estilista o cliente para enviarlo a la pantalla determinada
                     
                     self.performSegue(withIdentifier: "goToHome", sender: self)
-                    print("Usuario autenticado")
-                }
+                    print("Usuario autenticado:")                }
                 else {
                     let alertController = UIAlertController(title: "UtrymApp", message:
-                        "El usuario no existe, favor Registrarse", preferredStyle: UIAlertControllerStyle.alert)
+                        "Usuario o contraseña inválid@", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default,handler: nil))
                     self.present(alertController, animated: true, completion: nil)
                     
-                    print("Usuario no existe favor registrarse")
+                    print("Usuario o contraseña inválida")
                 }
             }
             //else {
@@ -79,6 +74,14 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             //        }
             //    }
             //}
+        }
+        else {
+            let alertController = UIAlertController(title: "UtrymApp", message:
+                "Favor llenar los datos", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            
+            print("Campos vacíos")
         }
     }
     

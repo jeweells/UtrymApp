@@ -35,7 +35,6 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         Email.delegate = self
         Pass.delegate = self
         ConfirmPass.delegate = self
-        //ProfileImage.layer.cornerRadius = 2.0
         ProfileImage.layer.cornerRadius = ProfileImage.bounds.width / 2.0
 
     }
@@ -97,7 +96,6 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
                 if let error = error {
                     let alertController = UIAlertController(title: "UtrymApp", message:
                         "Error en los datos suministrados: \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
-                        //"Failed to signUp1: \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default,handler: nil))
                     self.present(alertController, animated: true, completion: nil)
                     print(error.localizedDescription)
