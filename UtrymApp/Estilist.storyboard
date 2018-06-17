@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item-->
+        <scene sceneID="Whv-pN-qtb">
+            <objects>
+                <viewController id="7Q8-HV-dxY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PKf-JS-Iv5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Back" translatesAutoresizingMaskIntoConstraints="NO" id="c0u-E4-NyA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pantalla de incio estilistas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MK-Bt-zIx">
+                                <rect key="frame" x="17" y="385.66666666666669" width="341" height="41"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="c0u-E4-NyA" firstAttribute="trailing" secondItem="abb-0q-Vuk" secondAttribute="trailing" id="0Dt-FL-uKe"/>
+                            <constraint firstItem="c0u-E4-NyA" firstAttribute="leading" secondItem="abb-0q-Vuk" secondAttribute="leading" id="EQ0-Fd-aBu"/>
+                            <constraint firstAttribute="bottom" secondItem="c0u-E4-NyA" secondAttribute="bottom" id="LCx-j1-ulC"/>
+                            <constraint firstItem="6MK-Bt-zIx" firstAttribute="centerY" secondItem="PKf-JS-Iv5" secondAttribute="centerY" id="Nl4-Uh-YlN"/>
+                            <constraint firstItem="c0u-E4-NyA" firstAttribute="centerX" secondItem="PKf-JS-Iv5" secondAttribute="centerX" id="Vuq-hM-eqW"/>
+                            <constraint firstItem="c0u-E4-NyA" firstAttribute="top" secondItem="PKf-JS-Iv5" secondAttribute="top" id="gl1-Vm-5fx"/>
+                            <constraint firstItem="c0u-E4-NyA" firstAttribute="centerY" secondItem="PKf-JS-Iv5" secondAttribute="centerY" id="grm-sR-PwP"/>
+                            <constraint firstItem="6MK-Bt-zIx" firstAttribute="centerX" secondItem="PKf-JS-Iv5" secondAttribute="centerX" id="xQU-nd-jRC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="abb-0q-Vuk"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="b4J-q9-JBb"/>
+                    <navigationItem key="navigationItem" id="vnd-8c-Kqq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eSr-Qa-9ko" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="671.20000000000005" y="988.66995073891633"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="ihk-3H-T7b">
+            <objects>
+                <viewController id="dK7-vX-PjN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8LD-0s-Gac">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Back" translatesAutoresizingMaskIntoConstraints="NO" id="5Gb-1H-CjV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Citas Estilistas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKA-M1-8QR">
+                                <rect key="frame" x="93.333333333333329" y="385.66666666666669" width="188.33333333333337" height="41"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="5Gb-1H-CjV" secondAttribute="bottom" id="5Gz-uC-TD1"/>
+                            <constraint firstItem="5Gb-1H-CjV" firstAttribute="centerX" secondItem="8LD-0s-Gac" secondAttribute="centerX" id="6IA-FT-p5c"/>
+                            <constraint firstItem="5Gb-1H-CjV" firstAttribute="centerY" secondItem="8LD-0s-Gac" secondAttribute="centerY" id="ClU-48-tpy"/>
+                            <constraint firstItem="KKA-M1-8QR" firstAttribute="centerX" secondItem="8LD-0s-Gac" secondAttribute="centerX" id="QWn-sy-vjx"/>
+                            <constraint firstItem="KKA-M1-8QR" firstAttribute="centerY" secondItem="8LD-0s-Gac" secondAttribute="centerY" id="W71-ls-iQj"/>
+                            <constraint firstItem="5Gb-1H-CjV" firstAttribute="leading" secondItem="AnR-Ao-1Bw" secondAttribute="leading" id="eJH-nd-VyK"/>
+                            <constraint firstItem="5Gb-1H-CjV" firstAttribute="top" secondItem="8LD-0s-Gac" secondAttribute="top" id="mv8-Ct-gAI"/>
+                            <constraint firstItem="5Gb-1H-CjV" firstAttribute="trailing" secondItem="AnR-Ao-1Bw" secondAttribute="trailing" id="uTc-bK-R5A"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AnR-Ao-1Bw"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="ZrJ-v3-UbU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rgT-o4-l57" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1092" y="1772.6600985221676"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Yr0-m2-EQz">
+            <objects>
+                <viewController id="ub7-TT-54R" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="30R-xC-U8f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Back" translatesAutoresizingMaskIntoConstraints="NO" id="nQh-2V-IZL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posts Estilistas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmM-gt-wLA">
+                                <rect key="frame" x="91.333333333333329" y="386" width="192.33333333333337" height="41"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YmM-gt-wLA" firstAttribute="centerX" secondItem="30R-xC-U8f" secondAttribute="centerX" id="9th-Gm-RfJ"/>
+                            <constraint firstItem="YmM-gt-wLA" firstAttribute="centerY" secondItem="30R-xC-U8f" secondAttribute="centerY" id="vef-Qx-LgD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="L68-wU-IjN"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="hqx-9W-RD7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="73C-9r-ZBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-204" y="1773"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="hEt-MO-sdh">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="9Cc-pd-AxP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fdw-NY-WUc">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="7Q8-HV-dxY" kind="relationship" relationship="viewControllers" id="SKI-YR-sfr"/>
+                        <segue destination="dK7-vX-PjN" kind="relationship" relationship="viewControllers" id="WdA-Vi-HbS"/>
+                        <segue destination="ub7-TT-54R" kind="relationship" relationship="viewControllers" id="Ys6-S9-xnA"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YxP-xM-0bl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-271.19999999999999" y="988.66995073891633"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Back" width="375" height="812"/>
+    </resources>
+</document>

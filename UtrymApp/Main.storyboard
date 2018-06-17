@@ -191,6 +191,9 @@
                                             <constraint firstAttribute="trailing" secondItem="v0f-rh-1Bs" secondAttribute="trailing" id="YUx-kv-lXk"/>
                                         </constraints>
                                         <size key="customSize" width="124" height="124"/>
+                                        <connections>
+                                            <outlet property="postImage" destination="v0f-rh-1Bs" id="Hgs-nv-0YB"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="TimelineHeaderView" id="GmX-7n-xSM" customClass="TimelineHeaderView" customModule="UtrymApp" customModuleProvider="target">
@@ -334,10 +337,10 @@
             </objects>
             <point key="canvasLocation" x="2556" y="1132"/>
         </scene>
-        <!--View Controller-->
+        <!--Services Controller-->
         <scene sceneID="Ek7-8o-oW7">
             <objects>
-                <viewController id="Hc7-8b-UsE" customClass="ViewController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Hc7-8b-UsE" customClass="ServicesController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6qM-T4-kDx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -537,6 +540,16 @@
                                                 <constraint firstAttribute="width" constant="60" id="GDr-9w-ZND"/>
                                             </constraints>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bu-Fw-qqa">
+                                            <rect key="frame" x="10" y="10" width="43" height="36"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                            <state key="normal" title="Atrás">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="aXc-La-TBH" kind="showDetail" id="SdZ-Fc-BMB"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="r6g-HX-trJ" firstAttribute="leading" secondItem="pIU-8S-sw0" secondAttribute="leadingMargin" constant="16" id="0l5-oq-ulV"/>
@@ -546,6 +559,7 @@
                                         <constraint firstItem="f6H-Ar-ebM" firstAttribute="leading" secondItem="r6g-HX-trJ" secondAttribute="trailing" constant="54" id="HWR-Dk-ZK7"/>
                                         <constraint firstItem="q7G-6x-7Ly" firstAttribute="top" secondItem="Jlc-6y-qhJ" secondAttribute="bottom" constant="8" id="KdS-U3-Rzs"/>
                                         <constraint firstItem="q7G-6x-7Ly" firstAttribute="leading" secondItem="pIU-8S-sw0" secondAttribute="leading" constant="20" id="Klh-px-Yvc"/>
+                                        <constraint firstItem="4bu-Fw-qqa" firstAttribute="leading" secondItem="pIU-8S-sw0" secondAttribute="leading" constant="10" id="NAL-yi-1Vi"/>
                                         <constraint firstAttribute="trailing" secondItem="O3S-cD-0Pa" secondAttribute="trailing" constant="20" id="OUY-aq-VPZ"/>
                                         <constraint firstItem="O3S-cD-0Pa" firstAttribute="top" secondItem="q7G-6x-7Ly" secondAttribute="bottom" constant="8" symbolic="YES" id="RgI-ch-PBQ"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="O3S-cD-0Pa" secondAttribute="bottom" constant="61" id="RnS-8r-2Xf"/>
@@ -556,9 +570,11 @@
                                         <constraint firstAttribute="bottom" secondItem="hUp-r1-uyY" secondAttribute="bottom" constant="8" id="orE-xz-te5"/>
                                         <constraint firstItem="Jlc-6y-qhJ" firstAttribute="top" secondItem="f6H-Ar-ebM" secondAttribute="bottom" constant="67" id="pys-rc-ifi"/>
                                         <constraint firstItem="Jlc-6y-qhJ" firstAttribute="leading" secondItem="r6g-HX-trJ" secondAttribute="leading" id="q0x-kV-a3x"/>
+                                        <constraint firstItem="4bu-Fw-qqa" firstAttribute="top" secondItem="pIU-8S-sw0" secondAttribute="top" constant="10" id="tZi-xh-i46"/>
                                         <constraint firstItem="G0A-yY-JeB" firstAttribute="leading" secondItem="f6H-Ar-ebM" secondAttribute="trailing" constant="8" id="yAB-C0-D36"/>
                                     </constraints>
                                     <connections>
+                                        <outlet property="backButton" destination="4bu-Fw-qqa" id="qki-2W-f8k"/>
                                         <outlet property="biografia" destination="O3S-cD-0Pa" id="Q46-fE-Xae"/>
                                         <outlet property="citasButton" destination="f6H-Ar-ebM" id="ik2-Hx-i9e"/>
                                         <outlet property="fullName" destination="Jlc-6y-qhJ" id="PWU-mX-z91"/>
@@ -882,4 +898,7 @@
         <image name="avatar" width="400" height="400"/>
         <image name="studio-2" width="550" height="761"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="SdZ-Fc-BMB"/>
+    </inferredMetricsTieBreakers>
 </document>

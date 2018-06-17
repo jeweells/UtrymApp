@@ -11,10 +11,17 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import Foundation
+import SDWebImage
 
 class TimeLineController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var user: User!
+    var posts = [Post]()
+    
+    var Handle: DatabaseHandle = 0
+    var Ref: DatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +30,23 @@ class TimeLineController: UIViewController {
         let imageView = UIImageView(image: backgroundImage)
         self.collectionView.backgroundView = imageView
         imageView.contentMode = .scaleAspectFill
+        loadPosts()
+        
     }
-
+    
+    
+    func loadPosts() {
+        Database.database().reference().child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let captionTex = dict["caption"] as! String
+                let urlString = dict["url"] as! String
+                let post = Post(captionText: captionTex, urlString: urlString)
+                self.posts.append(post)
+                print(self.posts)
+                self.collectionView.reloadData()
+            }
+        }
+    }
 
 
 }
@@ -32,13 +54,16 @@ class TimeLineController: UIViewController {
 extension TimeLineController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //fatalError("TODO: return number of cells")
-        return 100
+        //return 100
+        return posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //fatalError("TODO: return configured cell")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostThumbImageCell", for: indexPath) as! PostThumbImageCell
-        cell.backgroundColor = .red
+        //cell.itemImage.image = UIImage.init(imageLiteralResourceName: posts[indexPath.row].url)
+        //cell.postImage?.image = posts[indexPath.row].url
+        cell.postImage?.image = UIImage(named: "studio-2.jpg")
         
         return cell
     }

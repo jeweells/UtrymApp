@@ -18,6 +18,7 @@ class ProfileHeaderView: UICollectionReusableView {
     @IBOutlet weak var profesion: UILabel!
     @IBOutlet weak var biografia: UITextView!
     @IBOutlet weak var skills: UIImageView!
+    @IBOutlet weak var backButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

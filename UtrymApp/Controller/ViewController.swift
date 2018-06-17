@@ -41,15 +41,58 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                 
                 if user != nil {
+                   /*
+                    //Fetch user role from Firebase DB
+                    //self.ref = Database.database().reference()
+                    let userID = Auth.auth().currentUser?.uid
+                    Database.database().reference().child("estilistas").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+                        let estilist = Database.database().reference().child("estilistas").child(userID!).value(forKey: "userRole")
+                        //Obtain value of user role
+                        let snapValue = snapshot.value as? NSDictionary
+
+                        
+                        if snapValue != nil {
+                            let userRole = snapValue?["userRole"] as? String ?? ""
+                            
+                            //Set default vc in case of error
+                            //var viewControllerID = "DEFAULT_VC_ID"
+                            
+                            //Set vc based on user role
+                            if userRole == "estilista" {
+                                //viewControllerID = "estilist_VC"
+                                self.performSegue(withIdentifier: "goToEstHome", sender: self)
+                                print("Usuario autenticado: estilista")
+                                
+                            } else {
+                                //viewControllerID = "client_VC"
+                                self.performSegue(withIdentifier: "goToHome", sender: self)
+                                print("Usuario autenticado: cliente")
+                            }
+                        }
+                        
+                        else {
+                            print("Something wrong!")
+                            print(estilist)
+                        }
+                        
+                    })
+                    
+                    
+                    
                     //let userID = Auth.auth().currentUser?.uid
                     //self.ref = Database.database().reference()
                     //let estilista = self.ref.child("estilistas").child(email)
                     //let estilista = self.ref.child("estilistas").child(userID!)
                     //let estilista = self.ref.child("estilistas").queryOrdered(byChild: "email").queryEqual(toValue: email)
+ 
+ 
+ */
                     // aqui debo verificar si el usuario es estilista o cliente para enviarlo a la pantalla determinada
                     
                     self.performSegue(withIdentifier: "goToHome", sender: self)
-                    print("Usuario autenticado:")                }
+                    print("Usuario autenticado:")
+                    
+                }
                 else {
                     let alertController = UIAlertController(title: "UtrymApp", message:
                         "Usuario o contraseña inválid@", preferredStyle: UIAlertControllerStyle.alert)

@@ -10,4 +10,10 @@ import UIKit
 
 class PostThumbImageCell: UICollectionViewCell {
     
+    @IBOutlet weak var postImage: UIImageView!
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
 }
