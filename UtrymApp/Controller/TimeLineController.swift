@@ -11,17 +11,12 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import Foundation
-import SDWebImage
 
 class TimeLineController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var user: User!
     var posts = [Post]()
-    
-    var Handle: DatabaseHandle = 0
-    var Ref: DatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +33,10 @@ class TimeLineController: UIViewController {
     func loadPosts() {
         Database.database().reference().child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
             if let dict = snapshot.value as? [String: Any] {
-                let captionTex = dict["caption"] as! String
+                //let captionTex = dict["caption"] as! String
                 let urlString = dict["url"] as! String
-                let post = Post(captionText: captionTex, urlString: urlString)
+                let post = Post(urlString: urlString)
+                //let post = Post(captionText: captionTex, urlString: urlString)
                 self.posts.append(post)
                 print(self.posts)
                 self.collectionView.reloadData()
@@ -61,12 +57,32 @@ extension TimeLineController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //fatalError("TODO: return configured cell")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostThumbImageCell", for: indexPath) as! PostThumbImageCell
-        //cell.itemImage.image = UIImage.init(imageLiteralResourceName: posts[indexPath.row].url)
-        //cell.postImage?.image = posts[indexPath.row].url
+        //cell.postImage.downloadImage(from: self.posts[indexPath.row].url)
         cell.postImage?.image = UIImage(named: "studio-2.jpg")
         
         return cell
     }
+}
+
+extension UIImageView {
+    func downloadImage(from imgURL: String!) {
+        let url = URLRequest(url: URL(string: imgURL)!)
+        
+        let task = URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.image = UIImage(data: data!)
+            }
+        }
+        task.resume()
+    }
+    
 }
 
 extension TimeLineController: UICollectionViewDelegateFlowLayout {

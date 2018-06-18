@@ -14,6 +14,9 @@
 		89589C6020D6F9BF001B4336 /* Estilist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89589C5F20D6F9BE001B4336 /* Estilist.storyboard */; };
 		89589C6220D71F5F001B4336 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89589C6120D71F5F001B4336 /* Services.swift */; };
 		89589C6420D71FFC001B4336 /* ServicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89589C6320D71FFC001B4336 /* ServicesController.swift */; };
+		8960564E20D81A2E006B8A3A /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960564D20D81A2E006B8A3A /* ServiceCell.swift */; };
+		8960565220D81BE3006B8A3A /* ServiceHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960565120D81BE3006B8A3A /* ServiceHeaderCell.swift */; };
+		8960565420D81F6F006B8A3A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960565320D81F6F006B8A3A /* Category.swift */; };
 		896B7FFE20D016B0007B7C5D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896B7FFD20D016B0007B7C5D /* User.swift */; };
 		896B800020D0368B007B7C5D /* DetailPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896B7FFF20D0368B007B7C5D /* DetailPostController.swift */; };
 		896B800520D04445007B7C5D /* PostHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896B800420D04445007B7C5D /* PostHeaderCell.swift */; };
@@ -52,6 +55,9 @@
 		89589C5F20D6F9BE001B4336 /* Estilist.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Estilist.storyboard; sourceTree = "<group>"; };
 		89589C6120D71F5F001B4336 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		89589C6320D71FFC001B4336 /* ServicesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesController.swift; sourceTree = "<group>"; };
+		8960564D20D81A2E006B8A3A /* ServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; };
+		8960565120D81BE3006B8A3A /* ServiceHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHeaderCell.swift; sourceTree = "<group>"; };
+		8960565320D81F6F006B8A3A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		896477E320C841850002C1D3 /* UtrymApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UtrymApp.entitlements; sourceTree = "<group>"; };
 		896477E420C843660002C1D3 /* UtrymApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UtrymApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		896B7FFD20D016B0007B7C5D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -139,8 +145,10 @@
 				896B800420D04445007B7C5D /* PostHeaderCell.swift */,
 				896B800620D044A2007B7C5D /* PostCell.swift */,
 				89BE1E3A20D47F6A001703B3 /* PostThumbImageCell.swift */,
+				8960564D20D81A2E006B8A3A /* ServiceCell.swift */,
 				89BE1E3C20D494F1001703B3 /* TimelineHeaderView.swift */,
 				89BE1E4020D4B3B6001703B3 /* ProfileHeaderView.swift */,
+				8960565120D81BE3006B8A3A /* ServiceHeaderCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,6 +208,7 @@
 				89F2D7B720D1D48900688164 /* Estilist.swift */,
 				896B7FFD20D016B0007B7C5D /* User.swift */,
 				89589C6120D71F5F001B4336 /* Services.swift */,
+				8960565320D81F6F006B8A3A /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -412,6 +421,7 @@
 			files = (
 				89F2D7B820D1D48900688164 /* Estilist.swift in Sources */,
 				896B800520D04445007B7C5D /* PostHeaderCell.swift in Sources */,
+				8960565420D81F6F006B8A3A /* Category.swift in Sources */,
 				89BE1E3D20D494F1001703B3 /* TimelineHeaderView.swift in Sources */,
 				89BE1E3F20D4AD16001703B3 /* ProfileEstilistController.swift in Sources */,
 				896B800020D0368B007B7C5D /* DetailPostController.swift in Sources */,
@@ -424,8 +434,10 @@
 				89589C6420D71FFC001B4336 /* ServicesController.swift in Sources */,
 				89F4F3BE20CF222F006E1AE1 /* Post.swift in Sources */,
 				89BE1E4120D4B3B6001703B3 /* ProfileHeaderView.swift in Sources */,
+				8960565220D81BE3006B8A3A /* ServiceHeaderCell.swift in Sources */,
 				896B800720D044A2007B7C5D /* PostCell.swift in Sources */,
 				89F2D7BA20D1D85600688164 /* SignUpController.swift in Sources */,
+				8960564E20D81A2E006B8A3A /* ServiceCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -222,6 +222,7 @@
                                 <connections>
                                     <outlet property="dataSource" destination="9OT-ed-VEp" id="O5R-8P-FfZ"/>
                                     <outlet property="delegate" destination="9OT-ed-VEp" id="jJz-Ab-KXF"/>
+                                    <outlet property="prefetchDataSource" destination="9OT-ed-VEp" id="yvR-TB-sMf"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -242,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIY-uZ-KxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2557.5999999999999" y="333.99014778325125"/>
+            <point key="canvasLocation" x="2398" y="332"/>
         </scene>
         <!--Detail Post Controller-->
         <scene sceneID="Eo3-gn-zKh">
@@ -335,12 +336,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tiP-mu-3Sg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2556" y="1132"/>
+            <point key="canvasLocation" x="3095" y="1434"/>
         </scene>
-        <!--Services Controller-->
+        <!--View Controller-->
         <scene sceneID="Ek7-8o-oW7">
             <objects>
-                <viewController id="Hc7-8b-UsE" customClass="ServicesController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Hc7-8b-UsE" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6qM-T4-kDx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -368,46 +369,112 @@
                         <viewLayoutGuide key="safeArea" id="YQW-jj-e11"/>
                     </view>
                     <navigationItem key="navigationItem" id="VXP-UJ-ZMp"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GQk-Gi-6L7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4061.5999999999999" y="332.51231527093597"/>
+            <point key="canvasLocation" x="3881" y="332"/>
         </scene>
-        <!--View Controller-->
+        <!--Services Controller-->
         <scene sceneID="o7r-Z6-tTl">
             <objects>
-                <viewController id="hQL-6F-buf" customClass="ViewController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hQL-6F-buf" customClass="ServicesController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9VJ-QJ-5kd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Back" translatesAutoresizingMaskIntoConstraints="NO" id="NCC-pL-e95">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bUw-hl-b7O">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Servicios" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3C-vo-IJW">
-                                <rect key="frame" x="16" y="380" width="343" height="52"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
-                                <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="K8J-Bf-UwZ">
+                                    <size key="itemSize" width="375" height="161"/>
+                                    <size key="headerReferenceSize" width="60" height="80"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ServiceCell" id="x3a-Pc-eEz" customClass="ServiceCell" customModule="UtrymApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="80" width="375" height="161"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="161"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Service" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgQ-yi-sZj">
+                                                    <rect key="frame" x="103.66666666666669" y="60" width="168" height="41"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="lgQ-yi-sZj" firstAttribute="centerY" secondItem="x3a-Pc-eEz" secondAttribute="centerY" id="11e-56-lvY"/>
+                                            <constraint firstItem="lgQ-yi-sZj" firstAttribute="centerX" secondItem="x3a-Pc-eEz" secondAttribute="centerX" id="VP5-aj-gxg"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="nameServices" destination="lgQ-yi-sZj" id="VxL-13-DyZ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ServiceHeaderCell" id="epz-Kr-Na3" customClass="ServiceHeaderCell" customModule="UtrymApp" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PN" translatesAutoresizingMaskIntoConstraints="NO" id="ypD-1f-qiI">
+                                            <rect key="frame" x="12" y="12" width="188" height="41"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftv-3l-afg">
+                                            <rect key="frame" x="313" y="15" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="LWD-QY-L1p"/>
+                                            </constraints>
+                                            <state key="normal" title="Button" image="avatar"/>
+                                            <connections>
+                                                <action selector="profileButtonTapped:" destination="epz-Kr-Na3" eventType="touchUpInside" id="KNn-Pe-Nv2"/>
+                                                <segue destination="UeE-ln-x8b" kind="presentation" identifier="profile_services" id="Pgi-CC-6R1"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ftv-3l-afg" firstAttribute="top" secondItem="epz-Kr-Na3" secondAttribute="top" constant="15" id="AhK-Vd-iFs"/>
+                                        <constraint firstItem="ypD-1f-qiI" firstAttribute="top" secondItem="epz-Kr-Na3" secondAttribute="top" constant="12" id="Dhc-2f-CSk"/>
+                                        <constraint firstItem="ypD-1f-qiI" firstAttribute="leading" secondItem="epz-Kr-Na3" secondAttribute="leading" constant="12" id="UE6-As-VWW"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ftv-3l-afg" secondAttribute="trailing" constant="4" id="a8H-y3-xUH"/>
+                                        <constraint firstAttribute="bottom" secondItem="ftv-3l-afg" secondAttribute="bottom" constant="15" id="kAM-rA-7uf"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="profileButton" destination="ftv-3l-afg" id="O3t-Uj-AYJ"/>
+                                        <outlet property="utrymLogo" destination="ypD-1f-qiI" id="JVm-jw-mKw"/>
+                                    </connections>
+                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="hQL-6F-buf" id="hXp-na-aeY"/>
+                                    <outlet property="delegate" destination="hQL-6F-buf" id="FC5-Mr-iiR"/>
+                                    <outlet property="prefetchDataSource" destination="hQL-6F-buf" id="xgx-On-LLC"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.67843137249999996" green="0.023529411760000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="NCC-pL-e95" firstAttribute="top" secondItem="9VJ-QJ-5kd" secondAttribute="top" id="3V5-vk-I8h"/>
-                            <constraint firstItem="NCC-pL-e95" firstAttribute="centerX" secondItem="9VJ-QJ-5kd" secondAttribute="centerX" id="7li-EY-khh"/>
-                            <constraint firstItem="NCC-pL-e95" firstAttribute="trailing" secondItem="n94-LP-4cU" secondAttribute="trailing" id="JM6-uk-uSP"/>
-                            <constraint firstItem="NCC-pL-e95" firstAttribute="leading" secondItem="n94-LP-4cU" secondAttribute="leading" id="Y5s-mG-fJy"/>
-                            <constraint firstAttribute="bottom" secondItem="NCC-pL-e95" secondAttribute="bottom" id="gIY-mX-dPP"/>
-                            <constraint firstItem="NCC-pL-e95" firstAttribute="centerY" secondItem="9VJ-QJ-5kd" secondAttribute="centerY" id="kVf-oP-rMJ"/>
+                            <constraint firstItem="bUw-hl-b7O" firstAttribute="centerX" secondItem="9VJ-QJ-5kd" secondAttribute="centerX" id="90u-da-Uck"/>
+                            <constraint firstItem="bUw-hl-b7O" firstAttribute="centerY" secondItem="9VJ-QJ-5kd" secondAttribute="centerY" id="O8Q-FG-G9r"/>
+                            <constraint firstItem="bUw-hl-b7O" firstAttribute="top" secondItem="9VJ-QJ-5kd" secondAttribute="top" id="bEF-Sm-sOc"/>
+                            <constraint firstItem="bUw-hl-b7O" firstAttribute="trailing" secondItem="n94-LP-4cU" secondAttribute="trailing" id="d7u-nV-V81"/>
+                            <constraint firstItem="bUw-hl-b7O" firstAttribute="leading" secondItem="n94-LP-4cU" secondAttribute="leading" id="e8c-P0-tWw"/>
+                            <constraint firstAttribute="bottom" secondItem="bUw-hl-b7O" secondAttribute="bottom" id="nQw-gP-GYw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n94-LP-4cU"/>
                     </view>
                     <navigationItem key="navigationItem" id="8Sy-4Y-6ed"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="bUw-hl-b7O" id="q5k-3K-2Ra"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qpa-DC-Rin" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1730" y="1133"/>
+            <point key="canvasLocation" x="1728.8" y="1432.7586206896553"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vuC-fL-i25">
@@ -443,7 +510,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nXE-FC-Ejw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2305" y="-341"/>
+            <point key="canvasLocation" x="2341" y="-601"/>
         </scene>
         <!--Profile Estilist Controller-->
         <scene sceneID="r9l-U1-cMb">
@@ -606,7 +673,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JuM-7R-R24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2997.5999999999999" y="-543.10344827586209"/>
+            <point key="canvasLocation" x="2951" y="-601"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pdn-bN-fcX">
@@ -625,7 +692,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VxS-JH-tZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1572" y="-341"/>
+            <point key="canvasLocation" x="1641" y="-601"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ciT-XF-PZV">
@@ -644,7 +711,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2lA-Uv-fCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3316" y="333"/>
+            <point key="canvasLocation" x="3095" y="332"/>
         </scene>
         <!--Sign Up Controller-->
         <scene sceneID="cE4-Fo-lRD">
@@ -821,11 +888,11 @@
         <!--Navigation Controller-->
         <scene sceneID="VKa-1C-3bf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="byy-eF-eUN" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="byy-eF-eUN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Botón Servicios" id="U0C-IG-cQc"/>
                     <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xXC-9W-y6d">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -835,7 +902,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YPU-62-ZPJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="906" y="1134"/>
+            <point key="canvasLocation" x="823" y="1435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FAB-rG-oRl">
@@ -899,6 +966,8 @@
         <image name="studio-2" width="550" height="761"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="I7G-4u-dTa"/>
         <segue reference="SdZ-Fc-BMB"/>
+        <segue reference="Pgi-CC-6R1"/>
     </inferredMetricsTieBreakers>
 </document>
