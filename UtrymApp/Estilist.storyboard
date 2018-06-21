@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="Whv-pN-qtb">
             <objects>
                 <viewController id="7Q8-HV-dxY" sceneMemberID="viewController">
@@ -41,14 +41,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="abb-0q-Vuk"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="b4J-q9-JBb"/>
+                    <tabBarItem key="tabBarItem" title="" image="Botón Citas" id="b4J-q9-JBb">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="vnd-8c-Kqq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eSr-Qa-9ko" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="671.20000000000005" y="988.66995073891633"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="ihk-3H-T7b">
             <objects>
                 <viewController id="dK7-vX-PjN" sceneMemberID="viewController">
@@ -79,13 +81,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AnR-Ao-1Bw"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="ZrJ-v3-UbU"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="Botón Buscar" id="ZrJ-v3-UbU">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rgT-o4-l57" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1092" y="1772.6600985221676"/>
+            <point key="canvasLocation" x="9" y="1742"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="Yr0-m2-EQz">
             <objects>
                 <viewController id="ub7-TT-54R" sceneMemberID="viewController">
@@ -111,25 +115,28 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L68-wU-IjN"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="hqx-9W-RD7"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="Botón Servicios" id="hqx-9W-RD7">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="73C-9r-ZBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-204" y="1773"/>
+            <point key="canvasLocation" x="-921" y="1742"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Estilist Tab Bar Controller-->
         <scene sceneID="hEt-MO-sdh">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="9Cc-pd-AxP" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="WelcomeEstilist" automaticallyAdjustsScrollViewInsets="NO" id="9Cc-pd-AxP" customClass="EstilistTabBarController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fdw-NY-WUc">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="7Q8-HV-dxY" kind="relationship" relationship="viewControllers" id="SKI-YR-sfr"/>
-                        <segue destination="dK7-vX-PjN" kind="relationship" relationship="viewControllers" id="WdA-Vi-HbS"/>
                         <segue destination="ub7-TT-54R" kind="relationship" relationship="viewControllers" id="Ys6-S9-xnA"/>
+                        <segue destination="dK7-vX-PjN" kind="relationship" relationship="viewControllers" id="WdA-Vi-HbS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YxP-xM-0bl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -139,5 +146,8 @@
     </scenes>
     <resources>
         <image name="Back" width="375" height="812"/>
+        <image name="Botón Buscar" width="23" height="23"/>
+        <image name="Botón Citas" width="22" height="23"/>
+        <image name="Botón Servicios" width="23" height="6"/>
     </resources>
 </document>

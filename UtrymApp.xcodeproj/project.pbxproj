@@ -11,6 +11,7 @@
 		7A7B9749A7C10479D927F903 /* Pods_UtrymAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E15D8BED02228F2F16D690 /* Pods_UtrymAppTests.framework */; };
 		8906FE6520BE5C9A003954F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8906FE6420BE5C9A003954F3 /* Main.storyboard */; };
 		8914525620CDEFC20030A67A /* TimeLineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8914525520CDEFC10030A67A /* TimeLineController.swift */; };
+		8943339820DB2D2E006F1BEE /* MGPhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8943339720DB2D2E006F1BEE /* MGPhotoHelper.swift */; };
 		89589C6020D6F9BF001B4336 /* Estilist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89589C5F20D6F9BE001B4336 /* Estilist.storyboard */; };
 		89589C6220D71F5F001B4336 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89589C6120D71F5F001B4336 /* Services.swift */; };
 		89589C6420D71FFC001B4336 /* ServicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89589C6320D71FFC001B4336 /* ServicesController.swift */; };
@@ -21,6 +22,8 @@
 		896B800020D0368B007B7C5D /* DetailPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896B7FFF20D0368B007B7C5D /* DetailPostController.swift */; };
 		896B800520D04445007B7C5D /* PostHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896B800420D04445007B7C5D /* PostHeaderCell.swift */; };
 		896B800720D044A2007B7C5D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896B800620D044A2007B7C5D /* PostCell.swift */; };
+		89AD3CBD20D9C64900D60F21 /* UploadPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD3CBC20D9C64800D60F21 /* UploadPostController.swift */; };
+		89AD3CBF20D9C73800D60F21 /* EstilistTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD3CBE20D9C73800D60F21 /* EstilistTabBarController.swift */; };
 		89B67D5420BB7D0E00D3BFBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B67D5320BB7D0E00D3BFBF /* AppDelegate.swift */; };
 		89B67D5620BB7D0E00D3BFBF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B67D5520BB7D0E00D3BFBF /* ViewController.swift */; };
 		89B67D5B20BB7D1300D3BFBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89B67D5A20BB7D1300D3BFBF /* Assets.xcassets */; };
@@ -52,6 +55,7 @@
 		87E15D8BED02228F2F16D690 /* Pods_UtrymAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtrymAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8906FE6420BE5C9A003954F3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8914525520CDEFC10030A67A /* TimeLineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineController.swift; sourceTree = "<group>"; };
+		8943339720DB2D2E006F1BEE /* MGPhotoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotoHelper.swift; sourceTree = "<group>"; };
 		89589C5F20D6F9BE001B4336 /* Estilist.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Estilist.storyboard; sourceTree = "<group>"; };
 		89589C6120D71F5F001B4336 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		89589C6320D71FFC001B4336 /* ServicesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesController.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 		896B7FFF20D0368B007B7C5D /* DetailPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostController.swift; sourceTree = "<group>"; };
 		896B800420D04445007B7C5D /* PostHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderCell.swift; sourceTree = "<group>"; };
 		896B800620D044A2007B7C5D /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		89AD3CBC20D9C64800D60F21 /* UploadPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostController.swift; sourceTree = "<group>"; };
+		89AD3CBE20D9C73800D60F21 /* EstilistTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstilistTabBarController.swift; sourceTree = "<group>"; };
 		89B67D5020BB7D0E00D3BFBF /* UtrymApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UtrymApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B67D5320BB7D0E00D3BFBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89B67D5520BB7D0E00D3BFBF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,8 +141,18 @@
 				896B7FFF20D0368B007B7C5D /* DetailPostController.swift */,
 				89BE1E3E20D4AD16001703B3 /* ProfileEstilistController.swift */,
 				89589C6320D71FFC001B4336 /* ServicesController.swift */,
+				89AD3CBC20D9C64800D60F21 /* UploadPostController.swift */,
+				89AD3CBE20D9C73800D60F21 /* EstilistTabBarController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		8943339620DB2C17006F1BEE /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				8943339720DB2D2E006F1BEE /* MGPhotoHelper.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		896B800120D04395007B7C5D /* View */ = {
@@ -181,6 +197,7 @@
 				8906FE6120BE48A2003954F3 /* Controller */,
 				89B67D5320BB7D0E00D3BFBF /* AppDelegate.swift */,
 				8906FE6420BE5C9A003954F3 /* Main.storyboard */,
+				8943339620DB2C17006F1BEE /* Tools */,
 				89589C5F20D6F9BE001B4336 /* Estilist.storyboard */,
 				89B67D5A20BB7D1300D3BFBF /* Assets.xcassets */,
 				89B67D5C20BB7D1300D3BFBF /* LaunchScreen.storyboard */,
@@ -421,6 +438,7 @@
 			files = (
 				89F2D7B820D1D48900688164 /* Estilist.swift in Sources */,
 				896B800520D04445007B7C5D /* PostHeaderCell.swift in Sources */,
+				89AD3CBF20D9C73800D60F21 /* EstilistTabBarController.swift in Sources */,
 				8960565420D81F6F006B8A3A /* Category.swift in Sources */,
 				89BE1E3D20D494F1001703B3 /* TimelineHeaderView.swift in Sources */,
 				89BE1E3F20D4AD16001703B3 /* ProfileEstilistController.swift in Sources */,
@@ -431,8 +449,10 @@
 				896B7FFE20D016B0007B7C5D /* User.swift in Sources */,
 				89BE1E3B20D47F6B001703B3 /* PostThumbImageCell.swift in Sources */,
 				89589C6220D71F5F001B4336 /* Services.swift in Sources */,
+				89AD3CBD20D9C64900D60F21 /* UploadPostController.swift in Sources */,
 				89589C6420D71FFC001B4336 /* ServicesController.swift in Sources */,
 				89F4F3BE20CF222F006E1AE1 /* Post.swift in Sources */,
+				8943339820DB2D2E006F1BEE /* MGPhotoHelper.swift in Sources */,
 				89BE1E4120D4B3B6001703B3 /* ProfileHeaderView.swift in Sources */,
 				8960565220D81BE3006B8A3A /* ServiceHeaderCell.swift in Sources */,
 				896B800720D044A2007B7C5D /* PostCell.swift in Sources */,

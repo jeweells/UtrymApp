@@ -22,6 +22,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var signFaceButton: UIButton!
     @IBOutlet weak var sigInGoogleButton: GIDSignInButton!
+    @IBOutlet weak var estilistButton: UIButton!
     
     
     var ref: DatabaseReference!
@@ -172,6 +173,16 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signIn()
         
     }
+    
+    @IBAction func estilistButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Estilist", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeEstilist") as UIViewController
+        
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    
+    
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
