@@ -12,6 +12,11 @@
 		8906FE6520BE5C9A003954F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8906FE6420BE5C9A003954F3 /* Main.storyboard */; };
 		8914525620CDEFC20030A67A /* TimeLineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8914525520CDEFC10030A67A /* TimeLineController.swift */; };
 		8943339820DB2D2E006F1BEE /* MGPhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8943339720DB2D2E006F1BEE /* MGPhotoHelper.swift */; };
+		894333A020DBF69E006F1BEE /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8943339F20DBF69E006F1BEE /* StorageService.swift */; };
+		894333A220DBFF02006F1BEE /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894333A120DBFF02006F1BEE /* PostService.swift */; };
+		894333A520DC6675006F1BEE /* UIImage+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894333A420DC6675006F1BEE /* UIImage+Size.swift */; };
+		894333A720DC670E006F1BEE /* StorageReference+Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894333A620DC670E006F1BEE /* StorageReference+Post.swift */; };
+		894333A920DC74BD006F1BEE /* PostEstilist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894333A820DC74BD006F1BEE /* PostEstilist.swift */; };
 		89589C6020D6F9BF001B4336 /* Estilist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89589C5F20D6F9BE001B4336 /* Estilist.storyboard */; };
 		89589C6220D71F5F001B4336 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89589C6120D71F5F001B4336 /* Services.swift */; };
 		89589C6420D71FFC001B4336 /* ServicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89589C6320D71FFC001B4336 /* ServicesController.swift */; };
@@ -56,6 +61,11 @@
 		8906FE6420BE5C9A003954F3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8914525520CDEFC10030A67A /* TimeLineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineController.swift; sourceTree = "<group>"; };
 		8943339720DB2D2E006F1BEE /* MGPhotoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotoHelper.swift; sourceTree = "<group>"; };
+		8943339F20DBF69E006F1BEE /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		894333A120DBFF02006F1BEE /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		894333A420DC6675006F1BEE /* UIImage+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Size.swift"; sourceTree = "<group>"; };
+		894333A620DC670E006F1BEE /* StorageReference+Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StorageReference+Post.swift"; sourceTree = "<group>"; };
+		894333A820DC74BD006F1BEE /* PostEstilist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEstilist.swift; sourceTree = "<group>"; };
 		89589C5F20D6F9BE001B4336 /* Estilist.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Estilist.storyboard; sourceTree = "<group>"; };
 		89589C6120D71F5F001B4336 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		89589C6320D71FFC001B4336 /* ServicesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesController.swift; sourceTree = "<group>"; };
@@ -147,12 +157,30 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		8943339620DB2C17006F1BEE /* Tools */ = {
+		8943339620DB2C17006F1BEE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				8943339720DB2D2E006F1BEE /* MGPhotoHelper.swift */,
 			);
-			path = Tools;
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8943339E20DBF5D2006F1BEE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8943339F20DBF69E006F1BEE /* StorageService.swift */,
+				894333A120DBFF02006F1BEE /* PostService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		894333A320DC665A006F1BEE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				894333A420DC6675006F1BEE /* UIImage+Size.swift */,
+				894333A620DC670E006F1BEE /* StorageReference+Post.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		896B800120D04395007B7C5D /* View */ = {
@@ -192,12 +220,14 @@
 		89B67D5220BB7D0E00D3BFBF /* UtrymApp */ = {
 			isa = PBXGroup;
 			children = (
-				896B800120D04395007B7C5D /* View */,
+				8943339E20DBF5D2006F1BEE /* Services */,
 				89F4F3BC20CF220F006E1AE1 /* Model */,
 				8906FE6120BE48A2003954F3 /* Controller */,
+				896B800120D04395007B7C5D /* View */,
+				8943339620DB2C17006F1BEE /* Helpers */,
+				894333A320DC665A006F1BEE /* Extensions */,
 				89B67D5320BB7D0E00D3BFBF /* AppDelegate.swift */,
 				8906FE6420BE5C9A003954F3 /* Main.storyboard */,
-				8943339620DB2C17006F1BEE /* Tools */,
 				89589C5F20D6F9BE001B4336 /* Estilist.storyboard */,
 				89B67D5A20BB7D1300D3BFBF /* Assets.xcassets */,
 				89B67D5C20BB7D1300D3BFBF /* LaunchScreen.storyboard */,
@@ -226,6 +256,7 @@
 				896B7FFD20D016B0007B7C5D /* User.swift */,
 				89589C6120D71F5F001B4336 /* Services.swift */,
 				8960565320D81F6F006B8A3A /* Category.swift */,
+				894333A820DC74BD006F1BEE /* PostEstilist.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -437,10 +468,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				89F2D7B820D1D48900688164 /* Estilist.swift in Sources */,
+				894333A920DC74BD006F1BEE /* PostEstilist.swift in Sources */,
+				894333A720DC670E006F1BEE /* StorageReference+Post.swift in Sources */,
+				894333A020DBF69E006F1BEE /* StorageService.swift in Sources */,
 				896B800520D04445007B7C5D /* PostHeaderCell.swift in Sources */,
 				89AD3CBF20D9C73800D60F21 /* EstilistTabBarController.swift in Sources */,
 				8960565420D81F6F006B8A3A /* Category.swift in Sources */,
 				89BE1E3D20D494F1001703B3 /* TimelineHeaderView.swift in Sources */,
+				894333A520DC6675006F1BEE /* UIImage+Size.swift in Sources */,
 				89BE1E3F20D4AD16001703B3 /* ProfileEstilistController.swift in Sources */,
 				896B800020D0368B007B7C5D /* DetailPostController.swift in Sources */,
 				89B67D5620BB7D0E00D3BFBF /* ViewController.swift in Sources */,
@@ -454,6 +489,7 @@
 				89F4F3BE20CF222F006E1AE1 /* Post.swift in Sources */,
 				8943339820DB2D2E006F1BEE /* MGPhotoHelper.swift in Sources */,
 				89BE1E4120D4B3B6001703B3 /* ProfileHeaderView.swift in Sources */,
+				894333A220DBFF02006F1BEE /* PostService.swift in Sources */,
 				8960565220D81BE3006B8A3A /* ServiceHeaderCell.swift in Sources */,
 				896B800720D044A2007B7C5D /* PostCell.swift in Sources */,
 				89F2D7BA20D1D85600688164 /* SignUpController.swift in Sources */,

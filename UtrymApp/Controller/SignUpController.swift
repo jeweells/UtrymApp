@@ -35,7 +35,10 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         Email.delegate = self
         Pass.delegate = self
         ConfirmPass.delegate = self
-        ProfileImage.layer.cornerRadius = ProfileImage.bounds.width / 2.0
+        ProfileImage.layer.borderWidth = 1.0
+        ProfileImage.layer.masksToBounds = true
+        //ProfileImage.layer.cornerRadius = ProfileImage.bounds.width / 2.0
+        ProfileImage.layer.cornerRadius = ProfileImage.bounds.size.width / 2.0
 
     }
 

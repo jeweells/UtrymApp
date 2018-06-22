@@ -7,17 +7,24 @@
 //
 
 import Foundation
+import UIKit
+import FirebaseDatabase
+
+
 class Post {
-    //var caption: String
-    var url: String
-    //var profile: UIImage
-    //var image: UIImage
-    
-    init(urlString: String) {
-    //init(captionText: String, urlString: String) {
-        //caption = captionText
-        url = urlString
-        //profile = profileImage
-        //image = imagePost
-    }
+
+     //var caption: String
+     var url: String
+     //var profile: UIImage
+     //var image: UIImage
+     
+     init(urlString: String) {
+     //init(captionText: String, urlString: String) {
+     //caption = captionText
+     url = urlString
+     //profile = profileImage
+     //image = imagePost
+     }
 }
+
+
