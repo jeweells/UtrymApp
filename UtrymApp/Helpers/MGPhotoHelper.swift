@@ -9,11 +9,8 @@
 import UIKit
 
 class MGPhotoHelper: NSObject {
-    // MARK: - Properties
     
     var completionHandler: ((UIImage) -> Void)?
-    
-    // MARK: - Helper Methods
     
     func presentActionSheet(from viewController: UIViewController) {
         let alertController = UIAlertController(title: nil, message: "De dónde deseas elegir la imagen?", preferredStyle: .actionSheet)

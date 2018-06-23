@@ -20,7 +20,9 @@ class TimeLineController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBarItems()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        
         let backgroundImage = UIImage(named: "Back.png")
         let imageView = UIImageView(image: backgroundImage)
         self.collectionView.backgroundView = imageView
@@ -29,6 +31,26 @@ class TimeLineController: UIViewController {
         
     }
     
+    private func setupNavigationBarItems(){
+        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Logo_inter"))
+        navigationItem.titleView = titleImageView
+        
+        let rightButton = UIButton(type: .system)
+        rightButton.setImage(#imageLiteral(resourceName: "Mask_avatar").withRenderingMode(.alwaysOriginal), for: .normal)
+        rightButton.frame = CGRect(x: 0, y: 0, width: 34, height:34)
+        rightButton.contentMode = .scaleAspectFit
+        rightButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
+        
+        //let leftIcon = UIButton(type: .system)
+        //leftIcon.setImage(#imageLiteral(resourceName: "backButtonW"), for: .normal)
+        //navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftIcon)
+    }
+    
+    @objc func profileTapped(){
+        //show(ProfileClientController(), sender: self)
+        self.performSegue(withIdentifier: "profileClient", sender: self)
+    }
     
     func loadPosts() {
         Database.database().reference().child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
@@ -106,14 +128,14 @@ extension TimeLineController: UICollectionViewDelegateFlowLayout {
         return 1.5
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    /*func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard kind == UICollectionElementKindSectionHeader else {
             fatalError("Unexpected element kind.")
         }
         
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "TimelineHeaderView", for: indexPath) as! TimelineHeaderView
         return headerView
-    }
+    }*/
 }
 
 

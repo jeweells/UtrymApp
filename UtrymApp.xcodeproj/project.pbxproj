@@ -17,6 +17,13 @@
 		894333A520DC6675006F1BEE /* UIImage+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894333A420DC6675006F1BEE /* UIImage+Size.swift */; };
 		894333A720DC670E006F1BEE /* StorageReference+Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894333A620DC670E006F1BEE /* StorageReference+Post.swift */; };
 		894333A920DC74BD006F1BEE /* PostEstilist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894333A820DC74BD006F1BEE /* PostEstilist.swift */; };
+		894333AB20DD717A006F1BEE /* HomeEstilistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894333AA20DD717A006F1BEE /* HomeEstilistController.swift */; };
+		894333AD20DD989C006F1BEE /* ProfileClientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894333AC20DD989B006F1BEE /* ProfileClientController.swift */; };
+		894333AF20DDAD2C006F1BEE /* ListEstilistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894333AE20DDAD2C006F1BEE /* ListEstilistController.swift */; };
+		894333B120DDAE37006F1BEE /* CitasClientsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894333B020DDAE37006F1BEE /* CitasClientsController.swift */; };
+		894333B320DDAF3A006F1BEE /* CitasEstilistsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894333B220DDAF3A006F1BEE /* CitasEstilistsController.swift */; };
+		894333B520DDB0C3006F1BEE /* ClientTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894333B420DDB0C3006F1BEE /* ClientTabBarController.swift */; };
+		894333B720DDBD22006F1BEE /* ProfileEstController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894333B620DDBD21006F1BEE /* ProfileEstController.swift */; };
 		89589C6020D6F9BF001B4336 /* Estilist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89589C5F20D6F9BE001B4336 /* Estilist.storyboard */; };
 		89589C6220D71F5F001B4336 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89589C6120D71F5F001B4336 /* Services.swift */; };
 		89589C6420D71FFC001B4336 /* ServicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89589C6320D71FFC001B4336 /* ServicesController.swift */; };
@@ -66,6 +73,13 @@
 		894333A420DC6675006F1BEE /* UIImage+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Size.swift"; sourceTree = "<group>"; };
 		894333A620DC670E006F1BEE /* StorageReference+Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StorageReference+Post.swift"; sourceTree = "<group>"; };
 		894333A820DC74BD006F1BEE /* PostEstilist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEstilist.swift; sourceTree = "<group>"; };
+		894333AA20DD717A006F1BEE /* HomeEstilistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEstilistController.swift; sourceTree = "<group>"; };
+		894333AC20DD989B006F1BEE /* ProfileClientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileClientController.swift; sourceTree = "<group>"; };
+		894333AE20DDAD2C006F1BEE /* ListEstilistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEstilistController.swift; sourceTree = "<group>"; };
+		894333B020DDAE37006F1BEE /* CitasClientsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitasClientsController.swift; sourceTree = "<group>"; };
+		894333B220DDAF3A006F1BEE /* CitasEstilistsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitasEstilistsController.swift; sourceTree = "<group>"; };
+		894333B420DDB0C3006F1BEE /* ClientTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTabBarController.swift; sourceTree = "<group>"; };
+		894333B620DDBD21006F1BEE /* ProfileEstController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEstController.swift; sourceTree = "<group>"; };
 		89589C5F20D6F9BE001B4336 /* Estilist.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Estilist.storyboard; sourceTree = "<group>"; };
 		89589C6120D71F5F001B4336 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		89589C6320D71FFC001B4336 /* ServicesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesController.swift; sourceTree = "<group>"; };
@@ -148,11 +162,18 @@
 				89B67D5520BB7D0E00D3BFBF /* ViewController.swift */,
 				89F2D7B920D1D85600688164 /* SignUpController.swift */,
 				8914525520CDEFC10030A67A /* TimeLineController.swift */,
+				894333AC20DD989B006F1BEE /* ProfileClientController.swift */,
 				896B7FFF20D0368B007B7C5D /* DetailPostController.swift */,
 				89BE1E3E20D4AD16001703B3 /* ProfileEstilistController.swift */,
 				89589C6320D71FFC001B4336 /* ServicesController.swift */,
 				89AD3CBC20D9C64800D60F21 /* UploadPostController.swift */,
 				89AD3CBE20D9C73800D60F21 /* EstilistTabBarController.swift */,
+				894333B420DDB0C3006F1BEE /* ClientTabBarController.swift */,
+				894333AA20DD717A006F1BEE /* HomeEstilistController.swift */,
+				894333AE20DDAD2C006F1BEE /* ListEstilistController.swift */,
+				894333B020DDAE37006F1BEE /* CitasClientsController.swift */,
+				894333B220DDAF3A006F1BEE /* CitasEstilistsController.swift */,
+				894333B620DDBD21006F1BEE /* ProfileEstController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -473,6 +494,7 @@
 				894333A020DBF69E006F1BEE /* StorageService.swift in Sources */,
 				896B800520D04445007B7C5D /* PostHeaderCell.swift in Sources */,
 				89AD3CBF20D9C73800D60F21 /* EstilistTabBarController.swift in Sources */,
+				894333B520DDB0C3006F1BEE /* ClientTabBarController.swift in Sources */,
 				8960565420D81F6F006B8A3A /* Category.swift in Sources */,
 				89BE1E3D20D494F1001703B3 /* TimelineHeaderView.swift in Sources */,
 				894333A520DC6675006F1BEE /* UIImage+Size.swift in Sources */,
@@ -481,14 +503,20 @@
 				89B67D5620BB7D0E00D3BFBF /* ViewController.swift in Sources */,
 				8914525620CDEFC20030A67A /* TimeLineController.swift in Sources */,
 				89B67D5420BB7D0E00D3BFBF /* AppDelegate.swift in Sources */,
+				894333B120DDAE37006F1BEE /* CitasClientsController.swift in Sources */,
 				896B7FFE20D016B0007B7C5D /* User.swift in Sources */,
 				89BE1E3B20D47F6B001703B3 /* PostThumbImageCell.swift in Sources */,
 				89589C6220D71F5F001B4336 /* Services.swift in Sources */,
+				894333AB20DD717A006F1BEE /* HomeEstilistController.swift in Sources */,
 				89AD3CBD20D9C64900D60F21 /* UploadPostController.swift in Sources */,
 				89589C6420D71FFC001B4336 /* ServicesController.swift in Sources */,
+				894333B720DDBD22006F1BEE /* ProfileEstController.swift in Sources */,
+				894333B320DDAF3A006F1BEE /* CitasEstilistsController.swift in Sources */,
+				894333AF20DDAD2C006F1BEE /* ListEstilistController.swift in Sources */,
 				89F4F3BE20CF222F006E1AE1 /* Post.swift in Sources */,
 				8943339820DB2D2E006F1BEE /* MGPhotoHelper.swift in Sources */,
 				89BE1E4120D4B3B6001703B3 /* ProfileHeaderView.swift in Sources */,
+				894333AD20DD989C006F1BEE /* ProfileClientController.swift in Sources */,
 				894333A220DBFF02006F1BEE /* PostService.swift in Sources */,
 				8960565220D81BE3006B8A3A /* ServiceHeaderCell.swift in Sources */,
 				896B800720D044A2007B7C5D /* PostCell.swift in Sources */,

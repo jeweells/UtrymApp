@@ -19,6 +19,9 @@ class ServicesController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBarItems()
+        profileTapped()
+
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         let backgroundImage = UIImage(named: "Back.png")
         let imageView = UIImageView(image: backgroundImage)
@@ -28,6 +31,23 @@ class ServicesController: UIViewController {
         loadCategorys()
     }
     
+    private func setupNavigationBarItems(){
+        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Logo_inter"))
+        navigationItem.titleView = titleImageView
+        
+        let rightButton = UIButton(type: .system)
+        rightButton.setImage(#imageLiteral(resourceName: "Mask_avatar").withRenderingMode(.alwaysOriginal), for: .normal)
+        rightButton.frame = CGRect(x: 0, y: 0, width: 34, height:34)
+        rightButton.contentMode = .scaleAspectFit
+        rightButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
+        
+    }
+    
+    @objc func profileTapped(){
+        //show(ProfileClientController(), sender: self)
+        //self.performSegue(withIdentifier: "clientProf", sender: self)
+    }
     
     func loadCategorys() {
         let ref = Database.database().reference()
@@ -43,21 +63,12 @@ class ServicesController: UIViewController {
         }
         ref.removeAllObservers()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-
-
 }
 
 
 extension ServicesController: UICollectionViewDataSource {
     func collectionView(_ collectionService: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return 10
         return categorys.count
     }
     
@@ -68,6 +79,7 @@ extension ServicesController: UICollectionViewDataSource {
         return cell
     }
 }
+
 
 extension ServicesController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -88,14 +100,14 @@ extension ServicesController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 1.5
     }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+}
+    /*func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard kind == UICollectionElementKindSectionHeader else {
             fatalError("Unexpected element kind.")
         }
         
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ServiceHeaderCell", for: indexPath) as! ServiceHeaderCell
         return headerView
-    }
-}
+    }*/
+
 

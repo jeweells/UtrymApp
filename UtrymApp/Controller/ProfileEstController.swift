@@ -1,40 +1,58 @@
 //
-//  ProfileEstilistController.swift
+//  ProfileEstController.swift
 //  UtrymApp
 //
-//  Created by Alexis Barniquez on 15/6/18.
+//  Created by Alexis Barniquez on 22/6/18.
 //  Copyright © 2018 Alexis Barniquez. All rights reserved.
 //
 
 import UIKit
 
-class ProfileEstilistController: UIViewController {
+class ProfileEstController: UIViewController {
     
-    @IBOutlet weak var collectionProfile: UICollectionView!
-
+    @IBOutlet weak var collectionProf: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        let backgroundImage = UIImage(named: "Back_profile.png")
-        let imageView = UIImageView(image: backgroundImage)
-        self.collectionProfile.backgroundView = imageView
-        imageView.contentMode = .scaleToFill
-        imageView.clipsToBounds = true
-        imageView.center = view.center
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        let horizontalConstraint = imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        let verticalConstraint = imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
         
-        imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        setupNavigationBarItems()
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = #imageLiteral(resourceName: "Line")
+        
+        let backgroundImage = UIImage(named: "Back_profile_only.png")
+        let imageView = UIImageView(image: backgroundImage)
+        self.collectionProf.backgroundView = imageView
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    private func setupNavigationBarItems(){
+        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Logo_inter"))
+        navigationItem.titleView = titleImageView
+        
+        let leftIcon = UIButton(type: .system)
+        //leftIcon.setImage(#imageLiteral(resourceName: "backButtonW"), for: .normal)
+        leftIcon.setImage(#imageLiteral(resourceName: "backButtonW").withRenderingMode(.alwaysOriginal), for: .normal)
+        leftIcon.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftIcon)
+    }
+    
+    @objc func backTapped(){
+        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Button") {
+            UIApplication.shared.keyWindow?.rootViewController = viewController
+            self.dismiss(animated: true, completion: nil)
+        }
+        //show(ProfileEstController(), sender: self)
+        //self.performSegue(withIdentifier: "backEst", sender: self)
     }
 
 }
 
-extension ProfileEstilistController: UICollectionViewDataSource {
+extension ProfileEstController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 100
     }
@@ -46,9 +64,8 @@ extension ProfileEstilistController: UICollectionViewDataSource {
     }
 }
 
-extension ProfileEstilistController: UICollectionViewDelegateFlowLayout {
+extension ProfileEstController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //let itemSize = CGSize(width: 124, height: 124)
         let columns: CGFloat = 3
         let spacing: CGFloat = 1.5
         let totalHorizontalSpacing = (columns - 1) * spacing

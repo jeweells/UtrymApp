@@ -29,7 +29,7 @@ struct PostService {
     }
     
     private static func create(forURLString urlString: String, aspectHeight: CGFloat) {        
-        let currentUser = User.current
+        //let currentUser = User.current
         //let post = Post(imageURL: urlString)
         let post = PostEstilist(imageURL: urlString, imageHeight: aspectHeight)
         let dict = post.dictValue

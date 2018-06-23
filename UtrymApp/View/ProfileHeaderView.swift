@@ -10,15 +10,13 @@ import UIKit
 
 class ProfileHeaderView: UICollectionReusableView {
     
-    @IBOutlet weak var logoUtrym: UIImageView!
     @IBOutlet weak var imageProfile: UIImageView!
     @IBOutlet weak var citasButton: UIButton!
-    @IBOutlet weak var reputacion: UIButton!
+    @IBOutlet weak var calif: UIButton!
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var profesion: UILabel!
-    @IBOutlet weak var biografia: UITextView!
+    @IBOutlet weak var bio: UILabel!
     @IBOutlet weak var skills: UIImageView!
-    @IBOutlet weak var backButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

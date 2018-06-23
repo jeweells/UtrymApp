@@ -182,9 +182,6 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     
-    
-    
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
