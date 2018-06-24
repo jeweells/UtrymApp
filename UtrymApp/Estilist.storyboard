@@ -261,11 +261,11 @@
             <objects>
                 <tabBarController storyboardIdentifier="WelcomeEstilist" automaticallyAdjustsScrollViewInsets="NO" id="9Cc-pd-AxP" customClass="EstilistTabBarController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="Barra inferior" id="fdw-NY-WUc">
+                    <tabBar key="tabBar" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="tab_bar" itemPositioning="fill" id="fdw-NY-WUc">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" red="0.32156862749999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="EJt-uo-aPg" kind="relationship" relationship="viewControllers" id="wsr-Bg-ihh"/>
@@ -361,11 +361,11 @@
     </scenes>
     <resources>
         <image name="Back" width="375" height="812"/>
-        <image name="Barra inferior" width="375" height="48"/>
         <image name="Boton de reputacion" width="31" height="29"/>
         <image name="Botón Buscar" width="23" height="23"/>
         <image name="Botón Citas" width="22" height="23"/>
         <image name="Home-1" width="23" height="23"/>
         <image name="Rectangle_seguir" width="107" height="29"/>
+        <image name="tab_bar" width="375" height="48"/>
     </resources>
 </document>

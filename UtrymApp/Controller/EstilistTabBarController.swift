@@ -19,7 +19,7 @@ class EstilistTabBarController: UITabBarController {
         }
         
         delegate = self
-        tabBar.unselectedItemTintColor = .white
+        tabBar.unselectedItemTintColor = .black
     }
 
     override func didReceiveMemoryWarning() {

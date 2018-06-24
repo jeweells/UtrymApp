@@ -17,7 +17,7 @@ class ProfileEstController: UIViewController {
         
         setupNavigationBarItems()
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Barra_superior_dark.png"), for: .default)
         navigationController?.navigationBar.shadowImage = #imageLiteral(resourceName: "Line")
         
         let backgroundImage = UIImage(named: "Back_profile_only.png")

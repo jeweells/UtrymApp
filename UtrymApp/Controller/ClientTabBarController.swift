@@ -14,7 +14,7 @@ class ClientTabBarController: UITabBarController {
         super.viewDidLoad()
         
         //delegate = self
-        tabBar.unselectedItemTintColor = .white
+        tabBar.unselectedItemTintColor = .black
     }
 
     override func didReceiveMemoryWarning() {
