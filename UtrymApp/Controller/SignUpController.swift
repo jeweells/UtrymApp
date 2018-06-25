@@ -84,6 +84,7 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             self.ProfileImage.image = image
             SignUpButton.isHidden = false
+            SelectImage.isHidden = true
         }
         self.dismiss(animated: true, completion: nil)
     }

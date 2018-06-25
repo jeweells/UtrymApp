@@ -22,7 +22,7 @@ class ServicesController: UIViewController {
         setupNavigationBarItems()
         profileTapped()
 
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Barra_superior_dark.png"), for: .default)
         let backgroundImage = UIImage(named: "Back.png")
         let imageView = UIImageView(image: backgroundImage)
         self.collectionView.backgroundView = imageView
