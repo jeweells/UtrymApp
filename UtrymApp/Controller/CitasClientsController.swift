@@ -24,7 +24,7 @@ class CitasClientsController: UIViewController {
     }
     
     private func setupNavigationBarItems(){
-        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Logo_inter"))
+        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Utrym_Interno"))
         navigationItem.titleView = titleImageView
         
         let rightButton = UIButton(type: .system)

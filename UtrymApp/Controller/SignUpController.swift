@@ -16,8 +16,9 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     @IBOutlet weak var Pass: UITextField!
     @IBOutlet weak var ConfirmPass: UITextField!
     @IBOutlet weak var SignUpButton: UIButton!
-    @IBOutlet weak var SelectImage: UIButton!
     @IBOutlet weak var ProfileImage: UIImageView!
+    @IBOutlet weak var SelectImage: UIButton!
+    
     
     let picker = UIImagePickerController()
     var userStorage : StorageReference!
@@ -35,7 +36,7 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         Email.delegate = self
         Pass.delegate = self
         ConfirmPass.delegate = self
-        ProfileImage.layer.borderWidth = 1.0
+        //ProfileImage.layer.borderWidth = 1.0
         ProfileImage.layer.masksToBounds = true
         //ProfileImage.layer.cornerRadius = ProfileImage.bounds.width / 2.0
         ProfileImage.layer.cornerRadius = ProfileImage.bounds.size.width / 2.0
@@ -50,12 +51,11 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         self.view.endEditing(true)
     }
     
-    @IBAction func SelectImage(_ sender: Any) {
-        
+    
+    @IBAction func SelectImageTapped(_ sender: Any) {
         picker.allowsEditing = true
         picker.sourceType = .photoLibrary
         present(picker, animated: true, completion: nil)
-        
     }
     
     // Ocultar teclado cuando se mantenga presionada la tecla return en cualquiera de los inputs
@@ -89,7 +89,15 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     }
     
     @IBAction func SignUp(_ sender: Any) {
-        guard FullName.text != "", Email.text != "", Pass.text != "", ConfirmPass.text != "" else { return }
+        guard FullName.text != "", Email.text != "", Pass.text != "", ConfirmPass.text != "" else {
+            let alertController = UIAlertController(title: "UtrymApp", message:
+                "Debe llenar todos los campos", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            
+            return
+            
+        }
         let email = Email.text
         let pass = Pass.text
         if Pass.text == ConfirmPass.text {
