@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class ProfileEstController: UIViewController {
     
@@ -17,7 +18,7 @@ class ProfileEstController: UIViewController {
         
         setupNavigationBarItems()
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Barra_superior_dark.png"), for: .default)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "barra_superior_dark.png"), for: .default)
         navigationController?.navigationBar.shadowImage = #imageLiteral(resourceName: "Line")
         
         let backgroundImage = UIImage(named: "Back_profile_only.png")
@@ -31,7 +32,7 @@ class ProfileEstController: UIViewController {
     }
     
     private func setupNavigationBarItems(){
-        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Logo_inter"))
+        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Utrym_Interno"))
         navigationItem.titleView = titleImageView
         
         let leftIcon = UIButton(type: .system)
@@ -42,10 +43,10 @@ class ProfileEstController: UIViewController {
     }
     
     @objc func backTapped(){
-        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Button") {
+        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "CitasEst") {
             UIApplication.shared.keyWindow?.rootViewController = viewController
             self.dismiss(animated: true, completion: nil)
-        }
+         }
         //show(ProfileEstController(), sender: self)
         //self.performSegue(withIdentifier: "backEst", sender: self)
     }

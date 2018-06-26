@@ -9,14 +9,13 @@
 import UIKit
 
 class CitasEstilistsController: UIViewController {
-    @IBOutlet weak var perfilButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBarItems()
-        profileTapped()
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        setupNavigationBarItems()
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Barra_superior_ligth.png"), for: .default)
         
     }
     
@@ -38,12 +37,7 @@ class CitasEstilistsController: UIViewController {
     }
     
     @objc func profileTapped(){
+        self.performSegue(withIdentifier: "estilista", sender: self)
         //show(ProfileEstilistController(), sender: self)
     }
-    
-    @IBAction func perfilButtonTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "prof", sender: self)
-    }
-    
-    
 }

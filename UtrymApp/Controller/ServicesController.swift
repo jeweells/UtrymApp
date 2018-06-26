@@ -22,8 +22,8 @@ class ServicesController: UIViewController {
         setupNavigationBarItems()
         profileTapped()
 
-        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Barra_superior_dark.png"), for: .default)
-        let backgroundImage = UIImage(named: "Back.png")
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "barra_superior_dark.png"), for: .default)
+        let backgroundImage = UIImage(named: "background_dark.png")
         let imageView = UIImageView(image: backgroundImage)
         self.collectionView.backgroundView = imageView
         imageView.contentMode = .scaleAspectFill
@@ -75,7 +75,11 @@ extension ServicesController: UICollectionViewDataSource {
     func collectionView(_ collectionService: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionService.dequeueReusableCell(withReuseIdentifier: "ServiceCell", for: indexPath) as! ServiceCell
         cell.nameServices?.text = categorys[indexPath.row].nombre
-        cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        //cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        let backgroundImage = UIImage(named: "back_services.png")
+        let imageView = UIImageView(image: backgroundImage)
+        cell.backgroundView = imageView
+        imageView.contentMode = .scaleAspectFill
         return cell
     }
 }
@@ -83,22 +87,22 @@ extension ServicesController: UICollectionViewDataSource {
 
 extension ServicesController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let columns: CGFloat = 1
+        let columns: CGFloat = 2
         let spacing: CGFloat = 1.5
         let totalHorizontalSpacing = (columns) * spacing
         
         let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
-        let itemSize = CGSize(width: itemWidth, height: 100)
+        let itemSize = CGSize(width: itemWidth, height: 250)
         
         return itemSize
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1.5
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1.5
+        return 3
     }
 }
     /*func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
