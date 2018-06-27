@@ -16,4 +16,5 @@ class PostThumbImageCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
 }

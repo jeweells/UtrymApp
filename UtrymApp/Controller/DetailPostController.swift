@@ -55,14 +55,15 @@ extension  DetailPostController {
             return posts.count
         }
         
-        return 0
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = tableDView.dequeueReusableCell(withIdentifier: Storyboard.postCell, for: indexPath) as! PostCell
+        let cell = tableDView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
         
-        cell.post = self.posts?[indexPath.row]
-        cell.selectionStyle = .none
+        cell.postImage?.image = UIImage(named: "studio-2.jpg")
+        //cell.post = self.posts?[indexPath.row]
+        //cell.selectionStyle = .none
         
         return cell
     }

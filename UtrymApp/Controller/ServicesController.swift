@@ -20,7 +20,7 @@ class ServicesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarItems()
-        profileTapped()
+        //profileTapped()
 
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "barra_superior_dark.png"), for: .default)
         let backgroundImage = UIImage(named: "background_dark.png")
@@ -80,6 +80,8 @@ extension ServicesController: UICollectionViewDataSource {
         let imageView = UIImageView(image: backgroundImage)
         cell.backgroundView = imageView
         imageView.contentMode = .scaleAspectFill
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 10
         return cell
     }
 }

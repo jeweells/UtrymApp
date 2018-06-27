@@ -11,6 +11,7 @@
 		7A7B9749A7C10479D927F903 /* Pods_UtrymAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E15D8BED02228F2F16D690 /* Pods_UtrymAppTests.framework */; };
 		8906FE6520BE5C9A003954F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8906FE6420BE5C9A003954F3 /* Main.storyboard */; };
 		8914525620CDEFC20030A67A /* TimeLineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8914525520CDEFC10030A67A /* TimeLineController.swift */; };
+		891E9E3D20E4428C00F5BF33 /* EstilistSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E9E3C20E4428C00F5BF33 /* EstilistSearchCell.swift */; };
 		8943339820DB2D2E006F1BEE /* MGPhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8943339720DB2D2E006F1BEE /* MGPhotoHelper.swift */; };
 		894333A020DBF69E006F1BEE /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8943339F20DBF69E006F1BEE /* StorageService.swift */; };
 		894333A220DBFF02006F1BEE /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894333A120DBFF02006F1BEE /* PostService.swift */; };
@@ -67,6 +68,7 @@
 		87E15D8BED02228F2F16D690 /* Pods_UtrymAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtrymAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8906FE6420BE5C9A003954F3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8914525520CDEFC10030A67A /* TimeLineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineController.swift; sourceTree = "<group>"; };
+		891E9E3C20E4428C00F5BF33 /* EstilistSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstilistSearchCell.swift; sourceTree = "<group>"; };
 		8943339720DB2D2E006F1BEE /* MGPhotoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotoHelper.swift; sourceTree = "<group>"; };
 		8943339F20DBF69E006F1BEE /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		894333A120DBFF02006F1BEE /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				89BE1E3C20D494F1001703B3 /* TimelineHeaderView.swift */,
 				89BE1E4020D4B3B6001703B3 /* ProfileHeaderView.swift */,
 				8960565120D81BE3006B8A3A /* ServiceHeaderCell.swift */,
+				891E9E3C20E4428C00F5BF33 /* EstilistSearchCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				89589C6420D71FFC001B4336 /* ServicesController.swift in Sources */,
 				894333B720DDBD22006F1BEE /* ProfileEstController.swift in Sources */,
 				894333B320DDAF3A006F1BEE /* CitasEstilistsController.swift in Sources */,
+				891E9E3D20E4428C00F5BF33 /* EstilistSearchCell.swift in Sources */,
 				894333AF20DDAD2C006F1BEE /* ListEstilistController.swift in Sources */,
 				89F4F3BE20CF222F006E1AE1 /* Post.swift in Sources */,
 				8943339820DB2D2E006F1BEE /* MGPhotoHelper.swift in Sources */,
