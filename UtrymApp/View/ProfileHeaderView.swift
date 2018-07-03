@@ -23,9 +23,11 @@ class ProfileHeaderView: UICollectionReusableView {
         
         imageProfile.layer.cornerRadius = imageProfile.bounds.width / 2.0
         imageProfile.layer.masksToBounds = true
-        imageProfile.layer.borderColor = UIColor.red.cgColor
-        imageProfile.layer.borderWidth = 1
-        skills.layer.cornerRadius = skills.bounds.width / 2.0
+        //imageProfile.layer.borderColor = UIColor.red.cgColor
+        //imageProfile.layer.borderWidth = 1
+        //skills.layer.cornerRadius = skills.bounds.width / 2.0
+        skills.layer.masksToBounds = true
+        skills.layer.cornerRadius = 10
         
     }
         

@@ -19,7 +19,7 @@ class ProfileEstController: UIViewController {
         setupNavigationBarItems()
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "barra_superior_dark.png"), for: .default)
-        navigationController?.navigationBar.shadowImage = #imageLiteral(resourceName: "Line")
+        //navigationController?.navigationBar.shadowImage = #imageLiteral(resourceName: "Line")
         
         let backgroundImage = UIImage(named: "Back_profile_only.png")
         let imageView = UIImageView(image: backgroundImage)
@@ -59,8 +59,8 @@ extension ProfileEstController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostThumbImageCell", for: indexPath) as! PostThumbImageCell
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostEstThumbProfileCell", for: indexPath) as! PostEstThumbProfileCell
+        cell.postEst?.image = UIImage(named: "card-profile7.jpg")
         return cell
     }
 }

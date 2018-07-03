@@ -142,9 +142,12 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
                             if let url = url {
                                 let userInfo: [String: Any] = ["uid": UserId!,
                                                                "nombre completo": self.FullName.text!,
+                                                               "email": email!,
+                                                               "password": pass!,
                                                                "urlToImage": url.absoluteString]
                                 self.ref.child("clientes").child(UserId!).setValue(userInfo)
                                 
+                                // al redireccionar al home no muestra el navigation bar ni el tab bar
                                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeViewController")
                                 self.present(vc, animated: true, completion: nil)
                             }
