@@ -1,0 +1,6 @@
+framework module Pods_UtrymAppTests {
+  umbrella header "Pods-UtrymAppTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
