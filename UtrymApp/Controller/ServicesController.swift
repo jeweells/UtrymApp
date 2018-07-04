@@ -90,7 +90,7 @@ extension ServicesController: UICollectionViewDataSource {
 extension ServicesController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let columns: CGFloat = 2
-        let spacing: CGFloat = 1.5
+        let spacing: CGFloat = 2.5
         let totalHorizontalSpacing = (columns) * spacing
         
         let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
