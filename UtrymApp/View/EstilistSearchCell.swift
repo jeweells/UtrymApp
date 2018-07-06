@@ -11,7 +11,8 @@ import UIKit
 class EstilistSearchCell: UICollectionViewCell {
     @IBOutlet weak var avatarEstilist: UIImageView!
     @IBOutlet weak var borde_avatar: UIImageView!
-    @IBOutlet weak var fullNameEstilist: UILabel!
+    @IBOutlet weak var nameEstilist: UILabel!
+    @IBOutlet weak var apellidoEstilist: UILabel!
     @IBOutlet weak var buttonCitar: UIButton!
     
     
@@ -19,6 +20,8 @@ class EstilistSearchCell: UICollectionViewCell {
         super.awakeFromNib()
         avatarEstilist.layer.masksToBounds = true
         avatarEstilist.layer.cornerRadius = avatarEstilist.bounds.size.width / 2.0
+        buttonCitar.layer.masksToBounds = true
+        buttonCitar.layer.cornerRadius = 15
     }
 }
 

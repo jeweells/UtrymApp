@@ -7,3 +7,15 @@
 //
 
 import Foundation
+class Estilist {
+    
+    var nombre: String
+    var apellido: String
+    var url: String
+    
+    init(nombreText: String, apellidoText: String, urlText: String) {
+        nombre = nombreText
+        apellido = apellidoText
+        url = urlText
+    }
+}

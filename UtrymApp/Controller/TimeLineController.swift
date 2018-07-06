@@ -17,24 +17,26 @@ class TimeLineController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var posts = [Post]()
+    //var clients = [Client]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarItems()
+        //fecthUser()
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Barra_superior_ligth.png"), for: .default)
-        
         let backgroundImage = UIImage(named: "Back.png")
         let imageView = UIImageView(image: backgroundImage)
         self.collectionView.backgroundView = imageView
         imageView.contentMode = .scaleAspectFill
         loadPosts()
-        
     }
     
     private func setupNavigationBarItems(){
+        // logo Utrym en el centro del NavBar
         let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Utrym_Interno"))
         navigationItem.titleView = titleImageView
         
+        // icono avatar botón derecho del NavBar
         let rightButton = UIButton(type: .system)
         rightButton.setImage(#imageLiteral(resourceName: "Mask_avatar").withRenderingMode(.alwaysOriginal), for: .normal)
         rightButton.frame = CGRect(x: 0, y: 0, width: 34, height:34)
@@ -47,10 +49,52 @@ class TimeLineController: UIViewController {
         //navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftIcon)
     }
     
+
+    
     @objc func profileTapped(){
         //show(ProfileClientController(), sender: self)
         self.performSegue(withIdentifier: "profileClient", sender: self)
     }
+ 
+    /*
+    private func fecthUser() {
+        if Auth.auth().currentUser?.uid == nil {
+            print ("no hay ningun usuario logeado")
+        }
+        else {
+            setupProfileImageNavBar()
+        }
+    }
+
+    func setupProfileImageNavBar() {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            // for some reason uid = nil
+            return
+        }
+        Database.database().reference().child("clientes").child(uid).observe(.value) { (snapshot: DataSnapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let fullNameText = dict["nombre completo"] as! String
+                let urlText = dict ["urlToImage"] as! String
+                let client = Client(fullNameText: fullNameText, urlText: urlText)
+                let profileImageView = UIImageView()
+                
+                if let profileImage = client.profileImage {
+                    profileImageView.downloadImage(profileImage)
+                }
+                self.setupNavBarClient(client: client)
+            }
+        }
+    }
+    
+    func setupNavBarClient(client: Client) {
+        let rightButton = UIButton(type: .system)
+        rightButton.setImage(#imageLiteral(resourceName: "Mask_avatar").withRenderingMode(.alwaysOriginal), for: .normal)
+        rightButton.frame = CGRect(x: 0, y: 0, width: 34, height:34)
+        rightButton.contentMode = .scaleAspectFit
+        rightButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
+    }
+    */
     
     func loadPosts() {
         Database.database().reference().child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in

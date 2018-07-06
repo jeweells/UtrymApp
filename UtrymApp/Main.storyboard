@@ -416,8 +416,8 @@
                                                     <rect key="frame" x="32" y="22" width="70" height="70"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre Apellido" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0p0-9j-QYd">
-                                                    <rect key="frame" x="105" y="40" width="149" height="35"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0p0-9j-QYd">
+                                                    <rect key="frame" x="105" y="40" width="66" height="35"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="12"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -433,18 +433,26 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3a-OF-QH8">
                                                     <rect key="frame" x="266" y="43" width="89" height="29"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="13"/>
                                                     <state key="normal" title="Ver" backgroundImage="Rectangle_seguir">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Apellido" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16l-nB-t7e">
+                                                    <rect key="frame" x="177" y="40" width="78" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <connections>
+                                            <outlet property="apellidoEstilist" destination="16l-nB-t7e" id="UEB-2r-Rev"/>
                                             <outlet property="avatarEstilist" destination="Y5j-O4-6GI" id="otu-PJ-p3j"/>
                                             <outlet property="borde_avatar" destination="IiZ-9S-ddg" id="pYB-GQ-HHO"/>
                                             <outlet property="buttonCitar" destination="Q3a-OF-QH8" id="WOB-RA-xCo"/>
-                                            <outlet property="fullNameEstilist" destination="0p0-9j-QYd" id="5Oj-LR-k23"/>
+                                            <outlet property="nameEstilist" destination="0p0-9j-QYd" id="3o9-zf-3BN"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
