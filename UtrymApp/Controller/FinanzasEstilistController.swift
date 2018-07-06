@@ -10,6 +10,11 @@ import UIKit
 
 class FinanzasEstilistController: UIViewController {
 
+    @IBOutlet weak var avatarEstilist: UIImageView!
+    @IBOutlet weak var nombreEstilist: UILabel!
+    @IBOutlet weak var apellidoEstilist: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

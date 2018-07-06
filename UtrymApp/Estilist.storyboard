@@ -100,6 +100,11 @@
                         <viewLayoutGuide key="safeArea" id="AnR-Ao-1Bw"/>
                     </view>
                     <navigationItem key="navigationItem" id="dnG-cn-7h5"/>
+                    <connections>
+                        <outlet property="apellidoEstilist" destination="7At-FW-XWe" id="vQ1-TM-qUA"/>
+                        <outlet property="avatarEstilist" destination="1i6-3f-er3" id="eVN-RL-pBz"/>
+                        <outlet property="nombreEstilist" destination="9Z7-sr-AwO" id="FfE-k0-oJo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rgT-o4-l57" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
