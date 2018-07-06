@@ -35,20 +35,17 @@ class ProfileEstController: UIViewController {
         let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Utrym_Interno"))
         navigationItem.titleView = titleImageView
         
-        let leftIcon = UIButton(type: .system)
-        //leftIcon.setImage(#imageLiteral(resourceName: "backButtonW"), for: .normal)
-        leftIcon.setImage(#imageLiteral(resourceName: "backButtonW").withRenderingMode(.alwaysOriginal), for: .normal)
-        leftIcon.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftIcon)
+        let rightButton = UIButton(type: .system)
+        rightButton.setImage(#imageLiteral(resourceName: "Setting_icon").withRenderingMode(.alwaysOriginal), for: .normal)
+        rightButton.frame = CGRect(x: 0, y: 0, width: 34, height:34)
+        rightButton.contentMode = .scaleAspectFit
+        rightButton.addTarget(self, action: #selector(settingsTapped), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
+
     }
     
-    @objc func backTapped(){
-        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "CitasEst") {
-            UIApplication.shared.keyWindow?.rootViewController = viewController
-            self.dismiss(animated: true, completion: nil)
-         }
-        //show(ProfileEstController(), sender: self)
-        //self.performSegue(withIdentifier: "backEst", sender: self)
+    @objc func settingsTapped(){
+        print("Settings Button Tapped")
     }
 
 }

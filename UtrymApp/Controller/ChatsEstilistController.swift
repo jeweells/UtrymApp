@@ -22,10 +22,10 @@ class ChatsEstilistController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Barra_superior_ligth.png"), for: .default)
         setupNavigationBarItems()
-        /*let backgroundImage = UIImage(named: "Background_list_estilist.png")
+        let backgroundImage = UIImage(named: "Background_list_estilist.png")
         let imageView = UIImageView(image: backgroundImage)
         self.collectionView.backgroundView = imageView
-        imageView.contentMode = .scaleAspectFill*/
+        imageView.contentMode = .scaleAspectFill
         loadChats()
     }
 
@@ -47,13 +47,16 @@ class ChatsEstilistController: UIViewController {
     }
     
     func loadChats() {
+        
         let ref = Database.database().reference()
+        
         ref.child("chats").observe(.childAdded) { (snapshot: DataSnapshot) in
             if let dict = snapshot.value as? [String: Any] {
                 let clienteText = dict["cliente"] as! String
                 let fechaText = dict["fecha"] as! String
                 let chat = Chat(clienteText: clienteText, fechaText: fechaText)
                 self.chats.append(chat)
+                
                 Database.database().reference().child("clientes").child(clienteText).observe(.value) { (snapshot: DataSnapshot) in
                     if let dict = snapshot.value as? [String: Any] {
                         let fullNameText = dict["nombre completo"] as! String
@@ -86,6 +89,8 @@ extension ChatsEstilistController: UICollectionViewDataSource {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 10*/
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 10
         return cell
     }
 }
