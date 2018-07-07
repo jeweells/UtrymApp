@@ -177,21 +177,67 @@
 			children = (
 				89B67D5520BB7D0E00D3BFBF /* ViewController.swift */,
 				89F2D7B920D1D85600688164 /* SignUpController.swift */,
+				892E727420F038440078FD44 /* Cliente */,
+				892E727520F0389A0078FD44 /* Estilista */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		892E727420F038440078FD44 /* Cliente */ = {
+			isa = PBXGroup;
+			children = (
 				8914525520CDEFC10030A67A /* TimeLineController.swift */,
-				894333AC20DD989B006F1BEE /* ProfileClientController.swift */,
 				896B7FFF20D0368B007B7C5D /* DetailPostController.swift */,
-				89589C6320D71FFC001B4336 /* ServicesController.swift */,
-				89AD3CBC20D9C64800D60F21 /* UploadPostController.swift */,
-				89AD3CBE20D9C73800D60F21 /* EstilistTabBarController.swift */,
+				894333AC20DD989B006F1BEE /* ProfileClientController.swift */,
 				894333B420DDB0C3006F1BEE /* ClientTabBarController.swift */,
+				89589C6320D71FFC001B4336 /* ServicesController.swift */,
 				894333B020DDAE37006F1BEE /* CitasClientsController.swift */,
 				894333AE20DDAD2C006F1BEE /* ListEstilistController.swift */,
+			);
+			name = Cliente;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		892E727520F0389A0078FD44 /* Estilista */ = {
+			isa = PBXGroup;
+			children = (
+				89AD3CBC20D9C64800D60F21 /* UploadPostController.swift */,
+				89AD3CBE20D9C73800D60F21 /* EstilistTabBarController.swift */,
 				894333B620DDBD21006F1BEE /* ProfileEstController.swift */,
 				892E726A20EEFEC10078FD44 /* CitasEstilistController.swift */,
 				892E726820EEEA7C0078FD44 /* ChatsEstilistController.swift */,
 				892E727220EFDDD20078FD44 /* FinanzasEstilistController.swift */,
 			);
-			path = Controller;
+			name = Estilista;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		892E727620F038DC0078FD44 /* Cliente */ = {
+			isa = PBXGroup;
+			children = (
+				89BE1E3C20D494F1001703B3 /* TimelineHeaderView.swift */,
+				896B800420D04445007B7C5D /* PostHeaderCell.swift */,
+				896B800620D044A2007B7C5D /* PostCell.swift */,
+				89BE1E3A20D47F6A001703B3 /* PostThumbImageCell.swift */,
+				8960564D20D81A2E006B8A3A /* ServiceCell.swift */,
+				8960565120D81BE3006B8A3A /* ServiceHeaderCell.swift */,
+				891E9E3C20E4428C00F5BF33 /* EstilistSearchCell.swift */,
+			);
+			name = Cliente;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		892E727720F0390E0078FD44 /* Estilista */ = {
+			isa = PBXGroup;
+			children = (
+				8908C92020EB008E00344A6A /* PostEstThumbProfileCell.swift */,
+				89BE1E4020D4B3B6001703B3 /* ProfileHeaderView.swift */,
+				892E726220EED8DF0078FD44 /* CitasEstilistHeaderView.swift */,
+				892E726420EED9240078FD44 /* CitasEstilistCell.swift */,
+				892E726E20EF0E240078FD44 /* ListChatsEstilistCell.swift */,
+			);
+			name = Estilista;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		8943339620DB2C17006F1BEE /* Helpers */ = {
@@ -223,18 +269,8 @@
 		896B800120D04395007B7C5D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				89BE1E3C20D494F1001703B3 /* TimelineHeaderView.swift */,
-				896B800420D04445007B7C5D /* PostHeaderCell.swift */,
-				896B800620D044A2007B7C5D /* PostCell.swift */,
-				89BE1E3A20D47F6A001703B3 /* PostThumbImageCell.swift */,
-				8908C92020EB008E00344A6A /* PostEstThumbProfileCell.swift */,
-				8960564D20D81A2E006B8A3A /* ServiceCell.swift */,
-				8960565120D81BE3006B8A3A /* ServiceHeaderCell.swift */,
-				89BE1E4020D4B3B6001703B3 /* ProfileHeaderView.swift */,
-				891E9E3C20E4428C00F5BF33 /* EstilistSearchCell.swift */,
-				892E726220EED8DF0078FD44 /* CitasEstilistHeaderView.swift */,
-				892E726420EED9240078FD44 /* CitasEstilistCell.swift */,
-				892E726E20EF0E240078FD44 /* ListChatsEstilistCell.swift */,
+				892E727620F038DC0078FD44 /* Cliente */,
+				892E727720F0390E0078FD44 /* Estilista */,
 			);
 			path = View;
 			sourceTree = "<group>";

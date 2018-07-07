@@ -27,7 +27,7 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="back_cuadro_finanzas" translatesAutoresizingMaskIntoConstraints="NO" id="CxA-A0-WYT">
                                 <rect key="frame" x="14" y="459" width="345" height="199"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1i6-3f-er3">
                                 <rect key="frame" x="137" y="105" width="100" height="100"/>

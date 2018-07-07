@@ -238,7 +238,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vXK-SF-oKe"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9mg-3m-F5M"/>
+                    <navigationItem key="navigationItem" id="9mg-3m-F5M">
+                        <barButtonItem key="backBarButtonItem" title="Atrás" id="Yss-1t-i1e"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="3Y5-Cp-vgp" id="moA-Cj-Xhj"/>
                         <segue destination="ZwN-Oa-Anz" kind="showDetail" identifier="detail" id="LZq-at-ReQ"/>
@@ -829,6 +831,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tw8-5z-PH4">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

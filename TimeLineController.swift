@@ -35,7 +35,6 @@ class TimeLineController: UIViewController {
         // logo Utrym en el centro del NavBar
         let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Utrym_Interno"))
         navigationItem.titleView = titleImageView
-        
         // icono avatar botón derecho del NavBar
         let rightButton = UIButton(type: .system)
         rightButton.setImage(#imageLiteral(resourceName: "Mask_avatar").withRenderingMode(.alwaysOriginal), for: .normal)
@@ -130,7 +129,8 @@ extension TimeLineController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "detail", sender: self)
+        //self.performSegue(withIdentifier: "detail", sender: self)
+        print("Detail Post Tapped")
     }
 }
 

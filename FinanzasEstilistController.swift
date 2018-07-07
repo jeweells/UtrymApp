@@ -17,8 +17,10 @@ class FinanzasEstilistController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Barra_superior_ligth.png"), for: .default)
+        setupNavigationBarItems()
+        avatarEstilist.layer.masksToBounds = true
+        avatarEstilist.layer.cornerRadius = avatarEstilist.bounds.width / 2.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,7 +28,11 @@ class FinanzasEstilistController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    private func setupNavigationBarItems(){
+        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Utrym_Interno"))
+        navigationItem.titleView = titleImageView
+    }
+    
     /*
     // MARK: - Navigation
 

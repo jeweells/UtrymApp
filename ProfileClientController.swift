@@ -17,7 +17,7 @@ class ProfileClientController: UIViewController {
         super.viewDidLoad()
 
         setupNavigationBarItems()
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Barra_superior_ligth.png"), for: .default)
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,19 +25,19 @@ class ProfileClientController: UIViewController {
     }
     
     private func setupNavigationBarItems(){
-        /*let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Logo_inter"))
+        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Logo_inter"))
         navigationItem.titleView = titleImageView
-        
+        /*
         let rightButton = UIButton(type: .system)
         rightButton.setImage(#imageLiteral(resourceName: "Mask_avatar").withRenderingMode(.alwaysOriginal), for: .normal)
         rightButton.frame = CGRect(x: 0, y: 0, width: 34, height:34)
         rightButton.contentMode = .scaleAspectFit
         rightButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)*/
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
         
         let leftIcon = UIButton(type: .system)
         leftIcon.setImage(#imageLiteral(resourceName: "backButtonW"), for: .normal)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftIcon)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftIcon)*/
     }
 
 }
