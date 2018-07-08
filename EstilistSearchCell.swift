@@ -23,6 +23,7 @@ class EstilistSearchCell: UICollectionViewCell {
         buttonCitar.layer.masksToBounds = true
         buttonCitar.layer.cornerRadius = 15
     }
+    
 }
 
 

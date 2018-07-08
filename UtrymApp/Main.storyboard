@@ -342,7 +342,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tiP-mu-3Sg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4066" y="796"/>
+            <point key="canvasLocation" x="3612" y="334"/>
         </scene>
         <!--Profile Client Controller-->
         <scene sceneID="Nff-J5-R0S">
@@ -382,7 +382,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oe1-yF-EXU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4063" y="112"/>
+            <point key="canvasLocation" x="4412" y="333"/>
         </scene>
         <!--List Estilist Controller-->
         <scene sceneID="Ek7-8o-oW7">
@@ -439,6 +439,9 @@
                                                     <state key="normal" title="Ver" backgroundImage="Rectangle_seguir">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <segue destination="n6J-cP-IEd" kind="show" identifier="profileEst" id="Vxz-Hx-0zo"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Apellido" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16l-nB-t7e">
                                                     <rect key="frame" x="177" y="40" width="78" height="35"/>
@@ -476,7 +479,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YQW-jj-e11"/>
                     </view>
-                    <navigationItem key="navigationItem" id="VXP-UJ-ZMp"/>
+                    <navigationItem key="navigationItem" id="VXP-UJ-ZMp">
+                        <barButtonItem key="backBarButtonItem" title="Atrás" id="QQm-sy-DZl"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="BhA-Kx-3sx" id="mwA-Jy-Oaw"/>
                     </connections>
@@ -484,6 +489,120 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GQk-Gi-6L7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2445.5999999999999" y="1100.9852216748768"/>
+        </scene>
+        <!--Profile Estilist Client Controller-->
+        <scene sceneID="kya-Bp-Vtv">
+            <objects>
+                <viewController id="n6J-cP-IEd" customClass="ProfileEstilistClientController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KiD-gu-hTy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Gd7-P2-NFa">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OEO-O1-EoC">
+                                    <size key="itemSize" width="125" height="92"/>
+                                    <size key="headerReferenceSize" width="50" height="304"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostThumbProfileEstCell" id="cyP-fv-CJa" customClass="PostThumbProfileEstCell" customModule="UtrymApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="304" width="124" height="124"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tHV-Rs-qQi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="backgroundColor" red="0.32156862749999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <size key="customSize" width="124" height="124"/>
+                                        <connections>
+                                            <outlet property="postEst" destination="tHV-Rs-qQi" id="ZGp-ie-h1l"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ProfileHeaderEstView" id="g2c-EE-lUI" customClass="ProfileHeaderEstView" customModule="UtrymApp" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="304"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hxv-nb-2gt">
+                                            <rect key="frame" x="54" y="18" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="borde_prof_est" translatesAutoresizingMaskIntoConstraints="NO" id="uwN-GQ-kl8">
+                                            <rect key="frame" x="44" y="8" width="120" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFF-6A-Tmc">
+                                            <rect key="frame" x="226" y="54" width="89" height="29"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="13"/>
+                                            <state key="normal" title="Contactar" backgroundImage="Rectangle_seguir">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5T-uU-dHR">
+                                            <rect key="frame" x="44" y="136" width="96.333333333333329" height="35.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="26"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHv-OX-s4e">
+                                            <rect key="frame" x="21" y="236" width="333" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YdS-id-etR">
+                                            <rect key="frame" x="21" y="197" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Apellido" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8y-dF-LR1">
+                                            <rect key="frame" x="148" y="136" width="103.33333333333333" height="35.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
+                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <connections>
+                                        <outlet property="apellidoEst" destination="i8y-dF-LR1" id="xQX-rB-lR6"/>
+                                        <outlet property="avatarEstilist" destination="Hxv-nb-2gt" id="jTo-wa-mFa"/>
+                                        <outlet property="bioEst" destination="KHv-OX-s4e" id="QfA-9v-cvG"/>
+                                        <outlet property="chatButton" destination="KFF-6A-Tmc" id="dyr-vP-TL7"/>
+                                        <outlet property="nombreEst" destination="j5T-uU-dHR" id="zDK-y5-g9C"/>
+                                        <outlet property="skillEst" destination="YdS-id-etR" id="Ceo-f0-tSw"/>
+                                    </connections>
+                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="n6J-cP-IEd" id="sVA-2X-8ca"/>
+                                    <outlet property="delegate" destination="n6J-cP-IEd" id="cCP-wc-My6"/>
+                                    <outlet property="prefetchDataSource" destination="n6J-cP-IEd" id="1GA-TB-gzJ"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="xuV-HE-yKx"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Gd7-P2-NFa" id="Gt1-Zf-pcF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nhv-QZ-LaY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3280.8000000000002" y="1100.9852216748768"/>
         </scene>
         <!--Services Controller-->
         <scene sceneID="o7r-Z6-tTl">
@@ -621,6 +740,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gX2-Ch-Bs5">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -882,6 +1002,7 @@
         <image name="Utrym1" width="203" height="43"/>
         <image name="avatar" width="400" height="400"/>
         <image name="borde_avatar" width="68" height="68"/>
+        <image name="borde_prof_est" width="123" height="123"/>
         <image name="más" width="17" height="17"/>
         <image name="studio-2" width="550" height="761"/>
     </resources>
