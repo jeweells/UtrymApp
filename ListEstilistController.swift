@@ -13,9 +13,13 @@ import FirebaseDatabase
 class ListEstilistController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBAction func verPressed(_ sender: Any) {
+        
+    }
     
     var estilists = [Estilist]()
     var ref : DatabaseReference!
+    var indexPressedCell: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +62,8 @@ class ListEstilistController: UIViewController {
                 let nombreText = dict["name"] as! String
                 let apellidoText = dict["apellido"] as! String
                 let urlText = dict["urlAvatar"] as! String
-                let estilist = Estilist(nombreText: nombreText, apellidoText: apellidoText, urlText: urlText)
+                let estiID = dict["uid"] as! String
+                let estilist = Estilist(nombreText: nombreText, apellidoText: apellidoText, urlText: urlText, estiID: estiID)
                 self.estilists.append(estilist)
                 print(self.estilists)
                 
@@ -66,6 +71,13 @@ class ListEstilistController: UIViewController {
             }
         }
         ref.removeAllObservers()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationController = segue.destination as? ProfileEstilistClientController {
+            print("Me fui a ver el perfil: \(estilists[indexPressedCell].uid)")
+            destinationController.estilistID = estilists[indexPressedCell].uid
+        }
     }
 }
 
@@ -80,6 +92,7 @@ extension ListEstilistController: UICollectionViewDataSource {
         cell.nameEstilist?.text = estilists[indexPath.row].nombre
         cell.apellidoEstilist?.text = estilists[indexPath.row].apellido
         cell.avatarEstilist.downloadImageEst(from: self.estilists[indexPath.row].url)
+        cell.estilistID = estilists[indexPath.row].uid
         //cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
         let backgroundImage = UIImage(named: "list_estilist.png")
         let imageView = UIImageView(image: backgroundImage)
@@ -88,6 +101,12 @@ extension ListEstilistController: UICollectionViewDataSource {
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 10
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    {
+        print("User tapped on item \(indexPath.row)")
+        self.indexPressedCell = indexPath.row
+        self.performSegue(withIdentifier: "profileEst", sender: self)
     }
 }
 

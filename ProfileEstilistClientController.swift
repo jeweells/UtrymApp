@@ -12,6 +12,8 @@ class ProfileEstilistClientController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var estilistID: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarItems()

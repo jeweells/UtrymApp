@@ -111,6 +111,8 @@ extension ServicesController: UICollectionViewDelegateFlowLayout {
         print("User tapped on item \(indexPath.row)")
     }
 }
+
+
     /*func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard kind == UICollectionElementKindSectionHeader else {
             fatalError("Unexpected element kind.")
