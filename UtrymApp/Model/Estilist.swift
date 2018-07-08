@@ -9,11 +9,13 @@
 import Foundation
 class Estilist {
     
+    var uid: String
     var nombre: String
     var apellido: String
     var url: String
     
-    init(nombreText: String, apellidoText: String, urlText: String) {
+    init(nombreText: String, apellidoText: String, urlText: String, estiID: String) {
+        uid = estiID
         nombre = nombreText
         apellido = apellidoText
         url = urlText

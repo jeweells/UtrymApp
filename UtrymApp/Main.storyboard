@@ -68,7 +68,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11E-wp-hcP">
                                         <rect key="frame" x="0.0" y="0.0" width="127" height="43"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                        <state key="normal" title="Iniciar Sesión" backgroundImage="Botón Inisiar sesión">
+                                        <state key="normal" title="Iniciar Sesión" backgroundImage="Botón Inisiar sesión">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -78,7 +78,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIF-Cf-5rq">
                                         <rect key="frame" x="148" y="0.0" width="127" height="43"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                        <state key="normal" title="Registrarse" backgroundImage="Botón Inisiar sesión">
+                                        <state key="normal" title="Registrarse" backgroundImage="Botón Inisiar sesión">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -93,7 +93,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Moc-Gr-2pd">
                                         <rect key="frame" x="0.0" y="0.0" width="130" height="43"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                        <state key="normal" title="Perfil Estilista" backgroundImage="Botón Inisiar sesión"/>
+                                        <state key="normal" title="Perfil Estilista" backgroundImage="Botón Inisiar sesión"/>
                                         <connections>
                                             <action selector="estilistButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xzt-zx-acv"/>
                                         </connections>
@@ -109,7 +109,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="cpS-Ss-TOE">
                                 <rect key="frame" x="16" y="304" width="343" height="82"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Correo" textAlignment="justified" minimumFontSize="17" background="Botón Correo electrónico" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vCD-7C-HGd">
+                                    <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Correo" textAlignment="justified" minimumFontSize="17" background="Botón Correo electrónico" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vCD-7C-HGd">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="35"/>
                                         <color key="tintColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
                                         <constraints>
@@ -120,7 +120,7 @@
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Contraseña" textAlignment="justified" minimumFontSize="17" background="Botón Correo electrónico" translatesAutoresizingMaskIntoConstraints="NO" id="fiM-hK-KGD">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Contraseña" textAlignment="justified" minimumFontSize="17" background="Botón Correo electrónico" translatesAutoresizingMaskIntoConstraints="NO" id="fiM-hK-KGD">
                                         <rect key="frame" x="0.0" y="47" width="343" height="35"/>
                                         <color key="tintColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
                                         <constraints>
@@ -440,6 +440,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
+                                                        <action selector="verPressed:" destination="Hc7-8b-UsE" eventType="touchUpInside" id="8Ya-EA-Cbc"/>
                                                         <segue destination="n6J-cP-IEd" kind="show" identifier="profileEst" id="Vxz-Hx-0zo"/>
                                                     </connections>
                                                 </button>
@@ -715,7 +716,7 @@
         <scene sceneID="Pdn-bN-fcX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ADb-fE-S14" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Botón Citas" id="hQE-j5-P9b"/>
+                    <tabBarItem key="tabBarItem" title="" image="Botón Citas" id="hQE-j5-P9b"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Smx-Aa-AbQ">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -735,7 +736,7 @@
         <scene sceneID="ciT-XF-PZV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XuU-ay-nhn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Botón Buscar" id="6bS-b5-Zbq"/>
+                    <tabBarItem key="tabBarItem" title="" image="Botón Buscar" id="6bS-b5-Zbq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gX2-Ch-Bs5">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -808,7 +809,7 @@
                                     <constraint firstAttribute="height" constant="25" id="2ls-99-DX8"/>
                                     <constraint firstAttribute="width" constant="25" id="amd-pX-hgm"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="más"/>
+                                <state key="normal" backgroundImage="más"/>
                                 <connections>
                                     <action selector="SelectImageTapped:" destination="I6e-Yh-pMn" eventType="touchUpInside" id="2xD-0O-0Bb"/>
                                 </connections>
@@ -816,7 +817,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hIx-Ol-J3j">
                                 <rect key="frame" x="16" y="319" width="343" height="170"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Nombre y Apellido" textAlignment="justified" minimumFontSize="17" background="Botón Correo electrónico" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6if-5K-YDi">
+                                    <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Nombre y Apellido" textAlignment="justified" minimumFontSize="17" background="Botón Correo electrónico" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6if-5K-YDi">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="35"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -826,7 +827,7 @@
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Correo" textAlignment="justified" minimumFontSize="17" background="Botón Correo electrónico" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YfL-on-h3X">
+                                    <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Correo" textAlignment="justified" minimumFontSize="17" background="Botón Correo electrónico" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YfL-on-h3X">
                                         <rect key="frame" x="0.0" y="45" width="343" height="35"/>
                                         <color key="tintColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
                                         <constraints>
@@ -836,7 +837,7 @@
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Contraseña" textAlignment="justified" minimumFontSize="17" background="Botón Correo electrónico" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YOH-ov-lyd">
+                                    <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Contraseña" textAlignment="justified" minimumFontSize="17" background="Botón Correo electrónico" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YOH-ov-lyd">
                                         <rect key="frame" x="0.0" y="90" width="343" height="35"/>
                                         <color key="tintColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
                                         <constraints>
@@ -846,7 +847,7 @@
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Confirmar Contraseña" textAlignment="justified" minimumFontSize="17" background="Botón Correo electrónico" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hcq-Tm-pex">
+                                    <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Confirmar Contraseña" textAlignment="justified" minimumFontSize="17" background="Botón Correo electrónico" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hcq-Tm-pex">
                                         <rect key="frame" x="0.0" y="135" width="343" height="35"/>
                                         <color key="tintColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
                                         <constraints>
@@ -861,7 +862,7 @@
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lql-8Q-viV">
                                 <rect key="frame" x="119" y="515" width="137" height="43"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                <state key="normal" title="Registrarse" backgroundImage="Botón Inisiar sesión">
+                                <state key="normal" title="Registrarse" backgroundImage="Botón Inisiar sesión">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -991,10 +992,10 @@
         <image name="B G+ White" width="134" height="31"/>
         <image name="Back" width="375" height="812"/>
         <image name="Barra inferior" width="375" height="48"/>
-        <image name="Botón Buscar" width="23" height="23"/>
-        <image name="Botón Citas" width="22" height="23"/>
-        <image name="Botón Correo electrónico" width="297" height="42"/>
-        <image name="Botón Inisiar sesión" width="127" height="43"/>
+        <image name="Botón Buscar" width="23" height="23"/>
+        <image name="Botón Citas" width="22" height="23"/>
+        <image name="Botón Correo electrónico" width="297" height="42"/>
+        <image name="Botón Inisiar sesión" width="127" height="43"/>
         <image name="Botón Servicios" width="23" height="6"/>
         <image name="Home-1" width="23" height="23"/>
         <image name="Rectangle 6" width="370" height="63"/>
@@ -1003,7 +1004,7 @@
         <image name="avatar" width="400" height="400"/>
         <image name="borde_avatar" width="68" height="68"/>
         <image name="borde_prof_est" width="123" height="123"/>
-        <image name="más" width="17" height="17"/>
+        <image name="más" width="17" height="17"/>
         <image name="studio-2" width="550" height="761"/>
     </resources>
 </document>

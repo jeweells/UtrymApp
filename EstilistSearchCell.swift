@@ -14,6 +14,7 @@ class EstilistSearchCell: UICollectionViewCell {
     @IBOutlet weak var nameEstilist: UILabel!
     @IBOutlet weak var apellidoEstilist: UILabel!
     @IBOutlet weak var buttonCitar: UIButton!
+    var estilistID: String = ""
     
     
     override func awakeFromNib() {
@@ -22,6 +23,7 @@ class EstilistSearchCell: UICollectionViewCell {
         avatarEstilist.layer.cornerRadius = avatarEstilist.bounds.size.width / 2.0
         buttonCitar.layer.masksToBounds = true
         buttonCitar.layer.cornerRadius = 15
+        
     }
     
 }
