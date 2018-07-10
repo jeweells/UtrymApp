@@ -16,6 +16,7 @@ class ServicesController: UIViewController {
     
     var categorys = [Category]()
     var ref : DatabaseReference!
+    var indexPressedCell: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +24,12 @@ class ServicesController: UIViewController {
         //profileTapped()
 
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "barra_superior_dark.png"), for: .default)
+        /*
         let backgroundImage = UIImage(named: "background_dark.png")
         let imageView = UIImageView(image: backgroundImage)
         self.collectionView.backgroundView = imageView
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFill*/
+        self.collectionView.backgroundColor = UIColor.clear
         
         loadCategorys()
     }
@@ -64,12 +67,19 @@ class ServicesController: UIViewController {
         ref.removeAllObservers()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationController = segue.destination as? ListServicesController {
+            print("Me fui a ver los servicos de la categoria: \(categorys[indexPressedCell].nombre)")
+            destinationController.nombreCat = categorys[indexPressedCell].nombre
+        }
+    }
+    
 }
 
 
 extension ServicesController: UICollectionViewDataSource {
     func collectionView(_ collectionService: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categorys.count
+       return categorys.count
     }
     
     func collectionView(_ collectionService: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -90,7 +100,7 @@ extension ServicesController: UICollectionViewDataSource {
 extension ServicesController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let columns: CGFloat = 2
-        let spacing: CGFloat = 1.5
+        let spacing: CGFloat = 4
         let totalHorizontalSpacing = (columns) * spacing
         
         let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
@@ -104,11 +114,13 @@ extension ServicesController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 3
+        return 8
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
         print("User tapped on item \(indexPath.row)")
+        self.indexPressedCell = indexPath.row
+        self.performSegue(withIdentifier: "listServices", sender: self)
     }
 }
 
