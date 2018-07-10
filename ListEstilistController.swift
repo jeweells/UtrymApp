@@ -24,12 +24,12 @@ class ListEstilistController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarItems()
-        
+        self.collectionView.backgroundColor = UIColor.clear
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "barra_superior_dark.png"), for: .default)
-        let backgroundImage = UIImage(named: "Background_list_estilist.png")
-        let imageView = UIImageView(image: backgroundImage)
-        self.collectionView.backgroundView = imageView
-        imageView.contentMode = .scaleAspectFill
+        //let backgroundImage = UIImage(named: "Background_list_estilist.png")
+        //let imageView = UIImageView(image: backgroundImage)
+        //self.collectionView.backgroundView = imageView
+        //imageView.contentMode = .scaleAspectFill
         
         loadEstilists()
     }

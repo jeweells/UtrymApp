@@ -34,18 +34,25 @@ class ListServicesController: UIViewController {
     
     func loadServices() {
         // algo aqui no funciona, no se muestra lo que quiero
-        let ref = Database.database().reference().child("servicios")
-        let query = ref.queryOrdered(byChild: "categoria").queryEqual(toValue: nombreCat)
-        query.observe(.childAdded) { (snapshot: DataSnapshot) in
+        //let ref = Database.database().reference().child("servicios")
+        //let query = ref.queryOrdered(byChild: "categoria").queryEqual(toValue: nombreCat)
+        //query.observe(.value) { (snapshot: DataSnapshot) in
+        let ref = Database.database().reference()
+        //ref.observe(.value) { (snapshot: DataSnapshot) in
+        ref.child("servicios").observe(.childAdded) { (snapshot: DataSnapshot) in
+        //    for childSnapshot in snapshot.children {
+        //        print(childSnapshot)
+            
             if let dict = snapshot.value as? [String: Any] {
                 let nombreText = dict["nombre"] as! String
                 let precioText = dict["precio"] as! String
                 let categoText = dict["categoria"] as! String
-                let service = Service(nombreText: nombreText, precioString: precioText, categoText: categoText)
+                let service = Service(nombreText: nombreText, precioText: precioText, categoText: categoText)
                 self.services.append(service)
                 print(self.services)
                 self.listServCollectionView.reloadData()
             }
+          //  }
         }
         ref.removeAllObservers()
     }
@@ -62,6 +69,7 @@ extension ListServicesController: UICollectionViewDataSource {
     func collectionView(_ collectionService: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionService.dequeueReusableCell(withReuseIdentifier: "ListServicesCell", for: indexPath) as! ListServicesCell
         cell.nameService?.text = services[indexPath.row].nombre
+        cell.priceService?.text = services[indexPath.row].precio
         //cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
         let backgroundImage = UIImage(named: "list_estilist.png")
         let imageView = UIImageView(image: backgroundImage)

@@ -15,7 +15,6 @@ import GoogleSignIn
 class ViewController: UIViewController, GIDSignInUIDelegate {
     
 
-    //@IBOutlet weak var signInSelector: UISegmentedControl!
     @IBOutlet weak var signInLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -23,6 +22,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var signFaceButton: UIButton!
     @IBOutlet weak var sigInGoogleButton: GIDSignInButton!
     @IBOutlet weak var estilistButton: UIButton!
+    @IBOutlet weak var clientButton: UIButton!
     
     
     var ref: DatabaseReference!
@@ -177,6 +177,14 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     @IBAction func estilistButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Estilist", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeEstilist") as UIViewController
+        
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func clienbuttonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeClient") as UIViewController
         
         self.present(controller, animated: true, completion: nil)
     }

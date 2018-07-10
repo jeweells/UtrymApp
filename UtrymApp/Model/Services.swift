@@ -13,9 +13,9 @@ class Service {
     var precio: String
     var catego: String
     
-    init(nombreText: String, precioString: String, categoText: String) {
+    init(nombreText: String, precioText: String, categoText: String) {
         nombre = nombreText
-        precio = precioString
+        precio = precioText
         catego = categoText
     }
 }
