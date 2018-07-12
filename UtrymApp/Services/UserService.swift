@@ -57,15 +57,25 @@ struct UserService {
     static func show(forUID uid: String, completion: @escaping (UserNew?) -> Void) {
         let ref = Database.database().reference().child("users").child(uid)
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let value = snapshot.value as? [String: Any] {
+                let usernameString = value["username"] as! String
+                let uidString = value["uid"] as! String
+                let user = UserNew(uidString: uidString, usernameString: usernameString)
+                completion(user)
+            }
+            else {
+                return completion(nil)
+            }
+            
            /* guard let user = UserNew(snapshot: snapshot) else {
                 return completion(nil)
             }
             
             completion(user)*/
-        })
+            })
     }
     
-    static func create(_ firUser: UserNew, username: String, completion: @escaping (UserNew?) -> Void) {
+    static func create(firUser: UserNew, username: String, completion: @escaping (UserNew?) -> Void) {
         let userAttrs = ["username": username]
         
         let ref = Database.database().reference().child("users").child(firUser.uid)
@@ -76,8 +86,15 @@ struct UserService {
             }
             
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let value = snapshot.value as? [String: Any] {
+                    let usernameString = value["username"] as! String
+                    let uidString = value["uid"] as! String
+                    let user = UserNew(uidString: uidString, usernameString: usernameString)
+                    completion(user)
+                }
                 /*let user = UserNew(snapshot: snapshot)
-                completion(user)*/
+                completion(user)
+                */
             })
         }
     }

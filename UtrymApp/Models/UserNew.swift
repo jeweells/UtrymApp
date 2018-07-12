@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class UserNew {
     var uid: String
@@ -17,23 +20,26 @@ class UserNew {
         username = usernameString
     }
     
-    // 1
+    init?(snapshot: DataSnapshot) {
+        guard let dict = snapshot.value as? [String : Any],
+            let username = dict["username"] as? String
+            else { return nil }
+        
+        self.uid = snapshot.key
+        self.username = username
+    }
+    
     private static var _current: UserNew?
     
-    // 2
     static var current: UserNew {
-        // 3
+
         guard let currentUser = _current else {
             fatalError("Error: current user doesn't exist")
         }
-        
-        // 4
+
         return currentUser
     }
     
-    // MARK: - Class Methods
-    
-    // 5
     static func setCurrent(_ user: UserNew) {
         _current = user
     }

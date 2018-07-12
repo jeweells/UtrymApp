@@ -11,18 +11,26 @@ import Firebase
 import FBSDKCoreKit
 import GoogleSignIn
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
-    
+    var cliente: String = "slallaksjjs"
     var ref: DatabaseReference!
     
-    
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        let storyboard = UIStoryboard(name: "Login", bundle: .main)
+        
+        if let initialViewController = storyboard.instantiateInitialViewController() {
+            window?.rootViewController = initialViewController
+            window?.makeKeyAndVisible()
+        }
+        
         // Firebase
         FirebaseApp.configure()
+
         
         // Facebook
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -31,8 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         return true
+        
     }
-    
+
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL,
                      options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
@@ -46,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication,
                                                  annotation: annotation)
     }
+
 
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error) != nil {
@@ -62,35 +72,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let credential = GoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!, accessToken: (authentication?.accessToken)!)
         
         Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
-            //if error != nil {
-            //    print("error sign in with google")
-            //    return
-            //}
+            if error != nil {
+                print("error sign in with google")
+                return
+            }
             print("User signed with google in firebase")
             
-            let userID = Auth.auth().currentUser?.uid
-            let user = Auth.auth().currentUser?.providerID
-            
-            self.ref = Database.database().reference()
-            
-            self.ref.child("clientes").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            if user != nil {
+                let userID = Auth.auth().currentUser?.uid
+                let user = Auth.auth().currentUser?.providerID
                 
-                let snapshot = snapshot.value as? NSDictionary
+                self.ref = Database.database().reference()
                 
-                if (snapshot == nil)
-                {
-                    // aqui debe estar el código para crear clientes cuando se registran con google
-                    //self.ref.child("clientes").child(user.uid).setValue(["username": username])
-                    self.ref.child("clientes").child(userID!).child("email").setValue(user)
-                    //self.ref.child("clientes").child(userID!).setValue(["email": username])
-                }
-                else {
-                    let _: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                    self.window?.rootViewController?.performSegue(withIdentifier: "goToHome", sender: nil)
-                }
-            })
+                self.ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+                    
+                    let snapshot = snapshot.value as? NSDictionary
+                    
+                    if (snapshot == nil)
+                    {
+                        // aqui debe estar el código para crear clientes cuando se registran con google
+                        // Here save client in "users"
+                        let userInfo: [String: Any] = ["uid": userID!,
+                                                       "id_perfil": self.cliente,
+                                                       "provider": user as Any]
+                        self.ref.child("users").child(userID!).setValue(userInfo)
+                        
+                        // home client debo redireccionar
+
+                    }
+                    else {
+                        // home client
+                    }
+                })
+            }
         }
-        
     }
     
     
@@ -102,7 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             print ("Error signing out: %@", signOutError)
         }
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

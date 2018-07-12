@@ -13,9 +13,6 @@ import FirebaseDatabase
 class ListEstilistController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBAction func verPressed(_ sender: Any) {
-        
-    }
     
     var estilists = [Estilist]()
     var ref : DatabaseReference!

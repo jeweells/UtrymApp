@@ -47,6 +47,11 @@
 		89855D2D20F553A400D1EF2D /* CitasChatsClient.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89855D2C20F553A400D1EF2D /* CitasChatsClient.storyboard */; };
 		89855D3120F55A0800D1EF2D /* ChatListClientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89855D3020F55A0800D1EF2D /* ChatListClientCell.swift */; };
 		89855D3320F55E7900D1EF2D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89855D3220F55E7900D1EF2D /* UserService.swift */; };
+		89855D3A20F58F7100D1EF2D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89855D3920F58F7100D1EF2D /* Login.storyboard */; };
+		89855D3C20F58FEF00D1EF2D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89855D3B20F58FEF00D1EF2D /* LoginController.swift */; };
+		89855D4020F5AF5A00D1EF2D /* CreateUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89855D3F20F5AF5A00D1EF2D /* CreateUserController.swift */; };
+		89855D4220F7FEFB00D1EF2D /* SelectEstilistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89855D4120F7FEF800D1EF2D /* SelectEstilistController.swift */; };
+		89855D4420F807E600D1EF2D /* SelectEstilistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89855D4320F807E600D1EF2D /* SelectEstilistCell.swift */; };
 		898920AB20F2734D002CD2E8 /* ProfileHeaderEstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898920AA20F2734D002CD2E8 /* ProfileHeaderEstView.swift */; };
 		898920AD20F273AB002CD2E8 /* PostThumbProfileEstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898920AC20F273AB002CD2E8 /* PostThumbProfileEstCell.swift */; };
 		898920AF20F2748F002CD2E8 /* ProfileEstilistClientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898920AE20F2748E002CD2E8 /* ProfileEstilistClientController.swift */; };
@@ -128,6 +133,11 @@
 		89855D2C20F553A400D1EF2D /* CitasChatsClient.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CitasChatsClient.storyboard; sourceTree = "<group>"; };
 		89855D3020F55A0800D1EF2D /* ChatListClientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListClientCell.swift; sourceTree = "<group>"; };
 		89855D3220F55E7900D1EF2D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		89855D3920F58F7100D1EF2D /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		89855D3B20F58FEF00D1EF2D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		89855D3F20F5AF5A00D1EF2D /* CreateUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserController.swift; sourceTree = "<group>"; };
+		89855D4120F7FEF800D1EF2D /* SelectEstilistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEstilistController.swift; sourceTree = "<group>"; };
+		89855D4320F807E600D1EF2D /* SelectEstilistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEstilistCell.swift; sourceTree = "<group>"; };
 		898920AA20F2734D002CD2E8 /* ProfileHeaderEstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderEstView.swift; sourceTree = "<group>"; };
 		898920AC20F273AB002CD2E8 /* PostThumbProfileEstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostThumbProfileEstCell.swift; sourceTree = "<group>"; };
 		898920AE20F2748E002CD2E8 /* ProfileEstilistClientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEstilistClientController.swift; sourceTree = "<group>"; };
@@ -202,15 +212,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		8906FE6120BE48A2003954F3 /* Controller */ = {
+		8906FE6120BE48A2003954F3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				89B67D5520BB7D0E00D3BFBF /* ViewController.swift */,
 				89F2D7B920D1D85600688164 /* SignUpController.swift */,
+				89855D3B20F58FEF00D1EF2D /* LoginController.swift */,
+				89855D3F20F5AF5A00D1EF2D /* CreateUserController.swift */,
 				892E727420F038440078FD44 /* Cliente */,
 				892E727520F0389A0078FD44 /* Estilista */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		892E727420F038440078FD44 /* Cliente */ = {
@@ -226,6 +238,7 @@
 				894333AE20DDAD2C006F1BEE /* ListEstilistController.swift */,
 				898920AE20F2748E002CD2E8 /* ProfileEstilistClientController.swift */,
 				89855D2A20F54FFB00D1EF2D /* ChatsListClientController.swift */,
+				89855D4120F7FEF800D1EF2D /* SelectEstilistController.swift */,
 			);
 			name = Cliente;
 			path = ../..;
@@ -261,6 +274,7 @@
 				89F7723120F3FFC400CA4139 /* SkillsCell.swift */,
 				89F7723320F400D700CA4139 /* PostThumbProfileEsCell.swift */,
 				89855D3020F55A0800D1EF2D /* ChatListClientCell.swift */,
+				89855D4320F807E600D1EF2D /* SelectEstilistCell.swift */,
 			);
 			name = Cliente;
 			path = ../..;
@@ -307,13 +321,35 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		896B800120D04395007B7C5D /* View */ = {
+		896B800120D04395007B7C5D /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				892E727620F038DC0078FD44 /* Cliente */,
 				892E727720F0390E0078FD44 /* Estilista */,
 			);
-			path = View;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		89855D3420F57CBE00D1EF2D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8906FE6420BE5C9A003954F3 /* Main.storyboard */,
+				89855D3920F58F7100D1EF2D /* Login.storyboard */,
+				89855D2C20F553A400D1EF2D /* CitasChatsClient.storyboard */,
+				89589C5F20D6F9BE001B4336 /* Estilist.storyboard */,
+				89B67D5C20BB7D1300D3BFBF /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		89855D3520F58DA200D1EF2D /* Suportings */ = {
+			isa = PBXGroup;
+			children = (
+				89B67D5F20BB7D1300D3BFBF /* Info.plist */,
+				89B67D7320BB7EF400D3BFBF /* GoogleService-Info.plist */,
+			);
+			path = Suportings;
 			sourceTree = "<group>";
 		};
 		89B67D4720BB7D0E00D3BFBF = {
@@ -339,20 +375,16 @@
 		89B67D5220BB7D0E00D3BFBF /* UtrymApp */ = {
 			isa = PBXGroup;
 			children = (
-				8943339E20DBF5D2006F1BEE /* Services */,
-				89F4F3BC20CF220F006E1AE1 /* Model */,
-				8906FE6120BE48A2003954F3 /* Controller */,
-				896B800120D04395007B7C5D /* View */,
-				8943339620DB2C17006F1BEE /* Helpers */,
 				894333A320DC665A006F1BEE /* Extensions */,
+				8943339620DB2C17006F1BEE /* Helpers */,
+				89F4F3BC20CF220F006E1AE1 /* Models */,
+				8943339E20DBF5D2006F1BEE /* Services */,
+				89855D3420F57CBE00D1EF2D /* Storyboards */,
+				8906FE6120BE48A2003954F3 /* Controllers */,
+				89855D3520F58DA200D1EF2D /* Suportings */,
+				896B800120D04395007B7C5D /* Views */,
 				89B67D5320BB7D0E00D3BFBF /* AppDelegate.swift */,
-				8906FE6420BE5C9A003954F3 /* Main.storyboard */,
-				89855D2C20F553A400D1EF2D /* CitasChatsClient.storyboard */,
-				89589C5F20D6F9BE001B4336 /* Estilist.storyboard */,
-				89B67D5C20BB7D1300D3BFBF /* LaunchScreen.storyboard */,
 				89B67D5A20BB7D1300D3BFBF /* Assets.xcassets */,
-				89B67D5F20BB7D1300D3BFBF /* Info.plist */,
-				89B67D7320BB7EF400D3BFBF /* GoogleService-Info.plist */,
 				896477E420C843660002C1D3 /* UtrymApp-Bridging-Header.h */,
 				896477E320C841850002C1D3 /* UtrymApp.entitlements */,
 			);
@@ -368,7 +400,7 @@
 			path = UtrymAppTests;
 			sourceTree = "<group>";
 		};
-		89F4F3BC20CF220F006E1AE1 /* Model */ = {
+		89F4F3BC20CF220F006E1AE1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				89F4F3BD20CF222F006E1AE1 /* Post.swift */,
@@ -384,7 +416,7 @@
 				89F7723B20F505B600CA4139 /* Message.swift */,
 				89F7723D20F5065A00CA4139 /* UserNew.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,6 +513,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89855D3A20F58F7100D1EF2D /* Login.storyboard in Resources */,
 				89B67D5E20BB7D1300D3BFBF /* LaunchScreen.storyboard in Resources */,
 				89B67D7420BB7EF400D3BFBF /* GoogleService-Info.plist in Resources */,
 				89589C6020D6F9BF001B4336 /* Estilist.storyboard in Resources */,
@@ -606,10 +639,12 @@
 				894333A720DC670E006F1BEE /* StorageReference+Post.swift in Sources */,
 				892E726720EEE01D0078FD44 /* CitasEstilist.swift in Sources */,
 				894333A020DBF69E006F1BEE /* StorageService.swift in Sources */,
+				89855D4220F7FEFB00D1EF2D /* SelectEstilistController.swift in Sources */,
 				896B800520D04445007B7C5D /* PostHeaderCell.swift in Sources */,
 				89AD3CBF20D9C73800D60F21 /* EstilistTabBarController.swift in Sources */,
 				898920AD20F273AB002CD2E8 /* PostThumbProfileEstCell.swift in Sources */,
 				894333B520DDB0C3006F1BEE /* ClientTabBarController.swift in Sources */,
+				89855D4420F807E600D1EF2D /* SelectEstilistCell.swift in Sources */,
 				8960565420D81F6F006B8A3A /* Category.swift in Sources */,
 				89BE1E3D20D494F1001703B3 /* TimelineHeaderView.swift in Sources */,
 				898920AB20F2734D002CD2E8 /* ProfileHeaderEstView.swift in Sources */,
@@ -618,6 +653,7 @@
 				896B800020D0368B007B7C5D /* DetailPostController.swift in Sources */,
 				892E726320EED8DF0078FD44 /* CitasEstilistHeaderView.swift in Sources */,
 				8908C92120EB008F00344A6A /* PostEstThumbProfileCell.swift in Sources */,
+				89855D3C20F58FEF00D1EF2D /* LoginController.swift in Sources */,
 				89B67D5620BB7D0E00D3BFBF /* ViewController.swift in Sources */,
 				8914525620CDEFC20030A67A /* TimeLineController.swift in Sources */,
 				89B67D5420BB7D0E00D3BFBF /* AppDelegate.swift in Sources */,
@@ -644,6 +680,7 @@
 				89F4F3BE20CF222F006E1AE1 /* Post.swift in Sources */,
 				8943339820DB2D2E006F1BEE /* MGPhotoHelper.swift in Sources */,
 				89BE1E4120D4B3B6001703B3 /* ProfileHeaderView.swift in Sources */,
+				89855D4020F5AF5A00D1EF2D /* CreateUserController.swift in Sources */,
 				894333AD20DD989C006F1BEE /* ProfileClientController.swift in Sources */,
 				89855D2B20F54FFB00D1EF2D /* ChatsListClientController.swift in Sources */,
 				894333A220DBFF02006F1BEE /* PostService.swift in Sources */,
@@ -811,7 +848,7 @@
 				CODE_SIGN_ENTITLEMENTS = UtrymApp/UtrymApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74TM5MHWGD;
-				INFOPLIST_FILE = UtrymApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/UtrymApp/Suportings/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -834,7 +871,7 @@
 				CODE_SIGN_ENTITLEMENTS = UtrymApp/UtrymApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74TM5MHWGD;
-				INFOPLIST_FILE = UtrymApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/UtrymApp/Suportings/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

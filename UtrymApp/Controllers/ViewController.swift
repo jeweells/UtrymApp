@@ -77,18 +77,10 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
                         }
                         
                     })
-                    
-                    
-                    
-                    //let userID = Auth.auth().currentUser?.uid
-                    //self.ref = Database.database().reference()
-                    //let estilista = self.ref.child("estilistas").child(email)
-                    //let estilista = self.ref.child("estilistas").child(userID!)
-                    //let estilista = self.ref.child("estilistas").queryOrdered(byChild: "email").queryEqual(toValue: email)
  
  
  */
-                    // aqui debo verificar si el usuario es estilista o cliente para enviarlo a la pantalla determinada
+
                     
                     self.performSegue(withIdentifier: "goToHome", sender: self)
                     print("Usuario autenticado:")
