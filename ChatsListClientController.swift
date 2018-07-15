@@ -11,12 +11,13 @@ import FirebaseDatabase
 
 class ChatsListClientController: UIViewController {
     
-    var chats = [Chat]()
-    var clients = [Client]()
-    
+    //var chats = [Chat]()
+    var estilists = [Estilist]()
+    var chats = [ChatMessage]()
+    var messDict = [String: ChatMessage]()
     var userChatsHandle: DatabaseHandle = 0
     var userChatsRef: DatabaseReference?
-
+    var indexPressedCell: Int = 0
     @IBOutlet weak var chatsTable: UITableView!
     
     
@@ -28,18 +29,9 @@ class ChatsListClientController: UIViewController {
         chatsTable.tableFooterView = UIView()
         self.chatsTable.backgroundColor = UIColor.clear
         loadChats()
-        /*userChatsHandle = UserService.observeChats { [weak self] (ref, chats) in
-            self?.userChatsRef = ref
-            self?.chats = chats
-            DispatchQueue.main.async {
-                self?.chatsTable.reloadData()
-            }
-        }*/
+
     }
 
-    /*deinit {
-        userChatsRef?.removeObserver(withHandle: userChatsHandle)
-    }*/
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,49 +39,69 @@ class ChatsListClientController: UIViewController {
     
 
     func loadChats() {
-        
         let ref = Database.database().reference()
-        
-        ref.child("chats").observe(.childAdded) { (snapshot: DataSnapshot) in
+        ref.child("messages").observe(.childAdded) { (snapshot: DataSnapshot) in
             if let dict = snapshot.value as? [String: Any] {
-                let clienteText = dict["cliente"] as! String
-                let fechaText = dict["fecha"] as! String
-                let chat = Chat(clienteText: clienteText, fechaText: fechaText)
-                self.chats.append(chat)
+                let emisor = dict["emisor"] as! String
+                let receptor = dict["receptor"] as! String
+                let timestamp = dict["timestamp"] as! NSNumber
+                let message = dict["text"] as! String
+                let chat = ChatMessage(emisorText: emisor, receptorText: receptor, timestampInt: timestamp, messageText: message)
+                //self.chats.append(chat)
+                let receptor1 = chat.receptor
+                self.messDict[receptor1] = chat
+                self.chats = Array(self.messDict.values)
+                self.chats.sort(by: { (chat1, chat2) -> Bool in
+                    return chat1.timestamp.intValue > chat2.timestamp.intValue
+                })
                 
-                Database.database().reference().child("clientes").child(clienteText).observe(.value) { (snapshot: DataSnapshot) in
+                Database.database().reference().child("estilistas").child(receptor).observe(.value) { (snapshot: DataSnapshot) in
                     if let dict = snapshot.value as? [String: Any] {
-                        let fullNameText = dict["nombre completo"] as! String
-                        let urlText = dict["urlToImage"] as! String
-                        let client = Client(fullNameText: fullNameText, urlText: urlText)
-                        self.clients.append(client)
+                        let name = dict["name"] as! String
+                        let apellido = dict["apellido"] as! String
+                        let urlText = dict["urlAvatar"] as! String
+                        let estiID = dict["uid"] as! String
+                        let estilist = Estilist(nombreText: name, apellidoText: apellido, urlText: urlText, estiID: estiID)
+                        self.estilists.append(estilist)
                     }
-                    self.chatsTable.reloadData()
+                self.chatsTable.reloadData()
                 }
             }
         }
-        ref.removeAllObservers()
     }
-
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationController = segue.destination as? ChatLogClientController {
+            print("Inicé chat con: \(chats[indexPressedCell].receptor)")
+            print(chats[indexPressedCell].emisor)
+            destinationController.estilistID = chats[indexPressedCell].receptor
+        }
+    }
 }
 
 
 extension ChatsListClientController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chats.count
-        //return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatListClientCell") as! ChatListClientCell
+        //let estilista = estilists[indexPath.row]
+        //cell.titleMessage?.text = estilists[indexPath.row].nombre
+        //cell.titleMessage?.text = estilista.nombre
+        let mensaje = chats[indexPath.row]
+        //cell.lastMessage?.text = mensaje.receptor
+        cell.titleMessage?.text = mensaje.receptor
+        cell.textMessage?.text = mensaje.message
         
-        //let chat = chats[indexPath.row]
-        //cell.titleMessage.text = chat.title
-        //cell.lastMessage.text = chat.lastMessage
+        let seconds = mensaje.timestamp.doubleValue
+        let timestampDate = NSDate(timeIntervalSince1970: seconds)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm:ss a"
+        cell.lastMessage?.text = dateFormatter.string(from: timestampDate as Date)
         
-        cell.titleMessage?.text = clients[indexPath.row].fullName
-        cell.lastMessage?.text = chats[indexPath.row].fecha
+        //cell.lastMessage?.text = chats[indexPath.row].timestamp
         cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
 
         cell.layer.masksToBounds = true
@@ -97,6 +109,46 @@ extension ChatsListClientController: UITableViewDataSource {
         return cell
 
     }
+    
+    func tableView(_ collectionView: UITableView, didSelectItemAt indexPath: IndexPath)
+    {
+        print("User tapped on item \(indexPath.row)")
+        self.indexPressedCell = indexPath.row
+        self.performSegue(withIdentifier: "chatLog", sender: self)
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

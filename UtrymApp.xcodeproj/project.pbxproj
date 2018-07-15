@@ -55,6 +55,10 @@
 		898920AB20F2734D002CD2E8 /* ProfileHeaderEstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898920AA20F2734D002CD2E8 /* ProfileHeaderEstView.swift */; };
 		898920AD20F273AB002CD2E8 /* PostThumbProfileEstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898920AC20F273AB002CD2E8 /* PostThumbProfileEstCell.swift */; };
 		898920AF20F2748F002CD2E8 /* ProfileEstilistClientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898920AE20F2748E002CD2E8 /* ProfileEstilistClientController.swift */; };
+		8992509B20FA9F2400864F73 /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8992509A20FA9F2400864F73 /* NewMessageController.swift */; };
+		8992509D20FAD62900864F73 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8992509C20FAD62900864F73 /* ChatMessage.swift */; };
+		8992509F20FB044B00864F73 /* ChatLogClientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8992509E20FB044B00864F73 /* ChatLogClientController.swift */; };
+		899250A120FB09E700864F73 /* MessageClientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899250A020FB09E700864F73 /* MessageClientCell.swift */; };
 		89AD3CBD20D9C64900D60F21 /* UploadPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD3CBC20D9C64800D60F21 /* UploadPostController.swift */; };
 		89AD3CBF20D9C73800D60F21 /* EstilistTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD3CBE20D9C73800D60F21 /* EstilistTabBarController.swift */; };
 		89B67D5420BB7D0E00D3BFBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B67D5320BB7D0E00D3BFBF /* AppDelegate.swift */; };
@@ -141,6 +145,10 @@
 		898920AA20F2734D002CD2E8 /* ProfileHeaderEstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderEstView.swift; sourceTree = "<group>"; };
 		898920AC20F273AB002CD2E8 /* PostThumbProfileEstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostThumbProfileEstCell.swift; sourceTree = "<group>"; };
 		898920AE20F2748E002CD2E8 /* ProfileEstilistClientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEstilistClientController.swift; sourceTree = "<group>"; };
+		8992509A20FA9F2400864F73 /* NewMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
+		8992509C20FAD62900864F73 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		8992509E20FB044B00864F73 /* ChatLogClientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogClientController.swift; sourceTree = "<group>"; };
+		899250A020FB09E700864F73 /* MessageClientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageClientCell.swift; sourceTree = "<group>"; };
 		89AD3CBC20D9C64800D60F21 /* UploadPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostController.swift; sourceTree = "<group>"; };
 		89AD3CBE20D9C73800D60F21 /* EstilistTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstilistTabBarController.swift; sourceTree = "<group>"; };
 		89B67D5020BB7D0E00D3BFBF /* UtrymApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UtrymApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,7 +246,9 @@
 				894333AE20DDAD2C006F1BEE /* ListEstilistController.swift */,
 				898920AE20F2748E002CD2E8 /* ProfileEstilistClientController.swift */,
 				89855D2A20F54FFB00D1EF2D /* ChatsListClientController.swift */,
+				8992509E20FB044B00864F73 /* ChatLogClientController.swift */,
 				89855D4120F7FEF800D1EF2D /* SelectEstilistController.swift */,
+				8992509A20FA9F2400864F73 /* NewMessageController.swift */,
 			);
 			name = Cliente;
 			path = ../..;
@@ -275,6 +285,7 @@
 				89F7723320F400D700CA4139 /* PostThumbProfileEsCell.swift */,
 				89855D3020F55A0800D1EF2D /* ChatListClientCell.swift */,
 				89855D4320F807E600D1EF2D /* SelectEstilistCell.swift */,
+				899250A020FB09E700864F73 /* MessageClientCell.swift */,
 			);
 			name = Cliente;
 			path = ../..;
@@ -404,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				89F4F3BD20CF222F006E1AE1 /* Post.swift */,
+				8992509C20FAD62900864F73 /* ChatMessage.swift */,
 				89F2D7B720D1D48900688164 /* Estilist.swift */,
 				896B7FFD20D016B0007B7C5D /* User.swift */,
 				89589C6120D71F5F001B4336 /* Services.swift */,
@@ -636,6 +648,7 @@
 				89F7723620F4272900CA4139 /* ListServicesCell.swift in Sources */,
 				894333A920DC74BD006F1BEE /* PostEstilist.swift in Sources */,
 				89F7723C20F505B600CA4139 /* Message.swift in Sources */,
+				8992509F20FB044B00864F73 /* ChatLogClientController.swift in Sources */,
 				894333A720DC670E006F1BEE /* StorageReference+Post.swift in Sources */,
 				892E726720EEE01D0078FD44 /* CitasEstilist.swift in Sources */,
 				894333A020DBF69E006F1BEE /* StorageService.swift in Sources */,
@@ -653,6 +666,7 @@
 				896B800020D0368B007B7C5D /* DetailPostController.swift in Sources */,
 				892E726320EED8DF0078FD44 /* CitasEstilistHeaderView.swift in Sources */,
 				8908C92120EB008F00344A6A /* PostEstThumbProfileCell.swift in Sources */,
+				899250A120FB09E700864F73 /* MessageClientCell.swift in Sources */,
 				89855D3C20F58FEF00D1EF2D /* LoginController.swift in Sources */,
 				89B67D5620BB7D0E00D3BFBF /* ViewController.swift in Sources */,
 				8914525620CDEFC20030A67A /* TimeLineController.swift in Sources */,
@@ -667,6 +681,7 @@
 				89AD3CBD20D9C64900D60F21 /* UploadPostController.swift in Sources */,
 				892E726F20EF0E240078FD44 /* ListChatsEstilistCell.swift in Sources */,
 				89F7723E20F5065A00CA4139 /* UserNew.swift in Sources */,
+				8992509D20FAD62900864F73 /* ChatMessage.swift in Sources */,
 				89589C6420D71FFC001B4336 /* ServicesController.swift in Sources */,
 				89F7724020F5081600CA4139 /* ChatService.swift in Sources */,
 				892E727320EFDDD20078FD44 /* FinanzasEstilistController.swift in Sources */,
@@ -682,6 +697,7 @@
 				89BE1E4120D4B3B6001703B3 /* ProfileHeaderView.swift in Sources */,
 				89855D4020F5AF5A00D1EF2D /* CreateUserController.swift in Sources */,
 				894333AD20DD989C006F1BEE /* ProfileClientController.swift in Sources */,
+				8992509B20FA9F2400864F73 /* NewMessageController.swift in Sources */,
 				89855D2B20F54FFB00D1EF2D /* ChatsListClientController.swift in Sources */,
 				894333A220DBFF02006F1BEE /* PostService.swift in Sources */,
 				892E727120EF11990078FD44 /* Chat.swift in Sources */,

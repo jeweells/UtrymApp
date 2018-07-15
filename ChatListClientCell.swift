@@ -12,6 +12,7 @@ class ChatListClientCell: UITableViewCell {
     
     @IBOutlet weak var titleMessage: UILabel!
     @IBOutlet weak var lastMessage: UILabel!
+    @IBOutlet weak var textMessage: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

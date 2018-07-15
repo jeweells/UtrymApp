@@ -24,11 +24,25 @@ class TimeLineController: UIViewController {
         setupNavigationBarItems()
         //fecthUser()
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Barra_superior_ligth.png"), for: .default)
+        
+        if Auth.auth().currentUser?.uid == nil {
+            perform(#selector(logout), with: nil, afterDelay: 0)
+        }
         let backgroundImage = UIImage(named: "Back.png")
         let imageView = UIImageView(image: backgroundImage)
         self.collectionView.backgroundView = imageView
         imageView.contentMode = .scaleAspectFill
         loadPosts()
+    }
+    
+    @objc func logout() {
+        do {
+            try Auth.auth().signOut()
+        } catch let logoutError {
+            print(logoutError)
+        }
+        let loginController = LoginController()
+        present(loginController, animated: true, completion: nil)
     }
     
     private func setupNavigationBarItems(){

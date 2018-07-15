@@ -13,6 +13,7 @@ class SelectEstilistCell: UICollectionViewCell {
     @IBOutlet weak var imageEstilist: UIImageView!
     @IBOutlet weak var nombreEstilist: UILabel!
     @IBOutlet weak var apellidoEstilist: UILabel!
+    var estilistID: String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()

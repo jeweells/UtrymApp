@@ -107,8 +107,8 @@ extension ListEstilistController: UICollectionViewDataSource {
     }
 }
 
-extension UIImageView {
-    func downloadImageEst(from imgURL: String!) {
+/*extension UIImageView {
+    func downloadImageEst2(from imgURL: String!) {
         let url = URLRequest(url: URL(string: imgURL)!)
         
         let task = URLSession.shared.dataTask(with: url) {
@@ -126,7 +126,7 @@ extension UIImageView {
         task.resume()
     }
     
-}
+}*/
 
     
     
