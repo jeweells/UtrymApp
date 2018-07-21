@@ -21,4 +21,5 @@ class SelectEstilistCell: UICollectionViewCell {
         imageEstilist.layer.masksToBounds = true
         imageEstilist.layer.cornerRadius = imageEstilist.bounds.size.width / 2.0
     }
+
 }

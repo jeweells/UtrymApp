@@ -12,7 +12,8 @@ class ListChatsEstilistCell: UICollectionViewCell {
     
     @IBOutlet weak var clientFullName: UILabel!
     @IBOutlet weak var fechaChats: UILabel!
-    @IBOutlet weak var verChat: UILabel!
+    @IBOutlet weak var textMessage: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

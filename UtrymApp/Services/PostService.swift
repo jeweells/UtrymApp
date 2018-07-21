@@ -13,7 +13,6 @@ import FirebaseStorage
 import FirebaseDatabase
 
 struct PostService {
-    
     static func create(for image: UIImage) {
         let imageRef = StorageReference.newPostImageReference()
         StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
@@ -24,11 +23,12 @@ struct PostService {
             let urlString = downloadURL.absoluteString
             let aspectHeight = image.aspectHeight
             
-            create(forURLString: urlString, aspectHeight: aspectHeight)
+            // la imagen se guarda en Storage pero no en la base de datosssssss y de paso no se como subir los videos
+            createPost(forURLString: urlString, aspectHeight: aspectHeight)
         }
     }
     
-    private static func create(forURLString urlString: String, aspectHeight: CGFloat) {        
+    private static func createPost(forURLString urlString: String, aspectHeight: CGFloat) {
         //let currentUser = User.current
         //let post = Post(imageURL: urlString)
         let post = PostEstilist(imageURL: urlString, imageHeight: aspectHeight)
@@ -39,4 +39,39 @@ struct PostService {
     }
     
 }
+
+
+/*    static func create(for image: UIImage) {
+        let imageRef = StorageReference.newPostImageReference()
+        StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
+            guard let downloadURL = downloadURL else {
+                return
+            }
+            let UserId = Auth.auth().currentUser?.uid
+            _ = downloadURL.absoluteString
+            imageRef.downloadURL(completion: { (urlString, er) in
+                if er != nil {
+                    
+                    print("Error al cargar el post")
+                }
+                
+                if let urlString = urlString {
+                    let userInfo: [String: Any] = ["urlToImage": urlString.absoluteString]
+                    let postRef = Database.database().reference().child("posts").child(UserId!).childByAutoId()
+                    postRef.child("posts").child(UserId!).setValue(userInfo)
+                    
+                }
+                
+            })
+        }
+        
+
+
+
+    }
+
+
+}*/
+
+
 

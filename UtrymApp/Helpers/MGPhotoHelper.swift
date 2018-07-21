@@ -46,6 +46,7 @@ class MGPhotoHelper: NSObject {
     func presentImagePickerController(with sourceType: UIImagePickerControllerSourceType, from viewController: UIViewController) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = sourceType
+        imagePickerController.allowsEditing = true
         imagePickerController.delegate = (self as UIImagePickerControllerDelegate & UINavigationControllerDelegate)
         
         viewController.present(imagePickerController, animated: true)

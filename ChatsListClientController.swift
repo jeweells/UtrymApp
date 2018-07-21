@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 import FirebaseDatabase
 
 class ChatsListClientController: UIViewController {
@@ -23,12 +25,13 @@ class ChatsListClientController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         chatsTable.rowHeight = 71
         // remove separators for empty cells
         chatsTable.tableFooterView = UIView()
         self.chatsTable.backgroundColor = UIColor.clear
-        loadChats()
+        //loadChats()
+        loadChatsUsers()
 
     }
 
@@ -37,8 +40,45 @@ class ChatsListClientController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    func loadChatsUsers() {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let ref = Database.database().reference()
+        ref.child("user-messages").child(uid).observe(.childAdded) { (snapshot: DataSnapshot) in
+            //print (snapshot)
+            
+            let messageId = snapshot.key
 
+            Database.database().reference().child("messages").child(messageId).observe(.value, with: { (snapshot) in
+                //print(snapshot)
+                if let dict = snapshot.value as? [String: Any]
+                {
+                    let emisor = dict["emisor"] as! String
+                    let receptor = dict["receptor"] as! String
+                    let timestamp = dict["timestamp"] as! NSNumber
+                    let message = dict["text"] as! String
+                    let chat = ChatMessage(emisorText: emisor, receptorText: receptor, timestampInt: timestamp, messageText: message)
+                    //self.chats.append(chat)
+                    
+                    let receptor1 = chat.receptor
+                    self.messDict[receptor1] = chat
+                    self.chats = Array(self.messDict.values)
+                    print (self.chats)
+                    self.chats.sort(by: { (chat1, chat2) -> Bool in
+                        return chat1.timestamp.intValue > chat2.timestamp.intValue
+                    })
+                    
+                }
+            self.chatsTable.reloadData()
+            })
+        }
+        ref.removeAllObservers()
+    }
+    
+/*
     func loadChats() {
+        
         let ref = Database.database().reference()
         ref.child("messages").observe(.childAdded) { (snapshot: DataSnapshot) in
             if let dict = snapshot.value as? [String: Any] {
@@ -68,12 +108,12 @@ class ChatsListClientController: UIViewController {
                 }
             }
         }
-    }
+    }*/
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationController = segue.destination as? ChatLogClientController {
             print("Inicé chat con: \(chats[indexPressedCell].receptor)")
-            print(chats[indexPressedCell].emisor)
+            //Siempre almacena solo el primer elemento, esta fallando
             destinationController.estilistID = chats[indexPressedCell].receptor
         }
     }
@@ -91,7 +131,6 @@ extension ChatsListClientController: UITableViewDataSource {
         //cell.titleMessage?.text = estilists[indexPath.row].nombre
         //cell.titleMessage?.text = estilista.nombre
         let mensaje = chats[indexPath.row]
-        //cell.lastMessage?.text = mensaje.receptor
         cell.titleMessage?.text = mensaje.receptor
         cell.textMessage?.text = mensaje.message
         

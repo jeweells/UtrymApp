@@ -166,6 +166,9 @@
                                             <state key="normal" title="Citas" backgroundImage="Rectangle_seguir">
                                                 <color key="titleColor" red="0.32156862749999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <segue destination="K5N-cN-6He" kind="show" id="YGZ-3k-IbF"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jO-fW-1cp">
                                             <rect key="frame" x="268" y="110" width="31" height="29"/>
@@ -238,6 +241,132 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VjN-B7-Pjz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-183.19999999999999" y="166.99507389162562"/>
+        </scene>
+        <!--Profile Controller-->
+        <scene sceneID="9Bm-Aa-dOO">
+            <objects>
+                <viewController id="K5N-cN-6He" customClass="ProfileController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iu6-0P-hVk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Back_profile_only" translatesAutoresizingMaskIntoConstraints="NO" id="Tv8-73-OuF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kSz-Kv-v2s">
+                                <rect key="frame" x="16" y="419" width="343" height="61"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DpM-Rk-1c1">
+                                    <size key="itemSize" width="40" height="42"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategorysCell" id="9wg-MH-gZQ" customClass="CategorysCell" customModule="UtrymApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="42"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="40" height="42"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wTB-Dg-j9G">
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="categoryIcon" destination="wTB-Dg-j9G" id="oFV-P0-l6N"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="K5N-cN-6He" id="uSU-Yh-V2X"/>
+                                    <outlet property="delegate" destination="K5N-cN-6He" id="5wZ-64-bpJ"/>
+                                    <outlet property="prefetchDataSource" destination="K5N-cN-6He" id="v65-cb-ky6"/>
+                                </connections>
+                            </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Cfh-JL-wpD">
+                                <rect key="frame" x="0.0" y="488" width="375" height="324"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hSO-xx-5sC">
+                                    <size key="itemSize" width="124" height="124"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ThumbCell" id="297-j8-t9P" customClass="ThumbCell" customModule="UtrymApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gmg-js-pVS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.32156862749999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="posts" destination="Gmg-js-pVS" id="DD9-qO-r8g"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="K5N-cN-6He" id="rR7-O6-dnT"/>
+                                    <outlet property="delegate" destination="K5N-cN-6He" id="Ve4-da-Eff"/>
+                                    <outlet property="prefetchDataSource" destination="K5N-cN-6He" id="pST-yD-fvg"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre Apellido" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aqa-Cp-Y5y">
+                                <rect key="frame" x="16" y="280" width="204" height="36"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="26"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ssT-PD-gTa">
+                                <rect key="frame" x="68" y="152" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="borde_prof_est" translatesAutoresizingMaskIntoConstraints="NO" id="GpA-Yu-Hsm">
+                                <rect key="frame" x="58" y="142" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Biografía" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAN-6E-jhL">
+                                <rect key="frame" x="16" y="324" width="343" height="58"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Tv8-73-OuF" firstAttribute="centerY" secondItem="iu6-0P-hVk" secondAttribute="centerY" id="0ku-tI-JUh"/>
+                            <constraint firstItem="Tv8-73-OuF" firstAttribute="top" secondItem="iu6-0P-hVk" secondAttribute="top" id="EfX-yM-FR5"/>
+                            <constraint firstItem="Tv8-73-OuF" firstAttribute="centerX" secondItem="iu6-0P-hVk" secondAttribute="centerX" id="JZ7-Gl-2PR"/>
+                            <constraint firstAttribute="bottom" secondItem="Tv8-73-OuF" secondAttribute="bottom" id="TsQ-F4-dc0"/>
+                            <constraint firstItem="Tv8-73-OuF" firstAttribute="leading" secondItem="iu6-0P-hVk" secondAttribute="leading" id="eSv-nn-HbY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mJv-YA-GWf"/>
+                    </view>
+                    <connections>
+                        <outlet property="avatar" destination="ssT-PD-gTa" id="3Cj-5m-5M8"/>
+                        <outlet property="bio" destination="nAN-6E-jhL" id="Thy-Jm-msF"/>
+                        <outlet property="categorysView" destination="kSz-Kv-v2s" id="m1R-ep-6Lh"/>
+                        <outlet property="fullName" destination="Aqa-Cp-Y5y" id="YSm-Dj-Vwg"/>
+                        <outlet property="postsView" destination="Cfh-JL-wpD" id="wZk-eB-eiA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rE9-Qf-lYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="741.60000000000002" y="166.99507389162562"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Yr0-m2-EQz">
@@ -445,21 +574,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cliente" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cd-ba-U3Q">
-                                                    <rect key="frame" x="20" y="33" width="117" height="48"/>
+                                                    <rect key="frame" x="20" y="20" width="113" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="fecha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tif-vL-NGs">
-                                                    <rect key="frame" x="156" y="33" width="107" height="48"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mensaje" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ou7-0e-5QL">
+                                                    <rect key="frame" x="20" y="55" width="113" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTY-fZ-WCB">
-                                                    <rect key="frame" x="325" y="47" width="30" height="28"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="fecha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tif-vL-NGs">
+                                                    <rect key="frame" x="293" y="20" width="62" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -470,7 +599,7 @@
                                         <connections>
                                             <outlet property="clientFullName" destination="8cd-ba-U3Q" id="QXP-Bt-XiT"/>
                                             <outlet property="fechaChats" destination="Tif-vL-NGs" id="10d-Nz-JZ4"/>
-                                            <outlet property="verChat" destination="DTY-fZ-WCB" id="YkD-MJ-ohH"/>
+                                            <outlet property="textMessage" destination="Ou7-0e-5QL" id="VUM-2S-CiV"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -568,6 +697,7 @@
     </scenes>
     <resources>
         <image name="Back" width="375" height="812"/>
+        <image name="Back_profile_only" width="375" height="812"/>
         <image name="Boton de reputacion" width="31" height="29"/>
         <image name="Rectangle_seguir" width="107" height="29"/>
         <image name="backButtonW" width="13" height="21"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J80-yT-7g8">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,14 +15,14 @@
             <objects>
                 <viewController id="idZ-n6-R32" customClass="LoginController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="STx-Ao-DcT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Back" translatesAutoresizingMaskIntoConstraints="NO" id="utg-Jw-xhr">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="812"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   Contraseña" minimumFontSize="20" background="input_correo" translatesAutoresizingMaskIntoConstraints="NO" id="EiS-Lx-QCN">
-                                <rect key="frame" x="39" y="355" width="296.66666666666669" height="42"/>
+                                <rect key="frame" x="39" y="389" width="241.5" height="42"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="Qdx-96-kMp"/>
@@ -32,20 +32,20 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Utrym1" translatesAutoresizingMaskIntoConstraints="NO" id="m4r-6t-h2K">
-                                <rect key="frame" x="86" y="65" width="203" height="43"/>
+                                <rect key="frame" x="58.5" y="41" width="203" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="6xh-Mg-i1U"/>
                                     <constraint firstAttribute="width" constant="203" id="9T2-IW-azH"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regístrate con tus Redes Sociales" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6I-cw-nQe">
-                                <rect key="frame" x="76.666666666666686" y="125.66666666666667" width="222" height="19.333333333333329"/>
+                                <rect key="frame" x="49" y="159.5" width="222" height="19.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Al registrarte, estás aceptando nuestros Términos de uso y Políticas de Privacidad" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zG-i4-Ejc">
-                                <rect key="frame" x="16" y="148" width="343" height="48"/>
+                                <rect key="frame" x="-11.5" y="182" width="343" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="c0z-01-U8f"/>
                                     <constraint firstAttribute="height" constant="48" id="fAH-4W-z2Y"/>
@@ -55,7 +55,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Jg3-Uk-E7Y">
-                                <rect key="frame" x="46.666666666666657" y="224" width="283" height="31"/>
+                                <rect key="frame" x="19" y="258" width="283" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIX-Bw-r3F">
                                         <rect key="frame" x="0.0" y="0.0" width="134" height="31"/>
@@ -78,7 +78,7 @@
                                 </subviews>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   Correo" minimumFontSize="20" background="input_correo" translatesAutoresizingMaskIntoConstraints="NO" id="Dgr-EG-w8f">
-                                <rect key="frame" x="39" y="290" width="296.66666666666669" height="42"/>
+                                <rect key="frame" x="39" y="324" width="241.5" height="42"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="gAA-Fl-hAd"/>
@@ -88,7 +88,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="DHu-EW-ywm">
-                                <rect key="frame" x="54.666666666666657" y="438" width="266" height="43"/>
+                                <rect key="frame" x="27" y="472" width="266" height="43"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8R-1i-jVW">
                                         <rect key="frame" x="0.0" y="0.0" width="127" height="43"/>
@@ -113,7 +113,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Has olvidado la contraseña?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVa-RR-IKC">
-                                <rect key="frame" x="16" y="513" width="343" height="21"/>
+                                <rect key="frame" x="-11.5" y="547" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="8nj-ga-Qgt"/>
                                 </constraints>
@@ -173,14 +173,14 @@
             <objects>
                 <viewController id="2al-fL-ZQa" customClass="CreateUserController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="erk-Cl-fOE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Back" translatesAutoresizingMaskIntoConstraints="NO" id="TTX-sT-xB3">
-                                <rect key="frame" x="0.66666666666665719" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="-27" y="0.0" width="375" height="812"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="k8g-nw-cYy">
-                                <rect key="frame" x="39.666666666666657" y="334" width="297" height="216"/>
+                                <rect key="frame" x="12" y="334" width="297" height="216"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   Nombre y Apellido" textAlignment="natural" minimumFontSize="20" background="input_correo" translatesAutoresizingMaskIntoConstraints="NO" id="F06-L9-IPe">
                                         <rect key="frame" x="0.0" y="0.0" width="297" height="42"/>
@@ -261,7 +261,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqZ-q6-C5O">
-                                <rect key="frame" x="124" y="586" width="127" height="43"/>
+                                <rect key="frame" x="96.5" y="586" width="127" height="43"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                 <state key="normal" title="Regístrarse" backgroundImage="Botón Inisiar sesión">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -271,7 +271,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Al registrarte, estás aceptando nuestros Términos de uso y Políticas de Privacidad" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ty9-8x-2xU">
-                                <rect key="frame" x="16" y="298.66666666666669" width="343" height="27.333333333333314"/>
+                                <rect key="frame" x="16" y="298.5" width="288" height="27.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

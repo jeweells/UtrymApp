@@ -10,4 +10,10 @@ import UIKit
 
 class MessageClientCell: UICollectionViewCell {
     
+    @IBOutlet weak var textMessage: UITextView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
 }

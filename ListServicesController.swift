@@ -61,7 +61,7 @@ class ListServicesController: UIViewController {
 
 extension ListServicesController: UICollectionViewDataSource {
     func collectionView(_ collectionService: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(services.count)
+        //print(services.count)
         return services.count
         //return 10
     }

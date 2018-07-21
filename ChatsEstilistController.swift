@@ -14,7 +14,9 @@ class ChatsEstilistController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var chats = [Chat]()
+    //var chats = [Chat]()
+    var chats = [ChatMessage]()
+    var messDict = [String: ChatMessage]()
     var clients = [Client]()
     var ref : DatabaseReference!
     
@@ -26,7 +28,8 @@ class ChatsEstilistController: UIViewController {
         let imageView = UIImageView(image: backgroundImage)
         self.collectionView.backgroundView = imageView
         imageView.contentMode = .scaleAspectFill
-        loadChats()
+        //loadChats()
+        loadChatsUsers()
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +49,74 @@ class ChatsEstilistController: UIViewController {
         
     }
     
-    func loadChats() {
+    
+    func loadChatsUsers() {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        Database.database().reference().child("messages").observe(.value, with: { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                
+                for mens in snapshot.children.allObjects as! [DataSnapshot] {
+                    //print(mens)
+                    let obj = mens.value as? [String: Any]
+                    print(obj!)
+                    let emisor = obj!["emisor"] as! String
+                    let receptor = obj!["receptor"] as! String
+                    let timestamp = obj!["timestamp"] as! NSNumber
+                    let message = obj!["text"] as! String
+                    if receptor == uid {
+                        let chat = ChatMessage(emisorText: emisor, receptorText: receptor, timestampInt: timestamp, messageText: message)
+                        let emisor1 = chat.emisor
+                        self.messDict[emisor1] = chat
+                        self.chats = Array(self.messDict.values)
+                        self.chats.sort(by: { (chat1, chat2) -> Bool in
+                            return chat1.timestamp.intValue > chat2.timestamp.intValue
+                        })
+                        self.collectionView.reloadData()
+                    }
+                    
+                    //print(obj!)
+                }
+            }
+        })
+        
+        
+        
+        //let ref = Database.database().reference().child("user-messages").child(uid)
+        //ref.observe(.childAdded, with: { (snapshot) in
+            //print (snapshot)
+        
+            //let messageId = snapshot.key
+            
+        
+           /* Database.database().reference().child("messages").child(messageId).observe(.value, with: { (snapshot) in
+                //print(snapshot)
+                if let dict = snapshot.value as? [String: Any]
+                {
+                    let emisor = dict["emisor"] as! String
+                    let receptor = dict["receptor"] as! String
+                    let timestamp = dict["timestamp"] as! NSNumber
+                    let message = dict["text"] as! String
+                    let chat = ChatMessage(emisorText: emisor, receptorText: receptor, timestampInt: timestamp, messageText: message)
+                    //self.chats.append(chat)
+                    
+                    let emisor1 = chat.emisor
+                    self.messDict[emisor1] = chat
+                    self.chats = Array(self.messDict.values)
+                    self.chats.sort(by: { (chat1, chat2) -> Bool in
+                        return chat1.timestamp.intValue > chat2.timestamp.intValue
+                    })
+                    self.collectionView.reloadData()
+                }
+            })*/
+        //})
+        //ref.removeAllObservers()
+    }
+    
+    
+    /*func loadChats() {
         
         let ref = Database.database().reference()
         
@@ -69,7 +139,7 @@ class ChatsEstilistController: UIViewController {
             }
         }
         ref.removeAllObservers()
-    }
+    }*/
 
 }
 
@@ -80,8 +150,8 @@ extension ChatsEstilistController: UICollectionViewDataSource {
     
     func collectionView(_ collectionService: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionService.dequeueReusableCell(withReuseIdentifier: "ListChatsEstilistCell", for: indexPath) as! ListChatsEstilistCell
-        cell.clientFullName?.text = clients[indexPath.row].fullName
-        cell.fechaChats?.text = chats[indexPath.row].fecha
+        //cell.clientFullName?.text = clients[indexPath.row].fullName
+        //cell.fechaChats?.text = chats[indexPath.row].fecha
         cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
         /*let backgroundImage = UIImage(named: "list_estilist.png")
         let imageView = UIImageView(image: backgroundImage)
@@ -89,6 +159,15 @@ extension ChatsEstilistController: UICollectionViewDataSource {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 10*/
+        let mensaje = chats[indexPath.row]
+        cell.clientFullName?.text = mensaje.emisor
+        cell.textMessage?.text = mensaje.message
+
+        let seconds = mensaje.timestamp.doubleValue
+        let timestampDate = NSDate(timeIntervalSince1970: seconds)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm:ss a"
+        cell.fechaChats?.text = dateFormatter.string(from: timestampDate as Date)
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = 10
         return cell
