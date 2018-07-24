@@ -50,6 +50,7 @@
                                         <size key="customSize" width="124" height="124"/>
                                         <connections>
                                             <outlet property="postImage" destination="v0f-rh-1Bs" id="Hgs-nv-0YB"/>
+                                            <segue destination="ZwN-Oa-Anz" kind="show" identifier="detail" id="3Sl-LM-7Pr"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -73,7 +74,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="3Y5-Cp-vgp" id="moA-Cj-Xhj"/>
-                        <segue destination="ZwN-Oa-Anz" kind="showDetail" identifier="detail" id="LZq-at-ReQ"/>
                         <segue destination="C2O-aY-qts" kind="show" identifier="profileClient" id="NYB-8D-A5Y"/>
                     </connections>
                 </viewController>
@@ -172,7 +172,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tiP-mu-3Sg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3558" y="124"/>
+            <point key="canvasLocation" x="3649" y="-283"/>
         </scene>
         <!--Profile Client Controller-->
         <scene sceneID="Nff-J5-R0S">

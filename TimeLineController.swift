@@ -143,7 +143,7 @@ extension TimeLineController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //self.performSegue(withIdentifier: "detail", sender: self)
+        self.performSegue(withIdentifier: "detail", sender: self)
         print("Detail Post Tapped")
     }
 }
