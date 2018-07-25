@@ -16,14 +16,15 @@ class PostEstilist {
     let imageURL: String
     let imageHeight: CGFloat
     let creationDate: Date
-    //let status: String
+    var status: Bool = false
     
     var dictValue: [String : Any] {
         let createdAgo = creationDate.timeIntervalSince1970
         
         return ["image_url" : imageURL,
                 "image_height" : imageHeight,
-                "created_at" : createdAgo]
+                "created_at" : createdAgo,
+                "status_post" : status]
     }
     
     //let status: String

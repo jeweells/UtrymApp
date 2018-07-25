@@ -20,8 +20,9 @@ class EstilistTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*myPickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-        
+        //myPickerController.delegate = self
+        myPickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        /*
         AttachmentHandler.shared.imagePickedBlock = { (image) in
             PostService.create(for: image)
             

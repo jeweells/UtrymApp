@@ -23,5 +23,13 @@ struct StorageService {
                 return completion(nil)
             }
         })
+        
+        reference.downloadURL { (url, error) in
+            guard let downloadURL = url else {
+                return
+            }
+            completion(downloadURL)
+        }
+
     }
 }
