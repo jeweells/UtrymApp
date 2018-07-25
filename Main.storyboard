@@ -617,8 +617,9 @@
         <!--Navigation Controller-->
         <scene sceneID="ciT-XF-PZV">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2lA-Uv-fCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XuU-ay-nhn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Botón Buscar" id="6bS-b5-Zbq"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="Botón Buscar" id="6bS-b5-Zbq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gX2-Ch-Bs5">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -630,15 +631,15 @@
                         <segue destination="Hc7-8b-UsE" kind="relationship" relationship="rootViewController" id="63P-Nj-omc"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2lA-Uv-fCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1599" y="1179"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VKa-1C-3bf">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YPU-62-ZPJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="byy-eF-eUN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Botón Servicios" id="U0C-IG-cQc"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="" image="Botón Servicios" id="U0C-IG-cQc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xXC-9W-y6d">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -650,13 +651,13 @@
                         <segue destination="hQL-6F-buf" kind="relationship" relationship="rootViewController" id="I7G-4u-dTa"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YPU-62-ZPJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="788" y="1985"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FAB-rG-oRl">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xtw-MT-1og" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="googleId" automaticallyAdjustsScrollViewInsets="NO" id="9va-z3-HUB" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Home-1" id="zeq-TO-jSE"/>
                     <toolbarItems/>
@@ -670,16 +671,16 @@
                         <segue destination="9OT-ed-VEp" kind="relationship" relationship="rootViewController" id="W9X-sG-ipU"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xtw-MT-1og" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1897" y="123"/>
         </scene>
         <!--Client Tab Bar Controller-->
         <scene sceneID="xGo-Lw-mHm">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j8J-48-QPt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController storyboardIdentifier="WelcomeClient" automaticallyAdjustsScrollViewInsets="NO" id="aXc-La-TBH" customClass="ClientTabBarController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="Barra inferior" id="ial-5e-h6Y">
+                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="tab_bar" id="ial-5e-h6Y">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -693,7 +694,6 @@
                         <segue destination="byy-eF-eUN" kind="relationship" relationship="viewControllers" id="q59-IZ-GfJ"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="j8J-48-QPt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="788" y="333.25123152709364"/>
         </scene>
@@ -711,8 +711,7 @@
     <resources>
         <image name="Back" width="375" height="812"/>
         <image name="Back_profile_only" width="375" height="812"/>
-        <image name="Barra inferior" width="375" height="48"/>
-        <image name="Botón Buscar" width="23" height="23"/>
+        <image name="Botón Buscar" width="23" height="23"/>
         <image name="Botón Servicios" width="23" height="6"/>
         <image name="Home-1" width="23" height="23"/>
         <image name="Rectangle 6" width="370" height="63"/>
@@ -722,5 +721,6 @@
         <image name="borde_avatar" width="68" height="68"/>
         <image name="borde_prof_est" width="123" height="123"/>
         <image name="studio-2" width="550" height="761"/>
+        <image name="tab_bar" width="375" height="48"/>
     </resources>
 </document>

@@ -75,11 +75,11 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
                     if (snapshot == nil)
                     {
                         // aqui debe estar el código para crear clientes cuando se registran con google
-                        // Here save client in "users"
+                        // Here save client in "clientes"
                         let userInfo: [String: Any] = ["uid": userID!,
                                                        "id_perfil": self.cliente,
                                                        "provider": user as Any]
-                        self.ref.child("users").child(userID!).setValue(userInfo)
+                        self.ref.child("clientes").child(userID!).setValue(userInfo)
                         
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeClient") as UIViewController
@@ -123,8 +123,7 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
                 
                 if user != nil {
                     let firUser = Auth.auth().currentUser
-
-                    Database.database().reference().child("users").child((firUser!.uid)).child("id_perfil").observe(.value, with: { (snapshot) in
+                    /*Database.database().reference().child("users").child((firUser!.uid)).child("id_perfil").observe(.value, with: { (snapshot) in
                         if (snapshot.value as? String) != nil{
                             
                             if snapshot.value as? String == "sjefuaehiuf" {
@@ -148,6 +147,21 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
                                 alertController.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default,handler: nil))
                                 self.present(alertController, animated: true, completion: nil)
                             }
+                        }
+                    })*/
+                    
+                    Database.database().reference().child("clientes").child((firUser!.uid)).child("uid").observe(.value, with: { (snapshot) in
+                        if (snapshot.value as? String) != nil {
+                            print("Cliente")
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeClient") as UIViewController
+                            self.present(controller, animated: true, completion: nil)
+                        }
+                        else {
+                            print("Estilista")
+                            let storyboard = UIStoryboard(name: "Estilist", bundle: nil)
+                            let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeEstilist") as UIViewController
+                            self.present(controller, animated: true, completion: nil)
                         }
                     })
                     

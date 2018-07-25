@@ -13,7 +13,7 @@ import FirebaseDatabase
 
 class CreateUserController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
-    var cliente: String = "slallaksjjs"
+    //var cliente: String = "slallaksjjs"
     
     @IBOutlet weak var addAvatarRegister: UIButton!
     @IBOutlet weak var avatarRegister: UIImageView!
@@ -142,9 +142,9 @@ class CreateUserController: UIViewController, UIImagePickerControllerDelegate, U
                                                                "nombre completo": self.fullNameRegister.text!,
                                                                "username": email!,
                                                                "password": pass!,
-                                                               "id_perfil": self.cliente,
+                                                               //"id_perfil": self.cliente,
                                                                "urlToImage": url.absoluteString]
-                                self.ref.child("users").child(UserId!).setValue(userInfo)
+                                self.ref.child("clientes").child(UserId!).setValue(userInfo)
                                 
                                 // al registrarse enviar directamente a la pantalla de unicio
                                 let storyboard = UIStoryboard(name: "Main", bundle: nil)

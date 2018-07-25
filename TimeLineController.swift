@@ -16,7 +16,8 @@ class TimeLineController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var posts = [Post]()
+    //var posts = [Post]()
+    var posts = [PostEstilist]()
     //var clients = [Client]()
     
     override func viewDidLoad() {
@@ -32,7 +33,7 @@ class TimeLineController: UIViewController {
         let imageView = UIImageView(image: backgroundImage)
         self.collectionView.backgroundView = imageView
         imageView.contentMode = .scaleAspectFill
-        loadPosts()
+        //loadPosts()
     }
     
     @objc func logout() {
@@ -109,19 +110,17 @@ class TimeLineController: UIViewController {
     }
     */
     
-    func loadPosts() {
+  /*  func loadPosts() {
         Database.database().reference().child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
             if let dict = snapshot.value as? [String: Any] {
-                //let captionTex = dict["caption"] as! String
-                let urlString = dict["url"] as! String
-                let post = Post(urlString: urlString)
-                //let post = Post(captionText: captionTex, urlString: urlString)
+                let imageURL = dict["image_url"] as? String
+                let image_height = dict["image_height"] as? CGFloat
+                let post = PostEstilist(imageURL: imageURL!, imageHeight: image_height!)
                 self.posts.append(post)
-                print(self.posts)
                 self.collectionView.reloadData()
             }
         }
-    }
+    }*/
 
 
 }

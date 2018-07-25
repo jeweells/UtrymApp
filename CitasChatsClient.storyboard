@@ -70,7 +70,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YiE-Q8-LLC">
-                                <rect key="frame" x="12" y="98" width="351" height="680"/>
+                                <rect key="frame" x="12" y="98" width="351" height="631"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatListClientCell" rowHeight="71" id="2ct-Wi-I6F" customClass="ChatListClientCell" customModule="UtrymApp" customModuleProvider="target">
@@ -193,7 +193,7 @@
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rg-ky-Zhe">
                                                     <rect key="frame" x="20" y="0.0" width="293" height="52"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -248,7 +248,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qap-FF-oy2">
-                                <rect key="frame" x="12" y="98" width="351" height="680"/>
+                                <rect key="frame" x="12" y="98" width="351" height="631"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="svj-sh-ro1">
                                     <size key="itemSize" width="349" height="80"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -423,8 +423,9 @@
         <scene sceneID="Pdn-bN-fcX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ADb-fE-S14" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Botón Citas" id="hQE-j5-P9b"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="Botón Citas" id="GXJ-jD-Vi9"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Smx-Aa-AbQ">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -447,6 +448,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zyx-fD-AKV"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AI4-kp-dvJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -461,6 +463,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Nys-t6-PDc"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4EQ-UE-YaS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -470,6 +473,6 @@
     </scenes>
     <resources>
         <image name="Back" width="375" height="812"/>
-        <image name="Botón Citas" width="22" height="23"/>
+        <image name="Botón Citas" width="22" height="23"/>
     </resources>
 </document>
