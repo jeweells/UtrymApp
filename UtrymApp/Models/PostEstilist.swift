@@ -27,13 +27,10 @@ class PostEstilist {
                 "status_post" : status]
     }
     
-    //let status: String
-    //, status: String
     init(imageURL: String, imageHeight: CGFloat) {
         self.imageURL = imageURL
         self.imageHeight = imageHeight
         self.creationDate = Date()
-        //self.status = status
         
     }
 }
