@@ -34,7 +34,7 @@ class CitasEstilistController: UIViewController {
         navigationItem.titleView = titleImageView
         
         let rightButton = UIButton(type: .system)
-        rightButton.setImage(#imageLiteral(resourceName: "Mask_avatar").withRenderingMode(.alwaysOriginal), for: .normal)
+        rightButton.setImage(#imageLiteral(resourceName: "Setting_icon").withRenderingMode(.alwaysOriginal), for: .normal)
         rightButton.frame = CGRect(x: 0, y: 0, width: 34, height:34)
         rightButton.contentMode = .scaleAspectFit
         rightButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)

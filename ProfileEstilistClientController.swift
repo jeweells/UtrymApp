@@ -15,6 +15,8 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
     @IBOutlet weak var avatarEstilist: UIImageView!
     @IBOutlet weak var nameEstilist: UILabel!
     @IBOutlet weak var apellidoEstilist: UILabel!
+    @IBOutlet weak var especialidad: UILabel!
+    @IBOutlet weak var bio: UILabel!
     @IBOutlet weak var chatButton: UIButton!
     @IBOutlet weak var skillsCollectionView: UICollectionView!
     @IBOutlet weak var postFeedCollectionView: UICollectionView!
@@ -50,7 +52,7 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
         //let backgroundImage = UIImage(named: "Back_profile_only.png")
         //let imageView = UIImageView(image: backgroundImage)
         //self.collectionView.backgroundView = imageView
-        //loadEstilists()
+        loadEstilists()
 
     }
     
@@ -69,6 +71,28 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
         rightButton.addTarget(self, action: #selector(settingsTapped), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
         
+    }
+    
+    func loadEstilists() {
+        //let firUser = Auth.auth().currentUser
+        let ref = Database.database().reference()
+        ref.child("estilistas").child((estilistID)).observe(.value, with: { (snapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let nombreText = dict["name"] as! String
+                let apellidoText = dict["apellido"] as! String
+                let urlText = dict["urlAvatar"] as! String
+                let especialidad = dict["especialidad"] as! String
+                let bio = dict["bio"] as! String
+                //let estiID = dict["uid"] as! String
+                self.nameEstilist.text = nombreText
+                self.apellidoEstilist.text = apellidoText
+                self.avatarEstilist.downloadImageEst(from: urlText)
+                self.bio.text = bio
+                self.especialidad.text = especialidad
+                //print(estiID)
+            }
+        })
+        ref.removeAllObservers()
     }
     
     @objc func settingsTapped(){

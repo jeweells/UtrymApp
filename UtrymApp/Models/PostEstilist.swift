@@ -26,11 +26,10 @@ class PostEstilist {
                 "created_at" : createdAgo,
                 "status_post" : status]
     }
-    
+
     init(imageURL: String, imageHeight: CGFloat) {
         self.imageURL = imageURL
         self.imageHeight = imageHeight
         self.creationDate = Date()
-        
     }
 }

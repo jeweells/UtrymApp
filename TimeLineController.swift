@@ -52,15 +52,11 @@ class TimeLineController: UIViewController {
         navigationItem.titleView = titleImageView
         // icono avatar botón derecho del NavBar
         let rightButton = UIButton(type: .system)
-        rightButton.setImage(#imageLiteral(resourceName: "Mask_avatar").withRenderingMode(.alwaysOriginal), for: .normal)
+        rightButton.setImage(#imageLiteral(resourceName: "Setting_icon").withRenderingMode(.alwaysOriginal), for: .normal)
         rightButton.frame = CGRect(x: 0, y: 0, width: 34, height:34)
         rightButton.contentMode = .scaleAspectFit
         rightButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
-        
-        //let leftIcon = UIButton(type: .system)
-        //leftIcon.setImage(#imageLiteral(resourceName: "backButtonW"), for: .normal)
-        //navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftIcon)
     }
     
 
@@ -109,19 +105,25 @@ class TimeLineController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
     }
     */
-    
-  /*  func loadPosts() {
-        Database.database().reference().child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
-            if let dict = snapshot.value as? [String: Any] {
-                let imageURL = dict["image_url"] as? String
-                let image_height = dict["image_height"] as? CGFloat
-                let post = PostEstilist(imageURL: imageURL!, imageHeight: image_height!)
-                self.posts.append(post)
-                self.collectionView.reloadData()
-            }
-        }
-    }*/
 
+    /*func loadPosts() {
+        /*let ref = Database.database().reference().child("posts")
+        let query = ref.queryOrdered(byChild: "status_post").queryEqual(toValue:true)
+        query.observeSingleEvent(of: .value) { (snapshot: DataSnapshot) in
+            print(snapshot)
+        }*/
+        Database.database().reference().child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
+            print(snapshot)
+            /*if let dict = snapshot.value as? [String : Any] {
+                let imageURL = dict["image_url"] as? String
+                let imageHeight = dict["image_height"] as? CGFloat
+                let post = PostEstilist(imageURL: imageURL!, imageHeight: imageHeight!)
+                self.posts.append(post)
+                //self.collectionView.reloadData()
+            }*/
+        }
+        
+    }*/
 
 }
 
@@ -167,6 +169,7 @@ extension UIImageView {
     }
     
 }
+
 
 extension TimeLineController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

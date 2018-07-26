@@ -8,23 +8,23 @@
 
 import UIKit
 import Foundation
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class ProfileEstController: UIViewController {
     
     @IBOutlet weak var collectionProf: UICollectionView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupNavigationBarItems()
-        
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "barra_superior_dark.png"), for: .default)
         //navigationController?.navigationBar.shadowImage = #imageLiteral(resourceName: "Line")
         
         let backgroundImage = UIImage(named: "Back_profile_only.png")
         let imageView = UIImageView(image: backgroundImage)
         self.collectionProf.backgroundView = imageView
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,7 +47,6 @@ class ProfileEstController: UIViewController {
     @objc func settingsTapped(){
         print("Settings Button Tapped")
     }
-
 }
 
 extension ProfileEstController: UICollectionViewDataSource {
@@ -88,6 +87,7 @@ extension ProfileEstController: UICollectionViewDelegateFlowLayout {
         }
         
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProfileHeaderView", for: indexPath) as! ProfileHeaderView
+        //headerView.fullName.text = nombreText
         return headerView
     }
 }

@@ -105,6 +105,24 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
         }
     }
     
+    func loadProfile() {
+        let firUser = Auth.auth().currentUser
+        Database.database().reference().child("clientes").child((firUser!.uid)).child("uid").observe(.value, with: { (snapshot) in
+            if (snapshot.value as? String) != nil {
+                print("Cliente")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeClient") as UIViewController
+                self.present(controller, animated: true, completion: nil)
+            }
+            else {
+                print("Estilista")
+                let storyboard = UIStoryboard(name: "Estilist", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeEstilist") as UIViewController
+                self.present(controller, animated: true, completion: nil)
+            }
+        })
+    }
+    
     @IBAction func iniciarTapped(_ sender: UIButton) {
         
         guard username.text != "", password.text != "" else {
@@ -112,72 +130,23 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
                 "Debe llenar todos los campos", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default,handler: nil))
             self.present(alertController, animated: true, completion: nil)
-            
             return
-            
         }
         
         if let email = username.text, let password = password.text
         {
             Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-                
                 if user != nil {
-                    let firUser = Auth.auth().currentUser
-                    /*Database.database().reference().child("users").child((firUser!.uid)).child("id_perfil").observe(.value, with: { (snapshot) in
-                        if (snapshot.value as? String) != nil{
-                            
-                            if snapshot.value as? String == "sjefuaehiuf" {
-                                // es estilista
-                                print("Estilista")
-                                let storyboard = UIStoryboard(name: "Estilist", bundle: nil)
-                                let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeEstilist") as UIViewController
-                                self.present(controller, animated: true, completion: nil)
-                            }
-                            if snapshot.value as? String == "slallaksjjs" {
-                                print("Cliente")
-                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeClient") as UIViewController
-                                self.present(controller, animated: true, completion: nil)
-                            }
-                            if snapshot.value as? String == "administrador" {
-                                // es administrador
-                                print("Admin")
-                                let alertController = UIAlertController(title: "UtrymApp", message:
-                                    "Usuario Administrador", preferredStyle: UIAlertControllerStyle.alert)
-                                alertController.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default,handler: nil))
-                                self.present(alertController, animated: true, completion: nil)
-                            }
-                        }
-                    })*/
-                    
-                    Database.database().reference().child("clientes").child((firUser!.uid)).child("uid").observe(.value, with: { (snapshot) in
-                        if (snapshot.value as? String) != nil {
-                            print("Cliente")
-                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                            let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeClient") as UIViewController
-                            self.present(controller, animated: true, completion: nil)
-                        }
-                        else {
-                            print("Estilista")
-                            let storyboard = UIStoryboard(name: "Estilist", bundle: nil)
-                            let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeEstilist") as UIViewController
-                            self.present(controller, animated: true, completion: nil)
-                        }
-                    })
-                    
+                    self.loadProfile()
                 }
                 else {
                     let alertController = UIAlertController(title: "UtrymApp", message:
                         "Datos inválidos \(String(describing: error?.localizedDescription))", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default,handler: nil))
                     self.present(alertController, animated: true, completion: nil)
-
                 }
-
             }
-            
         }
-
     }
     
     @IBAction func facebookTapped(_ sender: UIButton) {
@@ -198,7 +167,6 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
             // Perform login by calling Firebase APIs
             Auth.auth().signInAndRetrieveData(with: credential, completion: { (user, error) in
                 
-                
                 if user != nil {
                     let userUid = Auth.auth().currentUser?.uid
                    
@@ -211,9 +179,7 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeClient") as UIViewController
                     self.present(controller, animated: true, completion: nil)
-                    
                 }
-                
                 
                 if let error = error {
                     print("Login error: \(error.localizedDescription)")
@@ -224,11 +190,8 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
                     
                     return
                 }
-                
             })
-            
         }
-        
     }
     
     

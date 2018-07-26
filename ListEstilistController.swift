@@ -20,6 +20,7 @@ class ListEstilistController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadEstilists()
         setupNavigationBarItems()
         self.collectionView.backgroundColor = UIColor.clear
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "barra_superior_dark.png"), for: .default)
@@ -27,8 +28,6 @@ class ListEstilistController: UIViewController {
         //let imageView = UIImageView(image: backgroundImage)
         //self.collectionView.backgroundView = imageView
         //imageView.contentMode = .scaleAspectFill
-        
-        loadEstilists()
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,7 +39,7 @@ class ListEstilistController: UIViewController {
         navigationItem.titleView = titleImageView
         
         let rightButton = UIButton(type: .system)
-        rightButton.setImage(#imageLiteral(resourceName: "Mask_avatar").withRenderingMode(.alwaysOriginal), for: .normal)
+        rightButton.setImage(#imageLiteral(resourceName: "Setting_icon").withRenderingMode(.alwaysOriginal), for: .normal)
         rightButton.frame = CGRect(x: 0, y: 0, width: 34, height:34)
         rightButton.contentMode = .scaleAspectFit
         rightButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
@@ -49,7 +48,7 @@ class ListEstilistController: UIViewController {
     }
     
     @objc func profileTapped(){
-        
+        self.performSegue(withIdentifier: "profileClientSearch", sender: self)
     }
     
     func loadEstilists() {

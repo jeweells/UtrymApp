@@ -29,8 +29,6 @@ struct PostService {
     }
     
     private static func createPost(forURLString urlString: String, aspectHeight: CGFloat) {
-        //let currentUser = User.current
-        //let post = Post(imageURL: urlString)
         let post = PostEstilist(imageURL: urlString, imageHeight: aspectHeight)
         let dict = post.dictValue
         let UserId = Auth.auth().currentUser?.uid
@@ -39,39 +37,6 @@ struct PostService {
     }
     
 }
-
-
-/*    static func create(for image: UIImage) {
-        let imageRef = StorageReference.newPostImageReference()
-        StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
-            guard let downloadURL = downloadURL else {
-                return
-            }
-            let UserId = Auth.auth().currentUser?.uid
-            _ = downloadURL.absoluteString
-            imageRef.downloadURL(completion: { (urlString, er) in
-                if er != nil {
-                    
-                    print("Error al cargar el post")
-                }
-                
-                if let urlString = urlString {
-                    let userInfo: [String: Any] = ["urlToImage": urlString.absoluteString]
-                    let postRef = Database.database().reference().child("posts").child(UserId!).childByAutoId()
-                    postRef.child("posts").child(UserId!).setValue(userInfo)
-                    
-                }
-                
-            })
-        }
-        
-
-
-
-    }
-
-
-}*/
 
 
 
