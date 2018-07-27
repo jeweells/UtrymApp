@@ -22,14 +22,15 @@ struct StorageService {
                 assertionFailure(error.localizedDescription)
                 return completion(nil)
             }
-        })
-        
-        reference.downloadURL { (url, error) in
-            guard let downloadURL = url else {
-                return
+            reference.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    
+                    print("\(error)")
+                    return
+                }
+                completion(downloadURL)
             }
-            completion(downloadURL)
-        }
-
+        })
     }
 }
