@@ -32,7 +32,17 @@ struct PostService {
         let post = PostEstilist(imageURL: urlString, imageHeight: aspectHeight, idEst: idEst)
         let dict = post.dictValue
         let postRef = Database.database().reference().child("posts").childByAutoId()
-        postRef.updateChildValues(dict)
+        let EstId = Auth.auth().currentUser!.uid
+        postRef.updateChildValues(dict) { (error, ref) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            let userPostRef = Database.database().reference().child("user-posts").child(EstId)
+            let postId = postRef.key
+            userPostRef.updateChildValues([postId: 1])
+        }
+        //postRef.updateChildValues(dict)
     }
     
 }

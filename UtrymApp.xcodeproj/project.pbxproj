@@ -53,7 +53,6 @@
 		89855D4220F7FEFB00D1EF2D /* SelectEstilistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89855D4120F7FEF800D1EF2D /* SelectEstilistController.swift */; };
 		89855D4420F807E600D1EF2D /* SelectEstilistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89855D4320F807E600D1EF2D /* SelectEstilistCell.swift */; };
 		898920AB20F2734D002CD2E8 /* ProfileHeaderEstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898920AA20F2734D002CD2E8 /* ProfileHeaderEstView.swift */; };
-		898920AD20F273AB002CD2E8 /* PostThumbProfileEstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898920AC20F273AB002CD2E8 /* PostThumbProfileEstCell.swift */; };
 		898920AF20F2748F002CD2E8 /* ProfileEstilistClientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898920AE20F2748E002CD2E8 /* ProfileEstilistClientController.swift */; };
 		8992509B20FA9F2400864F73 /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8992509A20FA9F2400864F73 /* NewMessageController.swift */; };
 		8992509D20FAD62900864F73 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8992509C20FAD62900864F73 /* ChatMessage.swift */; };
@@ -77,7 +76,6 @@
 		89F2D7BA20D1D85600688164 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D7B920D1D85600688164 /* SignUpController.swift */; };
 		89F4F3BE20CF222F006E1AE1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F4F3BD20CF222F006E1AE1 /* Post.swift */; };
 		89F7723220F3FFC500CA4139 /* SkillsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F7723120F3FFC400CA4139 /* SkillsCell.swift */; };
-		89F7723420F400D700CA4139 /* PostThumbProfileEsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F7723320F400D700CA4139 /* PostThumbProfileEsCell.swift */; };
 		89F7723620F4272900CA4139 /* ListServicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F7723520F4272900CA4139 /* ListServicesCell.swift */; };
 		89F7723820F4282D00CA4139 /* ListServicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F7723720F4282D00CA4139 /* ListServicesController.swift */; };
 		89F7723A20F501CC00CA4139 /* ChatNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F7723920F501CB00CA4139 /* ChatNew.swift */; };
@@ -146,7 +144,6 @@
 		89855D4120F7FEF800D1EF2D /* SelectEstilistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEstilistController.swift; sourceTree = "<group>"; };
 		89855D4320F807E600D1EF2D /* SelectEstilistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEstilistCell.swift; sourceTree = "<group>"; };
 		898920AA20F2734D002CD2E8 /* ProfileHeaderEstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderEstView.swift; sourceTree = "<group>"; };
-		898920AC20F273AB002CD2E8 /* PostThumbProfileEstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostThumbProfileEstCell.swift; sourceTree = "<group>"; };
 		898920AE20F2748E002CD2E8 /* ProfileEstilistClientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEstilistClientController.swift; sourceTree = "<group>"; };
 		8992509A20FA9F2400864F73 /* NewMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 		8992509C20FAD62900864F73 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
@@ -174,7 +171,6 @@
 		89F2D7B920D1D85600688164 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		89F4F3BD20CF222F006E1AE1 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		89F7723120F3FFC400CA4139 /* SkillsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsCell.swift; sourceTree = "<group>"; };
-		89F7723320F400D700CA4139 /* PostThumbProfileEsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostThumbProfileEsCell.swift; sourceTree = "<group>"; };
 		89F7723520F4272900CA4139 /* ListServicesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListServicesCell.swift; sourceTree = "<group>"; };
 		89F7723720F4282D00CA4139 /* ListServicesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListServicesController.swift; sourceTree = "<group>"; };
 		89F7723920F501CB00CA4139 /* ChatNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNew.swift; sourceTree = "<group>"; };
@@ -287,9 +283,7 @@
 				8960565120D81BE3006B8A3A /* ServiceHeaderCell.swift */,
 				891E9E3C20E4428C00F5BF33 /* EstilistSearchCell.swift */,
 				898920AA20F2734D002CD2E8 /* ProfileHeaderEstView.swift */,
-				898920AC20F273AB002CD2E8 /* PostThumbProfileEstCell.swift */,
 				89F7723120F3FFC400CA4139 /* SkillsCell.swift */,
-				89F7723320F400D700CA4139 /* PostThumbProfileEsCell.swift */,
 				89855D3020F55A0800D1EF2D /* ChatListClientCell.swift */,
 				89855D4320F807E600D1EF2D /* SelectEstilistCell.swift */,
 				899250A020FB09E700864F73 /* MessageClientCell.swift */,
@@ -664,7 +658,6 @@
 				89855D4220F7FEFB00D1EF2D /* SelectEstilistController.swift in Sources */,
 				896B800520D04445007B7C5D /* PostHeaderCell.swift in Sources */,
 				89AD3CBF20D9C73800D60F21 /* EstilistTabBarController.swift in Sources */,
-				898920AD20F273AB002CD2E8 /* PostThumbProfileEstCell.swift in Sources */,
 				894333B520DDB0C3006F1BEE /* ClientTabBarController.swift in Sources */,
 				89855D4420F807E600D1EF2D /* SelectEstilistCell.swift in Sources */,
 				8960565420D81F6F006B8A3A /* Category.swift in Sources */,
@@ -698,7 +691,6 @@
 				892E727320EFDDD20078FD44 /* FinanzasEstilistController.swift in Sources */,
 				892E726520EED9240078FD44 /* CitasEstilistCell.swift in Sources */,
 				894333B720DDBD22006F1BEE /* ProfileEstController.swift in Sources */,
-				89F7723420F400D700CA4139 /* PostThumbProfileEsCell.swift in Sources */,
 				891E9E3D20E4428C00F5BF33 /* EstilistSearchCell.swift in Sources */,
 				894333AF20DDAD2C006F1BEE /* ListEstilistController.swift in Sources */,
 				892E725D20EE890B0078FD44 /* Client.swift in Sources */,

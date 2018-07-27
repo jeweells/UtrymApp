@@ -71,8 +71,6 @@ class TimeLineController: UIViewController {
         }*/
         let ref = Database.database().reference()
         ref.child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
-        //Database.database().reference().child("posts").observe(.value) { (snapshot: DataSnapshot) in
-            //print(snapshot)
             if let dict = snapshot.value as? [String: Any] {
                 let imageURL = dict["image_url"] as? String
                 let image_height = dict["image_height"] as? CGFloat
@@ -88,13 +86,10 @@ class TimeLineController: UIViewController {
 
 extension TimeLineController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //fatalError("TODO: return number of cells")
-        //return 50
         return posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //fatalError("TODO: return configured cell")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostThumbImageCell", for: indexPath) as! PostThumbImageCell
         cell.postImage.downloadImage(from: self.posts[indexPath.row].imageURL)
         //cell.postImage?.image = UIImage(named: "studio-2.jpg")

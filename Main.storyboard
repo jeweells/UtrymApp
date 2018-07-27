@@ -529,45 +529,6 @@
                                     <outlet property="prefetchDataSource" destination="Teg-iX-rh5" id="8Je-VG-qNA"/>
                                 </connections>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UWk-n4-gPZ">
-                                <rect key="frame" x="16" y="421" width="343" height="391"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gX4-rB-tpj">
-                                    <size key="itemSize" width="124" height="124"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostThumbProfileEstCell" id="6FT-4s-8HE" customClass="PostThumbProfileEstCell" customModule="UtrymApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tHV-Rs-qQi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
-                                                    <color key="backgroundColor" red="0.32156862749999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </imageView>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="tHV-Rs-qQi" firstAttribute="leading" secondItem="6FT-4s-8HE" secondAttribute="leading" id="Dxc-nA-2gk"/>
-                                            <constraint firstAttribute="trailing" secondItem="tHV-Rs-qQi" secondAttribute="trailing" id="RAp-3W-Nnn"/>
-                                            <constraint firstItem="tHV-Rs-qQi" firstAttribute="top" secondItem="6FT-4s-8HE" secondAttribute="top" id="kIP-t5-86c"/>
-                                            <constraint firstAttribute="bottom" secondItem="tHV-Rs-qQi" secondAttribute="bottom" id="nGV-Yr-iYJ"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="postThumb" destination="tHV-Rs-qQi" id="ADB-iu-LDh"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="Teg-iX-rh5" id="WKe-qx-dOD"/>
-                                    <outlet property="delegate" destination="Teg-iX-rh5" id="1Js-ou-3LC"/>
-                                    <outlet property="prefetchDataSource" destination="Teg-iX-rh5" id="fpj-qV-Tbv"/>
-                                </connections>
-                            </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMQ-vh-MaV">
                                 <rect key="frame" x="16" y="342" width="343" height="71"/>
                                 <constraints>
@@ -596,14 +557,12 @@
                             <constraint firstItem="uwN-GQ-kl8" firstAttribute="leading" secondItem="Xyy-wr-ToI" secondAttribute="leading" constant="34" id="3ha-Lp-xaR"/>
                             <constraint firstItem="0u2-pq-mf5" firstAttribute="top" secondItem="UM9-kK-HS0" secondAttribute="bottom" constant="8" symbolic="YES" id="7c2-eD-emB"/>
                             <constraint firstItem="0u2-pq-mf5" firstAttribute="top" secondItem="j5T-uU-dHR" secondAttribute="bottom" constant="25" id="8EB-qg-bgW"/>
-                            <constraint firstItem="UWk-n4-gPZ" firstAttribute="top" secondItem="nMQ-vh-MaV" secondAttribute="bottom" constant="8" symbolic="YES" id="Coq-Rc-Xvf"/>
                             <constraint firstItem="nMQ-vh-MaV" firstAttribute="top" secondItem="0u2-pq-mf5" secondAttribute="bottom" constant="8" symbolic="YES" id="FaV-me-Iaf"/>
                             <constraint firstItem="LgH-of-EcY" firstAttribute="centerX" secondItem="ivq-Wb-iyb" secondAttribute="centerX" id="HUA-9B-ixT"/>
                             <constraint firstItem="uwN-GQ-kl8" firstAttribute="centerY" secondItem="Hxv-nb-2gt" secondAttribute="centerY" id="IP1-cg-JT7"/>
                             <constraint firstItem="UM9-kK-HS0" firstAttribute="leading" secondItem="j5T-uU-dHR" secondAttribute="leading" id="LaG-iA-xjN"/>
                             <constraint firstItem="KFF-6A-Tmc" firstAttribute="leading" secondItem="uwN-GQ-kl8" secondAttribute="trailing" constant="87" id="Loh-92-vUM"/>
                             <constraint firstItem="KFF-6A-Tmc" firstAttribute="top" secondItem="Xyy-wr-ToI" secondAttribute="top" constant="52" id="MLa-Ku-gjE"/>
-                            <constraint firstItem="UWk-n4-gPZ" firstAttribute="trailing" secondItem="nMQ-vh-MaV" secondAttribute="trailing" id="Qnc-50-S8a"/>
                             <constraint firstItem="0u2-pq-mf5" firstAttribute="top" secondItem="i8y-dF-LR1" secondAttribute="bottom" constant="26" id="U6x-NJ-HUK"/>
                             <constraint firstItem="0u2-pq-mf5" firstAttribute="trailing" secondItem="nMQ-vh-MaV" secondAttribute="trailing" id="Vy0-jG-LdB"/>
                             <constraint firstItem="Xyy-wr-ToI" firstAttribute="trailing" secondItem="KFF-6A-Tmc" secondAttribute="trailing" constant="45" id="WSO-11-FSw"/>
@@ -614,7 +573,6 @@
                             <constraint firstAttribute="bottom" secondItem="LgH-of-EcY" secondAttribute="bottom" id="iQr-ia-ep7"/>
                             <constraint firstItem="Hxv-nb-2gt" firstAttribute="top" secondItem="Xyy-wr-ToI" secondAttribute="top" constant="16" id="ja7-8V-D6r"/>
                             <constraint firstItem="0u2-pq-mf5" firstAttribute="trailing" secondItem="ivq-Wb-iyb" secondAttribute="trailingMargin" id="jce-1e-Ddf"/>
-                            <constraint firstItem="UWk-n4-gPZ" firstAttribute="bottom" secondItem="LgH-of-EcY" secondAttribute="bottom" id="klf-o8-Rbe"/>
                             <constraint firstItem="LgH-of-EcY" firstAttribute="top" secondItem="ivq-Wb-iyb" secondAttribute="top" id="lL0-Vr-A3X"/>
                             <constraint firstItem="LgH-of-EcY" firstAttribute="leading" secondItem="Xyy-wr-ToI" secondAttribute="leading" id="pvs-gb-OCm"/>
                             <constraint firstItem="j5T-uU-dHR" firstAttribute="top" secondItem="uwN-GQ-kl8" secondAttribute="bottom" constant="10" id="qZb-LE-oVT"/>
@@ -625,7 +583,6 @@
                             <constraint firstItem="Hxv-nb-2gt" firstAttribute="centerY" secondItem="KFF-6A-Tmc" secondAttribute="centerY" id="wky-Di-8ff"/>
                             <constraint firstItem="0u2-pq-mf5" firstAttribute="leading" secondItem="nMQ-vh-MaV" secondAttribute="leading" id="xEz-cf-oCC"/>
                             <constraint firstItem="LgH-of-EcY" firstAttribute="trailing" secondItem="Xyy-wr-ToI" secondAttribute="trailing" id="xQQ-qR-Wt7"/>
-                            <constraint firstItem="UWk-n4-gPZ" firstAttribute="leading" secondItem="nMQ-vh-MaV" secondAttribute="leading" id="yak-hK-CGZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xyy-wr-ToI"/>
                     </view>
@@ -636,7 +593,6 @@
                         <outlet property="chatButton" destination="KFF-6A-Tmc" id="W8I-al-IWn"/>
                         <outlet property="especialidad" destination="UM9-kK-HS0" id="x8G-6T-1Yx"/>
                         <outlet property="nameEstilist" destination="j5T-uU-dHR" id="FWr-jn-KxT"/>
-                        <outlet property="postFeedCollectionView" destination="UWk-n4-gPZ" id="No2-Ye-zQk"/>
                         <outlet property="skillsCollectionView" destination="0u2-pq-mf5" id="9xz-Ds-6os"/>
                     </connections>
                 </viewController>
