@@ -77,7 +77,7 @@
                                 <rect key="frame" x="52" y="417" width="127" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                <state key="normal" title="Iniciar Sesión" backgroundImage="Botón Inisiar sesión">
+                                <state key="normal" title="Iniciar Sesión" backgroundImage="Boton Iniciar sesion">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -98,7 +98,7 @@
                                 <rect key="frame" x="187" y="417" width="127" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                <state key="normal" title="Regístrarse" backgroundImage="Botón Inisiar sesión">
+                                <state key="normal" title="Regístrarse" backgroundImage="Boton Iniciar sesion">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -219,7 +219,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqZ-q6-C5O">
                                 <rect key="frame" x="124" y="586" width="127" height="43"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                <state key="normal" title="Regístrarse" backgroundImage="Botón Inisiar sesión">
+                                <state key="normal" title="Regístrarse" backgroundImage="Boton Iniciar sesion">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -285,7 +285,7 @@
         <image name="B Facebook w" width="134" height="31"/>
         <image name="B G+ White" width="134" height="31"/>
         <image name="Back" width="375" height="812"/>
-        <image name="Botón Inisiar sesión" width="127" height="43"/>
+        <image name="Boton Iniciar sesion" width="127" height="43"/>
         <image name="Utrym1" width="203" height="43"/>
         <image name="borde_avatar" width="68" height="68"/>
         <image name="input_correo" width="297" height="42"/>

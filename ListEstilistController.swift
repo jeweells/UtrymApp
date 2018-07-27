@@ -61,7 +61,7 @@ class ListEstilistController: UIViewController {
                 let estiID = dict["uid"] as! String
                 let estilist = Estilist(nombreText: nombreText, apellidoText: apellidoText, urlText: urlText, estiID: estiID)
                 self.estilists.append(estilist)
-                print(self.estilists)
+                //print(self.estilists)
                 
                 self.collectionView.reloadData()
             }

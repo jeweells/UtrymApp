@@ -26,11 +26,12 @@ class TimeLineController: UIViewController {
         if Auth.auth().currentUser?.uid == nil {
             perform(#selector(logout), with: nil, afterDelay: 0)
         }
-        let backgroundImage = UIImage(named: "Back.png")
-        let imageView = UIImageView(image: backgroundImage)
-        self.collectionView.backgroundView = imageView
-        imageView.contentMode = .scaleAspectFill
-        //loadPosts()
+        //let backgroundImage = UIImage(named: "Back.png")
+        //let imageView = UIImageView(image: backgroundImage)
+        //self.collectionView.backgroundView = imageView
+        //imageView.contentMode = .scaleAspectFill
+        self.collectionView.backgroundColor = UIColor.clear
+        loadPosts()
     }
     
     @objc func logout() {
@@ -68,31 +69,35 @@ class TimeLineController: UIViewController {
         query.observeSingleEvent(of: .value) { (snapshot: DataSnapshot) in
             print(snapshot)
         }*/
-        Database.database().reference().child("posts").observe(.value) { (snapshot: DataSnapshot) in
-            print(snapshot)
+        let ref = Database.database().reference()
+        ref.child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
+        //Database.database().reference().child("posts").observe(.value) { (snapshot: DataSnapshot) in
+            //print(snapshot)
             if let dict = snapshot.value as? [String: Any] {
                 let imageURL = dict["image_url"] as? String
                 let image_height = dict["image_height"] as? CGFloat
                 let idEst = dict["idEst"] as? String
                 let post = PostEstilist(imageURL: imageURL!, imageHeight: image_height!, idEst: idEst!)
                 self.posts.append(post)
+                self.collectionView.reloadData()
             }
         }
+        ref.removeAllObservers()
     }
 }
 
 extension TimeLineController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //fatalError("TODO: return number of cells")
-        return 50
-        //return posts.count
+        //return 50
+        return posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //fatalError("TODO: return configured cell")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostThumbImageCell", for: indexPath) as! PostThumbImageCell
-        //cell.postImage.downloadImage(from: self.posts[indexPath.row].url)
-        cell.postImage?.image = UIImage(named: "studio-2.jpg")
+        cell.postImage.downloadImage(from: self.posts[indexPath.row].imageURL)
+        //cell.postImage?.image = UIImage(named: "studio-2.jpg")
         
         return cell
     }

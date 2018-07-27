@@ -59,7 +59,7 @@ class ServicesController: UIViewController {
                 let nombreText = dict["nombre"] as! String
                 let category = Category(nombreText: nombreText)
                 self.categorys.append(category)
-                print(self.categorys)
+                //print(self.categorys)
                 self.collectionView.reloadData()
             }
         }

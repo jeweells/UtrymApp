@@ -19,9 +19,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Back" translatesAutoresizingMaskIntoConstraints="NO" id="Pr8-hE-W3e">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3Y5-Cp-vgp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HMs-b9-IjP">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -63,10 +65,16 @@
                             </collectionView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Pr8-hE-W3e" firstAttribute="top" secondItem="6rS-hd-HOd" secondAttribute="top" id="6C4-0O-s6L"/>
                             <constraint firstItem="3Y5-Cp-vgp" firstAttribute="leading" secondItem="vXK-SF-oKe" secondAttribute="leading" id="G2g-38-j5P"/>
                             <constraint firstItem="3Y5-Cp-vgp" firstAttribute="trailing" secondItem="vXK-SF-oKe" secondAttribute="trailing" id="Wh0-E2-NNQ"/>
+                            <constraint firstItem="Pr8-hE-W3e" firstAttribute="centerX" secondItem="6rS-hd-HOd" secondAttribute="centerX" id="dHm-a6-ZJC"/>
                             <constraint firstAttribute="bottom" secondItem="3Y5-Cp-vgp" secondAttribute="bottom" id="n1I-Sa-Qeg"/>
                             <constraint firstItem="3Y5-Cp-vgp" firstAttribute="top" secondItem="6rS-hd-HOd" secondAttribute="top" id="nH6-mP-Ib2"/>
+                            <constraint firstAttribute="bottom" secondItem="Pr8-hE-W3e" secondAttribute="bottom" id="q8x-hT-7VU"/>
+                            <constraint firstItem="Pr8-hE-W3e" firstAttribute="leading" secondItem="vXK-SF-oKe" secondAttribute="leading" id="sC0-Lu-auE"/>
+                            <constraint firstItem="Pr8-hE-W3e" firstAttribute="centerY" secondItem="6rS-hd-HOd" secondAttribute="centerY" id="sQo-mw-AH4"/>
+                            <constraint firstItem="Pr8-hE-W3e" firstAttribute="trailing" secondItem="vXK-SF-oKe" secondAttribute="trailing" id="zlz-s9-MBJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vXK-SF-oKe"/>
                     </view>
@@ -909,6 +917,6 @@
         <image name="studio-2" width="550" height="761"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RxO-tw-uvg"/>
+        <segue reference="wuv-h4-QFn"/>
     </inferredMetricsTieBreakers>
 </document>

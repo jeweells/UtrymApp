@@ -68,7 +68,7 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
                 
                 self.ref = Database.database().reference()
                 
-                self.ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+                self.ref.child("clientes").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
                     
                     let snapshot = snapshot.value as? NSDictionary
                     
