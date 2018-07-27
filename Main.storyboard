@@ -891,6 +891,7 @@
     <resources>
         <image name="Back" width="375" height="812"/>
         <image name="Back_profile_only" width="375" height="812"/>
+        <image name="Barra inferior 1" width="375" height="84"/>
         <image name="Botón Buscar" width="23" height="23"/>
         <image name="Botón Servicios" width="23" height="6"/>
         <image name="Home-1" width="23" height="23"/>
@@ -905,9 +906,8 @@
         <image name="input_edit" width="199" height="30"/>
         <image name="más" width="17" height="17"/>
         <image name="studio-2" width="550" height="761"/>
-        <image name="tab_bar" width="375" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uhf-DD-ouX"/>
+        <segue reference="wuv-h4-QFn"/>
     </inferredMetricsTieBreakers>
 </document>

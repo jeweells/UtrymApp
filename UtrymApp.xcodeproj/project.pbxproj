@@ -60,7 +60,6 @@
 		8992509F20FB044B00864F73 /* ChatLogClientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8992509E20FB044B00864F73 /* ChatLogClientController.swift */; };
 		899250A120FB09E700864F73 /* MessageClientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899250A020FB09E700864F73 /* MessageClientCell.swift */; };
 		899250A3210287BF00864F73 /* AttachmentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899250A2210287BF00864F73 /* AttachmentHandler.swift */; };
-		899250A72102A74C00864F73 /* ThumbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899250A62102A74C00864F73 /* ThumbCell.swift */; };
 		899250A92102A86F00864F73 /* CategorysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899250A82102A86F00864F73 /* CategorysCell.swift */; };
 		899250AD2102AB9100864F73 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899250AC2102AB9100864F73 /* ProfileController.swift */; };
 		89AD3CBD20D9C64900D60F21 /* UploadPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD3CBC20D9C64800D60F21 /* UploadPostController.swift */; };
@@ -154,7 +153,6 @@
 		8992509E20FB044B00864F73 /* ChatLogClientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogClientController.swift; sourceTree = "<group>"; };
 		899250A020FB09E700864F73 /* MessageClientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageClientCell.swift; sourceTree = "<group>"; };
 		899250A2210287BF00864F73 /* AttachmentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentHandler.swift; sourceTree = "<group>"; };
-		899250A62102A74C00864F73 /* ThumbCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbCell.swift; sourceTree = "<group>"; };
 		899250A82102A86F00864F73 /* CategorysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorysCell.swift; sourceTree = "<group>"; };
 		899250AC2102AB9100864F73 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		89AD3CBC20D9C64800D60F21 /* UploadPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostController.swift; sourceTree = "<group>"; };
@@ -309,7 +307,6 @@
 				892E726420EED9240078FD44 /* CitasEstilistCell.swift */,
 				892E726E20EF0E240078FD44 /* ListChatsEstilistCell.swift */,
 				899250A82102A86F00864F73 /* CategorysCell.swift */,
-				899250A62102A74C00864F73 /* ThumbCell.swift */,
 			);
 			name = Estilista;
 			path = ../..;
@@ -686,7 +683,6 @@
 				899250A3210287BF00864F73 /* AttachmentHandler.swift in Sources */,
 				894333B120DDAE37006F1BEE /* CitasClientsController.swift in Sources */,
 				896B7FFE20D016B0007B7C5D /* User.swift in Sources */,
-				899250A72102A74C00864F73 /* ThumbCell.swift in Sources */,
 				899250A92102A86F00864F73 /* CategorysCell.swift in Sources */,
 				892E726920EEEA7C0078FD44 /* ChatsEstilistController.swift in Sources */,
 				89BE1E3B20D47F6B001703B3 /* PostThumbImageCell.swift in Sources */,
