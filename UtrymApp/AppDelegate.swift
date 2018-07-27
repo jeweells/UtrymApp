@@ -98,10 +98,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                         self.ref.child("users").child(userID!).setValue(userInfo)
                         
                         // home client debo redireccionar
+                        let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        let initialViewControlleripad : UIViewController = (mainStoryboardIpad.instantiateViewController(withIdentifier: "WelcomeClient") as? ClientTabBarController)!
+                        self.window = UIWindow(frame: UIScreen.main.bounds)
+                        self.window?.rootViewController = initialViewControlleripad
+                        self.window?.makeKeyAndVisible()
 
                     }
                     else {
-                        // home client
+                        let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        let initialViewControlleripad : UIViewController = (mainStoryboardIpad.instantiateViewController(withIdentifier: "WelcomeClient") as? ClientTabBarController)!
+                        self.window = UIWindow(frame: UIScreen.main.bounds)
+                        self.window?.rootViewController = initialViewControlleripad
+                        self.window?.makeKeyAndVisible()
                     }
                 })
             }
