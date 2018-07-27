@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Botón Buscar.png",
+      "filename" : "Boton Facebook.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Botón Buscar@2x.png",
+      "filename" : "Boton Facebook@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Botón Buscar@3x.png",
+      "filename" : "Boton Facebook@3x.png",
       "scale" : "3x"
     }
   ],

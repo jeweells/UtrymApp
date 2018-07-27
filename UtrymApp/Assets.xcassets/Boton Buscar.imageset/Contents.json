@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Botón G+.png",
+      "filename" : "Boton Buscar.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Botón G+@2x.png",
+      "filename" : "Boton Buscar@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Botón G+@3x.png",
+      "filename" : "Boton Buscar@3x.png",
       "scale" : "3x"
     }
   ],
