@@ -113,11 +113,11 @@ class TimeLineController: UIViewController {
             print(snapshot)
         }*/
         Database.database().reference().child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
-            print(snapshot)
-            /*if let dict = snapshot.value as? [String : Any] {
-                let imageURL = dict["image_url"] as? String
-                let imageHeight = dict["image_height"] as? CGFloat
-                let post = PostEstilist(imageURL: imageURL!, imageHeight: imageHeight!)
+            if let dict = snapshot.value as? [String: Any] {
+                //let captionTex = dict["caption"] as! String
+                let urlString = dict["image_url"] as! String
+                let post = Post(urlString: urlString)
+                //let post = Post(captionText: captionTex, urlString: urlString)
                 self.posts.append(post)
                 //self.collectionView.reloadData()
             }*/
