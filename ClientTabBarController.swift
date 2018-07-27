@@ -15,6 +15,15 @@ class ClientTabBarController: UITabBarController {
         
         //delegate = self
         tabBar.unselectedItemTintColor = .black
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 2436:
+                tabBar.backgroundImage = UIImage(named: "Barra inferior 1")
+            default:
+                tabBar.backgroundImage = UIImage(named: "Barra inferior")
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

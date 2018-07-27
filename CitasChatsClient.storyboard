@@ -423,7 +423,7 @@
         <scene sceneID="Pdn-bN-fcX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ADb-fE-S14" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="" image="Botón Citas" id="GXJ-jD-Vi9"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="Boton Citas" id="GXJ-jD-Vi9"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Smx-Aa-AbQ">
@@ -473,6 +473,6 @@
     </scenes>
     <resources>
         <image name="Back" width="375" height="812"/>
-        <image name="Botón Citas" width="22" height="23"/>
+        <image name="Boton Citas" width="22" height="23"/>
     </resources>
 </document>

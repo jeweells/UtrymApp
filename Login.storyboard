@@ -211,7 +211,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGd-Fi-Dwv">
                                 <rect key="frame" x="175" y="208" width="24.333333333333343" height="25"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <state key="normal" backgroundImage="más"/>
+                                <state key="normal" backgroundImage="mas"/>
                                 <connections>
                                     <action selector="addAvatarTapped:" destination="2al-fL-ZQa" eventType="touchUpInside" id="Yt5-BA-pPJ"/>
                                 </connections>
@@ -289,6 +289,6 @@
         <image name="Utrym1" width="203" height="43"/>
         <image name="borde_avatar" width="68" height="68"/>
         <image name="input_correo" width="297" height="42"/>
-        <image name="más" width="17" height="17"/>
+        <image name="mas" width="17" height="17"/>
     </resources>
 </document>
