@@ -20,20 +20,19 @@ class EstilistTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //myPickerController.delegate = self
-        myPickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-        /*
-        AttachmentHandler.shared.imagePickedBlock = { (image) in
-            PostService.create(for: image)
-            
-        }
-        // no se como subir el videooooooooo
         
-         AttachmentHandler.shared.videoPickedBlock = { (videoUrl) in
-         PostService.create(for: videoUrl)
-         
-         }
-         */
+        tabBar.unselectedItemTintColor = .black
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 2436:
+                tabBar.backgroundImage = UIImage(named: "Barra inferior 1")
+            default:
+                tabBar.backgroundImage = UIImage(named: "Barra inferior")
+            }
+        }
+
+        myPickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+
         
         photoHelper.completionHandler = { image in
             PostService.create(for: image)
