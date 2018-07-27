@@ -16,14 +16,11 @@ class TimeLineController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    //var posts = [Post]()
     var posts = [PostEstilist]()
-    //var clients = [Client]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarItems()
-        //fecthUser()
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Barra_superior_ligth.png"), for: .default)
         
         if Auth.auth().currentUser?.uid == nil {
@@ -62,61 +59,22 @@ class TimeLineController: UIViewController {
 
     
     @objc func profileTapped(){
-        //show(ProfileClientController(), sender: self)
         self.performSegue(withIdentifier: "profileClient", sender: self)
     }
  
-    /*
-    private func fecthUser() {
-        if Auth.auth().currentUser?.uid == nil {
-            print ("no hay ningun usuario logeado")
-        }
-        else {
-            setupProfileImageNavBar()
-        }
-    }
-
-    func setupProfileImageNavBar() {
-        guard let uid = Auth.auth().currentUser?.uid else {
-            // for some reason uid = nil
-            return
-        }
-        Database.database().reference().child("clientes").child(uid).observe(.value) { (snapshot: DataSnapshot) in
-            if let dict = snapshot.value as? [String: Any] {
-                let fullNameText = dict["nombre completo"] as! String
-                let urlText = dict ["urlToImage"] as! String
-                let client = Client(fullNameText: fullNameText, urlText: urlText)
-                let profileImageView = UIImageView()
-                
-                if let profileImage = client.profileImage {
-                    profileImageView.downloadImage(profileImage)
-                }
-                self.setupNavBarClient(client: client)
-            }
-        }
-    }
-    
-    func setupNavBarClient(client: Client) {
-        let rightButton = UIButton(type: .system)
-        rightButton.setImage(#imageLiteral(resourceName: "Mask_avatar").withRenderingMode(.alwaysOriginal), for: .normal)
-        rightButton.frame = CGRect(x: 0, y: 0, width: 34, height:34)
-        rightButton.contentMode = .scaleAspectFit
-        rightButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
-    }*/
- 
-
     func loadPosts() {
-        let ref = Database.database().reference().child("posts")
+        /*let ref = Database.database().reference().child("posts")
         let query = ref.queryOrdered(byChild: "status_post").queryEqual(toValue:true)
         query.observeSingleEvent(of: .value) { (snapshot: DataSnapshot) in
             print(snapshot)
-        }
-        Database.database().reference().child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
+        }*/
+        Database.database().reference().child("posts").observe(.value) { (snapshot: DataSnapshot) in
+            print(snapshot)
             if let dict = snapshot.value as? [String: Any] {
                 let imageURL = dict["image_url"] as? String
                 let image_height = dict["image_height"] as? CGFloat
-                let post = PostEstilist(imageURL: imageURL!, imageHeight: image_height!)
+                let idEst = dict["idEst"] as? String
+                let post = PostEstilist(imageURL: imageURL!, imageHeight: image_height!, idEst: idEst!)
                 self.posts.append(post)
             }
         }

@@ -26,7 +26,7 @@ struct StorageService {
                 guard let downloadURL = url else {
                     // Uh-oh, an error occurred!
                     
-                    print("\(error)")
+                    print("\(String(describing: error))")
                     return
                 }
                 completion(downloadURL)

@@ -85,7 +85,7 @@
         <!--Detail Post Controller-->
         <scene sceneID="Eo3-gn-zKh">
             <objects>
-                <tableViewController id="ZwN-Oa-Anz" customClass="DetailPostController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="ZwN-Oa-Anz" customClass="DetailPostController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aIh-bw-NvT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,19 +207,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nombre Completo" minimumFontSize="17" background="input_edit" translatesAutoresizingMaskIntoConstraints="NO" id="GQz-A4-bPT">
-                                <rect key="frame" x="16" y="276" width="343" height="31"/>
+                                <rect key="frame" x="16" y="276" width="343" height="30.666666666666686"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="21"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjr-ey-qzy">
-                                <rect key="frame" x="16" y="327.66666666666669" width="343" height="20.666666666666686"/>
+                                <rect key="frame" x="16" y="327.33333333333331" width="343" height="20.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" minimumFontSize="17" background="input_edit" translatesAutoresizingMaskIntoConstraints="NO" id="q0r-u0-kVg">
-                                <rect key="frame" x="16" y="355" width="343" height="29"/>
+                                <rect key="frame" x="16" y="354.66666666666669" width="343" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="27I-eQ-Q7c"/>
                                 </constraints>
@@ -228,25 +228,25 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dirección" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UkT-6h-mV2">
-                                <rect key="frame" x="16" y="472" width="343" height="20.666666666666686"/>
+                                <rect key="frame" x="16" y="471.66666666666669" width="343" height="20.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Dirección" minimumFontSize="17" background="input_edit" translatesAutoresizingMaskIntoConstraints="NO" id="z8w-5h-tyj">
-                                <rect key="frame" x="16" y="499.99999999999994" width="343" height="30.333333333333314"/>
+                                <rect key="frame" x="16" y="499.66666666666669" width="343" height="31.333333333333314"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="21"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teléfono" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNR-3D-Za2">
-                                <rect key="frame" x="16" y="397" width="343" height="20.666666666666686"/>
+                                <rect key="frame" x="16" y="396.66666666666669" width="343" height="20.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Teléfono" minimumFontSize="17" background="input_edit" translatesAutoresizingMaskIntoConstraints="NO" id="aoW-zi-lxg">
-                                <rect key="frame" x="16" y="426" width="343" height="30"/>
+                                <rect key="frame" x="16" y="425.66666666666669" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ois-1P-d36"/>
                                 </constraints>
@@ -859,7 +859,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="WelcomeClient" automaticallyAdjustsScrollViewInsets="NO" id="aXc-La-TBH" customClass="ClientTabBarController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="Barra inferior 1" id="ial-5e-h6Y">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="Barra inferior 1" id="ial-5e-h6Y">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

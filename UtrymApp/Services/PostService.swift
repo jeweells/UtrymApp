@@ -22,14 +22,14 @@ struct PostService {
             
             let urlString = downloadURL.absoluteString
             let aspectHeight = image.aspectHeight
-            
+            let idEst = Auth.auth().currentUser?.uid
             // la imagen se guarda en Storage pero no en la base de datosssssss y de paso no se como subir los videos
-            createPost(forURLString: urlString, aspectHeight: aspectHeight)
+            createPost(forURLString: urlString, aspectHeight: aspectHeight, idEst: idEst!)
         }
     }
     
-    private static func createPost(forURLString urlString: String, aspectHeight: CGFloat) {
-        let post = PostEstilist(imageURL: urlString, imageHeight: aspectHeight)
+    private static func createPost(forURLString urlString: String, aspectHeight: CGFloat, idEst: String) {
+        let post = PostEstilist(imageURL: urlString, imageHeight: aspectHeight, idEst: idEst)
         let dict = post.dictValue
         let UserId = Auth.auth().currentUser?.uid
         let postRef = Database.database().reference().child("posts").child(UserId!).childByAutoId()

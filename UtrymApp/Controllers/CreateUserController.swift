@@ -177,7 +177,8 @@ class CreateUserController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "backToLogin", sender: self)
+        _ = navigationController?.popViewController(animated: true)
+        //self.performSegue(withIdentifier: "backToLogin", sender: self)
     }
     
     // Ocultar teclado cuando se toca en cualquier parte de la vista
