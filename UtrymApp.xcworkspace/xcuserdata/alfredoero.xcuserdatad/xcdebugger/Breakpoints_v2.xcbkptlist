@@ -17,6 +17,38 @@
             endingLineNumber = "56"
             landmarkName = "loadCategorys()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UtrymApp.ServicesController.loadCategorys() -&gt; ()"
+                  moduleName = "UtrymApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alfredoero/Documents/Develop/IOS/UtrymApp/ServicesController.swift"
+                  timestampString = "554351535.29277"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "94">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in UtrymApp.ServicesController.loadCategorys() -&gt; ()"
+                  moduleName = "UtrymApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alfredoero/Documents/Develop/IOS/UtrymApp/ServicesController.swift"
+                  timestampString = "554351535.295081"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "UtrymApp/Services/PostService.swift"
-            timestampString = "554100387.403605"
+            filePath = "UtrymApp/Services/StorageService.swift"
+            timestampString = "554351535.084605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "create(for:)"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "uploadImage(_:at:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "UtrymApp/Services/PostService.swift"
-            timestampString = "554100387.403985"
+            filePath = "UtrymApp/Services/StorageService.swift"
+            timestampString = "554351564.1205831"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "createPost(forURLString:aspectHeight:)"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "uploadImage(_:at:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
