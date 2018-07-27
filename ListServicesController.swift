@@ -21,7 +21,7 @@ class ListServicesController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupNavigationBarItems()
         loadServices()
         
         self.listServCollectionView.backgroundColor = UIColor.clear
@@ -30,6 +30,23 @@ class ListServicesController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func setupNavigationBarItems(){
+        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Utrym_Interno"))
+        navigationItem.titleView = titleImageView
+        
+        let rightButton = UIButton(type: .system)
+        rightButton.setImage(#imageLiteral(resourceName: "Setting_icon").withRenderingMode(.alwaysOriginal), for: .normal)
+        rightButton.frame = CGRect(x: 0, y: 0, width: 34, height:34)
+        rightButton.contentMode = .scaleAspectFit
+        rightButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
+        
+    }
+    
+    @objc func profileTapped(){
+        self.performSegue(withIdentifier: "profServices", sender: self)
     }
     
     func loadServices() {

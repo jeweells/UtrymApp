@@ -31,8 +31,7 @@ struct PostService {
     private static func createPost(forURLString urlString: String, aspectHeight: CGFloat, idEst: String) {
         let post = PostEstilist(imageURL: urlString, imageHeight: aspectHeight, idEst: idEst)
         let dict = post.dictValue
-        let UserId = Auth.auth().currentUser?.uid
-        let postRef = Database.database().reference().child("posts").child(UserId!).childByAutoId()
+        let postRef = Database.database().reference().child("posts").childByAutoId()
         postRef.updateChildValues(dict)
     }
     
