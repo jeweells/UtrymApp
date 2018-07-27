@@ -103,28 +103,24 @@ class TimeLineController: UIViewController {
         rightButton.contentMode = .scaleAspectFit
         rightButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
-    }
-    */
+    }*/
+ 
 
-    /*func loadPosts() {
-        /*let ref = Database.database().reference().child("posts")
+    func loadPosts() {
+        let ref = Database.database().reference().child("posts")
         let query = ref.queryOrdered(byChild: "status_post").queryEqual(toValue:true)
         query.observeSingleEvent(of: .value) { (snapshot: DataSnapshot) in
             print(snapshot)
-        }*/
+        }
         Database.database().reference().child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
             if let dict = snapshot.value as? [String: Any] {
-                //let captionTex = dict["caption"] as! String
-                let urlString = dict["image_url"] as! String
-                let post = Post(urlString: urlString)
-                //let post = Post(captionText: captionTex, urlString: urlString)
+                let imageURL = dict["image_url"] as? String
+                let image_height = dict["image_height"] as? CGFloat
+                let post = PostEstilist(imageURL: imageURL!, imageHeight: image_height!)
                 self.posts.append(post)
-                //self.collectionView.reloadData()
-            }*/
+            }
         }
-        
-    }*/
-
+    }
 }
 
 extension TimeLineController: UICollectionViewDataSource {
