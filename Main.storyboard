@@ -439,7 +439,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GQk-Gi-6L7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2472.8000000000002" y="1178.5714285714287"/>
+            <point key="canvasLocation" x="2104" y="1139"/>
         </scene>
         <!--Profile Estilist Client Controller-->
         <scene sceneID="eHw-LK-gD2">
@@ -813,7 +813,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2lA-Uv-fCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1599" y="1179"/>
+            <point key="canvasLocation" x="1241" y="1139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VKa-1C-3bf">

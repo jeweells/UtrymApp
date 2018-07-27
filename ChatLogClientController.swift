@@ -82,6 +82,7 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate {
             userMessageRef.updateChildValues([messageId: 1])
             self.textMessage.text = ""
         }
+
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -114,7 +115,9 @@ extension ChatLogClientController: UICollectionViewDataSource {
         cell.layer.cornerRadius = 16
         cell.layer.masksToBounds = true
         cell.textMessage?.text = chats[indexPath.row].message
-
+        let item = self.collectionView(self.collectionView!, numberOfItemsInSection: 0) - 1
+        let lastItemIndex = NSIndexPath(item: item, section: 0)
+        collectionView?.scrollToItem(at: lastItemIndex as IndexPath, at: UICollectionViewScrollPosition.top, animated: false)
         return cell
     }
     
