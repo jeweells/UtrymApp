@@ -10,6 +10,7 @@ import UIKit
 
 class PostProfileCell: UICollectionViewCell {
     
+    @IBOutlet weak var postProfileImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
     }

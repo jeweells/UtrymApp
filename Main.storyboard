@@ -587,7 +587,7 @@
                                             </subviews>
                                         </view>
                                         <connections>
-                                            <outlet property="postProfile" destination="Fns-gH-qJo" id="P7M-j6-fEy"/>
+                                            <outlet property="postProfileImage" destination="Fns-gH-qJo" id="bL5-mh-hF8"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

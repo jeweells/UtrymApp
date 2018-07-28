@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class ProfileEstilistClientController: UIViewController, UICollectionViewDataSource {
+class ProfileEstilistClientController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var avatarEstilist: UIImageView!
     @IBOutlet weak var nameEstilist: UILabel!
@@ -31,11 +31,17 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        skillsCollectionView.delegate = self
+        skillsCollectionView.dataSource = self
+        feedCollectionView.delegate = self
+        feedCollectionView.dataSource = self
+        
         setupNavigationBarItems()
         avatarEstilist.layer.masksToBounds = true
         avatarEstilist.layer.cornerRadius = avatarEstilist.bounds.width / 2.0
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "barra_superior_dark.png"), for: .default)
         self.skillsCollectionView.backgroundColor = UIColor.clear
+        self.feedCollectionView.backgroundColor = UIColor.clear
         loadEstilists()
         loadPosts()
 
@@ -95,7 +101,7 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
                      let post = PostEstilist(imageURL: imageURL!, imageHeight: image_height!, idEst: idEst!)
                      self.posts.append(post)
                 }
-                //self.feedTableView.reloadData()
+                self.feedCollectionView.reloadData()
             })
         }
         ref.removeAllObservers()
@@ -107,12 +113,24 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
     
     // collectionView skills
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        
+        if collectionView == self.skillsCollectionView {
+            return 3
+        }
+        return posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SkillsCell", for: indexPath) as! SkillsCell
-        return cell
+        if collectionView == self.skillsCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SkillsCell", for: indexPath) as! SkillsCell
+            return cell
+            
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostProfileCell", for: indexPath) as! PostProfileCell
+            cell.postProfileImage?.download(from: self.posts[indexPath.row].imageURL)
+            return cell
+            
+        }
     }
 
     // tableView feed
@@ -135,4 +153,24 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
         //self.performSegue(withIdentifier: "", sender: self)
     }
     */
+}
+
+extension UIImageView {
+    func download(from imgURL: String!) {
+        let url = URLRequest(url: URL(string: imgURL)!)
+        
+        let task = URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.image = UIImage(data: data!)
+            }
+        }
+        task.resume()
+    }    
 }
