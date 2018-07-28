@@ -60,7 +60,6 @@
 		899250A120FB09E700864F73 /* MessageClientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899250A020FB09E700864F73 /* MessageClientCell.swift */; };
 		899250A3210287BF00864F73 /* AttachmentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899250A2210287BF00864F73 /* AttachmentHandler.swift */; };
 		899250A92102A86F00864F73 /* CategorysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899250A82102A86F00864F73 /* CategorysCell.swift */; };
-		899250AD2102AB9100864F73 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899250AC2102AB9100864F73 /* ProfileController.swift */; };
 		89AD3CBD20D9C64900D60F21 /* UploadPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD3CBC20D9C64800D60F21 /* UploadPostController.swift */; };
 		89AD3CBF20D9C73800D60F21 /* EstilistTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD3CBE20D9C73800D60F21 /* EstilistTabBarController.swift */; };
 		89B67D5420BB7D0E00D3BFBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B67D5320BB7D0E00D3BFBF /* AppDelegate.swift */; };
@@ -72,6 +71,7 @@
 		89BE1E3B20D47F6B001703B3 /* PostThumbImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE1E3A20D47F6A001703B3 /* PostThumbImageCell.swift */; };
 		89BE1E3D20D494F1001703B3 /* TimelineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE1E3C20D494F1001703B3 /* TimelineHeaderView.swift */; };
 		89BE1E4120D4B3B6001703B3 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE1E4020D4B3B6001703B3 /* ProfileHeaderView.swift */; };
+		89E4780D210CE0FE0072481A /* PostProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4780C210CE0FE0072481A /* PostProfileCell.swift */; };
 		89F2D7B820D1D48900688164 /* Estilist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D7B720D1D48900688164 /* Estilist.swift */; };
 		89F2D7BA20D1D85600688164 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D7B920D1D85600688164 /* SignUpController.swift */; };
 		89F4F3BE20CF222F006E1AE1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F4F3BD20CF222F006E1AE1 /* Post.swift */; };
@@ -151,7 +151,6 @@
 		899250A020FB09E700864F73 /* MessageClientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageClientCell.swift; sourceTree = "<group>"; };
 		899250A2210287BF00864F73 /* AttachmentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentHandler.swift; sourceTree = "<group>"; };
 		899250A82102A86F00864F73 /* CategorysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorysCell.swift; sourceTree = "<group>"; };
-		899250AC2102AB9100864F73 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		89AD3CBC20D9C64800D60F21 /* UploadPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostController.swift; sourceTree = "<group>"; };
 		89AD3CBE20D9C73800D60F21 /* EstilistTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstilistTabBarController.swift; sourceTree = "<group>"; };
 		89B67D5020BB7D0E00D3BFBF /* UtrymApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UtrymApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +166,7 @@
 		89BE1E3A20D47F6A001703B3 /* PostThumbImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostThumbImageCell.swift; sourceTree = "<group>"; };
 		89BE1E3C20D494F1001703B3 /* TimelineHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineHeaderView.swift; sourceTree = "<group>"; };
 		89BE1E4020D4B3B6001703B3 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		89E4780C210CE0FE0072481A /* PostProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProfileCell.swift; sourceTree = "<group>"; };
 		89F2D7B720D1D48900688164 /* Estilist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Estilist.swift; sourceTree = "<group>"; };
 		89F2D7B920D1D85600688164 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		89F4F3BD20CF222F006E1AE1 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -265,7 +265,6 @@
 				892E726A20EEFEC10078FD44 /* CitasEstilistController.swift */,
 				892E726820EEEA7C0078FD44 /* ChatsEstilistController.swift */,
 				892E727220EFDDD20078FD44 /* FinanzasEstilistController.swift */,
-				899250AC2102AB9100864F73 /* ProfileController.swift */,
 			);
 			name = Estilista;
 			path = ../..;
@@ -287,6 +286,7 @@
 				89855D3020F55A0800D1EF2D /* ChatListClientCell.swift */,
 				89855D4320F807E600D1EF2D /* SelectEstilistCell.swift */,
 				899250A020FB09E700864F73 /* MessageClientCell.swift */,
+				89E4780C210CE0FE0072481A /* PostProfileCell.swift */,
 			);
 			name = Cliente;
 			path = ../..;
@@ -674,6 +674,7 @@
 				8914525620CDEFC20030A67A /* TimeLineController.swift in Sources */,
 				89B67D5420BB7D0E00D3BFBF /* AppDelegate.swift in Sources */,
 				899250A3210287BF00864F73 /* AttachmentHandler.swift in Sources */,
+				89E4780D210CE0FE0072481A /* PostProfileCell.swift in Sources */,
 				894333B120DDAE37006F1BEE /* CitasClientsController.swift in Sources */,
 				896B7FFE20D016B0007B7C5D /* User.swift in Sources */,
 				899250A92102A86F00864F73 /* CategorysCell.swift in Sources */,
@@ -711,7 +712,6 @@
 				89F2D7BA20D1D85600688164 /* SignUpController.swift in Sources */,
 				8960564E20D81A2E006B8A3A /* ServiceCell.swift in Sources */,
 				89F7723220F3FFC500CA4139 /* SkillsCell.swift in Sources */,
-				899250AD2102AB9100864F73 /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

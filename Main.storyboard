@@ -563,6 +563,31 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5t9-co-PwL">
+                                <rect key="frame" x="16" y="372" width="343" height="295"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8w7-mx-DsA">
+                                    <size key="itemSize" width="124" height="124"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostProfileCell" id="fRI-Yx-ZDI" customClass="PostProfileCell" customModule="UtrymApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Teg-iX-rh5" id="NUh-qZ-zRU"/>
+                                    <outlet property="delegate" destination="Teg-iX-rh5" id="eHp-gf-hyE"/>
+                                    <outlet property="prefetchDataSource" destination="Teg-iX-rh5" id="uIW-v3-lvH"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -605,13 +630,14 @@
                         <outlet property="bio" destination="nMQ-vh-MaV" id="pX8-mR-h2u"/>
                         <outlet property="chatButton" destination="KFF-6A-Tmc" id="W8I-al-IWn"/>
                         <outlet property="especialidad" destination="UM9-kK-HS0" id="x8G-6T-1Yx"/>
+                        <outlet property="feedCollectionView" destination="5t9-co-PwL" id="kWi-7P-HTk"/>
                         <outlet property="nameEstilist" destination="j5T-uU-dHR" id="FWr-jn-KxT"/>
                         <outlet property="skillsCollectionView" destination="0u2-pq-mf5" id="9xz-Ds-6os"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="glH-C2-nZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3365.5999999999999" y="1178.5714285714287"/>
+            <point key="canvasLocation" x="3365.5999999999999" y="1177.961019490255"/>
         </scene>
         <!--Services Controller-->
         <scene sceneID="o7r-Z6-tTl">
@@ -886,6 +912,6 @@
         <image name="studio-2" width="550" height="761"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wuv-h4-QFn"/>
+        <segue reference="Uhf-DD-ouX"/>
     </inferredMetricsTieBreakers>
 </document>

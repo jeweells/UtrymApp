@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Back" translatesAutoresizingMaskIntoConstraints="NO" id="5Gb-1H-CjV">
-                                <rect key="frame" x="19.666666666666657" y="-38" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="back_cuadro_finanzas" translatesAutoresizingMaskIntoConstraints="NO" id="obM-vk-8nn">
                                 <rect key="frame" x="14" y="264.66666666666663" width="345" height="199"/>
@@ -84,18 +84,24 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1i6-3f-er3" firstAttribute="top" secondItem="AnR-Ao-1Bw" secondAttribute="top" constant="17" id="0nr-7Z-QO7"/>
+                            <constraint firstItem="AnR-Ao-1Bw" firstAttribute="trailing" secondItem="5Gb-1H-CjV" secondAttribute="trailing" id="37M-9j-ymN"/>
                             <constraint firstItem="5Gb-1H-CjV" firstAttribute="centerY" secondItem="8LD-0s-Gac" secondAttribute="centerY" id="4oz-bn-zH1"/>
                             <constraint firstItem="1i6-3f-er3" firstAttribute="leading" secondItem="AnR-Ao-1Bw" secondAttribute="leading" constant="137" id="5tO-R2-nbK"/>
                             <constraint firstItem="FVg-KP-ek2" firstAttribute="centerX" secondItem="1i6-3f-er3" secondAttribute="centerX" id="70j-8W-P58"/>
+                            <constraint firstItem="5Gb-1H-CjV" firstAttribute="top" secondItem="8LD-0s-Gac" secondAttribute="top" id="7jZ-qd-5l3"/>
                             <constraint firstItem="1i6-3f-er3" firstAttribute="centerY" secondItem="e9k-sx-m7X" secondAttribute="centerY" id="BnZ-zC-hby"/>
                             <constraint firstItem="FVg-KP-ek2" firstAttribute="centerX" secondItem="8LD-0s-Gac" secondAttribute="centerX" id="DeM-8V-GvB"/>
                             <constraint firstItem="FVg-KP-ek2" firstAttribute="top" secondItem="1i6-3f-er3" secondAttribute="bottom" constant="8" id="IXd-St-Y67"/>
                             <constraint firstItem="AnR-Ao-1Bw" firstAttribute="trailing" secondItem="FVg-KP-ek2" secondAttribute="trailing" constant="116.33" id="KxY-5e-Vgl"/>
                             <constraint firstItem="FVg-KP-ek2" firstAttribute="centerX" secondItem="e9k-sx-m7X" secondAttribute="centerX" id="QOd-CG-E10"/>
                             <constraint firstItem="FVg-KP-ek2" firstAttribute="centerX" secondItem="5Gb-1H-CjV" secondAttribute="centerX" id="Raq-Er-E8v"/>
+                            <constraint firstItem="5Gb-1H-CjV" firstAttribute="centerY" secondItem="8LD-0s-Gac" secondAttribute="centerY" id="U44-c4-qo0"/>
+                            <constraint firstItem="5Gb-1H-CjV" firstAttribute="leading" secondItem="AnR-Ao-1Bw" secondAttribute="leading" id="YGd-Pf-0ND"/>
+                            <constraint firstAttribute="bottom" secondItem="5Gb-1H-CjV" secondAttribute="bottom" id="mFX-Fi-mCS"/>
                             <constraint firstItem="FVg-KP-ek2" firstAttribute="top" secondItem="1i6-3f-er3" secondAttribute="bottom" constant="8" symbolic="YES" id="rkR-ip-qTc"/>
                             <constraint firstItem="FVg-KP-ek2" firstAttribute="leading" secondItem="AnR-Ao-1Bw" secondAttribute="leading" constant="116" id="shi-Wk-EJv"/>
                             <constraint firstItem="FVg-KP-ek2" firstAttribute="top" secondItem="8LD-0s-Gac" secondAttribute="top" constant="213" id="u28-gF-qAw"/>
+                            <constraint firstItem="5Gb-1H-CjV" firstAttribute="centerX" secondItem="8LD-0s-Gac" secondAttribute="centerX" id="wMw-pg-BU6"/>
                             <constraint firstItem="5Gb-1H-CjV" firstAttribute="centerX" secondItem="8LD-0s-Gac" secondAttribute="centerX" id="zCX-x6-mao"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AnR-Ao-1Bw"/>
@@ -109,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rgT-o4-l57" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-146.40000000000001" y="1069.2118226600985"/>
+            <point key="canvasLocation" x="-51" y="1070"/>
         </scene>
         <!--Profile Est Controller-->
         <scene sceneID="tDw-d2-0AU">
@@ -209,7 +215,7 @@
                                             <rect key="frame" x="14" y="54" width="120" height="120"/>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qIk-hk-RAQ">
-                                            <rect key="frame" x="106" y="204" width="202" height="35.666666666666657"/>
+                                            <rect key="frame" x="86.666666666666686" y="204" width="202" height="35.666666666666657"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLf-Bt-PX0">
                                                     <rect key="frame" x="0.0" y="0.0" width="98" height="35.666666666666664"/>
