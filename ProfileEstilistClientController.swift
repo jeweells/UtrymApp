@@ -19,6 +19,8 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
     @IBOutlet weak var bio: UILabel!
     @IBOutlet weak var chatButton: UIButton!
     @IBOutlet weak var skillsCollectionView: UICollectionView!
+    @IBOutlet weak var feedCollectionView: UICollectionView!
+    
     
     var posts = [PostEstilist]()
     var estilistID: String = ""
