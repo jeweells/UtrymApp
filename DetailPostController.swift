@@ -14,7 +14,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import Foundation
 
-class DetailPostController: UITableViewController {
+class DetailPostController: UIViewController {
     
     var posts: [Post]?
     
@@ -31,40 +31,41 @@ class DetailPostController: UITableViewController {
         super.viewDidLoad()
         self.fetchPosts()
         
-        tableDView.estimatedRowHeight = Storyboard.postCellDefaultHeight
-        tableDView.rowHeight = UITableViewAutomaticDimension
-        tableDView.separatorColor = UIColor.clear
+//        tableDView.estimatedRowHeight = Storyboard.postCellDefaultHeight
+//        tableDView.rowHeight = UITableViewAutomaticDimension
+//        tableDView.separatorColor = UIColor.clear
 
         let backgroundImage = UIImage(named: "Back.png")
         let imageView = UIImageView(image: backgroundImage)
-        self.tableDView.backgroundView = imageView
+        
+        //self.tableDView.backgroundView = imageView
         imageView.contentMode = .scaleAspectFill
 
     }
     
     func fetchPosts() {
         //self.posts = Post.fetchPosts()
-        self.tableDView.reloadData()
+        //self.tableDView.reloadData()
     }
     
 }
 
 extension  DetailPostController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        if let posts = posts {
-            return posts.count
-        }
-        
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = tableDView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
-        
-        cell.postImage?.image = UIImage(named: "studio-2.jpg")
-        //cell.post = self.posts?[indexPath.row]
-        //cell.selectionStyle = .none
-        
-        return cell
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        if let posts = posts {
+//            return posts.count
+//        }
+//
+//        return 1
+//    }
+//
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+//        let cell = tableDView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
+//
+//        cell.postImage?.image = UIImage(named: "studio-2.jpg")
+//        //cell.post = self.posts?[indexPath.row]
+//        //cell.selectionStyle = .none
+//
+//        return cell
+//    }
 }
