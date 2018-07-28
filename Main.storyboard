@@ -837,7 +837,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="WelcomeClient" automaticallyAdjustsScrollViewInsets="NO" id="aXc-La-TBH" customClass="ClientTabBarController" customModule="UtrymApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="Barra inferior 1" id="ial-5e-h6Y">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="Barra inferior" id="ial-5e-h6Y">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -869,7 +869,7 @@
     <resources>
         <image name="Back" width="375" height="812"/>
         <image name="Back_profile_only" width="375" height="812"/>
-        <image name="Barra inferior 1" width="375" height="84"/>
+        <image name="Barra inferior" width="375" height="48"/>
         <image name="Boton Buscar" width="23" height="23"/>
         <image name="Boton Servicios" width="23" height="6"/>
         <image name="Home-1" width="23" height="23"/>
