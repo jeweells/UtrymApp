@@ -10,5 +10,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "DetailPostController.loadClient():DetailPostController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.profileID">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

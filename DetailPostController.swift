@@ -59,6 +59,7 @@ class DetailPostController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         self.fetchPosts()
+        
         self.indicator.isHidden = true
     }
     func fetchPosts() {
@@ -68,9 +69,24 @@ class DetailPostController: UIViewController {
             if let dict = snapshot.value as? [String: Any] {
                 self.postImageMain.download(from: dict["image_url"] as? String)
                 //self.likeCounterLabel.text = dict["likeCounter"] as? String
-                self.profileID = (dict["idEst"] as? String)!
+                self.profileID = dict["idEst"] as! String
+                print(self.profileID)
+                self.loadClient()
             }
-        }
+        }        
+        ref.removeAllObservers()
+    }
+    func loadClient() {
+        let ref = Database.database().reference()
+        print(profileID)
+        ref.child("estilistas").child(profileID).observe(.value, with: { (snapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                
+                self.profileNameLabel.text = "\(dict["name"] as? String ?? "Jhon") \(dict["apellido"] as? String ?? "Doe")"
+                self.avatarImage.download(from: dict["urlAvatar"] as! String)
+                self.especialityLabel.text = dict["especialidad"] as? String
+            }
+        })
         ref.removeAllObservers()
     }
     
