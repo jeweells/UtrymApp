@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "ChatLogClientController.tableView(_:numberOfRowsInSection:):ChatLogClientController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "chats">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in static StorageService.uploadImage(_:at:completion:):StorageService.swift">
          <PersistentStrings>
             <PersistentString

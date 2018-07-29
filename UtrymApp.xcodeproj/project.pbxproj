@@ -82,6 +82,10 @@
 		89F7723C20F505B600CA4139 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F7723B20F505B600CA4139 /* Message.swift */; };
 		89F7723E20F5065A00CA4139 /* UserNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F7723D20F5065A00CA4139 /* UserNew.swift */; };
 		89F7724020F5081600CA4139 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F7723F20F5081600CA4139 /* ChatService.swift */; };
+		C8297D35210D6EC000840227 /* MessageReceived.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8297D33210D6EC000840227 /* MessageReceived.swift */; };
+		C8297D36210D6EC000840227 /* MessageReceived.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8297D34210D6EC000840227 /* MessageReceived.xib */; };
+		C8B20EB1210E4EE000E41F5A /* MessageSentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B20EAF210E4EE000E41F5A /* MessageSentCell.swift */; };
+		C8B20EB2210E4EE000E41F5A /* MessageSentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8B20EB0210E4EE000E41F5A /* MessageSentCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +184,10 @@
 		9E5A136AF45D6AB9EA15352D /* Pods-UtrymApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtrymApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-UtrymApp/Pods-UtrymApp.release.xcconfig"; sourceTree = "<group>"; };
 		A9255E303FB26ED084CF06F4 /* Pods-UtrymApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtrymApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UtrymApp/Pods-UtrymApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C1F2C14CC2A82DB05D57D7F2 /* Pods_UtrymApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtrymApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8297D33210D6EC000840227 /* MessageReceived.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageReceived.swift; sourceTree = "<group>"; };
+		C8297D34210D6EC000840227 /* MessageReceived.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageReceived.xib; sourceTree = "<group>"; };
+		C8B20EAF210E4EE000E41F5A /* MessageSentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSentCell.swift; sourceTree = "<group>"; };
+		C8B20EB0210E4EE000E41F5A /* MessageSentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageSentCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,6 +346,7 @@
 		896B800120D04395007B7C5D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C8297D2E210D6E3C00840227 /* Custom Cells */,
 				892E727620F038DC0078FD44 /* Cliente */,
 				892E727720F0390E0078FD44 /* Estilista */,
 			);
@@ -432,6 +441,17 @@
 				89F7723D20F5065A00CA4139 /* UserNew.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		C8297D2E210D6E3C00840227 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C8297D33210D6EC000840227 /* MessageReceived.swift */,
+				C8297D34210D6EC000840227 /* MessageReceived.xib */,
+				C8B20EAF210E4EE000E41F5A /* MessageSentCell.swift */,
+				C8B20EB0210E4EE000E41F5A /* MessageSentCell.xib */,
+			);
+			path = "Custom Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -534,7 +554,9 @@
 				89589C6020D6F9BF001B4336 /* Estilist.storyboard in Resources */,
 				89B67D5B20BB7D1300D3BFBF /* Assets.xcassets in Resources */,
 				89855D2D20F553A400D1EF2D /* CitasChatsClient.storyboard in Resources */,
+				C8B20EB2210E4EE000E41F5A /* MessageSentCell.xib in Resources */,
 				8906FE6520BE5C9A003954F3 /* Main.storyboard in Resources */,
+				C8297D36210D6EC000840227 /* MessageReceived.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,6 +689,7 @@
 				89855D3120F55A0800D1EF2D /* ChatListClientCell.swift in Sources */,
 				896B800020D0368B007B7C5D /* DetailPostController.swift in Sources */,
 				892E726320EED8DF0078FD44 /* CitasEstilistHeaderView.swift in Sources */,
+				C8297D35210D6EC000840227 /* MessageReceived.swift in Sources */,
 				8908C92120EB008F00344A6A /* PostEstThumbProfileCell.swift in Sources */,
 				899250A120FB09E700864F73 /* MessageClientCell.swift in Sources */,
 				89855D3C20F58FEF00D1EF2D /* LoginController.swift in Sources */,
@@ -693,6 +716,7 @@
 				892E726520EED9240078FD44 /* CitasEstilistCell.swift in Sources */,
 				894333B720DDBD22006F1BEE /* ProfileEstController.swift in Sources */,
 				891E9E3D20E4428C00F5BF33 /* EstilistSearchCell.swift in Sources */,
+				C8B20EB1210E4EE000E41F5A /* MessageSentCell.swift in Sources */,
 				894333AF20DDAD2C006F1BEE /* ListEstilistController.swift in Sources */,
 				892E725D20EE890B0078FD44 /* Client.swift in Sources */,
 				89F7723A20F501CC00CA4139 /* ChatNew.swift in Sources */,

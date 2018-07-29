@@ -11,23 +11,37 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class ChatLogClientController: UIViewController, UITextFieldDelegate {
+class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var chatArea: UIView!
     @IBOutlet weak var textMessage: UITextField!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var messagesListTV: UITableView!
     var estilistID: String = ""
     var chats = [ChatMessage]()
     var messDict = [String: ChatMessage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.backgroundColor = UIColor.clear
-        loadMessagesCLient()
+        //self.collectionView.backgroundColor = UIColor.clear
         textMessage.delegate = self
+        messagesListTV.delegate = self
+        messagesListTV.dataSource = self
+        self.messagesListTV.backgroundColor = UIColor.clear
+        messagesListTV.register(UINib(nibName: "MessageSentCell", bundle: Bundle(for: MessageSentCell.self)), forCellReuseIdentifier: "messageSentCell")
+        messagesListTV.register(UINib(nibName: "MessageReceived", bundle: Bundle(for: MessageReceived.self)), forCellReuseIdentifier: "messageReceivedCell")
+        configTableView()
     
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadMessagesCLient()
+    }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        loadMessagesCLient()
+//    }
     
     func loadMessagesCLient() {
         guard let uid = Auth.auth().currentUser?.uid else {
@@ -57,7 +71,10 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate {
                     })*/
                     
                 }
-                self.collectionView.reloadData()
+                
+                self.messagesListTV.reloadData()
+                self.scrollToBottom()
+                
             })
         }
         ref.removeAllObservers()
@@ -91,74 +108,99 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-
-
-}
-
-extension ChatLogClientController: UICollectionViewDataSource {
-    func collectionView(_ collectionService: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return 10
-        return chats.count
-    }
-    
-    func collectionView(_ collectionService: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionService.dequeueReusableCell(withReuseIdentifier: "MessageClientCell", for: indexPath) as! MessageClientCell
-        //cell.nameService?.text = services[indexPath.row].nombre
-        //cell.priceService?.text = services[indexPath.row].precio
-        //cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
-        /*let backgroundImage = UIImage(named: "list_estilist.png")
-        let imageView = UIImageView(image: backgroundImage)
-        cell.backgroundView = imageView
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 10*/
-        cell.layer.cornerRadius = 16
-        cell.layer.masksToBounds = true
-        cell.textMessage?.text = chats[indexPath.row].message
-        let item = self.collectionView(self.collectionView!, numberOfItemsInSection: 0) - 1
-        let lastItemIndex = NSIndexPath(item: item, section: 0)
-        collectionView?.scrollToItem(at: lastItemIndex as IndexPath, at: UICollectionViewScrollPosition.top, animated: false)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "messageSentCell", for: indexPath) as! MessageSentCell
+        print(chats[indexPath.row].message)
+        cell.messageText.text = chats[indexPath.row].message
+        messagesListTV.backgroundColor = UIColor.clear
+        cell.layer.backgroundColor = UIColor.clear.cgColor
+        
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
-    {
-        print("User tapped on item \(indexPath.row)")
-        //self.indexPressedCell = indexPath.row
-        //self.performSegue(withIdentifier: "listServices", sender: self)
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return chats.count
+    }
+
+    func configTableView() {
+        messagesListTV.rowHeight = UITableViewAutomaticDimension
+        messagesListTV.estimatedRowHeight = 120.0
     }
     
-    func setupKeyboardObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handledKeyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-    }
-    
-    @objc func handledKeyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            let keyboardHeight = keyboardSize.height
-            print(keyboardHeight)
+    func scrollToBottom(){
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: self.chats.count-1, section: 0)
+            self.messagesListTV.scrollToRow(at: indexPath, at: .bottom, animated: false)
         }
     }
-    
 
 }
 
-extension ChatLogClientController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let columns: CGFloat = 1
-        let spacing: CGFloat = 3
-        let totalHorizontalSpacing = (columns) * spacing
-        
-        let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
-        let itemSize = CGSize(width: itemWidth, height: 80)
-        
-        return itemSize
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 3
-    }
-}
+//extension ChatLogClientController: UICollectionViewDataSource {
+//    func collectionView(_ collectionService: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        //return 10
+//        return chats.count
+//    }
+//
+//    func collectionView(_ collectionService: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionService.dequeueReusableCell(withReuseIdentifier: "MessageClientCell", for: indexPath) as! MessageClientCell
+//        //cell.nameService?.text = services[indexPath.row].nombre
+//        //cell.priceService?.text = services[indexPath.row].precio
+//        //cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
+//        /*let backgroundImage = UIImage(named: "list_estilist.png")
+//        let imageView = UIImageView(image: backgroundImage)
+//        cell.backgroundView = imageView
+//        imageView.contentMode = .scaleAspectFill
+//        imageView.layer.masksToBounds = true
+//        imageView.layer.cornerRadius = 10*/
+//        cell.layer.cornerRadius = 16
+//        cell.layer.masksToBounds = true
+//        cell.textMessage?.text = chats[indexPath.row].message
+//        let item = self.collectionView(self.collectionView!, numberOfItemsInSection: 0) - 1
+//        let lastItemIndex = NSIndexPath(item: item, section: 0)
+//        collectionView?.scrollToItem(at: lastItemIndex as IndexPath, at: UICollectionViewScrollPosition.top, animated: false)
+//        return cell
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+//    {
+//        print("User tapped on item \(indexPath.row)")
+//        //self.indexPressedCell = indexPath.row
+//        //self.performSegue(withIdentifier: "listServices", sender: self)
+//    }
+//
+//    func setupKeyboardObservers() {
+//        NotificationCenter.default.addObserver(self, selector: #selector(handledKeyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+//    }
+//
+//    @objc func handledKeyboardWillShow(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//            let keyboardHeight = keyboardSize.height
+//            print(keyboardHeight)
+//        }
+//    }
+//
+//
+//}
+//
+//extension ChatLogClientController: UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let columns: CGFloat = 1
+//        let spacing: CGFloat = 3
+//        let totalHorizontalSpacing = (columns) * spacing
+//
+//        let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
+//        let itemSize = CGSize(width: itemWidth, height: 80)
+//
+//        return itemSize
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        return 3
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return 3
+//    }
+//}
