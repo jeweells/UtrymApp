@@ -13,6 +13,7 @@
 		8908C92120EB008F00344A6A /* PostEstThumbProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8908C92020EB008E00344A6A /* PostEstThumbProfileCell.swift */; };
 		8914525620CDEFC20030A67A /* TimeLineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8914525520CDEFC10030A67A /* TimeLineController.swift */; };
 		891E9E3D20E4428C00F5BF33 /* EstilistSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E9E3C20E4428C00F5BF33 /* EstilistSearchCell.swift */; };
+		8926E6F2210D4C4B0077308C /* SkillsHomeProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926E6F1210D4C4B0077308C /* SkillsHomeProfileCell.swift */; };
 		892E725D20EE890B0078FD44 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E725C20EE890B0078FD44 /* Client.swift */; };
 		892E726320EED8DF0078FD44 /* CitasEstilistHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E726220EED8DF0078FD44 /* CitasEstilistHeaderView.swift */; };
 		892E726520EED9240078FD44 /* CitasEstilistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E726420EED9240078FD44 /* CitasEstilistCell.swift */; };
@@ -106,6 +107,7 @@
 		8908C92020EB008E00344A6A /* PostEstThumbProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEstThumbProfileCell.swift; sourceTree = "<group>"; };
 		8914525520CDEFC10030A67A /* TimeLineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineController.swift; sourceTree = "<group>"; };
 		891E9E3C20E4428C00F5BF33 /* EstilistSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstilistSearchCell.swift; sourceTree = "<group>"; };
+		8926E6F1210D4C4B0077308C /* SkillsHomeProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsHomeProfileCell.swift; sourceTree = "<group>"; };
 		892E725C20EE890B0078FD44 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		892E726220EED8DF0078FD44 /* CitasEstilistHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitasEstilistHeaderView.swift; sourceTree = "<group>"; };
 		892E726420EED9240078FD44 /* CitasEstilistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitasEstilistCell.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				8908C92020EB008E00344A6A /* PostEstThumbProfileCell.swift */,
+				8926E6F1210D4C4B0077308C /* SkillsHomeProfileCell.swift */,
 				89BE1E4020D4B3B6001703B3 /* ProfileHeaderView.swift */,
 				892E726220EED8DF0078FD44 /* CitasEstilistHeaderView.swift */,
 				892E726420EED9240078FD44 /* CitasEstilistCell.swift */,
@@ -729,6 +732,7 @@
 				89855D2B20F54FFB00D1EF2D /* ChatsListClientController.swift in Sources */,
 				894333A220DBFF02006F1BEE /* PostService.swift in Sources */,
 				892E727120EF11990078FD44 /* Chat.swift in Sources */,
+				8926E6F2210D4C4B0077308C /* SkillsHomeProfileCell.swift in Sources */,
 				8960565220D81BE3006B8A3A /* ServiceHeaderCell.swift in Sources */,
 				896B800720D044A2007B7C5D /* PostCell.swift in Sources */,
 				898920AF20F2748F002CD2E8 /* ProfileEstilistClientController.swift in Sources */,

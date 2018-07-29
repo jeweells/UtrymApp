@@ -111,6 +111,21 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
         print("Settings Button Tapped")
     }
     
+    @IBAction func chatsTapped(_ sender: UIButton) {
+        if sender == chatButton {
+            let storyboard = UIStoryboard(name: "CitasChatsClient", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "ChatLogClientController") as! ChatLogClientController
+            controller.estilistID = estilistID
+            self.present(controller, animated: true, completion: nil)
+            // no muestra el navigation bar y sea cual sea el estilista que clickee toma el de douglas para abrir el chat con el...
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+    
+    
     // collectionView skills
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -132,27 +147,38 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
             
         }
     }
+}
 
-    // tableView feed
-   /*
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+extension ProfileEstilistClientController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == self.feedCollectionView {
+            let columns: CGFloat = 3
+            let spacing: CGFloat = 1.5
+            let totalHorizontalSpacing = (columns - 1) * spacing
+            
+            let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
+            let itemSize = CGSize(width: itemWidth, height: itemWidth)
+            
+            return itemSize
+        }
+        
+        let itemSize = CGSize(width: 40, height: 40)
+        return itemSize
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = feedTableView.dequeueReusableCell(withIdentifier: "PostThumbProfileEsCell", for: indexPath) as! PostThumbProfileEsCell
-        //cell.postThumb.downloadImage(from: self.posts[indexPath.row].imageURL)
-        cell.postThumb?.image = UIImage(named: "studio-2.jpg")
-        return cell
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView == self.feedCollectionView {
+            return 1.5
+        }
+        return 3
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        print("User tapped on item \(indexPath.row)")
-        self.indexPressedCell = indexPath.row
-        //self.performSegue(withIdentifier: "", sender: self)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView == self.feedCollectionView {
+            return 1.5
+        }
+        return 3
     }
-    */
 }
 
 public extension UIImageView {

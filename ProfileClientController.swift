@@ -27,6 +27,9 @@ class ProfileClientController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var addressInput: UITextField!
     @IBOutlet weak var cancel: UIButton!
     @IBOutlet weak var save: UIButton!
+    @IBOutlet weak var logOut: UIButton!
+    
+    
     var ref : DatabaseReference!
     let picker = UIImagePickerController()
     
@@ -88,6 +91,27 @@ class ProfileClientController: UIViewController, UIImagePickerControllerDelegate
     
     @IBAction func cancelTapped(_ sender: UIButton) {
         loadClient()
+    }
+    
+    @IBAction func logOutTapped(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Confirme:", message: "Segur@ que desea cerrar sesión?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { action in
+            let firebaseAuth = Auth.auth()
+            do {
+                try firebaseAuth.signOut()
+                let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "login") as UIViewController
+                self.present(controller, animated: true, completion: nil)
+                print("Cliente cerró sesión")
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
+    
     }
     
     

@@ -447,6 +447,15 @@
                                     <action selector="editImageTapped:" destination="C2O-aY-qts" eventType="touchUpInside" id="jxV-S4-SXj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNw-Yo-WRc">
+                                <rect key="frame" x="123" y="437" width="128" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                <state key="normal" title="Cerrar Sesión" backgroundImage="guardar_edit"/>
+                                <connections>
+                                    <action selector="logOutTapped:" destination="C2O-aY-qts" eventType="touchUpInside" id="Xdu-pC-Oqr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -480,6 +489,7 @@
                         <outlet property="fullNameInput" destination="GQz-A4-bPT" id="7fz-Wd-FSv"/>
                         <outlet property="fullNameLabel" destination="j1F-yh-kfy" id="f9F-tn-c8A"/>
                         <outlet property="imageProfile" destination="LZ4-fX-fDh" id="bnd-Mm-QAr"/>
+                        <outlet property="logOut" destination="LNw-Yo-WRc" id="GXN-ar-yvP"/>
                         <outlet property="phoneInput" destination="aoW-zi-lxg" id="M1P-vF-MKP"/>
                         <outlet property="phoneLabel" destination="WNR-3D-Za2" id="hUv-95-p9c"/>
                         <outlet property="save" destination="9Rw-x4-5c4" id="7mI-Ma-RNb"/>
@@ -487,7 +497,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oe1-yF-EXU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3649" y="460"/>
+            <point key="canvasLocation" x="3648.8000000000002" y="459.60591133004925"/>
         </scene>
         <!--List Estilist Controller-->
         <scene sceneID="Ek7-8o-oW7">
@@ -610,6 +620,9 @@
                                 <state key="normal" title="Contactar" backgroundImage="Rectangle_seguir">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="chatsTapped:" destination="Teg-iX-rh5" eventType="touchUpInside" id="CN4-jy-GY2"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5T-uU-dHR">
                                 <rect key="frame" x="16" y="224" width="173" height="36"/>
@@ -684,7 +697,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5t9-co-PwL">
-                                <rect key="frame" x="16" y="372" width="343" height="295"/>
+                                <rect key="frame" x="0.0" y="402" width="375" height="371"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8w7-mx-DsA">
                                     <size key="itemSize" width="124" height="124"/>
@@ -766,7 +779,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="glH-C2-nZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3365.5999999999999" y="1177.961019490255"/>
+            <point key="canvasLocation" x="3365.5999999999999" y="1177.8325123152711"/>
         </scene>
         <!--Services Controller-->
         <scene sceneID="o7r-Z6-tTl">
