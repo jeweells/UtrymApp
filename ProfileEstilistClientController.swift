@@ -132,6 +132,36 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
             
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == self.feedCollectionView {
+            let columns: CGFloat = 3
+            let spacing: CGFloat = 1.5
+            let totalHorizontalSpacing = (columns - 1) * spacing
+            
+            let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
+            let itemSize = CGSize(width: itemWidth, height: itemWidth)
+            
+            return itemSize
+        }
+        
+        let itemSize = CGSize(width: 40, height: 40)
+        return itemSize
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView == self.feedCollectionView {
+            return 1.5
+        }
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView == self.feedCollectionView {
+            return 1.5
+        }
+        return 3
+    }
 
     // tableView feed
    /*
