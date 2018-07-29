@@ -155,7 +155,7 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
     */
 }
 
-extension UIImageView {
+public extension UIImageView {
     func download(from imgURL: String!) {
         let url = URLRequest(url: URL(string: imgURL)!)
         

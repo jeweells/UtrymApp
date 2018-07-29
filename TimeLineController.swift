@@ -17,6 +17,7 @@ class TimeLineController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var posts = [PostEstilist]()
+    var selectedPost = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,15 +73,24 @@ class TimeLineController: UIViewController {
         let ref = Database.database().reference()
         ref.child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
             if let dict = snapshot.value as? [String: Any] {
+                print(dict)
                 let imageURL = dict["image_url"] as? String
                 let image_height = dict["image_height"] as? CGFloat
                 let idEst = dict["idEst"] as? String
                 let post = PostEstilist(imageURL: imageURL!, imageHeight: image_height!, idEst: idEst!)
+                post.key = snapshot.key
                 self.posts.append(post)
                 self.collectionView.reloadData()
             }
         }
         ref.removeAllObservers()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationController = segue.destination as? DetailPostController {
+            print("Me fui a ver el post: \(selectedPost)")
+            destinationController.postID = selectedPost
+        }
     }
 }
 
@@ -98,8 +108,9 @@ extension TimeLineController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedPost = self.posts[indexPath.row].key!
+        
         self.performSegue(withIdentifier: "detail", sender: self)
-        print("Detail Post Tapped")
     }
 }
 

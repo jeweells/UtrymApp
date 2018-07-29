@@ -18,6 +18,25 @@ class DetailPostController: UIViewController {
     
     var posts: [Post]?
     
+    @IBOutlet weak var profileContainer: UIView!
+    @IBOutlet weak var avatarImage: UIImageView!
+    @IBOutlet weak var postImageMain: UIImageView!
+    @IBOutlet weak var commentsSection: UIView!
+    @IBOutlet weak var profileNameLabel: UILabel!
+    @IBOutlet weak var especialityLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var zoneLabel: UILabel!
+    @IBOutlet weak var likeCounterLabel: UILabel!
+    @IBOutlet weak var commentCounterLabel: UILabel!
+    @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var imageContainer: UIView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    
+    
+    var postID:String = ""
+    var profileID:String = ""
+    
+    
     struct Storyboard {
         static let postCell = "PostCell"
         static let postHeadeCell = "PostHeaderCell"
@@ -25,47 +44,119 @@ class DetailPostController: UIViewController {
         static let postCellDefaultHeight: CGFloat = 578
     }
     
-    @IBOutlet weak var tableDView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fetchPosts()
+        avatarImage.layer.masksToBounds = true
+        avatarImage.layer.cornerRadius = avatarImage.bounds.width / 2.0
+        profileContainer.roundedTop()
+        commentsSection.roundedBottom()
         
-//        tableDView.estimatedRowHeight = Storyboard.postCellDefaultHeight
-//        tableDView.rowHeight = UITableViewAutomaticDimension
-//        tableDView.separatorColor = UIColor.clear
-
-        let backgroundImage = UIImage(named: "Back.png")
-        let imageView = UIImageView(image: backgroundImage)
-        
-        //self.tableDView.backgroundView = imageView
-        imageView.contentMode = .scaleAspectFill
-
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        indicator.isHidden = false
+        indicator.startAnimating()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        self.fetchPosts()
+        self.indicator.isHidden = true
+    }
     func fetchPosts() {
-        //self.posts = Post.fetchPosts()
-        //self.tableDView.reloadData()
+        let ref = Database.database().reference()
+        
+        ref.child("posts").child(postID).observe(.value) { (snapshot: DataSnapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                self.postImageMain.download(from: dict["image_url"] as? String)
+                //self.likeCounterLabel.text = dict["likeCounter"] as? String
+                self.profileID = (dict["idEst"] as? String)!
+            }
+        }
+        ref.removeAllObservers()
     }
     
 }
 
-extension  DetailPostController {
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        if let posts = posts {
-//            return posts.count
-//        }
-//
-//        return 1
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-//        let cell = tableDView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
-//
-//        cell.postImage?.image = UIImage(named: "studio-2.jpg")
-//        //cell.post = self.posts?[indexPath.row]
-//        //cell.selectionStyle = .none
-//
-//        return cell
-//    }
+extension UIView{
+    func roundedTopLeft(){
+        let maskPath1 = UIBezierPath(roundedRect: bounds,
+                                     byRoundingCorners: [.topLeft],
+                                     cornerRadii: CGSize(width: 15, height: 15))
+        let maskLayer1 = CAShapeLayer()
+        maskLayer1.frame = bounds
+        maskLayer1.path = maskPath1.cgPath
+        layer.mask = maskLayer1
+    }
+    
+    func roundedTopRight(){
+        let maskPath1 = UIBezierPath(roundedRect: bounds,
+                                     byRoundingCorners: [.topRight],
+                                     cornerRadii: CGSize(width: 15, height: 15))
+        let maskLayer1 = CAShapeLayer()
+        maskLayer1.frame = bounds
+        maskLayer1.path = maskPath1.cgPath
+        layer.mask = maskLayer1
+    }
+    func roundedBottomLeft(){
+        let maskPath1 = UIBezierPath(roundedRect: bounds,
+                                     byRoundingCorners: [.bottomLeft],
+                                     cornerRadii: CGSize(width: 15, height: 15))
+        let maskLayer1 = CAShapeLayer()
+        maskLayer1.frame = bounds
+        maskLayer1.path = maskPath1.cgPath
+        layer.mask = maskLayer1
+    }
+    func roundedBottomRight(){
+        let maskPath1 = UIBezierPath(roundedRect: bounds,
+                                     byRoundingCorners: [.bottomRight],
+                                     cornerRadii: CGSize(width: 15, height: 15))
+        let maskLayer1 = CAShapeLayer()
+        maskLayer1.frame = bounds
+        maskLayer1.path = maskPath1.cgPath
+        layer.mask = maskLayer1
+    }
+    func roundedBottom(){
+        let maskPath1 = UIBezierPath(roundedRect: bounds,
+                                     byRoundingCorners: [.bottomRight , .bottomLeft],
+                                     cornerRadii: CGSize(width: 15, height: 15))
+        let maskLayer1 = CAShapeLayer()
+        maskLayer1.frame = bounds
+        maskLayer1.path = maskPath1.cgPath
+        layer.mask = maskLayer1
+    }
+    func roundedTop(){
+        let maskPath1 = UIBezierPath(roundedRect: bounds,
+                                     byRoundingCorners: [.topRight , .topLeft],
+                                     cornerRadii: CGSize(width: 15, height: 15))
+        let maskLayer1 = CAShapeLayer()
+        maskLayer1.frame = bounds
+        maskLayer1.path = maskPath1.cgPath
+        layer.mask = maskLayer1
+    }
+    func roundedLeft(){
+        let maskPath1 = UIBezierPath(roundedRect: bounds,
+                                     byRoundingCorners: [.topLeft , .bottomLeft],
+                                     cornerRadii: CGSize(width: 15, height: 15))
+        let maskLayer1 = CAShapeLayer()
+        maskLayer1.frame = bounds
+        maskLayer1.path = maskPath1.cgPath
+        layer.mask = maskLayer1
+    }
+    func roundedRight(){
+        let maskPath1 = UIBezierPath(roundedRect: bounds,
+                                     byRoundingCorners: [.topRight , .bottomRight],
+                                     cornerRadii: CGSize(width: 15, height: 15))
+        let maskLayer1 = CAShapeLayer()
+        maskLayer1.frame = bounds
+        maskLayer1.path = maskPath1.cgPath
+        layer.mask = maskLayer1
+    }
+    func roundedAllCorner(){
+        let maskPath1 = UIBezierPath(roundedRect: bounds,
+                                     byRoundingCorners: [.topRight , .bottomRight , .topLeft , .bottomLeft],
+                                     cornerRadii: CGSize(width: 15, height: 15))
+        let maskLayer1 = CAShapeLayer()
+        maskLayer1.frame = bounds
+        maskLayer1.path = maskPath1.cgPath
+        layer.mask = maskLayer1
+    }
 }
