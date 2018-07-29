@@ -164,27 +164,6 @@ extension ProfileEstilistClientController: UICollectionViewDelegateFlowLayout {
         }
         return 3
     }
-
-    // tableView feed
-   /*
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = feedTableView.dequeueReusableCell(withIdentifier: "PostThumbProfileEsCell", for: indexPath) as! PostThumbProfileEsCell
-        //cell.postThumb.downloadImage(from: self.posts[indexPath.row].imageURL)
-        cell.postThumb?.image = UIImage(named: "studio-2.jpg")
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        print("User tapped on item \(indexPath.row)")
-        self.indexPressedCell = indexPath.row
-        //self.performSegue(withIdentifier: "", sender: self)
-    }
-    */
 }
 
 public extension UIImageView {
