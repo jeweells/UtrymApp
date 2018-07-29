@@ -40,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Google
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        
+        setRootViewController()
         return true
         
     }
@@ -58,7 +60,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                                  annotation: annotation)
     }
 
-
+    func setRootViewController() {
+        if Auth.auth().currentUser != nil {
+            let firUser = Auth.auth().currentUser
+            
+            Database.database().reference().child("clientes").child((firUser!.uid)).child("uid").observe(.value, with: { (snapshot) in
+                if (snapshot.value as? String) != nil {
+                    print("Cliente")
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let controller : UIViewController = (storyboard.instantiateViewController(withIdentifier: "WelcomeClient") as? ClientTabBarController)!
+                    self.window = UIWindow(frame: UIScreen.main.bounds)
+                    self.window?.rootViewController = controller
+                    self.window?.makeKeyAndVisible()
+                    
+                }
+                else {
+                    print("Estilista")
+                    let storyboard = UIStoryboard(name: "Estilist", bundle: nil)
+                    let controller : UIViewController = (storyboard.instantiateViewController(withIdentifier: "WelcomeEstilist") as? EstilistTabBarController)!
+                    self.window = UIWindow(frame: UIScreen.main.bounds)
+                    self.window?.rootViewController = controller
+                    self.window?.makeKeyAndVisible()
+                }
+            })
+        } else {
+            print("no esta logueado")
+            let storyboard = UIStoryboard(name: "Login", bundle: nil)
+            let controller : UIViewController = (storyboard.instantiateViewController(withIdentifier: "login") as? LoginController)!
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = controller
+            self.window?.makeKeyAndVisible()
+        }
+    }
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error) != nil {
             print(error.localizedDescription)

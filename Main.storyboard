@@ -447,6 +447,15 @@
                                     <action selector="editImageTapped:" destination="C2O-aY-qts" eventType="touchUpInside" id="jxV-S4-SXj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNw-Yo-WRc">
+                                <rect key="frame" x="123" y="437" width="128" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                <state key="normal" title="Cerrar Sesión" backgroundImage="guardar_edit"/>
+                                <connections>
+                                    <action selector="logOutTapped:" destination="C2O-aY-qts" eventType="touchUpInside" id="Xdu-pC-Oqr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -480,6 +489,7 @@
                         <outlet property="fullNameInput" destination="GQz-A4-bPT" id="7fz-Wd-FSv"/>
                         <outlet property="fullNameLabel" destination="j1F-yh-kfy" id="f9F-tn-c8A"/>
                         <outlet property="imageProfile" destination="LZ4-fX-fDh" id="bnd-Mm-QAr"/>
+                        <outlet property="logOut" destination="LNw-Yo-WRc" id="GXN-ar-yvP"/>
                         <outlet property="phoneInput" destination="aoW-zi-lxg" id="M1P-vF-MKP"/>
                         <outlet property="phoneLabel" destination="WNR-3D-Za2" id="hUv-95-p9c"/>
                         <outlet property="save" destination="9Rw-x4-5c4" id="7mI-Ma-RNb"/>
@@ -487,7 +497,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oe1-yF-EXU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3649" y="460"/>
+            <point key="canvasLocation" x="3648.8000000000002" y="459.60591133004925"/>
         </scene>
         <!--List Estilist Controller-->
         <scene sceneID="Ek7-8o-oW7">
