@@ -129,11 +129,20 @@ class DetailPostController: UIViewController {
     
 }
 
-extension UIView{
+public extension UIView{
     func roundedTopLeft(){
         let maskPath1 = UIBezierPath(roundedRect: bounds,
                                      byRoundingCorners: [.topLeft],
                                      cornerRadii: CGSize(width: 15, height: 15))
+        let maskLayer1 = CAShapeLayer()
+        maskLayer1.frame = bounds
+        maskLayer1.path = maskPath1.cgPath
+        layer.mask = maskLayer1
+    }
+    func roundedLeftTopRight(){
+        let maskPath1 = UIBezierPath(roundedRect: bounds,
+                                     byRoundingCorners: [.topLeft, .topRight, .bottomLeft],
+                                     cornerRadii: CGSize(width: 10, height: 10))
         let maskLayer1 = CAShapeLayer()
         maskLayer1.frame = bounds
         maskLayer1.path = maskPath1.cgPath

@@ -32,7 +32,7 @@ class ChatsListClientController: UIViewController {
         self.chatsTable.backgroundColor = UIColor.clear
         //loadChats()
         loadChatsUsers()
-
+        
     }
 
 
