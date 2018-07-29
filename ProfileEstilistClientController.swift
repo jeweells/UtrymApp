@@ -132,7 +132,9 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
             
         }
     }
-    
+}
+
+extension ProfileEstilistClientController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.feedCollectionView {
             let columns: CGFloat = 3
