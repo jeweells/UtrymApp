@@ -111,6 +111,21 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
         print("Settings Button Tapped")
     }
     
+    @IBAction func chatsTapped(_ sender: UIButton) {
+        if sender == chatButton {
+            let storyboard = UIStoryboard(name: "CitasChatsClient", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "ChatLogClientController") as! ChatLogClientController
+            controller.estilistID = estilistID
+            self.present(controller, animated: true, completion: nil)
+            // no muestra el navigation bar y sea cual sea el estilista que clickee toma el de douglas para abrir el chat con el...
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+    
+    
     // collectionView skills
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
