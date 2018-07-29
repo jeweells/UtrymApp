@@ -18,6 +18,7 @@ class PostEstilist {
     let creationDate: Date
     var status: Bool = false
     var idEst: String
+    var likeCounter: Int = 0
     
     var dictValue: [String : Any] {
         let createdAgo = creationDate.timeIntervalSince1970
@@ -26,7 +27,8 @@ class PostEstilist {
                 "image_height" : imageHeight,
                 "created_at" : createdAgo,
                 "status_post" : status,
-                "idEst": idEst]
+                "idEst": idEst,
+                "likeCounter": likeCounter]
     }
 
     init(imageURL: String, imageHeight: CGFloat, idEst: String) {

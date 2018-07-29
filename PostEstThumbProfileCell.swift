@@ -9,8 +9,8 @@
 import UIKit
 
 class PostEstThumbProfileCell: UICollectionViewCell {
-    
     @IBOutlet weak var postEst: UIImageView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
