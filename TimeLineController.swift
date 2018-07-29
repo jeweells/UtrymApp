@@ -73,7 +73,7 @@ class TimeLineController: UIViewController {
         let ref = Database.database().reference()
         ref.child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
             if let dict = snapshot.value as? [String: Any] {
-                print(dict)
+                //print(dict)
                 let imageURL = dict["image_url"] as? String
                 let image_height = dict["image_height"] as? CGFloat
                 let idEst = dict["idEst"] as? String
@@ -102,9 +102,10 @@ extension TimeLineController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostThumbImageCell", for: indexPath) as! PostThumbImageCell
         cell.postImage.downloadImage(from: self.posts[indexPath.row].imageURL)
-        let item = self.collectionView(self.collectionView!, numberOfItemsInSection: 0) - 1
-        let lastItemIndex = NSIndexPath(item: item, section: 0)
-        collectionView.scrollToItem(at: lastItemIndex as IndexPath, at: UICollectionViewScrollPosition.top, animated: true)
+        
+        //let item = self.collectionView(self.collectionView!, numberOfItemsInSection: 0) - 1
+        //let lastItemIndex = NSIndexPath(item: item, section: 0)
+        //collectionView.scrollToItem(at: lastItemIndex as IndexPath, at: UICollectionViewScrollPosition.top, animated: false)
         
         return cell
     }

@@ -31,8 +31,9 @@ class DetailPostController: UIViewController {
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var imageContainer: UIView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
+    @IBOutlet weak var likeButton: NSLayoutConstraint!
     
-    
+    var isHighLighted:Bool = false
     var postID:String = ""
     var profileID:String = ""
     
@@ -51,7 +52,8 @@ class DetailPostController: UIViewController {
         avatarImage.layer.cornerRadius = avatarImage.bounds.width / 2.0
         profileContainer.roundedTop()
         commentsSection.roundedBottom()
-        
+        setupNavigationBarItems()
+        //likeButton.backgroundColor = UIColor.clear
     }
     override func viewWillAppear(_ animated: Bool) {
         indicator.isHidden = false
@@ -61,6 +63,39 @@ class DetailPostController: UIViewController {
         self.fetchPosts()
         
         self.indicator.isHidden = true
+    }
+    private func setupNavigationBarItems(){
+        // logo Utrym en el centro del NavBar
+        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Utrym_Interno"))
+        navigationItem.titleView = titleImageView
+        // icono avatar botón derecho del NavBar
+        let rightButton = UIButton(type: .system)
+        rightButton.setImage(#imageLiteral(resourceName: "Setting_icon").withRenderingMode(.alwaysOriginal), for: .normal)
+        rightButton.frame = CGRect(x: 0, y: 0, width: 34, height:34)
+        rightButton.contentMode = .scaleAspectFit
+        rightButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
+    }
+    
+    @IBAction func likeTapped(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        if(sender.isSelected == true)
+        {
+            //sender.backgroundColor = UIColor.clear
+            sender.setBackgroundImage(UIImage(named:"like_selected"), for: UIControlState.selected)
+            print("like")
+        }
+        else
+        {
+            //sender.backgroundColor = UIColor.clear
+            sender.setBackgroundImage(UIImage(named:"Star like"), for: UIControlState.normal)
+            print("unlike")
+        }
+    }
+    
+    
+    @objc func profileTapped(){
+        self.performSegue(withIdentifier: "profileClient", sender: self)
     }
     func fetchPosts() {
         let ref = Database.database().reference()
@@ -89,6 +124,8 @@ class DetailPostController: UIViewController {
         })
         ref.removeAllObservers()
     }
+    
+    
     
 }
 
