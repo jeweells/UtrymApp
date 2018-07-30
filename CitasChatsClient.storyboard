@@ -201,7 +201,7 @@
                                     <constraint firstItem="S55-h8-5rY" firstAttribute="top" secondItem="eRD-Pb-vYN" secondAttribute="top" constant="9" id="OCT-lT-Igs"/>
                                     <constraint firstAttribute="trailing" secondItem="IY3-hD-ZRE" secondAttribute="trailing" constant="17" id="Rv1-xf-d2Q"/>
                                     <constraint firstItem="IY3-hD-ZRE" firstAttribute="leading" secondItem="sXg-hJ-61n" secondAttribute="trailing" constant="13" id="ff8-Uu-1VB"/>
-                                    <constraint firstAttribute="height" constant="48" id="ffn-Du-x7R"/>
+                                    <constraint firstAttribute="height" constant="48" identifier="inputTextHeightConstraint" id="ffn-Du-x7R"/>
                                     <constraint firstItem="ai7-ue-bc3" firstAttribute="leading" secondItem="eRD-Pb-vYN" secondAttribute="leading" constant="16" id="fkt-pv-5EE"/>
                                     <constraint firstItem="sXg-hJ-61n" firstAttribute="leading" secondItem="eRD-Pb-vYN" secondAttribute="leading" constant="97" id="jbf-lI-zQU"/>
                                     <constraint firstItem="S55-h8-5rY" firstAttribute="leading" secondItem="ai7-ue-bc3" secondAttribute="trailing" constant="8" id="uDX-x5-YnH"/>
@@ -225,6 +225,7 @@
                         <viewLayoutGuide key="safeArea" id="Aeh-Pw-i4b"/>
                     </view>
                     <connections>
+                        <outlet property="inputHeightConstraint" destination="ffn-Du-x7R" id="ILV-rG-8aO"/>
                         <outlet property="messagesListTV" destination="KbT-B4-Tql" id="1aD-3H-2eF"/>
                         <outlet property="sendButton" destination="IY3-hD-ZRE" id="RPh-Lp-uMd"/>
                         <outlet property="textMessage" destination="sXg-hJ-61n" id="LrW-25-y1r"/>
@@ -452,21 +453,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AI4-kp-dvJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5097" y="-360"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="uUC-2o-hMn">
-            <objects>
-                <viewController id="wKI-tt-FFn" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="24k-gG-JP5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Nys-t6-PDc"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4EQ-UE-YaS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3536" y="778"/>
         </scene>
     </scenes>
     <resources>
