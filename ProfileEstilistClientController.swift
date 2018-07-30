@@ -113,10 +113,11 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
     
     @IBAction func chatsTapped(_ sender: UIButton) {
         if sender == chatButton {
-            let storyboard = UIStoryboard(name: "CitasChatsClient", bundle: nil)
+            self.performSegue(withIdentifier: "chatLog", sender: self)
+            /*let storyboard = UIStoryboard(name: "CitasChatsClient", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "ChatLogClientController") as! ChatLogClientController
             controller.estilistID = estilistID
-            self.present(controller, animated: true, completion: nil)
+            self.present(controller, animated: true, completion: nil)*/
             // no muestra el navigation bar y sea cual sea el estilista que clickee toma el de douglas para abrir el chat con el...
         }
     }

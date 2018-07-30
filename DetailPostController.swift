@@ -31,12 +31,11 @@ class DetailPostController: UIViewController {
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var imageContainer: UIView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
-    @IBOutlet weak var likeButton: NSLayoutConstraint!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var unLikeButton: UIButton!
     
-    var isHighLighted:Bool = false
     var postID:String = ""
     var profileID:String = ""
-    
     
     struct Storyboard {
         static let postCell = "PostCell"
@@ -53,7 +52,8 @@ class DetailPostController: UIViewController {
         profileContainer.roundedTop()
         commentsSection.roundedBottom()
         setupNavigationBarItems()
-        //likeButton.backgroundColor = UIColor.clear
+        loadLikes()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         indicator.isHidden = false
@@ -63,6 +63,7 @@ class DetailPostController: UIViewController {
         self.fetchPosts()
         
         self.indicator.isHidden = true
+        
     }
     private func setupNavigationBarItems(){
         // logo Utrym en el centro del NavBar
@@ -76,23 +77,70 @@ class DetailPostController: UIViewController {
         rightButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
     }
-    
-    @IBAction func likeTapped(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
-        if(sender.isSelected == true)
-        {
-            //sender.backgroundColor = UIColor.clear
-            sender.setBackgroundImage(UIImage(named:"like_selected"), for: UIControlState.selected)
-            print("like")
-        }
-        else
-        {
-            //sender.backgroundColor = UIColor.clear
-            sender.setBackgroundImage(UIImage(named:"Star like"), for: UIControlState.normal)
-            print("unlike")
+
+    @IBAction func likeButtonTapped(_ sender: UIButton) {
+        self.likeButton.isEnabled = false
+        let ref = Database.database().reference()
+        let keyToPost = ref.child("posts").childByAutoId().key
+        ref.child("posts").child(self.postID).observe(.value) { (snapshot: DataSnapshot) in
+            let updateLikes: [String : Any] = ["peopleLike/\(keyToPost)" : Auth.auth().currentUser!.uid]
+            ref.child("posts").child(self.postID).updateChildValues(updateLikes, withCompletionBlock: { (error, reff) in
+                if error == nil {
+                    ref.child("posts").child(self.postID).observe(.value, with: { (snpashot) in
+                        if let properties = snapshot.value as? [String : Any] {
+                            if let likes = properties["peopleLike"] as? [String : Any] {
+                                let count = likes.count
+                                self.likeCounterLabel.text = "\(count)"
+                                let update = ["likeCounter": count]
+                                ref.child("posts").child(self.postID).updateChildValues(update)
+                                
+                                self.likeButton.isHidden = true
+                                self.unLikeButton.isHidden = false
+                                self.likeButton.isEnabled = true
+                            }
+                        }
+                    })
+                }
+            })
+            ref.removeAllObservers()
         }
     }
     
+    @IBAction func unlikeButtonTapped(_ sender: UIButton) {
+        let ref = Database.database().reference()
+        ref.child("posts").child(self.postID).observe(.value, with: { (snapshot) in
+            if let properties = snapshot.value as? [String : Any] {
+                if let peopleLike = properties["peopleLike"] as? [String : Any] {
+                    for (id, person) in peopleLike {
+                        if person as? String == Auth.auth().currentUser!.uid {
+                            ref.child("posts").child(self.postID).child("peopleLike").child(id).removeValue(completionBlock: { (error, reff) in
+                                if error == nil {
+                                    ref.child("posts").child(self.postID).observe(.value, with: { (snap) in
+                                        if let prop = snap.value as? [String : Any] {
+                                            if let likes = prop["peopleLike"] as? [String : Any] {
+                                                let count = likes.count
+                                                self.likeCounterLabel.text = "\(count)"
+                                                ref.child("posts").child(self.postID).updateChildValues(["likeCounter": count])
+                                            }
+                                            else {
+                                                self.likeCounterLabel.text = "0"
+                                                ref.child("posts").child(self.postID).updateChildValues(["likeCounter": 0])
+                                            }
+                                        }
+                                    })
+                                }
+                            })
+                            self.likeButton.isHidden = false
+                            self.unLikeButton.isHidden = true
+                            self.unLikeButton.isEnabled = true
+                            break
+                        }
+                    }
+                }
+            }
+        })
+        ref.removeAllObservers()
+    }
     
     @objc func profileTapped(){
         self.performSegue(withIdentifier: "profileClient", sender: self)
@@ -123,6 +171,25 @@ class DetailPostController: UIViewController {
             }
         })
         ref.removeAllObservers()
+    }
+    
+    func loadLikes() {
+        let ref = Database.database().reference()
+        let us = Auth.auth().currentUser?.uid
+        ref.child("posts").child(self.postID).observe(.value, with: { (snapshot) in
+            if let properties = snapshot.value as? [String : Any] {
+                if let peopleLike = properties["peopleLike"] as? [String : Any] {
+                    for person in peopleLike {
+                        
+                        /*if person == us {
+                            self.likeButton.isHidden = true
+                            self.unLikeButton.isHidden = false
+                            break
+                        }*/
+                    }
+                }
+            }
+        })
     }
     
     
