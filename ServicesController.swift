@@ -91,6 +91,19 @@ extension ServicesController: UICollectionViewDataSource {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 10
+        
+        let nombreCat = categorys[indexPath.row].nombre
+        
+        switch nombreCat {
+        case "Makeup":
+            cell.serviceImage?.image = UIImage(named: "makeup_big.png")
+        case "Hair":
+            cell.serviceImage?.image = UIImage(named: "hair_big.png")
+        case "Nails":
+            cell.serviceImage?.image = UIImage(named: "manicure_big.png")
+        default:
+            cell.serviceImage?.image = UIImage(named: "hair_big.png")
+        }
         return cell
     }
 }

@@ -234,7 +234,7 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8O-9P-xkQ">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8O-9P-xkQ">
                                                 <rect key="frame" x="14" y="17" width="17" height="16"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" backgroundImage="Star like">
@@ -813,22 +813,25 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bUw-hl-b7O">
                                 <rect key="frame" x="16" y="100" width="343" height="617"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="K8J-Bf-UwZ">
-                                    <size key="itemSize" width="375" height="161"/>
+                                    <size key="itemSize" width="156" height="251"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ServiceCell" id="x3a-Pc-eEz" customClass="ServiceCell" customModule="UtrymApp" customModuleProvider="target">
-                                        <rect key="frame" x="-16" y="0.0" width="375" height="161"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="156" height="251"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="161"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="156" height="251"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" image="hair_big" translatesAutoresizingMaskIntoConstraints="NO" id="1sO-gZ-qMG">
+                                                    <rect key="frame" x="58" y="68" width="41" height="42"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Service" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgQ-yi-sZj">
-                                                    <rect key="frame" x="130" y="67" width="116" height="27"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                                    <rect key="frame" x="37.666666666666657" y="126.99999999999999" width="81" height="19.333333333333329"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -836,11 +839,17 @@
                                         </view>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="lgQ-yi-sZj" firstAttribute="centerY" secondItem="x3a-Pc-eEz" secondAttribute="centerY" id="11e-56-lvY"/>
-                                            <constraint firstItem="lgQ-yi-sZj" firstAttribute="centerX" secondItem="x3a-Pc-eEz" secondAttribute="centerX" id="VP5-aj-gxg"/>
+                                            <constraint firstItem="lgQ-yi-sZj" firstAttribute="top" secondItem="1sO-gZ-qMG" secondAttribute="bottom" constant="17" id="EtS-1o-YeH"/>
+                                            <constraint firstItem="1sO-gZ-qMG" firstAttribute="centerX" secondItem="x3a-Pc-eEz" secondAttribute="centerX" id="NWO-A1-1Ta"/>
+                                            <constraint firstItem="lgQ-yi-sZj" firstAttribute="centerX" secondItem="x3a-Pc-eEz" secondAttribute="centerX" id="ZZ9-Zn-fdP"/>
+                                            <constraint firstItem="1sO-gZ-qMG" firstAttribute="leading" secondItem="x3a-Pc-eEz" secondAttribute="leading" constant="58" id="oOK-W1-tJ1"/>
+                                            <constraint firstAttribute="trailing" secondItem="1sO-gZ-qMG" secondAttribute="trailing" constant="57" id="pdn-qB-CdE"/>
+                                            <constraint firstItem="1sO-gZ-qMG" firstAttribute="top" secondItem="x3a-Pc-eEz" secondAttribute="top" constant="68" id="s0Z-aS-Ks9"/>
+                                            <constraint firstAttribute="bottom" secondItem="lgQ-yi-sZj" secondAttribute="bottom" constant="104.66666666666669" id="wWg-hS-d0B"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="nameServices" destination="lgQ-yi-sZj" id="VxL-13-DyZ"/>
+                                            <outlet property="serviceImage" destination="1sO-gZ-qMG" id="kcG-CJ-lsK"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -876,7 +885,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qpa-DC-Rin" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1788" y="1985"/>
+            <point key="canvasLocation" x="1788" y="1984.729064039409"/>
         </scene>
         <!--List Services Controller-->
         <scene sceneID="q6D-9F-L8E">
@@ -1068,12 +1077,13 @@
         <image name="borde_prof_est" width="123" height="123"/>
         <image name="cancelar_edit" width="128" height="43"/>
         <image name="guardar_edit" width="128" height="43"/>
+        <image name="hair_big" width="41" height="42"/>
         <image name="input_edit" width="199" height="30"/>
         <image name="like_selected" width="13" height="12"/>
         <image name="mas" width="17" height="17"/>
         <image name="studio-2" width="550" height="761"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uhf-DD-ouX"/>
+        <segue reference="05c-a3-1SQ"/>
     </inferredMetricsTieBreakers>
 </document>

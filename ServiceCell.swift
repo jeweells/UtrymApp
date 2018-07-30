@@ -11,6 +11,7 @@ import UIKit
 class ServiceCell: UICollectionViewCell {
     
     @IBOutlet weak var nameServices: UILabel!
+    @IBOutlet weak var serviceImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

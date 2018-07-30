@@ -53,7 +53,6 @@ class DetailPostController: UIViewController {
         commentsSection.roundedBottom()
         setupNavigationBarItems()
         loadLikes()
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         indicator.isHidden = false
@@ -79,7 +78,12 @@ class DetailPostController: UIViewController {
     }
 
     @IBAction func likeButtonTapped(_ sender: UIButton) {
+        self.unLikeButton.isHidden = false
+        self.likeButton.isHidden = true
+        self.unLikeButton.isEnabled = true
         self.likeButton.isEnabled = false
+        print("like pressed")
+        /*self.likeButton.isEnabled = false
         let ref = Database.database().reference()
         let keyToPost = ref.child("posts").childByAutoId().key
         ref.child("posts").child(self.postID).observe(.value) { (snapshot: DataSnapshot) in
@@ -103,11 +107,16 @@ class DetailPostController: UIViewController {
                 }
             })
             ref.removeAllObservers()
-        }
+        }*/
     }
     
     @IBAction func unlikeButtonTapped(_ sender: UIButton) {
-        let ref = Database.database().reference()
+        print("Unlike pressed")
+        self.unLikeButton.isHidden = true
+        self.likeButton.isHidden = false
+        self.likeButton.isEnabled = true
+        self.unLikeButton.isEnabled = false
+       /*let ref = Database.database().reference()
         ref.child("posts").child(self.postID).observe(.value, with: { (snapshot) in
             if let properties = snapshot.value as? [String : Any] {
                 if let peopleLike = properties["peopleLike"] as? [String : Any] {
@@ -133,13 +142,12 @@ class DetailPostController: UIViewController {
                             self.likeButton.isHidden = false
                             self.unLikeButton.isHidden = true
                             self.unLikeButton.isEnabled = true
-                            break
                         }
                     }
                 }
             }
         })
-        ref.removeAllObservers()
+        ref.removeAllObservers()*/
     }
     
     @objc func profileTapped(){
@@ -153,7 +161,7 @@ class DetailPostController: UIViewController {
                 self.postImageMain.download(from: dict["image_url"] as? String)
                 //self.likeCounterLabel.text = dict["likeCounter"] as? String
                 self.profileID = dict["idEst"] as! String
-                print(self.profileID)
+                //print(self.profileID)
                 self.loadClient()
             }
         }        
@@ -161,7 +169,7 @@ class DetailPostController: UIViewController {
     }
     func loadClient() {
         let ref = Database.database().reference()
-        print(profileID)
+        //print(profileID)
         ref.child("estilistas").child(profileID).observe(.value, with: { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
                 
@@ -179,16 +187,35 @@ class DetailPostController: UIViewController {
         ref.child("posts").child(self.postID).observe(.value, with: { (snapshot) in
             if let properties = snapshot.value as? [String : Any] {
                 if let peopleLike = properties["peopleLike"] as? [String : Any] {
-                    var counter = 0
-                    for person in peopleLike {
-                        print(person)
-                        if person.key == us {
+                    //var counter = 0
+                    //for person in peopleLike {
+                        //print(person.value)
+                        //print(person.key)
+                    for (id, person) in peopleLike {
+                        if person as? String == us {
+                            print(id)
+                        //se debe comparar con person.value ya que es lo que contiene el id de los usuarios que dan like
+                        //pero me da un error operands of type 'Any' and 'String?'
+                        //if person.key == us {
+                        //if person.value as? [String : Any] == us {
                             self.likeButton.isHidden = true
                             self.unLikeButton.isHidden = false
-                            counter = counter + 1
+                            self.likeButton.isEnabled = false
+                            self.unLikeButton.isEnabled = true
+                            //counter = counter + 1
+                        }
+                        else{
+                            self.likeButton.isHidden = false
+                            self.unLikeButton.isHidden = true
+                            self.likeButton.isEnabled = true
+                            self.unLikeButton.isEnabled = false
                         }
                     }
-                    self.likeCounterLabel.text = "\(counter)"
+                    //no sé como quitar el optional value
+                    let counter = properties["likeCounter"]
+                    print(counter as Any)
+                    self.likeCounterLabel.text = "\(String(describing: counter))"
+                    //self.likeCounterLabel.text = (properties["likeCounter"] as Any) as? String
                 }
             }
         })
