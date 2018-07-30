@@ -64,7 +64,6 @@
 		89AD3CBD20D9C64900D60F21 /* UploadPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD3CBC20D9C64800D60F21 /* UploadPostController.swift */; };
 		89AD3CBF20D9C73800D60F21 /* EstilistTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD3CBE20D9C73800D60F21 /* EstilistTabBarController.swift */; };
 		89B67D5420BB7D0E00D3BFBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B67D5320BB7D0E00D3BFBF /* AppDelegate.swift */; };
-		89B67D5620BB7D0E00D3BFBF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B67D5520BB7D0E00D3BFBF /* ViewController.swift */; };
 		89B67D5B20BB7D1300D3BFBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89B67D5A20BB7D1300D3BFBF /* Assets.xcassets */; };
 		89B67D5E20BB7D1300D3BFBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89B67D5C20BB7D1300D3BFBF /* LaunchScreen.storyboard */; };
 		89B67D6920BB7D1300D3BFBF /* UtrymAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B67D6820BB7D1300D3BFBF /* UtrymAppTests.swift */; };
@@ -161,7 +160,6 @@
 		89AD3CBE20D9C73800D60F21 /* EstilistTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstilistTabBarController.swift; sourceTree = "<group>"; };
 		89B67D5020BB7D0E00D3BFBF /* UtrymApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UtrymApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B67D5320BB7D0E00D3BFBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		89B67D5520BB7D0E00D3BFBF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		89B67D5A20BB7D1300D3BFBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89B67D5D20BB7D1300D3BFBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89B67D5F20BB7D1300D3BFBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -235,7 +233,6 @@
 		8906FE6120BE48A2003954F3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				89B67D5520BB7D0E00D3BFBF /* ViewController.swift */,
 				89F2D7B920D1D85600688164 /* SignUpController.swift */,
 				89855D3B20F58FEF00D1EF2D /* LoginController.swift */,
 				89855D3F20F5AF5A00D1EF2D /* CreateUserController.swift */,
@@ -696,7 +693,6 @@
 				8908C92120EB008F00344A6A /* PostEstThumbProfileCell.swift in Sources */,
 				899250A120FB09E700864F73 /* MessageClientCell.swift in Sources */,
 				89855D3C20F58FEF00D1EF2D /* LoginController.swift in Sources */,
-				89B67D5620BB7D0E00D3BFBF /* ViewController.swift in Sources */,
 				8914525620CDEFC20030A67A /* TimeLineController.swift in Sources */,
 				89B67D5420BB7D0E00D3BFBF /* AppDelegate.swift in Sources */,
 				899250A3210287BF00864F73 /* AttachmentHandler.swift in Sources */,

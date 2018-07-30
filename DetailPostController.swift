@@ -215,6 +215,15 @@ public extension UIView{
         maskLayer1.path = maskPath1.cgPath
         layer.mask = maskLayer1
     }
+    func roundedRightTopLeft(){
+        let maskPath1 = UIBezierPath(roundedRect: bounds,
+                                     byRoundingCorners: [.topLeft, .topRight, .bottomRight],
+                                     cornerRadii: CGSize(width: 10, height: 10))
+        let maskLayer1 = CAShapeLayer()
+        maskLayer1.frame = bounds
+        maskLayer1.path = maskPath1.cgPath
+        layer.mask = maskLayer1
+    }
     
     func roundedTopRight(){
         let maskPath1 = UIBezierPath(roundedRect: bounds,

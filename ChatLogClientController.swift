@@ -18,9 +18,12 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
     @IBOutlet weak var textMessage: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var messagesListTV: UITableView!
+    @IBOutlet weak var inputHeightConstraint: NSLayoutConstraint!
+    
     var estilistID: String = ""
     var chats = [ChatMessage]()
     var messDict = [String: ChatMessage]()
+    var keyboardAnimationDuration: NSNumber = NSNumber(floatLiteral: 0.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +31,13 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
         textMessage.delegate = self
         messagesListTV.delegate = self
         messagesListTV.dataSource = self
+        textMessage.delegate = self
         self.messagesListTV.backgroundColor = UIColor.clear
         messagesListTV.register(UINib(nibName: "MessageSentCell", bundle: Bundle(for: MessageSentCell.self)), forCellReuseIdentifier: "messageSentCell")
         messagesListTV.register(UINib(nibName: "MessageReceived", bundle: Bundle(for: MessageReceived.self)), forCellReuseIdentifier: "messageReceivedCell")
+        let dismissKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(tapTableView))
+        messagesListTV.addGestureRecognizer(dismissKeyboardGesture)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         configTableView()
     
     }
@@ -79,35 +86,58 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
         }
         ref.removeAllObservers()
     }
+    @objc func keyboardWillShow(aNotification: NSNotification)    {
+        
+        keyboardAnimationDuration = aNotification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
+    }
     
     @IBAction func sendTapped(_ sender: UIButton) {
         let ref = Database.database().reference().child("messages")
         let childRef = ref.childByAutoId()
         let fromId = Auth.auth().currentUser!.uid
         let timestamp = NSNumber(value: Int(NSDate().timeIntervalSince1970))
-        let values = ["text": textMessage.text!, "receptor": estilistID, "emisor": fromId, "timestamp": timestamp] as [String : Any]
-        //childRef().updateChildValues(values)
-        //print(messageText.text!)
-        
-        childRef.updateChildValues(values) { (error, ref) in
-            if error != nil {
-                print(error!)
-                return
+        if textMessage.text != "" {
+            let values = ["text": textMessage.text!, "receptor": estilistID, "emisor": fromId, "timestamp": timestamp] as [String : Any]
+            //childRef().updateChildValues(values)
+            //print(messageText.text!)
+            
+            childRef.updateChildValues(values) { (error, ref) in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                let userMessageRef = Database.database().reference().child("user-messages").child(fromId)
+                let messageId = childRef.key
+                userMessageRef.updateChildValues([messageId: 1])
+                self.textMessage.text = ""
             }
-            let userMessageRef = Database.database().reference().child("user-messages").child(fromId)
-            let messageId = childRef.key
-            userMessageRef.updateChildValues([messageId: 1])
-            self.textMessage.text = ""
+            
         }
 
     }
     
+    @objc func tapTableView() {
+        textMessage.endEditing(true)
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         sendTapped(sendButton)
         textField.text = ""
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: keyboardAnimationDuration as! Double){
+            self.inputHeightConstraint.constant = 308
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        //UIView.animate(withDuration: 0.5){
+            self.inputHeightConstraint.constant = 48
+            self.view.layoutIfNeeded()
+        //}
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "messageSentCell", for: indexPath) as! MessageSentCell
