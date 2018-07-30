@@ -24,6 +24,7 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
     var chats = [ChatMessage]()
     var messDict = [String: ChatMessage]()
     var keyboardAnimationDuration: NSNumber = NSNumber(floatLiteral: 0.0)
+    var curve: UInt = UInt(0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,24 +32,26 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
         textMessage.delegate = self
         messagesListTV.delegate = self
         messagesListTV.dataSource = self
-        textMessage.delegate = self
+        
         self.messagesListTV.backgroundColor = UIColor.clear
         messagesListTV.register(UINib(nibName: "MessageSentCell", bundle: Bundle(for: MessageSentCell.self)), forCellReuseIdentifier: "messageSentCell")
         messagesListTV.register(UINib(nibName: "MessageReceived", bundle: Bundle(for: MessageReceived.self)), forCellReuseIdentifier: "messageReceivedCell")
         let dismissKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(tapTableView))
         messagesListTV.addGestureRecognizer(dismissKeyboardGesture)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        configTableView()
+        //configTableView()
     
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        loadMessagesCLient()
-    }
-    
-//    override func viewDidAppear(_ animated: Bool) {
+//    override func viewWillAppear(_ animated: Bool) {
 //        loadMessagesCLient()
+//        configTableView()
 //    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadMessagesCLient()
+        configTableView()
+    }
     
     func loadMessagesCLient() {
         guard let uid = Auth.auth().currentUser?.uid else {
@@ -78,7 +81,7 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
                     })*/
                     
                 }
-                
+                self.configTableView()
                 self.messagesListTV.reloadData()
                 self.scrollToBottom()
                 
@@ -89,6 +92,7 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
     @objc func keyboardWillShow(aNotification: NSNotification)    {
         
         keyboardAnimationDuration = aNotification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
+        curve = aNotification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! UInt
     }
     
     @IBAction func sendTapped(_ sender: UIButton) {
@@ -126,10 +130,17 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        UIView.animate(withDuration: keyboardAnimationDuration as! Double){
+        print(keyboardAnimationDuration)
+        UIView.animate(withDuration: keyboardAnimationDuration as! Double, delay: 0.0, options: UIViewAnimationOptions(rawValue: curve), animations: {
             self.inputHeightConstraint.constant = 308
             self.view.layoutIfNeeded()
-        }
+        }, completion: { aaa in
+            //(value: Bool) in println()
+        })
+//        UIView.animate(withDuration: keyboardAnimationDuration as! Double){
+//            self.inputHeightConstraint.constant = 308
+//            self.view.layoutIfNeeded()
+//        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -140,13 +151,26 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "messageSentCell", for: indexPath) as! MessageSentCell
-        print(chats[indexPath.row].message)
-        cell.messageText.text = chats[indexPath.row].message
-        messagesListTV.backgroundColor = UIColor.clear
-        cell.layer.backgroundColor = UIColor.clear.cgColor
+        let currentUser = Auth.auth().currentUser?.uid
         
-        return cell
+        if currentUser == chats[indexPath.row].emisor {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "messageSentCell", for: indexPath) as! MessageSentCell
+            print(chats[indexPath.row].message)
+            cell.messageText.text = chats[indexPath.row].message
+            messagesListTV.backgroundColor = UIColor.clear
+            cell.layer.backgroundColor = UIColor.clear.cgColor
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "messageReceivedCell", for: indexPath) as! MessageReceived
+            print(chats[indexPath.row].message)
+            cell.messageText.text = chats[indexPath.row].message
+            messagesListTV.backgroundColor = UIColor.clear
+            cell.layer.backgroundColor = UIColor.clear.cgColor
+            
+            return cell
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -161,7 +185,7 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
     func scrollToBottom(){
         DispatchQueue.main.async {
             let indexPath = IndexPath(row: self.chats.count-1, section: 0)
-            self.messagesListTV.scrollToRow(at: indexPath, at: .bottom, animated: false)
+            self.messagesListTV.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
     }
 
