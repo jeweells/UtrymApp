@@ -179,14 +179,16 @@ class DetailPostController: UIViewController {
         ref.child("posts").child(self.postID).observe(.value, with: { (snapshot) in
             if let properties = snapshot.value as? [String : Any] {
                 if let peopleLike = properties["peopleLike"] as? [String : Any] {
+                    var counter = 0
                     for person in peopleLike {
-                        
-                        /*if person == us {
+                        print(person)
+                        if person.key == us {
                             self.likeButton.isHidden = true
                             self.unLikeButton.isHidden = false
-                            break
-                        }*/
+                            counter = counter + 1
+                        }
                     }
+                    self.likeCounterLabel.text = "\(counter)"
                 }
             }
         })
