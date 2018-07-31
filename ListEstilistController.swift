@@ -17,6 +17,8 @@ class ListEstilistController: UIViewController {
     var estilists = [Estilist]()
     var ref : DatabaseReference!
     var indexPressedCell: Int = 0
+    var myString:NSString = ""
+    var myMutableString = NSMutableAttributedString()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +61,8 @@ class ListEstilistController: UIViewController {
                 let apellidoText = dict["apellido"] as! String
                 let urlText = dict["urlAvatar"] as! String
                 let estiID = dict["uid"] as! String
-                let estilist = Estilist(nombreText: nombreText, apellidoText: apellidoText, urlText: urlText, estiID: estiID)
+                let esp = dict["especialidad"] as! String
+                let estilist = Estilist(nombreText: nombreText, apellidoText: apellidoText, urlText: urlText, estiID: estiID, especialidad: esp)
                 self.estilists.append(estilist)
                 //print(self.estilists)
                 
@@ -85,11 +88,10 @@ extension ListEstilistController: UICollectionViewDataSource {
     
     func collectionView(_ collectionService: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionService.dequeueReusableCell(withReuseIdentifier: "EstilistSearchCell", for: indexPath) as! EstilistSearchCell
-        cell.nameEstilist?.text = estilists[indexPath.row].nombre
-        cell.apellidoEstilist?.text = estilists[indexPath.row].apellido
+        cell.nameEstilist?.text = "\(estilists[indexPath.row].nombre) \(estilists[indexPath.row].apellido)"
         cell.avatarEstilist.downloadImageEst(from: self.estilists[indexPath.row].url)
         cell.estilistID = estilists[indexPath.row].uid
-        //cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        cell.especialidad?.text = estilists[indexPath.row].esp
         let backgroundImage = UIImage(named: "list_estilist.png")
         let imageView = UIImageView(image: backgroundImage)
         cell.backgroundView = imageView
@@ -106,27 +108,6 @@ extension ListEstilistController: UICollectionViewDataSource {
     }
 }
 
-/*extension UIImageView {
-    func downloadImageEst2(from imgURL: String!) {
-        let url = URLRequest(url: URL(string: imgURL)!)
-        
-        let task = URLSession.shared.dataTask(with: url) {
-            (data, response, error) in
-            
-            if error != nil {
-                print(error!)
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.image = UIImage(data: data!)
-            }
-        }
-        task.resume()
-    }
-    
-}*/
-
     
     
 extension ListEstilistController: UICollectionViewDelegateFlowLayout {
@@ -136,7 +117,7 @@ extension ListEstilistController: UICollectionViewDelegateFlowLayout {
         let totalHorizontalSpacing = (columns) * spacing
         
         let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
-        let itemSize = CGSize(width: itemWidth, height: 115)
+        let itemSize = CGSize(width: itemWidth, height: 73)
         
         return itemSize
     }

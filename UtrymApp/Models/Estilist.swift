@@ -13,11 +13,13 @@ class Estilist {
     var nombre: String
     var apellido: String
     var url: String
+    var esp: String
     
-    init(nombreText: String, apellidoText: String, urlText: String, estiID: String) {
+    init(nombreText: String, apellidoText: String, urlText: String, estiID: String, especialidad: String) {
         uid = estiID
         nombre = nombreText
         apellido = apellidoText
         url = urlText
+        esp = especialidad
     }
 }

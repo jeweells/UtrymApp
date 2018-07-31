@@ -12,7 +12,8 @@ class EstilistSearchCell: UICollectionViewCell {
     @IBOutlet weak var avatarEstilist: UIImageView!
     @IBOutlet weak var borde_avatar: UIImageView!
     @IBOutlet weak var nameEstilist: UILabel!
-    @IBOutlet weak var apellidoEstilist: UILabel!
+    @IBOutlet weak var especialidad: UILabel!
+    
     
     var estilistID: String = ""
     
