@@ -11,12 +11,12 @@ class Service {
     
     var nombre: String
     var precio: String
-    var catego: String
-    
-    init(nombreText: String, precioText: String, categoText: String) {
+    //var catego: String
+    //, categoText: String
+    init(nombreText: String, precioText: String) {
         nombre = nombreText
         precio = precioText
-        catego = categoText
+        //catego = categoText
     }
 }
 

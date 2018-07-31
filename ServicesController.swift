@@ -57,7 +57,8 @@ class ServicesController: UIViewController {
         ref.child("category").observe(.childAdded) { (snapshot: DataSnapshot) in
             if let dict = snapshot.value as? [String: Any] {
                 let nombreText = dict["nombre"] as! String
-                let category = Category(nombreText: nombreText)
+                let idCatTex = dict["idCat"] as! String
+                let category = Category(nombreText: nombreText, idCatTex: idCatTex)
                 self.categorys.append(category)
                 //print(self.categorys)
                 self.collectionView.reloadData()
@@ -68,8 +69,8 @@ class ServicesController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationController = segue.destination as? ListServicesController {
-            print("Me fui a ver los servicos de la categoria: \(categorys[indexPressedCell].nombre)")
-            destinationController.nombreCat = categorys[indexPressedCell].nombre
+            print("Me fui a ver los servicos de la categoria: \(categorys[indexPressedCell].idCat)")
+            destinationController.idCat = categorys[indexPressedCell].idCat
         }
     }
     

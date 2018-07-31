@@ -11,8 +11,10 @@ import Foundation
 class Category {
     
     var nombre: String
+    var idCat: String
     
-    init(nombreText: String) {
+    init(nombreText: String, idCatTex: String) {
         nombre = nombreText
+        idCat = idCatTex
     }
 }
