@@ -46,7 +46,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="17W-5K-oOR">
                         <barButtonItem key="backBarButtonItem" title="Atrás" id="zZu-MY-5yn"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="d1S-cB-o6I">
+                        <barButtonItem key="rightBarButtonItem" image="messages" id="d1S-cB-o6I">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="dzA-ec-ypM" kind="show" id="8Xx-WL-NgN"/>
@@ -313,7 +313,7 @@
                         <viewLayoutGuide key="safeArea" id="6lX-Vo-GvN"/>
                     </view>
                     <navigationItem key="navigationItem" title="Seleccione Estilista" id="Lw2-ab-wHr">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="ruM-59-bNd">
+                        <barButtonItem key="rightBarButtonItem" image="messages" id="ruM-59-bNd">
                             <connections>
                                 <segue destination="dXn-PB-4sA" kind="show" identifier="new" id="pdM-vF-g52"/>
                             </connections>
@@ -462,5 +462,6 @@
         <image name="Page 1" width="19" height="17"/>
         <image name="Send" width="28" height="28"/>
         <image name="Voice" width="16" height="18"/>
+        <image name="messages" width="28" height="28"/>
     </resources>
 </document>
