@@ -22,6 +22,7 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
     
     var estilistID: String = ""
     var chats = [ChatMessage]()
+    var chats1 = [ChatNew]()
     var messDict = [String: ChatMessage]()
     var keyboardAnimationDuration: NSNumber = NSNumber(floatLiteral: 0.0)
     var curve: UInt = UInt(0)
@@ -48,11 +49,12 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
 //    }
     
     override func viewDidAppear(_ animated: Bool) {
-        loadMessagesCLient()
+        //loadMessagesCLient()
         configTableView()
+        loadChats()
     }
     
-    func loadMessagesCLient() {
+    /*func loadMessagesCLient() {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
@@ -87,7 +89,32 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
             })
         }
         ref.removeAllObservers()
+    }*/
+    
+    func loadChats() {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let ref = Database.database().reference()
+        ref.child("chat-usuario").child(uid).observe(.childAdded) { (snapshot: DataSnapshot) in
+            let messageId = snapshot.key
+            Database.database().reference().child("chats-messages").child(messageId).observe(.value, with: { (snapshot) in
+                if let dict = snapshot.value as? [String: Any]
+                {
+                    let cliente = dict["cliente"] as! String
+                    let estilista = dict["estilista"] as! String
+                    let hora = dict["hora"] as! NSNumber
+                    let mensaje = dict["mensaje"] as! String
+                    let chat = ChatNew(clienteText: cliente, estilistaText: estilista, horaInt: hora, mensajeText: mensaje)
+                    self.chats1.append(chat)
+                }
+                self.configTableView()
+                self.messagesListTV.reloadData()
+                self.scrollToBottom()
+            })
+        }
     }
+    
     @objc func keyboardWillShow(aNotification: NSNotification)    {
         
         keyboardAnimationDuration = aNotification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
@@ -95,7 +122,25 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
     }
     
     @IBAction func sendTapped(_ sender: UIButton) {
-        let ref = Database.database().reference().child("messages")
+        let ref = Database.database().reference().child("chats-messages")
+        let childRef = ref.childByAutoId()
+        let fromId = Auth.auth().currentUser!.uid
+        let hora = NSNumber(value: Int(NSDate().timeIntervalSince1970))
+        if textMessage.text != "" {
+            let values = ["mensaje": textMessage.text!, "estilista": estilistID, "cliente": fromId, "hora": hora] as [String : Any]
+            childRef.updateChildValues(values) { (error, ref) in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                let userMessageRef = Database.database().reference().child("chat-usuario").child(fromId)
+                let messageId = childRef.key
+                userMessageRef.updateChildValues([messageId: 1])
+                self.textMessage.text = ""
+            }
+            
+        }
+        /*let ref = Database.database().reference().child("messages")
         let childRef = ref.childByAutoId()
         let fromId = Auth.auth().currentUser!.uid
         let timestamp = NSNumber(value: Int(NSDate().timeIntervalSince1970))
@@ -115,7 +160,7 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
                 self.textMessage.text = ""
             }
             
-        }
+        }*/
 
     }
     
@@ -149,7 +194,26 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
         //}
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let currentUser = Auth.auth().currentUser?.uid
         
+        if currentUser == chats1[indexPath.row].cliente {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "messageSentCell", for: indexPath) as! MessageSentCell
+            print(chats1[indexPath.row].mensaje)
+            cell.messageText.text = chats1[indexPath.row].mensaje
+            messagesListTV.backgroundColor = UIColor.clear
+            cell.layer.backgroundColor = UIColor.clear.cgColor
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "messageReceivedCell", for: indexPath) as! MessageReceived
+            print(chats1[indexPath.row].mensaje)
+            cell.messageText.text = chats1[indexPath.row].mensaje
+            messagesListTV.backgroundColor = UIColor.clear
+            cell.layer.backgroundColor = UIColor.clear.cgColor
+            
+            return cell
+        }
+        /*
         let currentUser = Auth.auth().currentUser?.uid
         
         if currentUser == chats[indexPath.row].emisor {
@@ -169,11 +233,12 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
             
             return cell
         }
-        
+        */
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chats.count
+        //return chats.count
+        return chats1.count
     }
 
     func configTableView() {
@@ -183,7 +248,8 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
     
     func scrollToBottom(){
         DispatchQueue.main.async {
-            let indexPath = IndexPath(row: self.chats.count-1, section: 0)
+            /*let indexPath = IndexPath(row: self.chats.count-1, section: 0)*/
+            let indexPath = IndexPath(row: self.chats1.count-1, section: 0)
             self.messagesListTV.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
     }

@@ -14,8 +14,5 @@ class SkillsCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        imsgeSkills.layer.masksToBounds = true
-        imsgeSkills.layer.cornerRadius = 10
     }
 }

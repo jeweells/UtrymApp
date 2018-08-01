@@ -14,7 +14,6 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
     
     @IBOutlet weak var avatarEstilist: UIImageView!
     @IBOutlet weak var nameEstilist: UILabel!
-    @IBOutlet weak var apellidoEstilist: UILabel!
     @IBOutlet weak var especialidad: UILabel!
     @IBOutlet weak var bio: UILabel!
     @IBOutlet weak var chatButton: UIButton!
@@ -27,6 +26,7 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
     var estilists = [Estilist]()
     var ref : DatabaseReference!
     var indexPressedCell: Int = 0
+    var categorys = [CategoryProfile]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,7 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
         self.feedCollectionView.backgroundColor = UIColor.clear
         loadEstilists()
         loadPosts()
-
+        loadCategorys()
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,14 +75,28 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
                 let especialidad = dict["especialidad"] as! String
                 let bio = dict["bio"] as! String
                 //let estiID = dict["uid"] as! String
-                self.nameEstilist.text = nombreText
-                self.apellidoEstilist.text = apellidoText
+                self.nameEstilist?.text = "\(nombreText) \(apellidoText)"
+                //self.nameEstilist.text = nombreText
+                //self.apellidoEstilist.text = apellidoText
                 self.avatarEstilist.downloadImageEst(from: urlText)
                 self.bio.text = bio
                 self.especialidad.text = especialidad
                 //print(estiID)
             }
         })
+        ref.removeAllObservers()
+    }
+    
+    func loadCategorys() {
+        let ref = Database.database().reference()
+        ref.child("estilistas").child((estilistID)).child("categorys").observe(.childAdded) { (snapshot: DataSnapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let cat = dict["nombre"] as? String
+                let category = CategoryProfile(nombreText: cat!)
+                self.categorys.append(category)
+            }
+            self.skillsCollectionView.reloadData()
+        }
         ref.removeAllObservers()
     }
     
@@ -131,7 +145,7 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == self.skillsCollectionView {
-            return 3
+            return categorys.count
         }
         return posts.count
     }
@@ -139,6 +153,25 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.skillsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SkillsCell", for: indexPath) as! SkillsCell
+            let backgroundImage = UIImage(named: "cat_prof_fondo.png")
+            let imageView = UIImageView(image: backgroundImage)
+            cell.backgroundView = imageView
+            imageView.contentMode = .scaleAspectFill
+            imageView.layer.masksToBounds = true
+            imageView.layer.cornerRadius = 10
+            
+            let nombreCat = categorys[indexPath.row].nombre
+            
+            switch nombreCat {
+            case "Makeup":
+                cell.imsgeSkills?.image = UIImage(named: "makeup_peq.png")
+            case "Hair":
+                cell.imsgeSkills?.image = UIImage(named: "hair_peq.png")
+            case "Nails":
+                cell.imsgeSkills?.image = UIImage(named: "manicure_peq.png")
+            default:
+                cell.imsgeSkills?.image = UIImage(named: "hair_peq.png")
+            }
             return cell
             
         } else {
@@ -171,14 +204,14 @@ extension ProfileEstilistClientController: UICollectionViewDelegateFlowLayout {
         if collectionView == self.feedCollectionView {
             return 1.5
         }
-        return 3
+        return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == self.feedCollectionView {
             return 1.5
         }
-        return 3
+        return 1
     }
 }
 

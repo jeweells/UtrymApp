@@ -13,7 +13,7 @@ import FirebaseDatabase
 
 struct UserService {
     
-    static func observeChats(for user: UserNew = UserNew.current, withCompletion completion: @escaping (DatabaseReference, [ChatNew]) -> Void) -> DatabaseHandle {
+    /*static func observeChats(for user: UserNew = UserNew.current, withCompletion completion: @escaping (DatabaseReference, [ChatNew]) -> Void) -> DatabaseHandle {
         let ref = Database.database().reference().child("chats").child(user.uid)
         
         return ref.observe(.value, with: { (snapshot) in
@@ -21,10 +21,10 @@ struct UserService {
                 return completion(ref, [])
             }
             
-            let chats = snapshot.compactMap(ChatNew.init)
-            completion(ref, chats)
+            //let chats = snapshot.compactMap(ChatNew.init)
+            //completion(ref, chats)
         })
-    }
+    }*/
     
     static func following(for user: UserNew = UserNew.current, completion: @escaping ([UserNew]) -> Void) {
         let followingRef = Database.database().reference().child("estilistas").child(user.uid)
