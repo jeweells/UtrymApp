@@ -13,8 +13,9 @@ import FirebaseDatabase
 
 class ChatsListClientController: UIViewController {
     
-    //var chats = [Chat]()
     var estilists = [Estilist]()
+    var chats1 = [ChatNew]()
+    var messDict1 = [String: ChatNew]()
     var chats = [ChatMessage]()
     var messDict = [String: ChatMessage]()
     var userChatsHandle: DatabaseHandle = 0
@@ -31,8 +32,8 @@ class ChatsListClientController: UIViewController {
         chatsTable.tableFooterView = UIView()
         self.chatsTable.backgroundColor = UIColor.clear
         //loadChats()
-        loadChatsUsers()
-        
+        //loadChatsUsers()
+        agroupChatsByEstilist()
     }
 
 
@@ -40,7 +41,45 @@ class ChatsListClientController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func loadChatsUsers() {
+    func agroupChatsByEstilist() {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let ref = Database.database().reference()
+        ref.child("chat-usuario").child(uid).observe(.childAdded) { (snapshot: DataSnapshot) in
+            //print (snapshot)
+            
+            let messageId = snapshot.key
+            
+            Database.database().reference().child("chats-messages").child(messageId).observe(.value, with: { (snapshot) in
+                //print(snapshot)
+                if let dict = snapshot.value as? [String: Any]
+                {
+                    let enviadoPor = dict["enviadoPor"] as! String
+                    let recibidoPor = dict["recibidoPor"] as! String
+                    let hora = dict["hora"] as! NSNumber
+                    let mensaje = dict["mensaje"] as! String
+                    let chat = ChatNew(enviadoPorText: enviadoPor, recibidoPorText: recibidoPor, horaInt: hora, mensajeText: mensaje)
+                    //self.chats1.append(chat)
+                    
+                    let receptor = chat.recibidoPor
+                    self.messDict1[receptor] = chat
+                    self.chats1 = Array(self.messDict1.values)
+                    print (self.chats1)
+                    self.chats1.sort(by: { (chat1, chat2) -> Bool in
+                        return chat1.hora.intValue > chat2.hora.intValue
+                    })
+                    
+                }
+                self.chatsTable.reloadData()
+            })
+        }
+        ref.removeAllObservers()
+        
+    }
+    
+    
+    /*func loadChatsUsers() {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
@@ -74,7 +113,7 @@ class ChatsListClientController: UIViewController {
             })
         }
         ref.removeAllObservers()
-    }
+    }*/
     
 /*
     func loadChats() {
@@ -112,9 +151,11 @@ class ChatsListClientController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationController = segue.destination as? ChatLogClientController {
-            print("Inicé chat con: \(chats[indexPressedCell].receptor)")
+            //print("Inicé chat con: \(chats[indexPressedCell].receptor)")
+            print("Inicé chat con: \(chats1[indexPressedCell].recibidoPor)")
             //Siempre almacena solo el primer elemento, esta fallando
-            destinationController.estilistID = chats[indexPressedCell].receptor
+            destinationController.estilistID = chats1[indexPressedCell].recibidoPor
+            //destinationController.estilistID = chats[indexPressedCell].receptor
         }
     }
 }
@@ -122,15 +163,29 @@ class ChatsListClientController: UIViewController {
 
 extension ChatsListClientController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chats.count
+        return chats1.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatListClientCell") as! ChatListClientCell
-        //let estilista = estilists[indexPath.row]
-        //cell.titleMessage?.text = estilists[indexPath.row].nombre
-        //cell.titleMessage?.text = estilista.nombre
-        let mensaje = chats[indexPath.row]
+        let mensaje = chats1[indexPath.row]
+        cell.titleMessage?.text = mensaje.recibidoPor
+        cell.textMessage?.text = mensaje.mensaje
+        
+        let seconds = mensaje.hora.doubleValue
+        let timestampDate = NSDate(timeIntervalSince1970: seconds)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm:ss a"
+        cell.lastMessage?.text = dateFormatter.string(from: timestampDate as Date)
+        
+        //cell.lastMessage?.text = chats[indexPath.row].timestamp
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 10
+        return cell
+        
+        /*let mensaje = chats[indexPath.row]
         cell.titleMessage?.text = mensaje.receptor
         cell.textMessage?.text = mensaje.message
         
@@ -145,7 +200,7 @@ extension ChatsListClientController: UITableViewDataSource {
 
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = 10
-        return cell
+        return cell*/
 
     }
     

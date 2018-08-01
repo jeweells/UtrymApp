@@ -16,8 +16,6 @@ import Foundation
 
 class DetailPostController: UIViewController {
     
-    var posts: [Post]?
-    
     @IBOutlet weak var profileContainer: UIView!
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var postImageMain: UIImageView!

@@ -11,16 +11,16 @@ import Firebase
 import FirebaseDatabase
 
 class ChatNew {
-    var cliente: String
-    var estilista: String
+    var enviadoPor: String
+    var recibidoPor: String
     var hora: NSNumber
     var mensaje: String
     var leidoCli: Bool = false
     var leidoEst: Bool = false
     
-    init(clienteText: String, estilistaText: String, horaInt: NSNumber, mensajeText: String) {
-        cliente = clienteText
-        estilista = estilistaText
+    init(enviadoPorText: String, recibidoPorText: String, horaInt: NSNumber, mensajeText: String) {
+        enviadoPor = enviadoPorText
+        recibidoPor = recibidoPorText
         hora = horaInt
         mensaje = mensajeText
     }

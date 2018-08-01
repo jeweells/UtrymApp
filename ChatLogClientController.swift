@@ -102,11 +102,11 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
             Database.database().reference().child("chats-messages").child(messageId).observe(.value, with: { (snapshot) in
                 if let dict = snapshot.value as? [String: Any]
                 {
-                    let cliente = dict["cliente"] as! String
-                    let estilista = dict["estilista"] as! String
+                    let enviadoPor = dict["enviadoPor"] as! String
+                    let recibidoPor = dict["enviadoPor"] as! String
                     let hora = dict["hora"] as! NSNumber
                     let mensaje = dict["mensaje"] as! String
-                    let chat = ChatNew(clienteText: cliente, estilistaText: estilista, horaInt: hora, mensajeText: mensaje)
+                    let chat = ChatNew(enviadoPorText: enviadoPor, recibidoPorText: recibidoPor, horaInt: hora, mensajeText: mensaje)
                     self.chats1.append(chat)
                 }
                 self.configTableView()
@@ -114,6 +114,7 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
                 self.scrollToBottom()
             })
         }
+        ref.removeAllObservers()
     }
     
     @objc func keyboardWillShow(aNotification: NSNotification)    {
@@ -128,15 +129,17 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
         let fromId = Auth.auth().currentUser!.uid
         let hora = NSNumber(value: Int(NSDate().timeIntervalSince1970))
         if textMessage.text != "" {
-            let values = ["mensaje": textMessage.text!, "estilista": estilistID, "cliente": fromId, "hora": hora] as [String : Any]
+            let values = ["mensaje": textMessage.text!, "enviadoPor": fromId, "recibidoPor": estilistID, "hora": hora] as [String : Any]
             childRef.updateChildValues(values) { (error, ref) in
                 if error != nil {
                     print(error!)
                     return
                 }
                 let userMessageRef = Database.database().reference().child("chat-usuario").child(fromId)
+                let estMessageRef = Database.database().reference().child("chat-usuario").child(self.estilistID)
                 let messageId = childRef.key
-                userMessageRef.updateChildValues([messageId: 1])
+                userMessageRef.updateChildValues([messageId: "emisor"])
+                estMessageRef.updateChildValues([messageId: "receptor"])
                 self.textMessage.text = ""
             }
             
@@ -197,7 +200,7 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentUser = Auth.auth().currentUser?.uid
         
-        if currentUser == chats1[indexPath.row].cliente {
+        if currentUser == chats1[indexPath.row].enviadoPor {
             let cell = tableView.dequeueReusableCell(withIdentifier: "messageSentCell", for: indexPath) as! MessageSentCell
             print(chats1[indexPath.row].mensaje)
             cell.messageText.text = chats1[indexPath.row].mensaje
