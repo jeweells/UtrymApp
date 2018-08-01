@@ -214,7 +214,7 @@ class DetailPostController: UIViewController {
                     //no sé como quitar el optional value
                     let counter = properties["likeCounter"]
                     print(counter as Any)
-                    self.likeCounterLabel.text = "\(String(describing: counter))"
+                    self.likeCounterLabel.text = "\(counter ?? 0)"
                     //self.likeCounterLabel.text = (properties["likeCounter"] as Any) as? String
                 }
             }
