@@ -128,7 +128,7 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
         let fromId = Auth.auth().currentUser!.uid
         let hora = NSNumber(value: Int(NSDate().timeIntervalSince1970))
         if textMessage.text != "" {
-            let values = ["text": textMessage.text!, "estilista": estilistID, "cliente": fromId, "hora": hora] as [String : Any]
+            let values = ["mensaje": textMessage.text!, "estilista": estilistID, "cliente": fromId, "hora": hora] as [String : Any]
             childRef.updateChildValues(values) { (error, ref) in
                 if error != nil {
                     print(error!)
