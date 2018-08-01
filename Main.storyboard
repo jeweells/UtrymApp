@@ -750,9 +750,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5t9-co-PwL">
-                                <rect key="frame" x="0.0" y="425" width="375" height="413"/>
+                                <rect key="frame" x="0.0" y="425" width="375" height="311"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="413" id="Nhe-UT-LNb"/>
+                                    <constraint firstAttribute="height" constant="311" id="Nhe-UT-LNb"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8w7-mx-DsA">
                                     <size key="itemSize" width="124" height="124"/>
@@ -875,7 +875,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="glH-C2-nZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3364" y="1176.3546798029556"/>
+            <point key="canvasLocation" x="3364" y="1175.615763546798"/>
         </scene>
         <!--Services Controller-->
         <scene sceneID="o7r-Z6-tTl">
@@ -905,10 +905,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" image="hair_big" translatesAutoresizingMaskIntoConstraints="NO" id="1sO-gZ-qMG">
-                                                    <rect key="frame" x="58" y="68" width="41" height="42"/>
+                                                    <rect key="frame" x="57.666666666666657" y="68" width="41" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="ibT-Yi-Umy"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Service" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgQ-yi-sZj">
-                                                    <rect key="frame" x="37.666666666666657" y="127.00000000000001" width="81" height="19.666666666666671"/>
+                                                    <rect key="frame" x="37.666666666666657" y="125.00000000000001" width="81" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -918,10 +921,10 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="lgQ-yi-sZj" firstAttribute="top" secondItem="1sO-gZ-qMG" secondAttribute="bottom" constant="17" id="EtS-1o-YeH"/>
+                                            <constraint firstItem="1sO-gZ-qMG" firstAttribute="leading" secondItem="x3a-Pc-eEz" secondAttribute="leading" constant="57.666666666666657" id="FM6-EF-1Io"/>
                                             <constraint firstItem="1sO-gZ-qMG" firstAttribute="centerX" secondItem="x3a-Pc-eEz" secondAttribute="centerX" id="NWO-A1-1Ta"/>
+                                            <constraint firstItem="1sO-gZ-qMG" firstAttribute="centerX" secondItem="x3a-Pc-eEz" secondAttribute="centerX" id="VRa-DO-0Gc"/>
                                             <constraint firstItem="lgQ-yi-sZj" firstAttribute="centerX" secondItem="x3a-Pc-eEz" secondAttribute="centerX" id="ZZ9-Zn-fdP"/>
-                                            <constraint firstItem="1sO-gZ-qMG" firstAttribute="leading" secondItem="x3a-Pc-eEz" secondAttribute="leading" constant="58" id="oOK-W1-tJ1"/>
-                                            <constraint firstAttribute="trailing" secondItem="1sO-gZ-qMG" secondAttribute="trailing" constant="57" id="pdn-qB-CdE"/>
                                             <constraint firstItem="1sO-gZ-qMG" firstAttribute="top" secondItem="x3a-Pc-eEz" secondAttribute="top" constant="68" id="s0Z-aS-Ks9"/>
                                             <constraint firstAttribute="bottom" secondItem="lgQ-yi-sZj" secondAttribute="bottom" constant="104.66666666666669" id="wWg-hS-d0B"/>
                                         </constraints>
@@ -1168,6 +1171,6 @@
         <image name="studio-2" width="550" height="761"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wuv-h4-QFn"/>
+        <segue reference="05c-a3-1SQ"/>
     </inferredMetricsTieBreakers>
 </document>
