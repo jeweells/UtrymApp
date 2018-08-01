@@ -184,7 +184,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelTapped:" destination="2al-fL-ZQa" eventType="touchUpInside" id="ZFO-1q-lBC"/>
+                                    <action selector="backTapped:" destination="2al-fL-ZQa" eventType="touchUpInside" id="4Ov-Eb-MUL"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Utrym1" translatesAutoresizingMaskIntoConstraints="NO" id="KWf-N2-Vxk">

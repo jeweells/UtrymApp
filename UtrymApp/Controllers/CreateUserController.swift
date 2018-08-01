@@ -176,8 +176,14 @@ class CreateUserController: UIViewController, UIImagePickerControllerDelegate, U
         
     }
     
+    @IBAction func backTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func cancelTapped(_ sender: Any) {
-        _ = navigationController?.popViewController(animated: true)
+        
+        //_ = navigationController?.popViewController(animated: true)
         //self.performSegue(withIdentifier: "backToLogin", sender: self)
     }
     
