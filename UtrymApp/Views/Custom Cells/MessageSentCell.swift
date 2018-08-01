@@ -10,12 +10,13 @@ import UIKit
 
 class MessageSentCell: UITableViewCell {
 
+   
     @IBOutlet weak var messageContainer: UIView!
     @IBOutlet weak var messageText: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        messageContainer.roundedLeftTopRight()
+        //messageContainer.
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -23,5 +24,10 @@ class MessageSentCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        //messageContainer.roundedLeftTopRight()
+//    }
     
 }

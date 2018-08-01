@@ -29,7 +29,6 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.collectionView.backgroundColor = UIColor.clear
         textMessage.delegate = self
         messagesListTV.delegate = self
         messagesListTV.dataSource = self

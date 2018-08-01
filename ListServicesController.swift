@@ -55,7 +55,7 @@ class ListServicesController: UIViewController {
             if let dict = snapshot.value as? [String: Any] {
                 let nombreText = dict["nombre"] as! String
                 //let precioText = dict["precio"] as! String
-                let precioText = "\(String(describing: dict["precio"]))" 
+                let precioText = "\(dict["precio"] ?? 0)" 
                 //let categoText = dict["categoria"] as! String
                 let service = Service(nombreText: nombreText, precioText: precioText)
                 self.services.append(service)
