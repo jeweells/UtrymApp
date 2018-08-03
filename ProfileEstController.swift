@@ -24,7 +24,9 @@ class ProfileEstController: UIViewController, UICollectionViewDataSource, UIColl
 
     var posts = [PostEstilist]()
     var estilists = [Estilist]()
-
+    var categorys = [CategoryProfile]()
+    let estilistID = Auth.auth().currentUser
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarItems()
@@ -35,6 +37,7 @@ class ProfileEstController: UIViewController, UICollectionViewDataSource, UIColl
         profImage.layer.cornerRadius = profImage.bounds.width / 2.0
         loadPosts()
         loadEst()
+        loadCategorys()
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,9 +77,8 @@ class ProfileEstController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func loadEst() {
-        let firUser = Auth.auth().currentUser
         let ref = Database.database().reference()
-        ref.child("estilistas").child((firUser?.uid)!).observe(.value, with: { (snapshot) in
+        ref.child("estilistas").child((estilistID?.uid)!).observe(.value, with: { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
                 let nombreText = dict["name"] as! String
                 let apellidoText = dict["apellido"] as! String
@@ -94,7 +96,6 @@ class ProfileEstController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func loadPosts() {
-        let estilistID = Auth.auth().currentUser
         let ref = Database.database().reference()
         ref.child("user-posts").child((estilistID?.uid)!).observe(.childAdded) { (snapshot: DataSnapshot) in
             //print (snapshot)
@@ -115,20 +116,51 @@ class ProfileEstController: UIViewController, UICollectionViewDataSource, UIColl
         ref.removeAllObservers()
     }
     
+    func loadCategorys() {
+        let ref = Database.database().reference()
+        ref.child("estilistas").child((estilistID?.uid)!).child("categorys").observe(.childAdded) { (snapshot: DataSnapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let cat = dict["nombre"] as? String
+                let category = CategoryProfile(nombreText: cat!)
+                self.categorys.append(category)
+            }
+            self.skills.reloadData()
+        }
+        ref.removeAllObservers()
+    }
+    
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == self.skills {
-            return 3
+            return categorys.count
         }
-        //return 10
         return posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.skills {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SkillsHomeProfileCell", for: indexPath) as! SkillsHomeProfileCell
+            let backgroundImage = UIImage(named: "cat_prof_fondo.png")
+            let imageView = UIImageView(image: backgroundImage)
+            cell.backgroundView = imageView
+            imageView.contentMode = .scaleAspectFill
+            imageView.layer.masksToBounds = true
+            imageView.layer.cornerRadius = 10
+            
+            let nombreCat = categorys[indexPath.row].nombre
+            
+            switch nombreCat {
+            case "Makeup":
+                cell.skill?.image = UIImage(named: "makeup_peq.png")
+            case "Hair":
+                cell.skill?.image = UIImage(named: "hair_peq.png")
+            case "Nails":
+                cell.skill?.image = UIImage(named: "manicure_peq.png")
+            default:
+                cell.skill?.image = UIImage(named: "hair_peq.png")
+            }
             return cell
             
         } else {
@@ -186,14 +218,14 @@ extension ProfileEstController: UICollectionViewDelegateFlowLayout {
         if collectionView == self.feed {
             return 1.5
         }
-        return 3
+        return 6
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == self.feed {
             return 1.5
         }
-        return 3
+        return 1
     }
     
     

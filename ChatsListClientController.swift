@@ -56,9 +56,9 @@ class ChatsListClientController: UIViewController {
                     let hora = dict["hora"] as! NSNumber
                     let mensaje = dict["mensaje"] as! String
                     let chat = ChatNew(enviadoPorText: enviadoPor, recibidoPorText: recibidoPor, horaInt: hora, mensajeText: mensaje)
-                    
+                    //if let receptor = chat.recibidoPor necesito usar este if pero me da un error de String
                     let receptor = chat.recibidoPor
-                    if receptor != uid {
+                    if uid == receptor {
                         self.messDict1[receptor] = chat
                         self.chats1 = Array(self.messDict1.values)
                         print (self.chats1)

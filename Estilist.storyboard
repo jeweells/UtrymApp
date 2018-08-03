@@ -183,18 +183,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JYc-vn-ckM">
-                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                    <rect key="frame" x="10" y="10" width="20" height="20"/>
                                                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="rFJ-7x-LtW"/>
-                                                        <constraint firstAttribute="height" constant="40" id="wJq-I9-WZA"/>
+                                                        <constraint firstAttribute="width" constant="20" id="rFJ-7x-LtW"/>
+                                                        <constraint firstAttribute="height" constant="20" id="wJq-I9-WZA"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="JYc-vn-ckM" firstAttribute="top" secondItem="LrA-SO-fzg" secondAttribute="top" id="J8x-5f-tjc"/>
-                                            <constraint firstItem="JYc-vn-ckM" firstAttribute="leading" secondItem="LrA-SO-fzg" secondAttribute="leading" id="rMM-Jc-BBi"/>
+                                            <constraint firstItem="JYc-vn-ckM" firstAttribute="top" secondItem="LrA-SO-fzg" secondAttribute="top" constant="10" id="J8x-5f-tjc"/>
+                                            <constraint firstItem="JYc-vn-ckM" firstAttribute="leading" secondItem="LrA-SO-fzg" secondAttribute="leading" constant="10" id="rMM-Jc-BBi"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="skill" destination="JYc-vn-ckM" id="cYn-RR-oXc"/>
