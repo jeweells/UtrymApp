@@ -17,6 +17,7 @@ class MessageSentCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         //messageContainer.
+        //messageContainer.roundedLeftTopRight()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,7 +28,7 @@ class MessageSentCell: UITableViewCell {
     
 //    override func layoutSubviews() {
 //        super.layoutSubviews()
-//        //messageContainer.roundedLeftTopRight()
+//        messageContainer.roundedLeftTopRight()
 //    }
     
 }

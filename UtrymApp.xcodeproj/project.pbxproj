@@ -77,9 +77,7 @@
 		89F7723A20F501CC00CA4139 /* ChatNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F7723920F501CB00CA4139 /* ChatNew.swift */; };
 		89F7724020F5081600CA4139 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F7723F20F5081600CA4139 /* ChatService.swift */; };
 		C8297D35210D6EC000840227 /* MessageReceived.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8297D33210D6EC000840227 /* MessageReceived.swift */; };
-		C8297D36210D6EC000840227 /* MessageReceived.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8297D34210D6EC000840227 /* MessageReceived.xib */; };
 		C8B20EB1210E4EE000E41F5A /* MessageSentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B20EAF210E4EE000E41F5A /* MessageSentCell.swift */; };
-		C8B20EB2210E4EE000E41F5A /* MessageSentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8B20EB0210E4EE000E41F5A /* MessageSentCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,9 +171,7 @@
 		A9255E303FB26ED084CF06F4 /* Pods-UtrymApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtrymApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UtrymApp/Pods-UtrymApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C1F2C14CC2A82DB05D57D7F2 /* Pods_UtrymApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtrymApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8297D33210D6EC000840227 /* MessageReceived.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageReceived.swift; sourceTree = "<group>"; };
-		C8297D34210D6EC000840227 /* MessageReceived.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageReceived.xib; sourceTree = "<group>"; };
 		C8B20EAF210E4EE000E41F5A /* MessageSentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSentCell.swift; sourceTree = "<group>"; };
-		C8B20EB0210E4EE000E41F5A /* MessageSentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageSentCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -429,9 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				C8297D33210D6EC000840227 /* MessageReceived.swift */,
-				C8297D34210D6EC000840227 /* MessageReceived.xib */,
 				C8B20EAF210E4EE000E41F5A /* MessageSentCell.swift */,
-				C8B20EB0210E4EE000E41F5A /* MessageSentCell.xib */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -536,9 +530,7 @@
 				89589C6020D6F9BF001B4336 /* Estilist.storyboard in Resources */,
 				89B67D5B20BB7D1300D3BFBF /* Assets.xcassets in Resources */,
 				89855D2D20F553A400D1EF2D /* CitasChatsClient.storyboard in Resources */,
-				C8B20EB2210E4EE000E41F5A /* MessageSentCell.xib in Resources */,
 				8906FE6520BE5C9A003954F3 /* Main.storyboard in Resources */,
-				C8297D36210D6EC000840227 /* MessageReceived.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

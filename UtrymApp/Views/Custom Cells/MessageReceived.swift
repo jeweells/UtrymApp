@@ -16,7 +16,7 @@ class MessageReceived: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        messageContainer.roundedRightTopLeft()
+        //messageContainer.roundedRightTopLeft()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
