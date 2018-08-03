@@ -10,13 +10,8 @@ import UIKit
 
 class CitasEstilistHeaderView: UICollectionReusableView {
     
-    @IBOutlet weak var chatsButton: UIButton!
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        chatsButton.layer.masksToBounds = true
-        chatsButton.layer.cornerRadius = 10
     }
 
 }

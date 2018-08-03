@@ -127,7 +127,13 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
     
     @IBAction func chatsTapped(_ sender: UIButton) {
         if sender == chatButton {
-            self.performSegue(withIdentifier: "chatLog", sender: self)
+            
+            let storyboard = UIStoryboard(name: "CitasChatsClient", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "ChatLogClientController") as UIViewController
+            self.present(controller, animated: true, completion: nil)
+
+            
+            //self.performSegue(withIdentifier: "chatLog", sender: self)
             /*let storyboard = UIStoryboard(name: "CitasChatsClient", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "ChatLogClientController") as! ChatLogClientController
             controller.estilistID = estilistID

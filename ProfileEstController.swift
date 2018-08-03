@@ -16,12 +16,12 @@ class ProfileEstController: UIViewController, UICollectionViewDataSource, UIColl
     
     @IBOutlet weak var profImage: UIImageView!
     @IBOutlet weak var nameEst: UILabel!
-    @IBOutlet weak var apellidoEst: UILabel!
     @IBOutlet weak var espEst: UILabel!
     @IBOutlet weak var bioEst: UILabel!
     @IBOutlet weak var skills: UICollectionView!
     @IBOutlet weak var feed: UICollectionView!
-
+    @IBOutlet weak var ranking: UIImageView!
+    
     var posts = [PostEstilist]()
     var estilists = [Estilist]()
     var categorys = [CategoryProfile]()
@@ -85,8 +85,7 @@ class ProfileEstController: UIViewController, UICollectionViewDataSource, UIColl
                 let urlText = dict["urlAvatar"] as! String
                 let bio = dict["bio"] as! String
                 let especialidad = dict["especialidad"] as! String
-                self.nameEst.text = nombreText
-                self.apellidoEst.text = apellidoText
+                self.nameEst.text = "\(nombreText) \(apellidoText)"
                 self.profImage.downloadImageEst(from: urlText)
                 self.bioEst.text = bio
                 self.espEst.text = especialidad
