@@ -34,8 +34,8 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
         messagesListTV.dataSource = self
         
         self.messagesListTV.backgroundColor = UIColor.clear
-        messagesListTV.register(UINib(nibName: "MessageSentCell", bundle: Bundle(for: MessageSentCell.self)), forCellReuseIdentifier: "messageSentCell")
-        messagesListTV.register(UINib(nibName: "MessageReceived", bundle: Bundle(for: MessageReceived.self)), forCellReuseIdentifier: "messageReceivedCell")
+//        messagesListTV.register(UINib(nibName: "MessageSentCell", bundle: Bundle(for: MessageSentCell.self)), forCellReuseIdentifier: "messageSentCell")
+//        messagesListTV.register(UINib(nibName: "MessageReceived", bundle: Bundle(for: MessageReceived.self)), forCellReuseIdentifier: "messageReceivedCell")
         let dismissKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(tapTableView))
         messagesListTV.addGestureRecognizer(dismissKeyboardGesture)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -196,24 +196,34 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
             self.view.layoutIfNeeded()
         //}
     }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let currentUser = Auth.auth().currentUser?.uid
+        if currentUser == chats1[indexPath.row].enviadoPor {
+            if let mycell = cell as? MessageSentCell{
+                //mycell.messageContainer.roundedLeftTopRight()
+                mycell.messageContainer.clipsToBounds = true
+                mycell.messageContainer.layer.cornerRadius = 10
+                mycell.messageContainer.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner]
+            }
+        } else {
+            if let mycell = cell as? MessageReceived{
+                //mycell.messageContainer.roundedRightTopLeft()
+                mycell.messageContainer.clipsToBounds = true
+                mycell.messageContainer.layer.cornerRadius = 10
+                mycell.messageContainer.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+            }
+        }
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentUser = Auth.auth().currentUser?.uid
         
         if currentUser == chats1[indexPath.row].enviadoPor {
             let cell = tableView.dequeueReusableCell(withIdentifier: "messageSentCell", for: indexPath) as! MessageSentCell
-            print(chats1[indexPath.row].mensaje)
             cell.messageText.text = chats1[indexPath.row].mensaje
-            messagesListTV.backgroundColor = UIColor.clear
-            cell.layer.backgroundColor = UIColor.clear.cgColor
-            
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "messageReceivedCell", for: indexPath) as! MessageReceived
-            print(chats1[indexPath.row].mensaje)
             cell.messageText.text = chats1[indexPath.row].mensaje
-            messagesListTV.backgroundColor = UIColor.clear
-            cell.layer.backgroundColor = UIColor.clear.cgColor
-            
             return cell
         }
         /*
