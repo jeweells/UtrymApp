@@ -112,6 +112,8 @@ static NSString *const FBSDKAppLinkInboundEvent = @"fb_al_inbound";
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
     [defaultCenter addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     [defaultCenter addObserver:self selector:@selector(applicationDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+
+    [[FBSDKAppEvents singleton] registerNotifications];
   }
   return self;
 }
@@ -133,10 +135,10 @@ static NSString *const FBSDKAppLinkInboundEvent = @"fb_al_inbound";
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
-    return [self application:application
-                     openURL:url
-           sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
-                  annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+  return [self application:application
+                   openURL:url
+         sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
 }
 #endif
 
@@ -145,23 +147,23 @@ static NSString *const FBSDKAppLinkInboundEvent = @"fb_al_inbound";
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
-    if (sourceApplication != nil && ![sourceApplication isKindOfClass:[NSString class]]) {
-        @throw [NSException exceptionWithName:NSInvalidArgumentException
-                                       reason:@"Expected 'sourceApplication' to be NSString. Please verify you are passing in 'sourceApplication' from your app delegate (not the UIApplication* parameter). If your app delegate implements iOS 9's application:openURL:options:, you should pass in options[UIApplicationOpenURLOptionsSourceApplicationKey]. "
-                                     userInfo:nil];
-    }
-    [FBSDKTimeSpentData setSourceApplication:sourceApplication openURL:url];
+  if (sourceApplication != nil && ![sourceApplication isKindOfClass:[NSString class]]) {
+    @throw [NSException exceptionWithName:NSInvalidArgumentException
+                                   reason:@"Expected 'sourceApplication' to be NSString. Please verify you are passing in 'sourceApplication' from your app delegate (not the UIApplication* parameter). If your app delegate implements iOS 9's application:openURL:options:, you should pass in options[UIApplicationOpenURLOptionsSourceApplicationKey]. "
+                                 userInfo:nil];
+  }
+  [FBSDKTimeSpentData setSourceApplication:sourceApplication openURL:url];
 
 #if !TARGET_OS_TV
   id<FBSDKURLOpening> pendingURLOpen = _pendingURLOpen;
 
   void (^completePendingOpenURLBlock)(void) = ^{
-      self->_pendingURLOpen = nil;
+    _pendingURLOpen = nil;
     [pendingURLOpen application:application
                         openURL:url
               sourceApplication:sourceApplication
                      annotation:annotation];
-      self->_isDismissingSafariViewController = NO;
+    _isDismissingSafariViewController = NO;
   };
   // if they completed a SFVC flow, dismiss it.
   if (_safariViewController) {
@@ -200,7 +202,9 @@ static NSString *const FBSDKAppLinkInboundEvent = @"fb_al_inbound";
   // fetch app settings
   [FBSDKServerConfigurationManager loadServerConfigurationWithCompletionBlock:NULL];
 
-  [self _logSDKInitialize];
+  if ([[FBSDKSettings autoLogAppEventsEnabled] boolValue]) {
+    [self _logSDKInitialize];
+  }
 #if !TARGET_OS_TV
   FBSDKProfile *cachedProfile = [FBSDKProfile fetchCachedProfile];
   [FBSDKProfile setCurrentProfile:cachedProfile];
@@ -269,13 +273,9 @@ static NSString *const FBSDKAppLinkInboundEvent = @"fb_al_inbound";
     // Dispatch openURL calls to prevent hangs if we're inside the current app delegate's openURL flow already
     NSOperatingSystemVersion iOS10Version = { .majorVersion = 10, .minorVersion = 0, .patchVersion = 0 };
     if ([FBSDKInternalUtility isOSRunTimeVersionAtLeast:iOS10Version]) {
-        if (@available(iOS 10.0, *)) {
-            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
-                handler(success, nil);
-            }];
-        } else {
-            // Fallback on earlier versions
-        }
+      [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
+        handler(success, nil);
+      }];
     } else {
       BOOL opened = [[UIApplication sharedApplication] openURL:url];
 
@@ -313,8 +313,8 @@ static NSString *const FBSDKAppLinkInboundEvent = @"fb_al_inbound";
   _pendingRequestCompletionBlock = [completionBlock copy];
   void (^handler)(BOOL, NSError *) = ^(BOOL openedURL, NSError *anError) {
     if (!openedURL) {
-        self->_pendingRequest = nil;
-        self->_pendingRequestCompletionBlock = nil;
+      _pendingRequest = nil;
+      _pendingRequestCompletionBlock = nil;
       NSError *openedURLError;
       if ([request.scheme hasPrefix:@"http"]) {
         openedURLError = [FBSDKError errorWithCode:FBSDKBrowserUnavailableErrorCode
@@ -358,7 +358,7 @@ static NSString *const FBSDKAppLinkInboundEvent = @"fb_al_inbound";
           if (error == nil) {
             [self application:[UIApplication sharedApplication] openURL:aURL sourceApplication:@"com.apple" annotation:nil];
           }
-            self->_authenticationSession = nil;
+          _authenticationSession = nil;
         }];
         [_authenticationSession start];
         return;
@@ -392,8 +392,8 @@ static NSString *const FBSDKAppLinkInboundEvent = @"fb_al_inbound";
           self->_safariViewController = [[SFSafariViewControllerClass alloc] initWithURL:url];
         // Disable dismissing with edge pan gesture
           self->_safariViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
-          [self->_safariViewController performSelector:@selector(setDelegate:) withObject:self];
-          [container displayChildController:self->_safariViewController];
+        [_safariViewController performSelector:@selector(setDelegate:) withObject:self];
+        [container displayChildController:_safariViewController];
         [parent presentViewController:container animated:YES completion:nil];
       }];
     } else {
@@ -511,6 +511,9 @@ static NSString *const FBSDKAppLinkInboundEvent = @"fb_al_inbound";
   if (objc_lookUpClass("FBSDKTVInterfaceFactory.m") != nil) {
     [params setObject:@1 forKey:@"tv_lib_included"];
   }
+  if (objc_lookUpClass("FBSDKAutoLog") != nil) {
+    [params setObject:@1 forKey:@"marketing_lib_included"];
+  }
   [FBSDKAppEvents logEvent:@"fb_sdk_initialize" parameters:params];
 }
 
@@ -518,45 +521,45 @@ static NSString *const FBSDKAppLinkInboundEvent = @"fb_al_inbound";
 #if !TARGET_OS_TV
 - (BOOL)_handleBridgeAPIResponseURL:(NSURL *)responseURL sourceApplication:(NSString *)sourceApplication
 {
-    FBSDKBridgeAPIRequest *request = _pendingRequest;
-    FBSDKBridgeAPICallbackBlock completionBlock = _pendingRequestCompletionBlock;
-    _pendingRequest = nil;
-    _pendingRequestCompletionBlock = NULL;
-    if (![responseURL.scheme isEqualToString:[FBSDKInternalUtility appURLScheme]]) {
-        return NO;
-    }
-    if (![responseURL.host isEqualToString:@"bridge"]) {
-        return NO;
-    }
-    if (!request) {
-        return NO;
-    }
-    if (!completionBlock) {
-        return YES;
-    }
-    NSError *error;
-    FBSDKBridgeAPIResponse *response = [FBSDKBridgeAPIResponse bridgeAPIResponseWithRequest:request
-                                                                                responseURL:responseURL
-                                                                          sourceApplication:sourceApplication
-                                                                                      error:&error];
-    if (response) {
-        completionBlock(response);
-        return YES;
-    } else if (error) {
-        completionBlock([FBSDKBridgeAPIResponse bridgeAPIResponseWithRequest:request error:error]);
-        return YES;
-    } else {
-        return NO;
-    }
+  FBSDKBridgeAPIRequest *request = _pendingRequest;
+  FBSDKBridgeAPICallbackBlock completionBlock = _pendingRequestCompletionBlock;
+  _pendingRequest = nil;
+  _pendingRequestCompletionBlock = NULL;
+  if (![responseURL.scheme isEqualToString:[FBSDKInternalUtility appURLScheme]]) {
+    return NO;
+  }
+  if (![responseURL.host isEqualToString:@"bridge"]) {
+    return NO;
+  }
+  if (!request) {
+    return NO;
+  }
+  if (!completionBlock) {
+    return YES;
+  }
+  NSError *error;
+  FBSDKBridgeAPIResponse *response = [FBSDKBridgeAPIResponse bridgeAPIResponseWithRequest:request
+                                                                              responseURL:responseURL
+                                                                        sourceApplication:sourceApplication
+                                                                                    error:&error];
+  if (response) {
+    completionBlock(response);
+    return YES;
+  } else if (error) {
+    completionBlock([FBSDKBridgeAPIResponse bridgeAPIResponseWithRequest:request error:error]);
+    return YES;
+  } else {
+    return NO;
+  }
 }
 
 - (void)_cancelBridgeRequest
 {
-    if (_pendingRequest && _pendingRequestCompletionBlock) {
-        _pendingRequestCompletionBlock([FBSDKBridgeAPIResponse bridgeAPIResponseCancelledWithRequest:_pendingRequest]);
-    }
-    _pendingRequest = nil;
-    _pendingRequestCompletionBlock = NULL;
+  if (_pendingRequest && _pendingRequestCompletionBlock) {
+    _pendingRequestCompletionBlock([FBSDKBridgeAPIResponse bridgeAPIResponseCancelledWithRequest:_pendingRequest]);
+  }
+  _pendingRequest = nil;
+  _pendingRequestCompletionBlock = NULL;
 }
 #endif
 

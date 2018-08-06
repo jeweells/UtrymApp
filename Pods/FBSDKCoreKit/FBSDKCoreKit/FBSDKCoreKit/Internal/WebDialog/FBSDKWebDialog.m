@@ -126,7 +126,7 @@ static FBSDKWebDialog *g_currentDialog = nil;
 {
   if (_deferVisibility) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if (self->_dialogView) {
+      if (_dialogView) {
         [self _showWebView];
       }
     });
@@ -151,7 +151,7 @@ static FBSDKWebDialog *g_currentDialog = nil;
   CFTimeInterval animationDuration = (animated ? [CATransactionClass animationDuration] : 0.0);
   [self _updateViewsWithScale:1.0 alpha:1.0 animationDuration:animationDuration completion:^(BOOL finished) {
     if (finished) {
-        [self->_dialogView setNeedsDisplay];
+      [_dialogView setNeedsDisplay];
     }
   }];
 }
@@ -208,7 +208,7 @@ static FBSDKWebDialog *g_currentDialog = nil;
   // defer so that the consumer is guaranteed to have an opportunity to set the delegate before we fail
   dispatch_async(dispatch_get_main_queue(), ^{
     [self _dismissAnimated:YES];
-      [self->_delegate webDialog:self didFailWithError:error];
+    [_delegate webDialog:self didFailWithError:error];
   });
 }
 
@@ -322,9 +322,9 @@ static FBSDKWebDialog *g_currentDialog = nil;
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
       CGRect mainFrame = self->_dialogView.window.screen.applicationFrame;
 #pragma clang diagnostic pop
-      self->_dialogView.center = CGPointMake(CGRectGetMidX(mainFrame),
+    _dialogView.center = CGPointMake(CGRectGetMidX(mainFrame),
                                      CGRectGetMidY(mainFrame));
-      self->_backgroundView.alpha = alpha;
+    _backgroundView.alpha = alpha;
   };
   if (animationDuration == 0.0) {
     updateBlock();

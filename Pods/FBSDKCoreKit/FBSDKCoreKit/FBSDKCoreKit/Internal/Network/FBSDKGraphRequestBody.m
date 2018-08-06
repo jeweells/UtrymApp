@@ -105,7 +105,7 @@
   NSString *contentType = dataAttachment.contentType ?: @"content/unknown";
   NSData *data = dataAttachment.data;
   [self _appendWithKey:key filename:filename contentType:contentType contentBlock:^{
-      [self->_data appendData:data];
+    [_data appendData:data];
   }];
   _json = nil;
   [logger appendFormat:@"\n    %@:\t<Data - %lu kB>", key, (unsigned long)([data length] / 1024)];
