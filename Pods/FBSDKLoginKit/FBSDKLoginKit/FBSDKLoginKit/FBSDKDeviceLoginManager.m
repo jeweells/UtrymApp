@@ -73,21 +73,21 @@ static NSMutableArray<FBSDKDeviceLoginManager *> *g_loginManagerInstances;
       return;
     }
 
-    _codeInfo = [[FBSDKDeviceLoginCodeInfo alloc]
+      self->_codeInfo = [[FBSDKDeviceLoginCodeInfo alloc]
                                           initWithIdentifier:result[@"code"]
                                           loginCode:result[@"user_code"]
                                           verificationURL:[NSURL URLWithString:result[@"verification_uri"]]
                                           expirationDate:[[NSDate date] dateByAddingTimeInterval:[result[@"expires_in"] doubleValue]]
                                           pollingInterval:[result[@"interval"] integerValue]];
 
-    if (_isSmartLoginEnabled) {
-      [FBSDKDeviceRequestsHelper startAdvertisementService:_codeInfo.loginCode
+      if (self->_isSmartLoginEnabled) {
+          [FBSDKDeviceRequestsHelper startAdvertisementService:self->_codeInfo.loginCode
                                               withDelegate:self
       ];
     }
 
-    [self.delegate deviceLoginManager:self startedWithCodeInfo:_codeInfo];
-    [self _schedulePoll:_codeInfo.pollingInterval];
+      [self.delegate deviceLoginManager:self startedWithCodeInfo:self->_codeInfo];
+      [self _schedulePoll:self->_codeInfo.pollingInterval];
   }];
  }
 
@@ -200,7 +200,7 @@ static NSMutableArray<FBSDKDeviceLoginManager *> *g_loginManagerInstances;
                                                                         flags:FBSDKGraphRequestFlagNone];
     [request setGraphErrorRecoveryDisabled:YES];
     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-      if (_isCancelled) {
+        if (self->_isCancelled) {
         return;
       }
       if (error) {
