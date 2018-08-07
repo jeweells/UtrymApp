@@ -21,9 +21,9 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
     @IBOutlet weak var inputHeightConstraint: NSLayoutConstraint!
     
     var estilistID: String = ""
-    var chats = [ChatMessage]()
+    //var chats = [ChatMessage]()
     var chats1 = [ChatNew]()
-    var messDict = [String: ChatMessage]()
+    var messDict = [String: ChatNew]()
     var keyboardAnimationDuration: NSNumber = NSNumber(floatLiteral: 0.0)
     var curve: UInt = UInt(0)
     
@@ -74,6 +74,15 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
                     let mensaje = dict["mensaje"] as! String
                     let chat = ChatNew(enviadoPorText: enviadoPor, recibidoPorText: recibidoPor, horaInt: hora, mensajeText: mensaje)
                     self.chats1.append(chat)
+                    
+                    /* este query solo carga los 2 más recientes
+                    let receptor = chat.recibidoPor
+                    self.messDict[receptor] = chat
+                    self.chats1 = Array(self.messDict.values)
+
+                    self.chats1.sort(by: { (message1, message2) -> Bool in
+                        return message1.hora.intValue < message2.hora.intValue
+                    })*/
                 }
                 self.configTableView()
                 self.messagesListTV.reloadData()
