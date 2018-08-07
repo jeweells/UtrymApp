@@ -8,17 +8,20 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+
 
 class ChatLogEstilistController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var chatColectionView: UICollectionView!
+
+    @IBOutlet weak var tableChat: UITableView!
     @IBOutlet weak var textArea: UITextField!
     @IBOutlet weak var sendBtn: UIButton!
+    @IBOutlet weak var heigthInput: NSLayoutConstraint!
     
-    @IBOutlet weak var inputHeightConstraint: NSLayoutConstraint!
     
     var idClient: String = ""
     var chats1 = [ChatNew]()
-    var messDict = [String: ChatMessage]()
     var keyboardAnimationDuration: NSNumber = NSNumber(floatLiteral: 0.0)
     var curve: UInt = UInt(0)
     
@@ -26,25 +29,22 @@ class ChatLogEstilistController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         textArea.delegate = self
         setupNavigationBarItems()
-        self.chatColectionView.backgroundColor = UIColor.clear
-        chatColectionView.register(UINib.init(nibName: "SendCell", bundle: nil), forCellWithReuseIdentifier:"SendCell")
-        if let flowlayout = chatColectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowlayout.estimatedItemSize = CGSize(width: 1, height: 1)
-        }
-        chatColectionView.register(UINib.init(nibName: "ReceivedCell", bundle: nil), forCellWithReuseIdentifier:"ReceivedCell")
-        if let flowlayout = chatColectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowlayout.estimatedItemSize = CGSize(width: 1, height: 1)
-        }
-        let dismissKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(tapCollectionView))
-        chatColectionView.addGestureRecognizer(dismissKeyboardGesture)
+        self.tableChat.backgroundColor = UIColor.clear
+        self.tableChat.keyboardDismissMode = .interactive
+        let dismissKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(tapTableView))
+        tableChat.addGestureRecognizer(dismissKeyboardGesture)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        configView()
+        configTableView()
         loadChats()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -64,55 +64,6 @@ class ChatLogEstilistController: UIViewController, UITextFieldDelegate {
         
     }
     
-    @objc func addTapped(){
-        print("Add cita pressed")
-    }
-    
-    @objc func keyboardWillShow(aNotification: NSNotification)    {
-        keyboardAnimationDuration = aNotification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
-        curve = aNotification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! UInt
-    }
-    
-    func configView() {
-        //chatColectionView.rowHeight = UICollectionViewAutomaticDimension
-        //chatColectionView.estimatedRowHeight = 120.0
-    }
-    @objc func tapCollectionView() {
-        textArea.endEditing(true)
-    }
-    
-    @IBAction func sendTapped(_ sender: UIButton) {
-        print("Send")
-    }
-    
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        sendTapped(sendBtn)
-        textField.text = ""
-        return true
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        print(keyboardAnimationDuration)
-        UIView.animate(withDuration: keyboardAnimationDuration as! Double, delay: 0.0, options: UIViewAnimationOptions(rawValue: curve), animations: {
-            self.inputHeightConstraint.constant = 308
-            self.view.layoutIfNeeded()
-        }, completion: { aaa in
-        })
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        self.inputHeightConstraint.constant = 48
-        self.view.layoutIfNeeded()
-    }
-    
-    func scrollToBottom(){
-        DispatchQueue.main.async {
-            let item = IndexPath(row: self.chats1.count-1, section: 0)
-            self.chatColectionView.scrollToItem(at: item, at: .bottom, animated: true)
-        }
-    }
-    
     func loadChats() {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
@@ -130,42 +81,90 @@ class ChatLogEstilistController: UIViewController, UITextFieldDelegate {
                     let chat = ChatNew(enviadoPorText: enviadoPor, recibidoPorText: recibidoPor, horaInt: hora, mensajeText: mensaje)
                     self.chats1.append(chat)
                 }
-                //self.configTableView()
-                self.chatColectionView.reloadData()
+                self.configTableView()
+                self.tableChat.reloadData()
                 self.scrollToBottom()
             })
         }
         ref.removeAllObservers()
     }
     
+    @objc func addTapped(){
+        print("Add cita pressed")
+    }
+    
+    @IBAction func sendTapped(_ sender: UIButton) {
+        textArea.endEditing(true)
+        
+        let ref = Database.database().reference().child("chats-messages")
+        let childRef = ref.childByAutoId()
+        let fromId = Auth.auth().currentUser!.uid
+        let hora = NSNumber(value: Int(NSDate().timeIntervalSince1970))
+        if textArea.text != "" {
+            let values = ["mensaje": textArea.text!, "enviadoPor": fromId, "recibidoPor": idClient, "hora": hora] as [String : Any]
+            childRef.updateChildValues(values) { (error, ref) in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                else {
+                    let userMessageRef = Database.database().reference().child("chat-usuario").child(fromId)
+                    let estMessageRef = Database.database().reference().child("chat-usuario").child(self.idClient)
+                    let messageId = childRef.key
+                    userMessageRef.updateChildValues([messageId: "1"])
+                    estMessageRef.updateChildValues([messageId: "1"])
+                    self.textArea.text = ""
+                }
+            }
+        }
+    }
+    
+    @objc func tapTableView() {
+        textArea.endEditing(true)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification)    {
+        keyboardAnimationDuration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
+        curve = notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! UInt
+    }
+   
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        sendTapped(sendBtn)
+        textField.text = ""
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print(keyboardAnimationDuration)
+        UIView.animate(withDuration: keyboardAnimationDuration as! Double, delay: 0.0, options: UIViewAnimationOptions(rawValue: curve), animations: {
+            //se debe colocar como valor lo que ocupe el teclado segun cada iphone, hay un comando que da ese valor por el momento con esta medida se ve bien en el x
+            //ahora solo falta que se suba tambien el tableview junto con el input
+            self.heigthInput.constant = 356
+            self.view.layoutIfNeeded()
+        }, completion: { aaa in
+        })
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.heigthInput.constant = 48
+        self.view.layoutIfNeeded()
+    }
+    
+    func configTableView() {
+        tableChat.rowHeight = UITableViewAutomaticDimension
+        tableChat.estimatedRowHeight = 120.0
+    }
+    
+    func scrollToBottom(){
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: self.chats1.count-1, section: 0)
+            self.tableChat.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
+    }
+
+    
+    
     
 }
 
-extension ChatLogEstilistController: UICollectionViewDataSource {
-    func collectionView(_ collectionService: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return chats1.count
-    }
-    
-    func collectionView(_ collectionService: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let currentUser = Auth.auth().currentUser?.uid
-        
-        if currentUser == chats1[indexPath.row].enviadoPor {
-            let cell = collectionService.dequeueReusableCell(withReuseIdentifier: "SendCell", for: indexPath) as! SendCell
-            print(chats1[indexPath.row].mensaje)
-            cell.message.text = chats1[indexPath.row].mensaje
-            chatColectionView.backgroundColor = UIColor.clear
-            cell.layer.backgroundColor = UIColor.clear.cgColor
-            
-            return cell
-        } else {
-            let cell = collectionService.dequeueReusableCell(withReuseIdentifier: "ReceivedCell", for: indexPath) as! ReceivedCell
-            print(chats1[indexPath.row].mensaje)
-            cell.message.text = chats1[indexPath.row].mensaje
-            chatColectionView.backgroundColor = UIColor.clear
-            cell.layer.backgroundColor = UIColor.clear.cgColor
-            
-            return cell
-        }
-    }
-}
 

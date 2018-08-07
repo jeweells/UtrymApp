@@ -44,8 +44,8 @@ class ChatsEstilistController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationController = segue.destination as? ChatLogEstilistController {
-            print("Inicé chat con: \(chats1[indexPressedCell].enviadoPor)")
-            destinationController.idClient = chats1[indexPressedCell].enviadoPor
+            print("Inicé chat con: \(chats1[indexPressedCell].recibidoPor)")
+            destinationController.idClient = chats1[indexPressedCell].recibidoPor
         }
     }
     
