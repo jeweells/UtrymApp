@@ -49,7 +49,7 @@ class FinanzasEstilistController: UIViewController {
                 //let bio = dict["bio"] as! String
                 let especialidad = dict["especialidad"] as! String
                 self.nombreEstilist?.text = "\(nombreText) \(apellidoText)"
-                self.avatarEstilist.downloadImageEst(from: urlText)
+                self.avatarEstilist.downloadImage(from: urlText)
                 //self.bioEst.text = bio
                 self.especialidad.text = especialidad
             }

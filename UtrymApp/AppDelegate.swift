@@ -153,6 +153,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
     }
     
+    func switchViewControllers() {
+        
+        // switch root view controllers
+        let storyboard = UIStoryboard.init(name: "CitasChatsClient", bundle: nil)
+        let nav = storyboard.instantiateViewController(withIdentifier: "ChatLogClientController")
+        
+        self.window?.rootViewController = nav
+        
+    }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         let firebaseAuth = Auth.auth()

@@ -86,7 +86,7 @@ class ProfileEstController: UIViewController, UICollectionViewDataSource, UIColl
                 let bio = dict["bio"] as! String
                 let especialidad = dict["especialidad"] as! String
                 self.nameEst.text = "\(nombreText) \(apellidoText)"
-                self.profImage.downloadImageEst(from: urlText)
+                self.profImage.downloadImage(from: urlText)
                 self.bioEst.text = bio
                 self.espEst.text = especialidad
             }

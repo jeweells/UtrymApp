@@ -78,7 +78,7 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
                 self.nameEstilist?.text = "\(nombreText) \(apellidoText)"
                 //self.nameEstilist.text = nombreText
                 //self.apellidoEstilist.text = apellidoText
-                self.avatarEstilist.downloadImageEst(from: urlText)
+                self.avatarEstilist.download(from: urlText)
                 self.bio.text = bio
                 self.especialidad.text = especialidad
                 //print(estiID)
@@ -127,16 +127,15 @@ class ProfileEstilistClientController: UIViewController, UICollectionViewDataSou
     
     @IBAction func chatsTapped(_ sender: UIButton) {
         if sender == chatButton {
-            
-            let storyboard = UIStoryboard(name: "CitasChatsClient", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "ChatLogClientController") as UIViewController
-            self.present(controller, animated: true, completion: nil)
-            // no muestra el navigation bar y sea cual sea el estilista que clickee toma el de douglas para abrir el chat con el...
+            self.performSegue(withIdentifier: "chatProfile", sender: self)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if let destinationController = segue.destination as? ChatProfileController {
+            print("Me fui a chatear con: \(estilistID)")
+            destinationController.estilistID = estilistID
+        }
     }
     
     

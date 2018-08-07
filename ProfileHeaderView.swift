@@ -47,7 +47,7 @@ class ProfileHeaderView: UICollectionReusableView {
                 //let estiID = dict["uid"] as! String
                 self.fullName.text = nombreText
                 self.apellido.text = apellidoText
-                self.imageProfile.downloadImageEst(from: urlText)
+                self.imageProfile.downloadImage(from: urlText)
                 self.bio.text = bio
                 self.profesion.text = especialidad
                 //print(estiID)

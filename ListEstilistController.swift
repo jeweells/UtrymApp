@@ -89,7 +89,7 @@ extension ListEstilistController: UICollectionViewDataSource {
     func collectionView(_ collectionService: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionService.dequeueReusableCell(withReuseIdentifier: "EstilistSearchCell", for: indexPath) as! EstilistSearchCell
         cell.nameEstilist?.text = "\(estilists[indexPath.row].nombre) \(estilists[indexPath.row].apellido)"
-        cell.avatarEstilist.downloadImageEst(from: self.estilists[indexPath.row].url)
+        cell.avatarEstilist.downloadImage(from: self.estilists[indexPath.row].url)
         cell.estilistID = estilists[indexPath.row].uid
         cell.especialidad?.text = estilists[indexPath.row].esp
         let backgroundImage = UIImage(named: "list_estilist.png")

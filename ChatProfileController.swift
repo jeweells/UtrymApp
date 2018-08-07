@@ -1,8 +1,8 @@
 //
-//  ChatLogEstilistController.swift
+//  ChatProfileController.swift
 //  UtrymApp
 //
-//  Created by Alexis Barniquez on 2/8/18.
+//  Created by Alexis Barniquez on 7/8/18.
 //  Copyright © 2018 Alexis Barniquez. All rights reserved.
 //
 
@@ -11,17 +11,16 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-
-class ChatLogEstilistController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+class ChatProfileController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableChat: UITableView!
     @IBOutlet weak var textArea: UITextField!
     @IBOutlet weak var sendBtn: UIButton!
-    @IBOutlet weak var heigthInput: NSLayoutConstraint!
+    @IBOutlet weak var heightInput: NSLayoutConstraint!
     
-    
-    var idClient: String = ""
+    var estilistID: String = ""
     var chats1 = [ChatNew]()
+    var messDict = [String: ChatNew]()
     var keyboardAnimationDuration: NSNumber = NSNumber(floatLiteral: 0.0)
     var curve: UInt = UInt(0)
     let currentUser = Auth.auth().currentUser?.uid
@@ -38,12 +37,12 @@ class ChatLogEstilistController: UIViewController, UITextFieldDelegate, UITableV
         tableChat.addGestureRecognizer(dismissKeyboardGesture)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         configTableView()
         loadChats()
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
     }
@@ -55,15 +54,6 @@ class ChatLogEstilistController: UIViewController, UITextFieldDelegate, UITableV
     private func setupNavigationBarItems(){
         let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Utrym_Interno"))
         navigationItem.titleView = titleImageView
-        
-        
-        let rightButton = UIButton(type: .system)
-        rightButton.setImage(#imageLiteral(resourceName: "add_cita").withRenderingMode(.alwaysOriginal), for: .normal)
-        rightButton.frame = CGRect(x: 0, y: 0, width: 34, height:34)
-        rightButton.contentMode = .scaleAspectFit
-        rightButton.addTarget(self, action: #selector(addTapped), for: .touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
-        
     }
     
     func loadChats() {
@@ -81,7 +71,41 @@ class ChatLogEstilistController: UIViewController, UITextFieldDelegate, UITableV
                     let hora = dict["hora"] as! NSNumber
                     let mensaje = dict["mensaje"] as! String
                     let chat = ChatNew(enviadoPorText: enviadoPor, recibidoPorText: recibidoPor, horaInt: hora, mensajeText: mensaje)
-                    self.chats1.append(chat)
+                    // asi solo me muestra los enviados por el estilista al cliente logueado
+                    if self.estilistID == recibidoPor {
+                        self.chats1.append(chat)
+                    }
+                    
+                    // así me muestra una mezcla
+                    /*let receptor = chat.recibidoPor
+                    let emisor = chat.enviadoPor
+                    var exist = 0
+                    
+                    switch emisor {
+                    case uid:
+                        exist = 1
+                    case self.estilistID:
+                        exist = 1
+                    default:
+                        return
+                    }
+                    
+                    switch receptor {
+                    case uid:
+                        exist = 1
+                    case self.estilistID:
+                        exist = 1
+                    default:
+                        return
+                    }
+                    
+                    switch exist {
+                    case 1:
+                        self.messDict[receptor] = chat
+                        self.chats1 = Array(self.messDict.values)
+                    default:
+                        return
+                    }*/
                 }
                 self.configTableView()
                 self.tableChat.reloadData()
@@ -89,10 +113,6 @@ class ChatLogEstilistController: UIViewController, UITextFieldDelegate, UITableV
             })
         }
         ref.removeAllObservers()
-    }
-    
-    @objc func addTapped(){
-        print("Add cita pressed")
     }
     
     @IBAction func sendTapped(_ sender: UIButton) {
@@ -103,7 +123,7 @@ class ChatLogEstilistController: UIViewController, UITextFieldDelegate, UITableV
         let fromId = Auth.auth().currentUser!.uid
         let hora = NSNumber(value: Int(NSDate().timeIntervalSince1970))
         if textArea.text != "" {
-            let values = ["mensaje": textArea.text!, "enviadoPor": fromId, "recibidoPor": idClient, "hora": hora] as [String : Any]
+            let values = ["mensaje": textArea.text!, "enviadoPor": fromId, "recibidoPor": estilistID, "hora": hora] as [String : Any]
             childRef.updateChildValues(values) { (error, ref) in
                 if error != nil {
                     print(error!)
@@ -111,7 +131,7 @@ class ChatLogEstilistController: UIViewController, UITextFieldDelegate, UITableV
                 }
                 else {
                     let userMessageRef = Database.database().reference().child("chat-usuario").child(fromId)
-                    let estMessageRef = Database.database().reference().child("chat-usuario").child(self.idClient)
+                    let estMessageRef = Database.database().reference().child("chat-usuario").child(self.estilistID)
                     let messageId = childRef.key
                     userMessageRef.updateChildValues([messageId: "1"])
                     estMessageRef.updateChildValues([messageId: "1"])
@@ -129,7 +149,7 @@ class ChatLogEstilistController: UIViewController, UITextFieldDelegate, UITableV
         keyboardAnimationDuration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
         curve = notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! UInt
     }
-   
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         sendTapped(sendBtn)
         textField.text = ""
@@ -141,14 +161,14 @@ class ChatLogEstilistController: UIViewController, UITextFieldDelegate, UITableV
         UIView.animate(withDuration: keyboardAnimationDuration as! Double, delay: 0.0, options: UIViewAnimationOptions(rawValue: curve), animations: {
             //se debe colocar como valor lo que ocupe el teclado segun cada iphone, hay un comando que da ese valor por el momento con esta medida se ve bien en el x
             //ahora solo falta que se suba tambien el tableview junto con el input
-            self.heigthInput.constant = 356
+            self.heightInput.constant = 356
             self.view.layoutIfNeeded()
         }, completion: { aaa in
         })
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.heigthInput.constant = 48
+        self.heightInput.constant = 48
         self.view.layoutIfNeeded()
     }
     
@@ -159,8 +179,9 @@ class ChatLogEstilistController: UIViewController, UITextFieldDelegate, UITableV
     
     func scrollToBottom(){
         DispatchQueue.main.async {
-            let indexPath = IndexPath(row: self.chats1.count-1, section: 0)
-            self.tableChat.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            //se debe especificar que hacer cuando el chat está vacío
+            //let indexPath = IndexPath(row: self.chats1.count-1, section: 0)
+            //self.tableChat.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
     }
     

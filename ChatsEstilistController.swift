@@ -126,6 +126,7 @@ extension ChatsEstilistController: UICollectionViewDataSource {
             if let dict = snapshot.value as? [String: Any] {
                 let nombreText = dict["nombre completo"] as! String
                 cell.clientFullName?.text = nombreText
+                print(nombreText)
             }
         })
         ref.removeAllObservers()
@@ -170,6 +171,6 @@ extension ChatsEstilistController: UICollectionViewDelegateFlowLayout {
     {
         print("User tapped on item \(indexPath.row)")
         self.indexPressedCell = indexPath.row
-        self.performSegue(withIdentifier: "chatEstilist", sender: self)
+        self.performSegue(withIdentifier: "chatEst", sender: self)
     }
 }
