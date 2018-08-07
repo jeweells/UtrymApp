@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
+import SVProgressHUD
 
 class CreateUserController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
@@ -88,7 +90,11 @@ class CreateUserController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func registerTapped(_ sender: Any) {
+        
+        SVProgressHUD.show()
+        
         guard fullNameRegister.text != "", usernameRegister.text != "", passwordRegister.text != "", passRegister.text != "" else {
+            SVProgressHUD.dismiss()
             let alertController = UIAlertController(title: "UtrymApp", message:
                 "Debe llenar todos los campos", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default,handler: nil))
@@ -104,6 +110,7 @@ class CreateUserController: UIViewController, UIImagePickerControllerDelegate, U
             Auth.auth().createUser(withEmail: email!, password: pass!) { (user, error) in
                 
                 if let error = error {
+                    SVProgressHUD.dismiss()
                     let alertController = UIAlertController(title: "UtrymApp", message:
                         "Error en los datos suministrados: \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default,handler: nil))
@@ -145,6 +152,8 @@ class CreateUserController: UIViewController, UIImagePickerControllerDelegate, U
                                                                //"id_perfil": self.cliente,
                                                                "urlToImage": url.absoluteString]
                                 self.ref.child("clientes").child(UserId!).setValue(userInfo)
+                                
+                                SVProgressHUD.dismiss()
                                 
                                 // al registrarse enviar directamente a la pantalla de unicio
                                 let storyboard = UIStoryboard(name: "Main", bundle: nil)

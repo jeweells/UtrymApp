@@ -75,7 +75,6 @@
 		89BE1E4120D4B3B6001703B3 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE1E4020D4B3B6001703B3 /* ProfileHeaderView.swift */; };
 		89E4780D210CE0FE0072481A /* PostProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4780C210CE0FE0072481A /* PostProfileCell.swift */; };
 		89F2D7B820D1D48900688164 /* Estilist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D7B720D1D48900688164 /* Estilist.swift */; };
-		89F2D7BA20D1D85600688164 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D7B920D1D85600688164 /* SignUpController.swift */; };
 		89F7723220F3FFC500CA4139 /* SkillsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F7723120F3FFC400CA4139 /* SkillsCell.swift */; };
 		89F7723620F4272900CA4139 /* ListServicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F7723520F4272900CA4139 /* ListServicesCell.swift */; };
 		89F7723820F4282D00CA4139 /* ListServicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F7723720F4282D00CA4139 /* ListServicesController.swift */; };
@@ -171,7 +170,6 @@
 		89BE1E4020D4B3B6001703B3 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		89E4780C210CE0FE0072481A /* PostProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProfileCell.swift; sourceTree = "<group>"; };
 		89F2D7B720D1D48900688164 /* Estilist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Estilist.swift; sourceTree = "<group>"; };
-		89F2D7B920D1D85600688164 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		89F7723120F3FFC400CA4139 /* SkillsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsCell.swift; sourceTree = "<group>"; };
 		89F7723520F4272900CA4139 /* ListServicesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListServicesCell.swift; sourceTree = "<group>"; };
 		89F7723720F4282D00CA4139 /* ListServicesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListServicesController.swift; sourceTree = "<group>"; };
@@ -227,7 +225,6 @@
 		8906FE6120BE48A2003954F3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				89F2D7B920D1D85600688164 /* SignUpController.swift */,
 				89855D3B20F58FEF00D1EF2D /* LoginController.swift */,
 				89855D3F20F5AF5A00D1EF2D /* CreateUserController.swift */,
 				892E727420F038440078FD44 /* Cliente */,
@@ -619,8 +616,10 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Keynode/Keynode.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -634,8 +633,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keynode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -731,7 +732,6 @@
 				8960565220D81BE3006B8A3A /* ServiceHeaderCell.swift in Sources */,
 				898920AF20F2748F002CD2E8 /* ProfileEstilistClientController.swift in Sources */,
 				89F7723820F4282D00CA4139 /* ListServicesController.swift in Sources */,
-				89F2D7BA20D1D85600688164 /* SignUpController.swift in Sources */,
 				8960564E20D81A2E006B8A3A /* ServiceCell.swift in Sources */,
 				89F7723220F3FFC500CA4139 /* SkillsCell.swift in Sources */,
 			);

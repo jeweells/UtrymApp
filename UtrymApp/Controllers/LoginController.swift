@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import GoogleSignIn
+import SVProgressHUD
 
 class LoginController: UIViewController, GIDSignInUIDelegate {
     
@@ -44,16 +45,15 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error) != nil {
             print(error.localizedDescription)
+            SVProgressHUD.dismiss()
             return
         }
         print("User signed into google")
         
-        //guard let authentication = user.authentication else { return }
-        //let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-        //                                               accessToken: authentication.accessToken)
-        
         let authentication = user.authentication
         let credential = GoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!, accessToken: (authentication?.accessToken)!)
+        
+        SVProgressHUD.show()
         
         Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
             if error != nil {
@@ -84,12 +84,14 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeClient") as UIViewController
                         self.present(controller, animated: true, completion: nil)
+                        SVProgressHUD.dismiss()
                         
                     }
                     else {
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeClient") as UIViewController
                         self.present(controller, animated: true, completion: nil)
+                        SVProgressHUD.dismiss()
                     }
                 })
             }
@@ -113,19 +115,24 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeClient") as UIViewController
                 self.present(controller, animated: true, completion: nil)
+                SVProgressHUD.dismiss()
             }
             else {
                 print("Estilista")
                 let storyboard = UIStoryboard(name: "Estilist", bundle: nil)
                 let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeEstilist") as UIViewController
                 self.present(controller, animated: true, completion: nil)
+                SVProgressHUD.dismiss()
             }
         })
     }
     
     @IBAction func iniciarTapped(_ sender: UIButton) {
         
+        SVProgressHUD.show()
+        
         guard username.text != "", password.text != "" else {
+            SVProgressHUD.dismiss()
             let alertController = UIAlertController(title: "UtrymApp", message:
                 "Debe llenar todos los campos", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default,handler: nil))
@@ -140,6 +147,7 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
                     self.loadProfile()
                 }
                 else {
+                    SVProgressHUD.dismiss()
                     let alertController = UIAlertController(title: "UtrymApp", message:
                         "Datos inválidos \(String(describing: error?.localizedDescription))", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default,handler: nil))
@@ -150,19 +158,24 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
     }
     
     @IBAction func facebookTapped(_ sender: UIButton) {
+        
         let fbLoginManager = FBSDKLoginManager()
         fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
             if let error = error {
                 print("Failed to login: \(error.localizedDescription)")
+                SVProgressHUD.dismiss()
                 return
             }
             
             guard let accessToken = FBSDKAccessToken.current() else {
+                SVProgressHUD.dismiss()
                 print("Failed to get access token")
                 return
             }
             
             let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+            
+            SVProgressHUD.show()
             
             // Perform login by calling Firebase APIs
             Auth.auth().signInAndRetrieveData(with: credential, completion: { (user, error) in
@@ -171,17 +184,22 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
                     let userUid = Auth.auth().currentUser?.uid
                    
                     // Here save client in "users"
-                    let userInfo: [String: Any] = ["uid": userUid!,
+                    /*let userInfo: [String: Any] = ["uid": userUid!,
                                                    "id_perfil": self.cliente]
-                    self.ref.child("users").child(userUid!).setValue(userInfo)
-                 
+                    self.ref.child("users").child(userUid!).setValue(userInfo)*/
+                    
+                    // Save user in clientes table, only with uid
+                    let userInfo: [String: Any] = ["uid": userUid!]
+                    self.ref.child("clientes").child(userUid!).setValue(userInfo)
                     
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let controller = storyboard.instantiateViewController(withIdentifier: "WelcomeClient") as UIViewController
                     self.present(controller, animated: true, completion: nil)
+                    SVProgressHUD.dismiss()
                 }
                 
                 if let error = error {
+                    SVProgressHUD.dismiss()
                     print("Login error: \(error.localizedDescription)")
                     let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
                     let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)

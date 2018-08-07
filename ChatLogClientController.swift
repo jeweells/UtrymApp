@@ -32,15 +32,15 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
         textMessage.delegate = self
         messagesListTV.delegate = self
         messagesListTV.dataSource = self
-        
+        self.messagesListTV.keyboardDismissMode = .interactive
         self.messagesListTV.backgroundColor = UIColor.clear
 //        messagesListTV.register(UINib(nibName: "MessageSentCell", bundle: Bundle(for: MessageSentCell.self)), forCellReuseIdentifier: "messageSentCell")
 //        messagesListTV.register(UINib(nibName: "MessageReceived", bundle: Bundle(for: MessageReceived.self)), forCellReuseIdentifier: "messageReceivedCell")
         let dismissKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(tapTableView))
         messagesListTV.addGestureRecognizer(dismissKeyboardGesture)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         //configTableView()
-    
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
@@ -49,47 +49,14 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
 //    }
     
     override func viewDidAppear(_ animated: Bool) {
-        //loadMessagesCLient()
         configTableView()
         loadChats()
     }
-    
-    /*func loadMessagesCLient() {
-        guard let uid = Auth.auth().currentUser?.uid else {
-            return
-        }
-        let ref = Database.database().reference()
-        ref.child("user-messages").child(uid).observe(.childAdded) { (snapshot: DataSnapshot) in
-            //print (snapshot)
-            
-            let messageId = snapshot.key
-            
-            Database.database().reference().child("messages").child(messageId).observe(.value, with: { (snapshot) in
-                if let dict = snapshot.value as? [String: Any]
-                {
-                    let emisor = dict["emisor"] as! String
-                    let receptor = dict["receptor"] as! String
-                    let timestamp = dict["timestamp"] as! NSNumber
-                    let message = dict["text"] as! String
-                    let chat = ChatMessage(emisorText: emisor, receptorText: receptor, timestampInt: timestamp, messageText: message)
-                    self.chats.append(chat)
-                    
-                    /*let receptor1 = chat.receptor
-                    self.messDict[receptor1] = chat
-                    self.chats = Array(self.messDict.values)
-                    self.chats.sort(by: { (chat1, chat2) -> Bool in
-                        return chat1.timestamp.intValue > chat2.timestamp.intValue
-                    })*/
-                    
-                }
-                self.configTableView()
-                self.messagesListTV.reloadData()
-                self.scrollToBottom()
-                
-            })
-        }
-        ref.removeAllObservers()
-    }*/
+
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
+        //NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
+    }
     
     func loadChats() {
         guard let uid = Auth.auth().currentUser?.uid else {
@@ -117,7 +84,9 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
     }
     
     @objc func keyboardWillShow(aNotification: NSNotification)    {
-        
+        /*if let keyboardSize = (aNotification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            self.view.frame.origin.y -= keyboardSize.height
+        }*/
         keyboardAnimationDuration = aNotification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
         curve = aNotification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! UInt
     }
@@ -161,7 +130,9 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
     func textFieldDidBeginEditing(_ textField: UITextField) {
         print(keyboardAnimationDuration)
         UIView.animate(withDuration: keyboardAnimationDuration as! Double, delay: 0.0, options: UIViewAnimationOptions(rawValue: curve), animations: {
-            self.inputHeightConstraint.constant = 308
+            //se debe colocar como valor lo que ocupe el teclado segun cada iphone, hay un comando que da ese valor por el momento con esta medida se ve bien en el x
+            //ahora solo falta que se suba tambien el tableview junto con el input
+            self.inputHeightConstraint.constant = 356
             self.view.layoutIfNeeded()
         }, completion: { aaa in
             //(value: Bool) in println()

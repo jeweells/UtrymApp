@@ -15,7 +15,7 @@ class CitasClientsController: UIViewController {
         setupNavigationBarItems()
         profileTapped()
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Barra_superior_ligth.png"), for: .default)
         
     }
     

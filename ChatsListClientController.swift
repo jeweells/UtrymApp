@@ -31,6 +31,7 @@ class ChatsListClientController: UIViewController {
         // remove separators for empty cells
         chatsTable.tableFooterView = UIView()
         self.chatsTable.backgroundColor = UIColor.clear
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Barra_superior_ligth.png"), for: .default)
         //loadChats()
         //loadChatsUsers()
         agroupChatsByEstilist()
@@ -40,6 +41,7 @@ class ChatsListClientController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     
     func agroupChatsByEstilist() {
         guard let uid = Auth.auth().currentUser?.uid else {
@@ -61,7 +63,7 @@ class ChatsListClientController: UIViewController {
                     if uid == receptor {
                         self.messDict1[receptor] = chat
                         self.chats1 = Array(self.messDict1.values)
-                        print (self.chats1)
+                        //print (self.chats1)
                         
                         self.chats1.sort(by: { (message1, message2) -> Bool in
                             return message1.hora.intValue > message2.hora.intValue

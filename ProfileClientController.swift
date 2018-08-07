@@ -60,6 +60,7 @@ class ProfileClientController: UIViewController, UIImagePickerControllerDelegate
     }
     
     func loadClient() {
+        // los usuarios que se loguean con google o facebook solo tienen uid, por lo tanto debo permitir que los campos esten vacios para que no de error
         let firUser = Auth.auth().currentUser
         let ref = Database.database().reference()
         ref.child("clientes").child((firUser?.uid)!).observe(.value, with: { (snapshot) in
