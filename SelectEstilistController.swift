@@ -35,7 +35,7 @@ class SelectEstilistController: UIViewController {
                 let apellidoText = dict["apellido"] as! String
                 let urlText = dict["urlAvatar"] as! String
                 let estiID = dict["uid"] as! String
-                let especialidad = dict["especialidqad"] as! String
+                let especialidad = dict["especialidad"] as! String
                 let estilist = Estilist(nombreText: nombreText, apellidoText: apellidoText, urlText: urlText, estiID: estiID, especialidad: especialidad)
                 self.estilists.append(estilist)
                 print(self.estilists)

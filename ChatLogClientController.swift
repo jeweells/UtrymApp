@@ -123,6 +123,9 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
     }
     
     @IBAction func sendTapped(_ sender: UIButton) {
+        
+        textMessage.endEditing(true)
+        
         let ref = Database.database().reference().child("chats-messages")
         let childRef = ref.childByAutoId()
         let fromId = Auth.auth().currentUser!.uid
@@ -134,37 +137,16 @@ class ChatLogClientController: UIViewController, UITextFieldDelegate, UITableVie
                     print(error!)
                     return
                 }
-                let userMessageRef = Database.database().reference().child("chat-usuario").child(fromId)
-                let estMessageRef = Database.database().reference().child("chat-usuario").child(self.estilistID)
-                let messageId = childRef.key
-                userMessageRef.updateChildValues([messageId: "emisor"])
-                estMessageRef.updateChildValues([messageId: "receptor"])
-                self.textMessage.text = ""
-            }
-            
-        }
-        /*let ref = Database.database().reference().child("messages")
-        let childRef = ref.childByAutoId()
-        let fromId = Auth.auth().currentUser!.uid
-        let timestamp = NSNumber(value: Int(NSDate().timeIntervalSince1970))
-        if textMessage.text != "" {
-            let values = ["text": textMessage.text!, "receptor": estilistID, "emisor": fromId, "timestamp": timestamp] as [String : Any]
-            //childRef().updateChildValues(values)
-            //print(messageText.text!)
-            
-            childRef.updateChildValues(values) { (error, ref) in
-                if error != nil {
-                    print(error!)
-                    return
+                else {
+                    let userMessageRef = Database.database().reference().child("chat-usuario").child(fromId)
+                    let estMessageRef = Database.database().reference().child("chat-usuario").child(self.estilistID)
+                    let messageId = childRef.key
+                    userMessageRef.updateChildValues([messageId: "1"])
+                    estMessageRef.updateChildValues([messageId: "1"])
+                    self.textMessage.text = ""
                 }
-                let userMessageRef = Database.database().reference().child("user-messages").child(fromId)
-                let messageId = childRef.key
-                userMessageRef.updateChildValues([messageId: 1])
-                self.textMessage.text = ""
             }
-            
-        }*/
-
+        }
     }
     
     @objc func tapTableView() {
