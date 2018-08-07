@@ -17,7 +17,7 @@ pod 'FBSDKLoginKit'
 pod 'SDWebImage/WebP'
 pod 'Firebase/Messaging'
 pod 'SVProgressHUD'
-pod 'Keynode'
+
 
   target 'UtrymAppTests' do
     inherit! :search_paths

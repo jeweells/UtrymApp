@@ -100,7 +100,6 @@ PODS:
   - GTMSessionFetcher/Core (1.2.0)
   - GTMSessionFetcher/Full (1.2.0):
     - GTMSessionFetcher/Core (= 1.2.0)
-  - Keynode (3.0.3)
   - leveldb-library (1.20)
   - libwebp (0.6.1):
     - libwebp/core (= 0.6.1)
@@ -148,7 +147,6 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Storage
   - GoogleSignIn
-  - Keynode
   - SDWebImage/WebP
   - SVProgressHUD
 
@@ -172,7 +170,6 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMOAuth2
     - GTMSessionFetcher
-    - Keynode
     - leveldb-library
     - libwebp
     - nanopb
@@ -199,7 +196,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 8d9fa00248c475b606fd20b562242060a20117a2
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
-  Keynode: e80d259a9fc0b91df1d43db85ea69782bbfe5611
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   libwebp: 0f01098c6c17175391af621b2f14150f3ca16e16
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
@@ -207,6 +203,6 @@ SPEC CHECKSUMS:
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 14c46b2e579c5d8bb1423e18c879a0242a31a079
+PODFILE CHECKSUM: b345105bd991d264bb949fa6c4d868536391e533
 
 COCOAPODS: 1.5.3
