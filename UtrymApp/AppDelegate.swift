@@ -18,7 +18,6 @@ import GoogleSignIn
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
-    var cliente: String = "slallaksjjs"
     var ref: DatabaseReference!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -120,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 
                 self.ref = Database.database().reference()
                 
-                self.ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+                self.ref.child("clientes").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
                     
                     let snapshot = snapshot.value as? NSDictionary
                     
@@ -129,9 +128,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                         // aqui debe estar el código para crear clientes cuando se registran con google
                         // Here save client in "users"
                         let userInfo: [String: Any] = ["uid": userID!,
-                                                       "id_perfil": self.cliente,
                                                        "provider": user as Any]
-                        self.ref.child("users").child(userID!).setValue(userInfo)
+                        self.ref.child("clientes").child(userID!).setValue(userInfo)
                         
                         // home client debo redireccionar
                         let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

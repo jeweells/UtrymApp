@@ -21,6 +21,7 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var iniciarSesion: UIButton!
     @IBOutlet weak var registrarButton: UIButton!
+    @IBOutlet weak var forgotPass: UIButton!
     
 
     typealias FIRUser = FirebaseAuth.User

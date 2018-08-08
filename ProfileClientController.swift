@@ -72,7 +72,7 @@ class ProfileClientController: UIViewController, UIImagePickerControllerDelegate
                 //let direccion = dict["direccion"] as! String
                 self.fullNameInput.text = nombreText
                 self.emailInput.text = emailText
-                self.imageProfile.downloadImage(from: urlText)
+                self.imageProfile.download(from: urlText)
                 //self.phoneInput.text = phone
                 //self.addressInput.text = direccion
             }

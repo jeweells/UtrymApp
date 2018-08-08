@@ -147,7 +147,7 @@ class CreateUserController: UIViewController, UIImagePickerControllerDelegate, U
                             if let url = url {
                                 let userInfo: [String: Any] = ["uid": UserId!,
                                                                "nombre completo": self.fullNameRegister.text!,
-                                                               "username": email!,
+                                                               "email": email!,
                                                                "password": pass!,
                                                                //"id_perfil": self.cliente,
                                                                "urlToImage": url.absoluteString]
