@@ -28,6 +28,7 @@ class ChatLogEstilistController: UIViewController, UITextFieldDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(idClient)
         textArea.delegate = self
         tableChat.delegate = self
         tableChat.dataSource = self
@@ -53,9 +54,25 @@ class ChatLogEstilistController: UIViewController, UITextFieldDelegate, UITableV
     }
     
     private func setupNavigationBarItems(){
-        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Utrym_Interno"))
-        navigationItem.titleView = titleImageView
+        let ref = Database.database().reference()
+        ref.child("clientes").child((idClient)).observe(.value, with: { (snapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let nombreText = dict["nombre completo"] as! String
+                let title = UILabel()
+                title.text = "\(nombreText)"
+                title.textColor = UIColor.white
+                title.font = UIFont(name: "Avenir", size: CGFloat(17))
+                self.navigationItem.titleView = title
+            }
+        })
+        ref.removeAllObservers()
         
+        let leftButton = UIButton(type: .system)
+        leftButton.setImage(#imageLiteral(resourceName: "backButtonW").withRenderingMode(.alwaysOriginal), for: .normal)
+        leftButton.frame = CGRect(x: 0, y: 0, width: 34, height:34)
+        leftButton.contentMode = .scaleAspectFit
+        leftButton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
         
         let rightButton = UIButton(type: .system)
         rightButton.setImage(#imageLiteral(resourceName: "add_cita").withRenderingMode(.alwaysOriginal), for: .normal)
@@ -63,7 +80,11 @@ class ChatLogEstilistController: UIViewController, UITextFieldDelegate, UITableV
         rightButton.contentMode = .scaleAspectFit
         rightButton.addTarget(self, action: #selector(addTapped), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
-        
+    }
+    
+    @objc func backTapped() {
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func loadChats() {

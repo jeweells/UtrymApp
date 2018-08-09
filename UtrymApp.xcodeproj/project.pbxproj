@@ -17,6 +17,9 @@
 		8926E6F2210D4C4B0077308C /* SkillsHomeProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926E6F1210D4C4B0077308C /* SkillsHomeProfileCell.swift */; };
 		89272130211A38970085EDF8 /* ChatProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8927212F211A38960085EDF8 /* ChatProfileController.swift */; };
 		89272132211BA20E0085EDF8 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89272131211BA20E0085EDF8 /* ForgotPasswordController.swift */; };
+		89272134211CD4530085EDF8 /* ChatsClientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89272133211CD4530085EDF8 /* ChatsClientController.swift */; };
+		89272136211CD74E0085EDF8 /* ListChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89272135211CD74E0085EDF8 /* ListChatCell.swift */; };
+		89272138211CE14B0085EDF8 /* ChatClientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89272137211CE14B0085EDF8 /* ChatClientController.swift */; };
 		892E725D20EE890B0078FD44 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E725C20EE890B0078FD44 /* Client.swift */; };
 		892E726320EED8DF0078FD44 /* CitasEstilistHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E726220EED8DF0078FD44 /* CitasEstilistHeaderView.swift */; };
 		892E726520EED9240078FD44 /* CitasEstilistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E726420EED9240078FD44 /* CitasEstilistCell.swift */; };
@@ -106,6 +109,9 @@
 		8926E6F1210D4C4B0077308C /* SkillsHomeProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsHomeProfileCell.swift; sourceTree = "<group>"; };
 		8927212F211A38960085EDF8 /* ChatProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatProfileController.swift; sourceTree = "<group>"; };
 		89272131211BA20E0085EDF8 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
+		89272133211CD4530085EDF8 /* ChatsClientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsClientController.swift; sourceTree = "<group>"; };
+		89272135211CD74E0085EDF8 /* ListChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChatCell.swift; sourceTree = "<group>"; };
+		89272137211CE14B0085EDF8 /* ChatClientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatClientController.swift; sourceTree = "<group>"; };
 		892E725C20EE890B0078FD44 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		892E726220EED8DF0078FD44 /* CitasEstilistHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitasEstilistHeaderView.swift; sourceTree = "<group>"; };
 		892E726420EED9240078FD44 /* CitasEstilistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitasEstilistCell.swift; sourceTree = "<group>"; };
@@ -249,6 +255,8 @@
 				894333AE20DDAD2C006F1BEE /* ListEstilistController.swift */,
 				898920AE20F2748E002CD2E8 /* ProfileEstilistClientController.swift */,
 				8927212F211A38960085EDF8 /* ChatProfileController.swift */,
+				89272133211CD4530085EDF8 /* ChatsClientController.swift */,
+				89272137211CE14B0085EDF8 /* ChatClientController.swift */,
 			);
 			name = Cliente;
 			path = ../..;
@@ -284,6 +292,7 @@
 				89855D4320F807E600D1EF2D /* SelectEstilistCell.swift */,
 				899250A020FB09E700864F73 /* MessageClientCell.swift */,
 				89E4780C210CE0FE0072481A /* PostProfileCell.swift */,
+				89272135211CD74E0085EDF8 /* ListChatCell.swift */,
 			);
 			name = Cliente;
 			path = ../..;
@@ -672,6 +681,7 @@
 				89F2D7B820D1D48900688164 /* Estilist.swift in Sources */,
 				89F7723620F4272900CA4139 /* ListServicesCell.swift in Sources */,
 				894333A920DC74BD006F1BEE /* PostEstilist.swift in Sources */,
+				89272136211CD74E0085EDF8 /* ListChatCell.swift in Sources */,
 				8992509F20FB044B00864F73 /* ChatLogClientController.swift in Sources */,
 				894333A720DC670E006F1BEE /* StorageReference+Post.swift in Sources */,
 				892E726720EEE01D0078FD44 /* CitasEstilist.swift in Sources */,
@@ -713,12 +723,14 @@
 				891E9E3D20E4428C00F5BF33 /* EstilistSearchCell.swift in Sources */,
 				C8B20EB1210E4EE000E41F5A /* MessageSentCell.swift in Sources */,
 				89272130211A38970085EDF8 /* ChatProfileController.swift in Sources */,
+				89272134211CD4530085EDF8 /* ChatsClientController.swift in Sources */,
 				894333AF20DDAD2C006F1BEE /* ListEstilistController.swift in Sources */,
 				892E725D20EE890B0078FD44 /* Client.swift in Sources */,
 				89F7723A20F501CC00CA4139 /* ChatNew.swift in Sources */,
 				8943339820DB2D2E006F1BEE /* MGPhotoHelper.swift in Sources */,
 				89BE1E4120D4B3B6001703B3 /* ProfileHeaderView.swift in Sources */,
 				89855D4020F5AF5A00D1EF2D /* CreateUserController.swift in Sources */,
+				89272138211CE14B0085EDF8 /* ChatClientController.swift in Sources */,
 				894333AD20DD989C006F1BEE /* ProfileClientController.swift in Sources */,
 				8960F904211409240027557D /* SendCell.swift in Sources */,
 				89248D5C211038E50093C1FF /* CategoryProfile.swift in Sources */,

@@ -1,8 +1,8 @@
 //
-//  ChatProfileController.swift
+//  ChatClientController.swift
 //  UtrymApp
 //
-//  Created by Alexis Barniquez on 7/8/18.
+//  Created by Alexis Barniquez on 9/8/18.
 //  Copyright © 2018 Alexis Barniquez. All rights reserved.
 //
 
@@ -11,23 +11,22 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class ChatProfileController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+class ChatClientController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableChat: UITableView!
-    @IBOutlet weak var textArea: UITextField!
+    @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var sendBtn: UIButton!
-    @IBOutlet weak var heightInput: NSLayoutConstraint!
+    @IBOutlet weak var heigth: NSLayoutConstraint!
     
-    var estilistID: String = ""
+    var idEst: String = ""
     var chats1 = [ChatNew]()
-    var messDict = [String: ChatNew]()
     var keyboardAnimationDuration: NSNumber = NSNumber(floatLiteral: 0.0)
     var curve: UInt = UInt(0)
     let currentUser = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textArea.delegate = self
+        inputText.delegate = self
         tableChat.delegate = self
         tableChat.dataSource = self
         setupNavigationBarItems()
@@ -53,7 +52,7 @@ class ChatProfileController: UIViewController, UITextFieldDelegate, UITableViewD
     
     private func setupNavigationBarItems(){
         let ref = Database.database().reference()
-        ref.child("estilistas").child((estilistID)).observe(.value, with: { (snapshot) in
+        ref.child("estilistas").child((idEst)).observe(.value, with: { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
                 let nombreText = dict["name"] as! String
                 let apellidoText = dict["apellido"] as! String
@@ -61,6 +60,7 @@ class ChatProfileController: UIViewController, UITextFieldDelegate, UITableViewD
                 title.text = "\(nombreText) \(apellidoText)"
                 title.textColor = UIColor.white
                 title.font = UIFont(name: "Avenir", size: CGFloat(17))
+                //title.font = heigth
                 self.navigationItem.titleView = title
             }
         })
@@ -95,41 +95,6 @@ class ChatProfileController: UIViewController, UITextFieldDelegate, UITableViewD
                     let mensaje = dict["mensaje"] as! String
                     let chat = ChatNew(enviadoPorText: enviadoPor, recibidoPorText: recibidoPor, horaInt: hora, mensajeText: mensaje)
                     self.chats1.append(chat)
-                    // asi solo me muestra los enviados por el estilista al cliente logueado
-                    /*if self.estilistID == recibidoPor {
-                        self.chats1.append(chat)
-                    }*/
-                    
-                    // así me muestra una mezcla
-                    /*let receptor = chat.recibidoPor
-                    let emisor = chat.enviadoPor
-                    var exist = 0
-                    
-                    switch emisor {
-                    case uid:
-                        exist = 1
-                    case self.estilistID:
-                        exist = 1
-                    default:
-                        return
-                    }
-                    
-                    switch receptor {
-                    case uid:
-                        exist = 1
-                    case self.estilistID:
-                        exist = 1
-                    default:
-                        return
-                    }
-                    
-                    switch exist {
-                    case 1:
-                        self.messDict[receptor] = chat
-                        self.chats1 = Array(self.messDict.values)
-                    default:
-                        return
-                    }*/
                 }
                 self.configTableView()
                 self.tableChat.reloadData()
@@ -139,15 +104,15 @@ class ChatProfileController: UIViewController, UITextFieldDelegate, UITableViewD
         ref.removeAllObservers()
     }
     
-    @IBAction func sendTapped(_ sender: UIButton) {
-        textArea.endEditing(true)
+    @IBAction func SendTapped(_ sender: UIButton) {
+        inputText.endEditing(true)
         
         let ref = Database.database().reference().child("chats-messages")
         let childRef = ref.childByAutoId()
         let fromId = Auth.auth().currentUser!.uid
         let hora = NSNumber(value: Int(NSDate().timeIntervalSince1970))
-        if textArea.text != "" {
-            let values = ["mensaje": textArea.text!, "enviadoPor": fromId, "recibidoPor": estilistID, "hora": hora] as [String : Any]
+        if inputText.text != "" {
+            let values = ["mensaje": inputText.text!, "enviadoPor": fromId, "recibidoPor": idEst, "hora": hora] as [String : Any]
             childRef.updateChildValues(values) { (error, ref) in
                 if error != nil {
                     print(error!)
@@ -155,18 +120,18 @@ class ChatProfileController: UIViewController, UITextFieldDelegate, UITableViewD
                 }
                 else {
                     let userMessageRef = Database.database().reference().child("chat-usuario").child(fromId)
-                    let estMessageRef = Database.database().reference().child("chat-usuario").child(self.estilistID)
+                    let estMessageRef = Database.database().reference().child("chat-usuario").child(self.idEst)
                     let messageId = childRef.key
                     userMessageRef.updateChildValues([messageId: "1"])
                     estMessageRef.updateChildValues([messageId: "1"])
-                    self.textArea.text = ""
+                    self.inputText.text = ""
                 }
             }
         }
     }
     
     @objc func tapTableView() {
-        textArea.endEditing(true)
+        inputText.endEditing(true)
     }
     
     @objc func keyboardWillShow(notification: NSNotification)    {
@@ -175,8 +140,8 @@ class ChatProfileController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        sendTapped(sendBtn)
-        textField.text = ""
+        SendTapped(sendBtn)
+        inputText.text = ""
         return true
     }
     
@@ -185,14 +150,14 @@ class ChatProfileController: UIViewController, UITextFieldDelegate, UITableViewD
         UIView.animate(withDuration: keyboardAnimationDuration as! Double, delay: 0.0, options: UIViewAnimationOptions(rawValue: curve), animations: {
             //se debe colocar como valor lo que ocupe el teclado segun cada iphone, hay un comando que da ese valor por el momento con esta medida se ve bien en el x
             //ahora solo falta que se suba tambien el tableview junto con el input
-            self.heightInput.constant = 356
+            self.heigth.constant = 356
             self.view.layoutIfNeeded()
         }, completion: { aaa in
         })
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.heightInput.constant = 48
+        self.heigth.constant = 48
         self.view.layoutIfNeeded()
     }
     
@@ -203,9 +168,8 @@ class ChatProfileController: UIViewController, UITextFieldDelegate, UITableViewD
     
     func scrollToBottom(){
         DispatchQueue.main.async {
-            //se debe especificar que hacer cuando el chat está vacío
-            //let indexPath = IndexPath(row: self.chats1.count-1, section: 0)
-            //self.tableChat.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            let indexPath = IndexPath(row: self.chats1.count-1, section: 0)
+            self.tableChat.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
     }
     
@@ -245,6 +209,3 @@ class ChatProfileController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
 }
-
-
-

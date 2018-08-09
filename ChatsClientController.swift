@@ -1,8 +1,8 @@
 //
-//  ChatsEstilistController.swift
+//  ChatsClientController.swift
 //  UtrymApp
 //
-//  Created by Alexis Barniquez on 5/7/18.
+//  Created by Alexis Barniquez on 9/8/18.
 //  Copyright © 2018 Alexis Barniquez. All rights reserved.
 //
 
@@ -11,26 +11,23 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 
-class ChatsEstilistController: UIViewController {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+class ChatsClientController: UIViewController {
+    
+    @IBOutlet weak var chatsCollectionView: UICollectionView!
     
     var chats1 = [ChatNew]()
     var messDict1 = [String: ChatNew]()
-    var chats = [ChatMessage]()
-    var messDict = [String: ChatMessage]()
-    var clients = [Client]()
     var ref : DatabaseReference!
     var indexPressedCell: Int = 0
-    let est = Auth.auth().currentUser?.uid
+    let cliente = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Barra_superior_ligth.png"), for: .default)
-        self.collectionView.backgroundColor = UIColor.clear
+        self.chatsCollectionView.backgroundColor = UIColor.clear
+        agroupChatsByEstilists()
         setupNavigationBarItems()
-        agroupChatsByClients()
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,28 +35,27 @@ class ChatsEstilistController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationController = segue.destination as? ChatLogEstilistController {
-            if chats1[indexPressedCell].enviadoPor != est {
-                print("Inicé chat con: \(chats1[indexPressedCell].enviadoPor)")
-                destinationController.idClient = chats1[indexPressedCell].enviadoPor
-            }
-            else{
+        if let destinationController = segue.destination as? ChatClientController {
+            if chats1[indexPressedCell].recibidoPor != cliente {
                 print("Inicé chat con: \(chats1[indexPressedCell].recibidoPor)")
-                destinationController.idClient = chats1[indexPressedCell].recibidoPor
+                destinationController.idEst = chats1[indexPressedCell].recibidoPor
+            }
+            else {
+                print("Inicé chat con: \(chats1[indexPressedCell].enviadoPor)")
+                destinationController.idEst = chats1[indexPressedCell].enviadoPor
             }
         }
     }
     
     private func setupNavigationBarItems(){
+        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Utrym_Interno"))
+        navigationItem.titleView = titleImageView
         let leftButton = UIButton(type: .system)
         leftButton.setImage(#imageLiteral(resourceName: "backButtonW").withRenderingMode(.alwaysOriginal), for: .normal)
         leftButton.frame = CGRect(x: 0, y: 0, width: 34, height:34)
         leftButton.contentMode = .scaleAspectFit
         leftButton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
-        
-        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Utrym_Interno"))
-        navigationItem.titleView = titleImageView
     }
     
     @objc func backTapped() {
@@ -67,8 +63,7 @@ class ChatsEstilistController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    func agroupChatsByClients() {
+    func agroupChatsByEstilists() {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
@@ -83,7 +78,6 @@ class ChatsEstilistController: UIViewController {
                     let hora = dict["hora"] as! NSNumber
                     let mensaje = dict["mensaje"] as! String
                     let chat = ChatNew(enviadoPorText: enviadoPor, recibidoPorText: recibidoPor, horaInt: hora, mensajeText: mensaje)
-                    //if let receptor = chat.recibidoPor necesito usar este if pero me da un error de String
                     let receptor = chat.recibidoPor
                     self.messDict1[receptor] = chat
                     self.chats1 = Array(self.messDict1.values)
@@ -93,7 +87,7 @@ class ChatsEstilistController: UIViewController {
                         return message1.hora.intValue > message2.hora.intValue
                     })
                 }
-                self.collectionView.reloadData()
+                self.chatsCollectionView.reloadData()
             })
         }
         ref.removeAllObservers()
@@ -102,36 +96,36 @@ class ChatsEstilistController: UIViewController {
 
 }
 
-extension ChatsEstilistController: UICollectionViewDataSource {
+extension ChatsClientController: UICollectionViewDataSource {
     func collectionView(_ collectionService: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return chats1.count
     }
     
     func collectionView(_ collectionService: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionService.dequeueReusableCell(withReuseIdentifier: "ListChatsEstilistCell", for: indexPath) as! ListChatsEstilistCell
+        let cell = collectionService.dequeueReusableCell(withReuseIdentifier: "ListChatCell", for: indexPath) as! ListChatCell
         
         cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
         
         let mensaje = chats1[indexPath.row]
-        let clientID = mensaje.recibidoPor
+        let estID = mensaje.recibidoPor
         let ref = Database.database().reference()
-        ref.child("clientes").child((clientID)).observe(.value, with: { (snapshot) in
+        ref.child("estilistas").child((estID)).observe(.value, with: { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
-                let nombreText = dict["nombre completo"] as! String
-                cell.clientFullName?.text = nombreText
-                print(nombreText)
+                let nombreText = dict["name"] as! String
+                let apellidoText = dict["apellido"] as! String
+                cell.nameEst?.text = "\(nombreText) \(apellidoText)"
             }
         })
         ref.removeAllObservers()
         
         
-        cell.textMessage?.text = mensaje.mensaje
-
+        cell.message?.text = mensaje.mensaje
+        
         let seconds = mensaje.hora.doubleValue
         let timestampDate = NSDate(timeIntervalSince1970: seconds)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm:ss a"
-        cell.fechaChats?.text = dateFormatter.string(from: timestampDate as Date)
+        cell.timeChat?.text = dateFormatter.string(from: timestampDate as Date)
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = 10
         return cell
@@ -139,8 +133,7 @@ extension ChatsEstilistController: UICollectionViewDataSource {
 }
 
 
-
-extension ChatsEstilistController: UICollectionViewDelegateFlowLayout {
+extension ChatsClientController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let columns: CGFloat = 1
         let spacing: CGFloat = 1.5
@@ -164,6 +157,6 @@ extension ChatsEstilistController: UICollectionViewDelegateFlowLayout {
     {
         print("User tapped on item \(indexPath.row)")
         self.indexPressedCell = indexPath.row
-        self.performSegue(withIdentifier: "chatEst", sender: self)
+        self.performSegue(withIdentifier: "chatClient", sender: self)
     }
 }

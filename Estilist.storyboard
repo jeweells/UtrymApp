@@ -457,10 +457,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vkc-7p-J2d">
-                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background_list_estilist" translatesAutoresizingMaskIntoConstraints="NO" id="c1r-mb-rhb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vkc-7p-J2d">
+                                <rect key="frame" x="12" y="98" width="351" height="631"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UFX-Sf-56H">
                                     <size key="itemSize" width="373" height="86"/>
                                     <size key="headerReferenceSize" width="50" height="3"/>
@@ -469,7 +470,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CitasEstilistCell" id="5ym-SH-gFb" customClass="CitasEstilistCell" customModule="UtrymApp" customModuleProvider="target">
-                                        <rect key="frame" x="1" y="3" width="373" height="86"/>
+                                        <rect key="frame" x="-11" y="3" width="373" height="86"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="373" height="86"/>
@@ -506,7 +507,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CitasEstilistHeaderView" id="IcK-9p-0Fe" customClass="CitasEstilistHeaderView" customModule="UtrymApp" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="3"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="351" height="3"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
                                 <connections>
@@ -517,6 +518,18 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="c1r-mb-rhb" firstAttribute="top" secondItem="3Jn-iL-pLz" secondAttribute="top" id="0vI-AI-ywG"/>
+                            <constraint firstItem="bVX-av-iyc" firstAttribute="trailing" secondItem="Vkc-7p-J2d" secondAttribute="trailing" constant="12" id="3Hd-eO-t0x"/>
+                            <constraint firstItem="c1r-mb-rhb" firstAttribute="centerX" secondItem="3Jn-iL-pLz" secondAttribute="centerX" id="EDa-lc-dza"/>
+                            <constraint firstItem="Vkc-7p-J2d" firstAttribute="leading" secondItem="bVX-av-iyc" secondAttribute="leading" constant="12" id="HE1-Qd-Ovz"/>
+                            <constraint firstAttribute="bottom" secondItem="c1r-mb-rhb" secondAttribute="bottom" id="Hvu-Dc-hDg"/>
+                            <constraint firstItem="c1r-mb-rhb" firstAttribute="leading" secondItem="bVX-av-iyc" secondAttribute="leading" id="ZNf-ol-OlM"/>
+                            <constraint firstItem="c1r-mb-rhb" firstAttribute="centerY" secondItem="3Jn-iL-pLz" secondAttribute="centerY" id="fwz-h8-SKA"/>
+                            <constraint firstItem="Vkc-7p-J2d" firstAttribute="bottom" secondItem="bVX-av-iyc" secondAttribute="bottom" id="sPq-TM-QOH"/>
+                            <constraint firstItem="Vkc-7p-J2d" firstAttribute="top" secondItem="bVX-av-iyc" secondAttribute="top" constant="10" id="t0J-I9-U9i"/>
+                            <constraint firstItem="c1r-mb-rhb" firstAttribute="trailing" secondItem="bVX-av-iyc" secondAttribute="trailing" id="xmu-IC-fz8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bVX-av-iyc"/>
                     </view>
                     <navigationItem key="navigationItem" id="qvQ-BN-Mwp">
@@ -558,7 +571,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cliente" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cd-ba-U3Q">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre Apellido" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cd-ba-U3Q">
                                                     <rect key="frame" x="20" y="0.0" width="227" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="227" id="2r7-Hi-fWR"/>
@@ -597,9 +610,9 @@
                                             <constraint firstAttribute="bottom" secondItem="Ou7-0e-5QL" secondAttribute="bottom" id="u4H-s0-hC8"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="clientFullName" destination="8cd-ba-U3Q" id="QXP-Bt-XiT"/>
-                                            <outlet property="fechaChats" destination="Tif-vL-NGs" id="10d-Nz-JZ4"/>
-                                            <outlet property="textMessage" destination="Ou7-0e-5QL" id="VUM-2S-CiV"/>
+                                            <outlet property="clientFullName" destination="8cd-ba-U3Q" id="55U-eu-ORN"/>
+                                            <outlet property="fechaChats" destination="Tif-vL-NGs" id="18P-Yw-PVE"/>
+                                            <outlet property="textMessage" destination="Ou7-0e-5QL" id="iJb-Fc-VmD"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

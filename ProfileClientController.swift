@@ -50,6 +50,18 @@ class ProfileClientController: UIViewController, UIImagePickerControllerDelegate
     private func setupNavigationBarItems(){
         let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Utrym_Interno"))
         navigationItem.titleView = titleImageView
+        
+        let leftButton = UIButton(type: .system)
+        leftButton.setImage(#imageLiteral(resourceName: "backButtonW").withRenderingMode(.alwaysOriginal), for: .normal)
+        leftButton.frame = CGRect(x: 0, y: 0, width: 34, height:34)
+        leftButton.contentMode = .scaleAspectFit
+        leftButton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+    }
+    
+    @objc func backTapped() {
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
