@@ -138,13 +138,3 @@ extension ServicesController: UICollectionViewDelegateFlowLayout {
 }
 
 
-    /*func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionElementKindSectionHeader else {
-            fatalError("Unexpected element kind.")
-        }
-        
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ServiceHeaderCell", for: indexPath) as! ServiceHeaderCell
-        return headerView
-    }*/
-
-

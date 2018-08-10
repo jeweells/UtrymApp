@@ -62,7 +62,14 @@ class DetailPostController: UIViewController {
         self.indicator.isHidden = true
         
     }
-    private func setupNavigationBarItems(){
+    private func setupNavigationBarItems() {
+        // boton personalizado para volver atrás
+        let leftButton = UIButton(type: .system)
+        leftButton.setImage(#imageLiteral(resourceName: "backButtonW").withRenderingMode(.alwaysOriginal), for: .normal)
+        leftButton.frame = CGRect(x: 0, y: 0, width: 34, height:34)
+        leftButton.contentMode = .scaleAspectFit
+        leftButton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
         // logo Utrym en el centro del NavBar
         let titleImageView = UIImageView(image: #imageLiteral(resourceName: "Utrym_Interno"))
         navigationItem.titleView = titleImageView
@@ -73,6 +80,15 @@ class DetailPostController: UIViewController {
         rightButton.contentMode = .scaleAspectFit
         rightButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
+    }
+    
+    @objc func backTapped() {
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func profileTapped(){
+        self.performSegue(withIdentifier: "profileClient", sender: self)
     }
 
     @IBAction func likeButtonTapped(_ sender: UIButton) {
@@ -148,9 +164,6 @@ class DetailPostController: UIViewController {
         ref.removeAllObservers()*/
     }
     
-    @objc func profileTapped(){
-        self.performSegue(withIdentifier: "profileClient", sender: self)
-    }
     func fetchPosts() {
         let ref = Database.database().reference()
         
