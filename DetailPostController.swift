@@ -30,10 +30,10 @@ class DetailPostController: UIViewController {
     @IBOutlet weak var imageContainer: UIView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var unLikeButton: UIButton!
     
     var postID:String = ""
     var profileID:String = ""
+    let current = Auth.auth().currentUser?.uid
     
     struct Storyboard {
         static let postCell = "PostCell"
@@ -51,17 +51,21 @@ class DetailPostController: UIViewController {
         commentsSection.roundedBottom()
         setupNavigationBarItems()
         loadLikes()
+        //likeButton.isEnabled = true
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         indicator.isHidden = false
         indicator.startAnimating()
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         self.fetchPosts()
         
         self.indicator.isHidden = true
         
     }
+    
     private func setupNavigationBarItems() {
         // boton personalizado para volver atrás
         let leftButton = UIButton(type: .system)
@@ -92,11 +96,17 @@ class DetailPostController: UIViewController {
     }
 
     @IBAction func likeButtonTapped(_ sender: UIButton) {
-        self.unLikeButton.isHidden = false
-        self.likeButton.isHidden = true
-        self.unLikeButton.isEnabled = true
-        self.likeButton.isEnabled = false
-        print("like pressed")
+        
+        if likeButton.isSelected == true {
+            likeButton.isSelected = false
+            likeButton.setImage(UIImage(named : "like_selected"), for: UIControlState.normal)
+            print("like")
+        }
+        else {
+            likeButton.isSelected = true
+            likeButton.setImage(UIImage(named : "Star like"), for: UIControlState.normal)
+            print("unlike")
+        }
         /*self.likeButton.isEnabled = false
         let ref = Database.database().reference()
         let keyToPost = ref.child("posts").childByAutoId().key
@@ -120,49 +130,10 @@ class DetailPostController: UIViewController {
                     })
                 }
             })
-            ref.removeAllObservers()
+         ref.removeAllObservers()
         }*/
     }
-    
-    @IBAction func unlikeButtonTapped(_ sender: UIButton) {
-        print("Unlike pressed")
-        self.unLikeButton.isHidden = true
-        self.likeButton.isHidden = false
-        self.likeButton.isEnabled = true
-        self.unLikeButton.isEnabled = false
-       /*let ref = Database.database().reference()
-        ref.child("posts").child(self.postID).observe(.value, with: { (snapshot) in
-            if let properties = snapshot.value as? [String : Any] {
-                if let peopleLike = properties["peopleLike"] as? [String : Any] {
-                    for (id, person) in peopleLike {
-                        if person as? String == Auth.auth().currentUser!.uid {
-                            ref.child("posts").child(self.postID).child("peopleLike").child(id).removeValue(completionBlock: { (error, reff) in
-                                if error == nil {
-                                    ref.child("posts").child(self.postID).observe(.value, with: { (snap) in
-                                        if let prop = snap.value as? [String : Any] {
-                                            if let likes = prop["peopleLike"] as? [String : Any] {
-                                                let count = likes.count
-                                                self.likeCounterLabel.text = "\(count)"
-                                                ref.child("posts").child(self.postID).updateChildValues(["likeCounter": count])
-                                            }
-                                            else {
-                                                self.likeCounterLabel.text = "0"
-                                                ref.child("posts").child(self.postID).updateChildValues(["likeCounter": 0])
-                                            }
-                                        }
-                                    })
-                                }
-                            })
-                            self.likeButton.isHidden = false
-                            self.unLikeButton.isHidden = true
-                            self.unLikeButton.isEnabled = true
-                        }
-                    }
-                }
-            }
-        })
-        ref.removeAllObservers()*/
-    }
+
     
     func fetchPosts() {
         let ref = Database.database().reference()
@@ -192,7 +163,17 @@ class DetailPostController: UIViewController {
         ref.removeAllObservers()
     }
     
+    
     func loadLikes() {
+        let ref = Database.database().reference()
+        ref.child("posts").child(self.postID).child("peopleLike").observe(.value, with: { (snapshot) in
+            print(snapshot)
+            print(snapshot.value as Any)
+        })
+        
+    }
+    
+    /*func loadLikes() {
         let ref = Database.database().reference()
         let us = Auth.auth().currentUser?.uid
         ref.child("posts").child(self.postID).observe(.value, with: { (snapshot) in
@@ -209,17 +190,9 @@ class DetailPostController: UIViewController {
                         //pero me da un error operands of type 'Any' and 'String?'
                         //if person.key == us {
                         //if person.value as? [String : Any] == us {
-                            self.likeButton.isHidden = true
-                            self.unLikeButton.isHidden = false
-                            self.likeButton.isEnabled = false
-                            self.unLikeButton.isEnabled = true
                             //counter = counter + 1
                         }
                         else{
-                            self.likeButton.isHidden = false
-                            self.unLikeButton.isHidden = true
-                            self.likeButton.isEnabled = true
-                            self.unLikeButton.isEnabled = false
                         }
                     }
                     //no sé como quitar el optional value
@@ -230,7 +203,7 @@ class DetailPostController: UIViewController {
                 }
             }
         })
-    }
+    }*/
     
     
     

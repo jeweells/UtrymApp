@@ -15,7 +15,7 @@ import FirebaseAuth
 class ChatsClientController: UIViewController {
     
     @IBOutlet weak var chatsCollectionView: UICollectionView!
-    
+
     var chats1 = [ChatNew]()
     var messDict1 = [String: ChatNew]()
     var ref : DatabaseReference!
@@ -63,6 +63,23 @@ class ChatsClientController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    /*func removeDuplicates(array: [String]) -> [String] {
+        var encountered = Set<String>()
+        var result: [String] = []
+        for value in array {
+            if encountered.contains(value) {
+                // Do not add a duplicate element.
+            }
+            else {
+                // Add value to the set.
+                encountered.insert(value)
+                // ... Append the value.
+                result.append(value)
+            }
+        }
+        return result
+    }*/
+    
     func agroupChatsByEstilists() {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
@@ -78,14 +95,18 @@ class ChatsClientController: UIViewController {
                     let hora = dict["hora"] as! NSNumber
                     let mensaje = dict["mensaje"] as! String
                     let chat = ChatNew(enviadoPorText: enviadoPor, recibidoPorText: recibidoPor, horaInt: hora, mensajeText: mensaje)
+                    
                     let receptor = chat.recibidoPor
+                    
+                    //let norepeat = self.removeDuplicates(array: [receptor])
+                    //print(norepeat)
+                    
                     self.messDict1[receptor] = chat
                     self.chats1 = Array(self.messDict1.values)
-                    print (self.chats1)
-                    
                     self.chats1.sort(by: { (message1, message2) -> Bool in
                         return message1.hora.intValue > message2.hora.intValue
                     })
+                    
                 }
                 self.chatsCollectionView.reloadData()
             })

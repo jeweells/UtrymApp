@@ -239,13 +239,6 @@
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDM-5c-oRc">
-                                                <rect key="frame" x="14" y="17" width="17" height="16"/>
-                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" backgroundImage="like_selected">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8O-9P-xkQ">
                                                 <rect key="frame" x="14" y="17" width="17" height="16"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -254,7 +247,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="likeButtonTapped:" destination="4kh-LX-0e9" eventType="touchUpInside" id="Fed-cf-2ho"/>
-                                                    <action selector="unlikeButtonTapped:" destination="4kh-LX-0e9" eventType="touchUpInside" id="MeK-aK-xtw"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -267,11 +259,8 @@
                                             <constraint firstItem="dOy-hC-oVL" firstAttribute="top" secondItem="a0o-aT-vM7" secondAttribute="bottom" constant="17" id="LxA-LQ-JUA"/>
                                             <constraint firstItem="6Xj-sQ-I6n" firstAttribute="baseline" secondItem="a0o-aT-vM7" secondAttribute="baseline" id="Xnk-88-zQ9"/>
                                             <constraint firstItem="dOy-hC-oVL" firstAttribute="leading" secondItem="eg3-CI-9LR" secondAttribute="leading" constant="3" id="Yam-fY-dDo"/>
-                                            <constraint firstItem="dDM-5c-oRc" firstAttribute="leading" secondItem="eg3-CI-9LR" secondAttribute="leading" constant="14" id="cBV-yx-SrH"/>
-                                            <constraint firstItem="dOy-hC-oVL" firstAttribute="top" secondItem="dDM-5c-oRc" secondAttribute="bottom" constant="19" id="cqd-VT-WZa"/>
                                             <constraint firstItem="6Xj-sQ-I6n" firstAttribute="top" secondItem="eg3-CI-9LR" secondAttribute="top" constant="17" id="dgK-Y6-M0k"/>
                                             <constraint firstItem="6Xj-sQ-I6n" firstAttribute="leading" secondItem="a0o-aT-vM7" secondAttribute="trailing" constant="8" id="i2H-sl-nW6"/>
-                                            <constraint firstItem="oxS-Gu-Ugo" firstAttribute="leading" secondItem="dDM-5c-oRc" secondAttribute="trailing" constant="8" id="jnf-yz-T0y"/>
                                             <constraint firstItem="Z8O-9P-xkQ" firstAttribute="leading" secondItem="eg3-CI-9LR" secondAttribute="leading" constant="14" id="lE5-Fm-qko"/>
                                             <constraint firstItem="dOy-hC-oVL" firstAttribute="top" secondItem="eg3-CI-9LR" secondAttribute="top" constant="52" id="m53-X8-FBN"/>
                                             <constraint firstItem="a0o-aT-vM7" firstAttribute="leading" secondItem="oxS-Gu-Ugo" secondAttribute="trailing" constant="16" id="myq-pi-mq7"/>
@@ -284,7 +273,6 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="wJ8-j8-G2C" secondAttribute="trailing" id="4eE-bU-BYI"/>
-                                    <constraint firstItem="dDM-5c-oRc" firstAttribute="top" secondItem="OAv-gw-dmM" secondAttribute="bottom" constant="17" id="C64-PU-iog"/>
                                     <constraint firstItem="wJ8-j8-G2C" firstAttribute="top" secondItem="aKw-N2-Ng9" secondAttribute="bottom" id="CoG-Je-eH9"/>
                                     <constraint firstAttribute="trailing" secondItem="eg3-CI-9LR" secondAttribute="trailing" id="Gpj-nb-JTI"/>
                                     <constraint firstItem="eg3-CI-9LR" firstAttribute="top" secondItem="wJ8-j8-G2C" secondAttribute="bottom" id="KPR-PL-cHz"/>
@@ -325,7 +313,6 @@
                         <outlet property="profileContainer" destination="aKw-N2-Ng9" id="hk4-I0-11I"/>
                         <outlet property="profileNameLabel" destination="Scd-48-KEn" id="gXy-hW-SX1"/>
                         <outlet property="timeLabel" destination="Twj-HW-kxY" id="2Fz-vH-AIl"/>
-                        <outlet property="unLikeButton" destination="dDM-5c-oRc" id="n79-Tw-tYy"/>
                         <outlet property="zoneLabel" destination="y8e-Vc-CA0" id="ywU-69-l7G"/>
                     </connections>
                 </viewController>
@@ -1343,7 +1330,6 @@
         <image name="guardar_edit" width="128" height="43"/>
         <image name="hair_big" width="41" height="42"/>
         <image name="input_edit" width="199" height="30"/>
-        <image name="like_selected" width="13" height="12"/>
         <image name="mas" width="17" height="17"/>
         <image name="studio-2" width="550" height="761"/>
     </resources>

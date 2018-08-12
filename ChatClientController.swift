@@ -17,8 +17,9 @@ class ChatClientController: UIViewController, UITextFieldDelegate, UITableViewDe
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var heigth: NSLayoutConstraint!
-    
+    var messDict1 = [String: ChatNew]()
     var idEst: String = ""
+    var toId: String = ""
     var chats1 = [ChatNew]()
     var keyboardAnimationDuration: NSNumber = NSNumber(floatLiteral: 0.0)
     var curve: UInt = UInt(0)
@@ -94,7 +95,16 @@ class ChatClientController: UIViewController, UITextFieldDelegate, UITableViewDe
                     let hora = dict["hora"] as! NSNumber
                     let mensaje = dict["mensaje"] as! String
                     let chat = ChatNew(enviadoPorText: enviadoPor, recibidoPorText: recibidoPor, horaInt: hora, mensajeText: mensaje)
+                    
                     self.chats1.append(chat)
+                    
+                    // necesito que muestre solo los mensajes en común idEst-uid ya sea recibidos o enviados
+                    /*if recibidoPor == self.idEst || enviadoPor == self.idEst {
+                        do {
+                            self.chats1.append(chat)
+                        }
+                    }*/
+
                 }
                 self.configTableView()
                 self.tableChat.reloadData()
