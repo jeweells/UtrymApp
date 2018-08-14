@@ -51,7 +51,6 @@ class DetailPostController: UIViewController {
         commentsSection.roundedBottom()
         setupNavigationBarItems()
         loadLikes()
-        //likeButton.isEnabled = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -166,9 +165,19 @@ class DetailPostController: UIViewController {
     
     func loadLikes() {
         let ref = Database.database().reference()
+        ref.child("posts").child(postID).observe(.value) { (snapshot: DataSnapshot) in
+            
+            if let dict = snapshot.value as? [String: Any] {
+                let likes = dict["likeCounter"]
+                self.likeCounterLabel.text = "\(likes ?? 0)"
+                print(likes)
+            }
+        }
         ref.child("posts").child(self.postID).child("peopleLike").observe(.value, with: { (snapshot) in
             print(snapshot)
             print(snapshot.value as Any)
+            
+            
         })
         
     }

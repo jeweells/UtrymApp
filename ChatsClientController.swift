@@ -98,9 +98,6 @@ class ChatsClientController: UIViewController {
                     
                     let receptor = chat.recibidoPor
                     
-                    //let norepeat = self.removeDuplicates(array: [receptor])
-                    //print(norepeat)
-                    
                     self.messDict1[receptor] = chat
                     self.chats1 = Array(self.messDict1.values)
                     self.chats1.sort(by: { (message1, message2) -> Bool in
